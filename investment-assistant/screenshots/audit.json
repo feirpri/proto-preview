@@ -1,0 +1,1229 @@
+{
+  "generatedAt": "2026-11-11T04:08:22.068Z",
+  "widths": [
+    360,
+    390,
+    414,
+    768,
+    1024,
+    1280,
+    1440
+  ],
+  "pages": {
+    "index.html": {
+      "360": {
+        "viewportWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 10,
+        "checks": {
+          "fundCards": 5,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 1,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": [
+            {
+              "name": "财通集成电路产业股票C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国联安核心资产混合",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": true
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            }
+          ]
+        }
+      },
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 10,
+        "checks": {
+          "fundCards": 5,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 1,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": [
+            {
+              "name": "财通集成电路产业股票C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国联安核心资产混合",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": true
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            }
+          ]
+        }
+      },
+      "414": {
+        "viewportWidth": 414,
+        "scrollWidth": 414,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 10,
+        "checks": {
+          "fundCards": 5,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 1,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": [
+            {
+              "name": "财通集成电路产业股票C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国联安核心资产混合",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": true
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            }
+          ]
+        }
+      },
+      "768": {
+        "viewportWidth": 768,
+        "scrollWidth": 768,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 10,
+        "checks": {
+          "fundCards": 5,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 1,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": [
+            {
+              "name": "财通集成电路产业股票C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国联安核心资产混合",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": true
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            }
+          ]
+        }
+      },
+      "1024": {
+        "viewportWidth": 1024,
+        "scrollWidth": 1024,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 10,
+        "checks": {
+          "fundCards": 5,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 1,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": [
+            {
+              "name": "财通集成电路产业股票C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国联安核心资产混合",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": true
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            }
+          ]
+        }
+      },
+      "1280": {
+        "viewportWidth": 1280,
+        "scrollWidth": 1280,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 10,
+        "checks": {
+          "fundCards": 5,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 1,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": [
+            {
+              "name": "财通集成电路产业股票C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国联安核心资产混合",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": true
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            }
+          ]
+        }
+      },
+      "1440": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 10,
+        "checks": {
+          "fundCards": 5,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 1,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": [
+            {
+              "name": "财通集成电路产业股票C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国联安核心资产混合",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": true
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "zones": 3,
+              "dividers": 2,
+              "adviceBelow": true,
+              "liveAboveCompare": true,
+              "stale": false
+            }
+          ]
+        }
+      }
+    },
+    "portfolio.html": {
+      "360": {
+        "viewportWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "414": {
+        "viewportWidth": 414,
+        "scrollWidth": 414,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "768": {
+        "viewportWidth": 768,
+        "scrollWidth": 768,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1024": {
+        "viewportWidth": 1024,
+        "scrollWidth": 1024,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1280": {
+        "viewportWidth": 1280,
+        "scrollWidth": 1280,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1440": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      }
+    },
+    "compare.html": {
+      "360": {
+        "viewportWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "414": {
+        "viewportWidth": 414,
+        "scrollWidth": 414,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "768": {
+        "viewportWidth": 768,
+        "scrollWidth": 768,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1024": {
+        "viewportWidth": 1024,
+        "scrollWidth": 1024,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1280": {
+        "viewportWidth": 1280,
+        "scrollWidth": 1280,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1440": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      }
+    },
+    "history.html": {
+      "360": {
+        "viewportWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "414": {
+        "viewportWidth": 414,
+        "scrollWidth": 414,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "768": {
+        "viewportWidth": 768,
+        "scrollWidth": 768,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1024": {
+        "viewportWidth": 1024,
+        "scrollWidth": 1024,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1280": {
+        "viewportWidth": 1280,
+        "scrollWidth": 1280,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1440": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      }
+    },
+    "settings.html": {
+      "360": {
+        "viewportWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "414": {
+        "viewportWidth": 414,
+        "scrollWidth": 414,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "768": {
+        "viewportWidth": 768,
+        "scrollWidth": 768,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1024": {
+        "viewportWidth": 1024,
+        "scrollWidth": 1024,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1280": {
+        "viewportWidth": 1280,
+        "scrollWidth": 1280,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      },
+      "1440": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0,
+        "checks": {
+          "fundCards": 0,
+          "fundAmtCount": 0,
+          "allCardsTwoDividers": true,
+          "allCardsThreeZones": true,
+          "adviceBelowOverview": true,
+          "liveAboveCompare": true,
+          "comparePairsAdjacent": true,
+          "staleCards": 0,
+          "dataTimeVisible": true,
+          "noHorizontalScroll": true,
+          "cardChecks": []
+        }
+      }
+    },
+    "popup.html": {
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "bodyHeight": 926
+      }
+    }
+  }
+}

@@ -157,6 +157,8 @@
       code: "006503", name: "财通集成电路产业股票C", short: "财通",
       amount: 145000, target: 0.16, dayPct: 0.0082, dayPnl: 1189,
       quality: "estimate", stale: false,
+      nav: 1.284, estNav: 1.2945, estPct: 0.0082, estPnl: 1189,
+      estTime: "14:32:10", estSource: "腾讯行情 · 估算", estQuality: "estimate", estNote: null,
       action: "减仓", amountWan: 0.8,
       reason: "权重 21.4% 高于目标 16.0%，按反抽规则减偏离部分，降低权益仓位。",
       executed: true, executedAt: "14:31"
@@ -165,6 +167,8 @@
       code: "018345", name: "华夏中证机器人ETF联接C", short: "机器人",
       amount: 139000, target: 0.16, dayPct: 0.0115, dayPnl: 1599,
       quality: "estimate", stale: false,
+      nav: 1.126, estNav: 1.1390, estPct: 0.0115, estPnl: 1599,
+      estTime: "14:32:10", estSource: "腾讯行情 · 估算", estQuality: "estimate", estNote: null,
       action: "减仓", amountWan: 0.6,
       reason: "权重 20.5% 高于目标 16.0%，同步降低组合权益仓位。",
       executed: true, executedAt: "14:31"
@@ -173,6 +177,8 @@
       code: "006864", name: "国联安核心资产混合", short: "国联安",
       amount: 104000, target: 0.22, dayPct: 0.0021, dayPnl: 218,
       quality: "estimate", stale: false,
+      nav: 2.041, estNav: 2.0453, estPct: 0.0021, estPnl: 218,
+      estTime: "14:32:10", estSource: "腾讯行情 · 估算", estQuality: "estimate", estNote: null,
       action: "保持", amountWan: 0,
       reason: "低于目标权重 6.7pct，趋势未破位，保持观察，不追涨。",
       executed: true, executedAt: "14:31"
@@ -181,6 +187,9 @@
       code: "007818", name: "国泰中证全指通信设备ETF联接C", short: "通信",
       amount: 71000, target: 0.08, dayPct: 0.0064, dayPnl: 454,
       quality: "stale", stale: true,
+      nav: 0.986, estNav: 0.9923, estPct: 0.0064, estPnl: 454,
+      estTime: "13:58:20", estSource: "东财基金 · 最近可用", estQuality: "stale",
+      estNote: "最近可用 13:58:20 · 延迟 33 分钟（打开页面未取到新值）",
       action: "保持", amountWan: 0,
       reason: "估值源返回延迟，标记 stale；权重偏离 +2.5pct，处于容忍区间。",
       executed: true, executedAt: "14:31"
@@ -189,6 +198,8 @@
       code: "015790", name: "永赢高端装备智选混合发起C", short: "永赢",
       amount: 70000, target: 0.10, dayPct: -0.0037, dayPnl: -259,
       quality: "estimate", stale: false,
+      nav: 1.000, estNav: 0.9963, estPct: -0.0037, estPnl: -259,
+      estTime: "14:32:10", estSource: "腾讯行情 · 估算", estQuality: "estimate", estNote: null,
       action: "保持", amountWan: 0,
       reason: "接近目标权重，日内波动在阈值内，维持现有仓位。",
       executed: true, executedAt: "14:31"
@@ -199,31 +210,47 @@
     {
       code: "006503", name: "财通集成电路产业股票C", short: "财通",
       amount: 108600, target: 0.16, dayPct: 0.0082, dayPnl: 891,
-      quality: "estimate", stale: false, action: "保持", amountWan: 0,
+      quality: "estimate", stale: false,
+      nav: 1.284, estNav: 1.2945, estPct: 0.0082, estPnl: 891,
+      estTime: "14:32:10", estSource: "腾讯行情 · 估算", estQuality: "estimate", estNote: null,
+      action: "保持", amountWan: 0,
       reason: "影子组严格执行建议后与目标权重一致。", executed: true, executedAt: "14:31"
     },
     {
       code: "018345", name: "华夏中证机器人ETF联接C", short: "机器人",
       amount: 108600, target: 0.16, dayPct: 0.0115, dayPnl: 1249,
-      quality: "estimate", stale: false, action: "保持", amountWan: 0,
+      quality: "estimate", stale: false,
+      nav: 1.126, estNav: 1.1390, estPct: 0.0115, estPnl: 1249,
+      estTime: "14:32:10", estSource: "腾讯行情 · 估算", estQuality: "estimate", estNote: null,
+      action: "保持", amountWan: 0,
       reason: "影子组严格执行建议后与目标权重一致。", executed: true, executedAt: "14:31"
     },
     {
       code: "006864", name: "国联安核心资产混合", short: "国联安",
       amount: 149400, target: 0.22, dayPct: 0.0021, dayPnl: 314,
-      quality: "estimate", stale: false, action: "保持", amountWan: 0,
+      quality: "estimate", stale: false,
+      nav: 2.041, estNav: 2.0453, estPct: 0.0021, estPnl: 314,
+      estTime: "14:32:10", estSource: "腾讯行情 · 估算", estQuality: "estimate", estNote: null,
+      action: "保持", amountWan: 0,
       reason: "影子组严格执行建议后与目标权重一致。", executed: true, executedAt: "14:31"
     },
     {
       code: "007818", name: "国泰中证全指通信设备ETF联接C", short: "通信",
       amount: 54300, target: 0.08, dayPct: 0.0064, dayPnl: 348,
-      quality: "stale", stale: true, action: "保持", amountWan: 0,
+      quality: "stale", stale: true,
+      nav: 0.986, estNav: 0.9923, estPct: 0.0064, estPnl: 348,
+      estTime: "13:58:20", estSource: "东财基金 · 最近可用", estQuality: "stale",
+      estNote: "最近可用 13:58:20 · 延迟 33 分钟（打开页面未取到新值）",
+      action: "保持", amountWan: 0,
       reason: "估值源返回延迟，标记 stale；影子组仓位不变。", executed: true, executedAt: "14:31"
     },
     {
       code: "015790", name: "永赢高端装备智选混合发起C", short: "永赢",
       amount: 67900, target: 0.10, dayPct: -0.0037, dayPnl: -251,
-      quality: "estimate", stale: false, action: "保持", amountWan: 0,
+      quality: "estimate", stale: false,
+      nav: 1.000, estNav: 0.9963, estPct: -0.0037, estPnl: -251,
+      estTime: "14:32:10", estSource: "腾讯行情 · 估算", estQuality: "estimate", estNote: null,
+      action: "保持", amountWan: 0,
       reason: "影子组严格执行建议后与目标权重一致。", executed: true, executedAt: "14:31"
     }
   ];
@@ -232,7 +259,10 @@
     {
       code: "000300", name: "沪深300指数（基准）", short: "沪深300",
       amount: 679000, target: 1.0, dayPct: 0.0031, dayPnl: 2105,
-      quality: "estimate", stale: false, action: "保持", amountWan: 0,
+      quality: "estimate", stale: false,
+      nav: 1.000, estNav: 1.0031, estPct: 0.0031, estPnl: 2105,
+      estTime: "14:32:10", estSource: "沪深300 行情 · 估算", estQuality: "estimate", estNote: null,
+      action: "保持", amountWan: 0,
       reason: "基准组按沪深300全仓跟踪，不执行主动建议。", executed: false, executedAt: null
     }
   ];
@@ -242,6 +272,7 @@
       var weight = f.amount / total;
       return Object.assign({}, f, {
         weight: weight,
+        targetAmount: f.target * total,
         deviation: weight - f.target
       });
     });
@@ -290,9 +321,16 @@
   window.MOCK = {
     meta: {
       product: "Musi 投资助手",
-      version: "原型 v1",
+      version: "原型 v2",
       asof: ASOF_TIME,
       asofDate: ASOF,
+      realtime: {
+        trigger: "打开页面触发",
+        calcTime: "14:32:10",
+        source: "腾讯行情 · 估算（演示）",
+        demoNote: "原型演示：打开页面触发；生产环境调用估值接口，不接真实行情。",
+        staleNote: "通信联接估值源延迟，展示最近可用值，不冒充实时。"
+      },
       timezone: "Asia/Shanghai",
       quality: "estimate",
       qualityLabel: "盘中估算",

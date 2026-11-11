@@ -1,0 +1,1774 @@
+{
+  "generatedAt": "2026-11-11T04:01:06.031Z",
+  "widths": [
+    360,
+    390,
+    414,
+    768,
+    1024,
+    1280,
+    1440
+  ],
+  "pages": {
+    "index.html": {
+      "360": {
+        "viewportWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [
+          {
+            "text": "今日预估 +0.82%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 14.5 万 实际权重 21.4%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +1.15%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 13.9 万 实际权重 20.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.21%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 10.4 万 实际权重 15.3%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.64%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7.1 万 实际权重 10.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 −0.37%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7 万 实际权重 10.3%",
+            "height": 59,
+            "approxLines": 3
+          }
+        ],
+        "fundCardDividers": 0
+      },
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [
+          {
+            "text": "今日预估 +0.82%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 14.5 万 实际权重 21.4%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +1.15%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 13.9 万 实际权重 20.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.21%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 10.4 万 实际权重 15.3%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.64%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7.1 万 实际权重 10.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 −0.37%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7 万 实际权重 10.3%",
+            "height": 59,
+            "approxLines": 3
+          }
+        ],
+        "fundCardDividers": 0
+      },
+      "414": {
+        "viewportWidth": 414,
+        "scrollWidth": 414,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [
+          {
+            "text": "今日预估 +0.82%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 14.5 万 实际权重 21.4%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +1.15%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 13.9 万 实际权重 20.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.21%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 10.4 万 实际权重 15.3%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.64%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7.1 万 实际权重 10.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 −0.37%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7 万 实际权重 10.3%",
+            "height": 59,
+            "approxLines": 3
+          }
+        ],
+        "fundCardDividers": 0
+      },
+      "768": {
+        "viewportWidth": 768,
+        "scrollWidth": 768,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [
+          {
+            "text": "今日预估 +0.82%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 14.5 万 实际权重 21.4%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +1.15%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 13.9 万 实际权重 20.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.21%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 10.4 万 实际权重 15.3%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.64%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7.1 万 实际权重 10.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 −0.37%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7 万 实际权重 10.3%",
+            "height": 59,
+            "approxLines": 3
+          }
+        ],
+        "fundCardDividers": 0
+      },
+      "1024": {
+        "viewportWidth": 1024,
+        "scrollWidth": 1024,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [
+          {
+            "text": "今日预估 +0.82%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 14.5 万 实际权重 21.4%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +1.15%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 13.9 万 实际权重 20.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.21%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 10.4 万 实际权重 15.3%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.64%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7.1 万 实际权重 10.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 −0.37%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7 万 实际权重 10.3%",
+            "height": 59,
+            "approxLines": 3
+          }
+        ],
+        "fundCardDividers": 0
+      },
+      "1280": {
+        "viewportWidth": 1280,
+        "scrollWidth": 1280,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [
+          {
+            "text": "今日预估 +0.82%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 14.5 万 实际权重 21.4%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +1.15%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 13.9 万 实际权重 20.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.21%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 10.4 万 实际权重 15.3%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.64%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7.1 万 实际权重 10.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 −0.37%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7 万 实际权重 10.3%",
+            "height": 59,
+            "approxLines": 3
+          }
+        ],
+        "fundCardDividers": 0
+      },
+      "1440": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [
+          {
+            "text": "今日预估 +0.82%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 14.5 万 实际权重 21.4%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +1.15%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 13.9 万 实际权重 20.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.21%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 10.4 万 实际权重 15.3%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 +0.64%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7.1 万 实际权重 10.5%",
+            "height": 59,
+            "approxLines": 3
+          },
+          {
+            "text": "今日预估 −0.37%",
+            "height": 19,
+            "approxLines": 1
+          },
+          {
+            "text": "持仓 7 万 实际权重 10.3%",
+            "height": 59,
+            "approxLines": 3
+          }
+        ],
+        "fundCardDividers": 0
+      }
+    },
+    "portfolio.html": {
+      "360": {
+        "viewportWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "414": {
+        "viewportWidth": 414,
+        "scrollWidth": 414,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "768": {
+        "viewportWidth": 768,
+        "scrollWidth": 768,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1024": {
+        "viewportWidth": 1024,
+        "scrollWidth": 1024,
+        "overflowX": 0,
+        "clipped": [
+          {
+            "selector": "div.nm",
+            "text": "国泰中证全指通信设备ETF联接C",
+            "scrollWidth": 188,
+            "clientWidth": 165,
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "whiteSpace": "nowrap"
+          }
+        ],
+        "clippedCount": 1,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1280": {
+        "viewportWidth": 1280,
+        "scrollWidth": 1280,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1440": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      }
+    },
+    "compare.html": {
+      "360": {
+        "viewportWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": 0,
+        "clipped": [
+          {
+            "selector": "div.metric-box",
+            "text": "AI 影子累计收益 +15.83% 区间 244 个交易日",
+            "scrollWidth": 83,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "AI 影子累计收益",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+15.83%",
+            "scrollWidth": 69,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "区间 244 个交易日",
+            "scrollWidth": 17,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "实盘累计收益 +13.10% 对比基准",
+            "scrollWidth": 83,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "实盘累计收益",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+13.10%",
+            "scrollWidth": 69,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "对比基准",
+            "scrollWidth": 11,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "沪深300 累计收益 +12.14% 基准组",
+            "scrollWidth": 83,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "沪深300 累计收益",
+            "scrollWidth": 19,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+12.14%",
+            "scrollWidth": 69,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "基准组",
+            "scrollWidth": 11,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 超额收益 +3.69% AI − 沪深300",
+            "scrollWidth": 74,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "AI 超额收益",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+3.69%",
+            "scrollWidth": 60,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "AI − 沪深300",
+            "scrollWidth": 17,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 最大回撤 −2.62% 区间内峰值回撤",
+            "scrollWidth": 74,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "AI 最大回撤",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.down",
+            "text": "−2.62%",
+            "scrollWidth": 60,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "区间内峰值回撤",
+            "scrollWidth": 11,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          }
+        ],
+        "clippedCount": 20,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [
+          {
+            "selector": "button.tab",
+            "w": 40,
+            "h": 44,
+            "text": "全部"
+          }
+        ],
+        "touchSmallCount": 1,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "clipped": [
+          {
+            "selector": "div.metric-box",
+            "text": "AI 影子累计收益 +15.83% 区间 244 个交易日",
+            "scrollWidth": 83,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "AI 影子累计收益",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+15.83%",
+            "scrollWidth": 69,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "区间 244 个交易日",
+            "scrollWidth": 17,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "实盘累计收益 +13.10% 对比基准",
+            "scrollWidth": 83,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "实盘累计收益",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+13.10%",
+            "scrollWidth": 69,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "对比基准",
+            "scrollWidth": 11,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "沪深300 累计收益 +12.14% 基准组",
+            "scrollWidth": 83,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "沪深300 累计收益",
+            "scrollWidth": 19,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+12.14%",
+            "scrollWidth": 69,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "基准组",
+            "scrollWidth": 11,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 超额收益 +3.69% AI − 沪深300",
+            "scrollWidth": 74,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "AI 超额收益",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+3.69%",
+            "scrollWidth": 60,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "AI − 沪深300",
+            "scrollWidth": 17,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 最大回撤 −2.62% 区间内峰值回撤",
+            "scrollWidth": 74,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "AI 最大回撤",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.down",
+            "text": "−2.62%",
+            "scrollWidth": 60,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "区间内峰值回撤",
+            "scrollWidth": 11,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          }
+        ],
+        "clippedCount": 20,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [
+          {
+            "selector": "button.tab",
+            "w": 40,
+            "h": 44,
+            "text": "全部"
+          }
+        ],
+        "touchSmallCount": 1,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "414": {
+        "viewportWidth": 414,
+        "scrollWidth": 414,
+        "overflowX": 0,
+        "clipped": [
+          {
+            "selector": "div.metric-box",
+            "text": "AI 影子累计收益 +15.83% 区间 244 个交易日",
+            "scrollWidth": 83,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "AI 影子累计收益",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+15.83%",
+            "scrollWidth": 69,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "区间 244 个交易日",
+            "scrollWidth": 17,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "实盘累计收益 +13.10% 对比基准",
+            "scrollWidth": 83,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "实盘累计收益",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+13.10%",
+            "scrollWidth": 69,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "对比基准",
+            "scrollWidth": 11,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "沪深300 累计收益 +12.14% 基准组",
+            "scrollWidth": 83,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "沪深300 累计收益",
+            "scrollWidth": 19,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+12.14%",
+            "scrollWidth": 69,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "基准组",
+            "scrollWidth": 11,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 超额收益 +3.69% AI − 沪深300",
+            "scrollWidth": 74,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "AI 超额收益",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+3.69%",
+            "scrollWidth": 60,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "AI − 沪深300",
+            "scrollWidth": 17,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 最大回撤 −2.62% 区间内峰值回撤",
+            "scrollWidth": 74,
+            "clientWidth": 28,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.k",
+            "text": "AI 最大回撤",
+            "scrollWidth": 12,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.down",
+            "text": "−2.62%",
+            "scrollWidth": 60,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.s",
+            "text": "区间内峰值回撤",
+            "scrollWidth": 11,
+            "clientWidth": 0,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          }
+        ],
+        "clippedCount": 20,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [
+          {
+            "selector": "button.tab",
+            "w": 40,
+            "h": 44,
+            "text": "全部"
+          }
+        ],
+        "touchSmallCount": 1,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "768": {
+        "viewportWidth": 768,
+        "scrollWidth": 768,
+        "overflowX": 0,
+        "clipped": [
+          {
+            "selector": "div.metric-box",
+            "text": "AI 影子累计收益 +15.83% 区间 244 个交易日",
+            "scrollWidth": 92,
+            "clientWidth": 47,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+15.83%",
+            "scrollWidth": 78,
+            "clientWidth": 19,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "实盘累计收益 +13.10% 对比基准",
+            "scrollWidth": 92,
+            "clientWidth": 47,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+13.10%",
+            "scrollWidth": 78,
+            "clientWidth": 19,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "沪深300 累计收益 +12.14% 基准组",
+            "scrollWidth": 92,
+            "clientWidth": 47,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+12.14%",
+            "scrollWidth": 78,
+            "clientWidth": 19,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 超额收益 +3.69% AI − 沪深300",
+            "scrollWidth": 81,
+            "clientWidth": 47,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+3.69%",
+            "scrollWidth": 67,
+            "clientWidth": 19,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 最大回撤 −2.62% 区间内峰值回撤",
+            "scrollWidth": 81,
+            "clientWidth": 47,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.down",
+            "text": "−2.62%",
+            "scrollWidth": 67,
+            "clientWidth": 19,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          }
+        ],
+        "clippedCount": 10,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1024": {
+        "viewportWidth": 1024,
+        "scrollWidth": 1024,
+        "overflowX": 0,
+        "clipped": [
+          {
+            "selector": "div.metric-box",
+            "text": "AI 影子累计收益 +15.83% 区间 244 个交易日",
+            "scrollWidth": 92,
+            "clientWidth": 49,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+15.83%",
+            "scrollWidth": 78,
+            "clientWidth": 21,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "实盘累计收益 +13.10% 对比基准",
+            "scrollWidth": 92,
+            "clientWidth": 49,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+13.10%",
+            "scrollWidth": 78,
+            "clientWidth": 21,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "沪深300 累计收益 +12.14% 基准组",
+            "scrollWidth": 92,
+            "clientWidth": 49,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+12.14%",
+            "scrollWidth": 78,
+            "clientWidth": 21,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 超额收益 +3.69% AI − 沪深300",
+            "scrollWidth": 81,
+            "clientWidth": 49,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+3.69%",
+            "scrollWidth": 67,
+            "clientWidth": 21,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 最大回撤 −2.62% 区间内峰值回撤",
+            "scrollWidth": 81,
+            "clientWidth": 49,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.down",
+            "text": "−2.62%",
+            "scrollWidth": 67,
+            "clientWidth": 21,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          }
+        ],
+        "clippedCount": 10,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1280": {
+        "viewportWidth": 1280,
+        "scrollWidth": 1280,
+        "overflowX": 0,
+        "clipped": [
+          {
+            "selector": "div.metric-box",
+            "text": "AI 影子累计收益 +15.83% 区间 244 个交易日",
+            "scrollWidth": 92,
+            "clientWidth": 67,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+15.83%",
+            "scrollWidth": 78,
+            "clientWidth": 39,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "实盘累计收益 +13.10% 对比基准",
+            "scrollWidth": 92,
+            "clientWidth": 67,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+13.10%",
+            "scrollWidth": 78,
+            "clientWidth": 39,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "沪深300 累计收益 +12.14% 基准组",
+            "scrollWidth": 92,
+            "clientWidth": 67,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+12.14%",
+            "scrollWidth": 78,
+            "clientWidth": 39,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 超额收益 +3.69% AI − 沪深300",
+            "scrollWidth": 81,
+            "clientWidth": 67,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+3.69%",
+            "scrollWidth": 67,
+            "clientWidth": 39,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "AI 最大回撤 −2.62% 区间内峰值回撤",
+            "scrollWidth": 81,
+            "clientWidth": 67,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.down",
+            "text": "−2.62%",
+            "scrollWidth": 67,
+            "clientWidth": 39,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          }
+        ],
+        "clippedCount": 10,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1440": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [
+          {
+            "selector": "div.metric-box",
+            "text": "AI 影子累计收益 +15.83% 区间 244 个交易日",
+            "scrollWidth": 92,
+            "clientWidth": 80,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+15.83%",
+            "scrollWidth": 78,
+            "clientWidth": 52,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "实盘累计收益 +13.10% 对比基准",
+            "scrollWidth": 92,
+            "clientWidth": 80,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+13.10%",
+            "scrollWidth": 78,
+            "clientWidth": 52,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.metric-box",
+            "text": "沪深300 累计收益 +12.14% 基准组",
+            "scrollWidth": 92,
+            "clientWidth": 80,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+12.14%",
+            "scrollWidth": 78,
+            "clientWidth": 52,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.up",
+            "text": "+3.69%",
+            "scrollWidth": 67,
+            "clientWidth": 52,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          },
+          {
+            "selector": "div.v.down",
+            "text": "−2.62%",
+            "scrollWidth": 67,
+            "clientWidth": 52,
+            "overflow": "visible",
+            "textOverflow": "clip",
+            "whiteSpace": "normal"
+          }
+        ],
+        "clippedCount": 8,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      }
+    },
+    "history.html": {
+      "360": {
+        "viewportWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "414": {
+        "viewportWidth": 414,
+        "scrollWidth": 414,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "768": {
+        "viewportWidth": 768,
+        "scrollWidth": 768,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1024": {
+        "viewportWidth": 1024,
+        "scrollWidth": 1024,
+        "overflowX": 0,
+        "clipped": [
+          {
+            "selector": "div.trade-fund",
+            "text": "国泰中证全指通信设备ETF联接C 007818",
+            "scrollWidth": 224,
+            "clientWidth": 208,
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "whiteSpace": "nowrap"
+          }
+        ],
+        "clippedCount": 1,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1280": {
+        "viewportWidth": 1280,
+        "scrollWidth": 1280,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1440": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      }
+    },
+    "settings.html": {
+      "360": {
+        "viewportWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "414": {
+        "viewportWidth": 414,
+        "scrollWidth": 414,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "768": {
+        "viewportWidth": 768,
+        "scrollWidth": 768,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1024": {
+        "viewportWidth": 1024,
+        "scrollWidth": 1024,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1280": {
+        "viewportWidth": 1280,
+        "scrollWidth": 1280,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      },
+      "1440": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "fundAmt": [],
+        "fundCardDividers": 0
+      }
+    },
+    "popup.html": {
+      "390": {
+        "viewportWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": 0,
+        "bodyHeight": 926
+      }
+    }
+  }
+}

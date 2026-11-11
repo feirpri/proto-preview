@@ -33,7 +33,7 @@ proto-preview/
 
 ## 投资助手截图
 
-每页桌面 1440px / 移动 390px，另有扩展 popup，位于 [`investment-assistant/screenshots/`](./investment-assistant/screenshots)：
+原型 v2：每页桌面 1440px / 移动 390px 全页截图，另有扩展 popup，位于 [`investment-assistant/screenshots/`](./investment-assistant/screenshots)：
 
 | 页面 | 桌面 | 移动 |
 |---|---|---|
@@ -43,6 +43,8 @@ proto-preview/
 | 历史 | [history-1440](./investment-assistant/screenshots/history-1440.png) | [history-390](./investment-assistant/screenshots/history-390.png) |
 | 设置 | [settings-1440](./investment-assistant/screenshots/settings-1440.png) | [settings-390](./investment-assistant/screenshots/settings-390.png) |
 | 扩展 popup | [popup](./investment-assistant/screenshots/popup.png) | — |
+
+七档宽度（360 / 390 / 414 / 768 / 1024 / 1280 / 1440）审计结果见 [`screenshots/audit.json`](./investment-assistant/screenshots/audit.json)，v1 基线见 [`screenshots/audit-before.json`](./investment-assistant/screenshots/audit-before.json)。
 
 ## 投资助手原型说明
 

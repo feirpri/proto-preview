@@ -1,7 +1,7 @@
 {
   "meta": {
     "product": "Musi 投资助手",
-    "version": "原型 v1",
+    "version": "原型 v2",
     "asof": "2026-11-10 14:32:10",
     "asofDate": "2026-11-10",
     "timezone": "Asia/Shanghai",
@@ -11,7 +11,14 @@
     "lastOfficialQuality": "official",
     "session": "A 股盘中",
     "seedBaseline": "2026-11-05 收盘",
-    "disclaimer": "本原型所有数字均为演示数据，仅用于界面确认，不构成投资建议，也不代表任何收益承诺。"
+    "disclaimer": "本原型所有数字均为演示数据，仅用于界面确认，不构成投资建议，也不代表任何收益承诺。",
+    "realtime": {
+      "trigger": "打开页面触发",
+      "calcTime": "14:32:10",
+      "source": "腾讯行情 · 估算（演示）",
+      "demoNote": "原型演示：打开页面触发；生产环境调用估值接口，不接真实行情。",
+      "staleNote": "通信联接估值源延迟，展示最近可用值，不冒充实时。"
+    }
   },
   "market": {
     "state": "震荡",
@@ -79,7 +86,16 @@
           "executed": true,
           "executedAt": "14:31",
           "weight": 0.21354933726067746,
-          "deviation": 0.053549337260677454
+          "deviation": 0.053549337260677454,
+          "nav": 1.284,
+          "estNav": 1.2945,
+          "estPct": 0.0082,
+          "estTime": "14:32:10",
+          "estSource": "腾讯行情 · 估算",
+          "estQuality": "estimate",
+          "estNote": null,
+          "estPnl": 1189,
+          "targetAmount": 108640.0
         },
         {
           "code": "018345",
@@ -97,7 +113,16 @@
           "executed": true,
           "executedAt": "14:31",
           "weight": 0.20471281296023564,
-          "deviation": 0.04471281296023563
+          "deviation": 0.04471281296023563,
+          "nav": 1.126,
+          "estNav": 1.139,
+          "estPct": 0.0115,
+          "estTime": "14:32:10",
+          "estSource": "腾讯行情 · 估算",
+          "estQuality": "estimate",
+          "estNote": null,
+          "estPnl": 1599,
+          "targetAmount": 108640.0
         },
         {
           "code": "006864",
@@ -115,7 +140,16 @@
           "executed": true,
           "executedAt": "14:31",
           "weight": 0.15316642120765833,
-          "deviation": -0.06683357879234167
+          "deviation": -0.06683357879234167,
+          "nav": 2.041,
+          "estNav": 2.0453,
+          "estPct": 0.0021,
+          "estTime": "14:32:10",
+          "estSource": "腾讯行情 · 估算",
+          "estQuality": "estimate",
+          "estNote": null,
+          "estPnl": 218,
+          "targetAmount": 149380.0
         },
         {
           "code": "007818",
@@ -133,7 +167,16 @@
           "executed": true,
           "executedAt": "14:31",
           "weight": 0.10456553755522828,
-          "deviation": 0.02456553755522828
+          "deviation": 0.02456553755522828,
+          "nav": 0.986,
+          "estNav": 0.9923,
+          "estPct": 0.0064,
+          "estTime": "13:58:20",
+          "estSource": "东财基金 · 最近可用",
+          "estQuality": "stale",
+          "estNote": "最近可用 13:58:20 · 延迟 33 分钟（打开页面未取到新值）",
+          "estPnl": 454,
+          "targetAmount": 54320.0
         },
         {
           "code": "015790",
@@ -151,7 +194,16 @@
           "executed": true,
           "executedAt": "14:31",
           "weight": 0.10309278350515463,
-          "deviation": 0.003092783505154628
+          "deviation": 0.003092783505154628,
+          "nav": 1.0,
+          "estNav": 0.9963,
+          "estPct": -0.0037,
+          "estTime": "14:32:10",
+          "estSource": "腾讯行情 · 估算",
+          "estQuality": "estimate",
+          "estNote": null,
+          "estPnl": -259,
+          "targetAmount": 67900.0
         }
       ]
     },
@@ -186,7 +238,16 @@
           "executed": true,
           "executedAt": "14:31",
           "weight": 0.15994108983799704,
-          "deviation": -0.00005891016200296195
+          "deviation": -5.891016200296195e-05,
+          "nav": 1.284,
+          "estNav": 1.2945,
+          "estPct": 0.0082,
+          "estTime": "14:32:10",
+          "estSource": "腾讯行情 · 估算",
+          "estQuality": "estimate",
+          "estNote": null,
+          "estPnl": 891,
+          "targetAmount": 108640.0
         },
         {
           "code": "018345",
@@ -204,7 +265,16 @@
           "executed": true,
           "executedAt": "14:31",
           "weight": 0.15994108983799704,
-          "deviation": -0.00005891016200296195
+          "deviation": -5.891016200296195e-05,
+          "nav": 1.126,
+          "estNav": 1.139,
+          "estPct": 0.0115,
+          "estTime": "14:32:10",
+          "estSource": "腾讯行情 · 估算",
+          "estQuality": "estimate",
+          "estNote": null,
+          "estPnl": 1249,
+          "targetAmount": 108640.0
         },
         {
           "code": "006864",
@@ -222,7 +292,16 @@
           "executed": true,
           "executedAt": "14:31",
           "weight": 0.22002945508100147,
-          "deviation": 0.000029455081001467098
+          "deviation": 2.9455081001467098e-05,
+          "nav": 2.041,
+          "estNav": 2.0453,
+          "estPct": 0.0021,
+          "estTime": "14:32:10",
+          "estSource": "腾讯行情 · 估算",
+          "estQuality": "estimate",
+          "estNote": null,
+          "estPnl": 314,
+          "targetAmount": 149380.0
         },
         {
           "code": "007818",
@@ -240,7 +319,16 @@
           "executed": true,
           "executedAt": "14:31",
           "weight": 0.07997054491899852,
-          "deviation": -0.000029455081001480976
+          "deviation": -2.9455081001480976e-05,
+          "nav": 0.986,
+          "estNav": 0.9923,
+          "estPct": 0.0064,
+          "estTime": "13:58:20",
+          "estSource": "东财基金 · 最近可用",
+          "estQuality": "stale",
+          "estNote": "最近可用 13:58:20 · 延迟 33 分钟（打开页面未取到新值）",
+          "estPnl": 348,
+          "targetAmount": 54320.0
         },
         {
           "code": "015790",
@@ -258,7 +346,16 @@
           "executed": true,
           "executedAt": "14:31",
           "weight": 0.1,
-          "deviation": 0
+          "deviation": 0,
+          "nav": 1.0,
+          "estNav": 0.9963,
+          "estPct": -0.0037,
+          "estTime": "14:32:10",
+          "estSource": "腾讯行情 · 估算",
+          "estQuality": "estimate",
+          "estNote": null,
+          "estPnl": -251,
+          "targetAmount": 67900.0
         }
       ]
     },
@@ -293,7 +390,16 @@
           "executed": false,
           "executedAt": null,
           "weight": 1,
-          "deviation": 0
+          "deviation": 0,
+          "nav": 1.0,
+          "estNav": 1.0031,
+          "estPct": 0.0031,
+          "estTime": "14:32:10",
+          "estSource": "沪深300 行情 · 估算",
+          "estQuality": "estimate",
+          "estNote": null,
+          "estPnl": 2105,
+          "targetAmount": 679000
         }
       ]
     }
@@ -466,10 +572,10 @@
       },
       "metrics": {
         "actual": {
-          "cum": 0.00007708212952151072,
+          "cum": 7.708212952151072e-05,
           "maxDd": -0.021272445510441385,
           "winRate": 0.5909090909090909,
-          "dailyAvg": 0.000010581249375383386,
+          "dailyAvg": 1.0581249375383386e-05,
           "excess": 0.010987992469647545
         },
         "ai": {
@@ -743,7 +849,7 @@
           "cum": 0.0037140184191268855,
           "maxDd": -0.024615949901933942,
           "winRate": 0.5909090909090909,
-          "dailyAvg": 0.00006207247488608052,
+          "dailyAvg": 6.207247488608052e-05,
           "excess": 0
         }
       }

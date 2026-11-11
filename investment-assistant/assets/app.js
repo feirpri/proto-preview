@@ -191,49 +191,111 @@
     );
   }
 
-  function adviceBanner() {
+  function decisionSummary() {
     var ad = M.advice;
+    var a = M.groups.actual;
     return (
-      '<div class="advice-banner">' +
-      '<div class="advice-icon">' + icon("spark") + "</div>" +
-      '<div class="advice-body">' +
-      '<div class="advice-title">今日建议 <span class="chip green">executed · 已执行</span><span class="q neutral">' + ad.executedAt.slice(11) + " 应用</span></div>" +
-      '<div class="advice-text">' + ad.summary + "</div>" +
-      '<div class="advice-meta"><span class="chip plain">市场状态 ' + ad.state + '</span><span class="chip plain">5 条建议</span><span class="chip plain">2 减仓 · 3 保持</span><span class="chip plain">审计保留</span></div>' +
-      '<div class="advice-text" style="margin-top:8px;color:var(--muted);font-size:12px">' + ad.targetPlan + "</div>" +
-      '<div class="advice-text" style="margin-top:4px;color:var(--muted-2);font-size:11px">持仓金额为 14:30 估算快照（执行前）；14:31 已按建议执行，交易明细见历史页。</div>' +
+      '<div class="card decision-summary">' +
+      '<div class="decision-main">' +
+      '<div class="decision-eyebrow">' + icon("spark") + ' 今日决策摘要 <span class="q neutral">整体</span></div>' +
+      '<div class="decision-title">' + ad.state + '市 · 权益仓位 ' + pct(a.equityRatio, 1) + ' <span class="decision-vs">/ 目标 ' + pct(a.targetEquity, 1) + '</span></div>' +
+      '<p class="decision-text">权益仓位高于目标，按反抽规则减偏离、降低权益仓位，其余基金保持；执行后仍高于目标，等待趋势确认。</p>' +
+      '<div class="decision-chips">' +
+      '<span class="chip plain">市场状态 ' + ad.state + "</span>" +
+      '<span class="chip green">executed · ' + ad.executedAt.slice(11) + " 已应用</span>" +
+      '<span class="chip plain">5 条建议 · 2 减仓 · 3 保持</span>' +
+      '<span class="chip plain">目标权益 ' + pct(a.targetEquity, 0) + "</span>" +
+      '<span class="chip plain">审计保留</span>' +
+      "</div>" +
+      '<div class="decision-plan">' + ad.targetPlan + "</div>" +
+      '<div class="decision-note">持仓金额为 14:30 估算快照（执行前）；14:31 已按建议执行，交易明细见历史页。</div>' +
       "</div></div>"
     );
   }
 
+  function nav4(n) {
+    return n.toFixed(4);
+  }
+
   function fundCard(f) {
-    var pnl = f.dayPnl;
     var dev = f.weight - f.target;
+    var stale = f.stale;
     var fillW = Math.min(100, f.weight * 100);
     var targetLeft = Math.min(98, f.target * 100);
+    var realtimeLabel = stale
+      ? '<span class="zone-tag warn">' + icon("warning") + "stale · 非实时</span>"
+      : '<span class="zone-tag">打开页面触发</span>';
+    var timeLine = stale
+      ? '<span class="calc-time warn">' + icon("clock") + "最近可用 " + f.estTime + " · 打开页面未取到新值</span>"
+      : '<span class="calc-time">' + icon("clock") + "本次计算 " + f.estTime + " · 打开页面触发</span>";
+    var staleNote = f.estNote
+      ? '<div class="stale-note">' + icon("warning") + "<span>stale · " + f.estNote + "，不冒充实时。</span></div>"
+      : "";
     var exec = f.executed
-      ? '<span class="exec-state">' + icon("check") + "executed · " + f.executedAt + "</span>"
-      : '<span class="exec-state" style="color:var(--muted)">' + icon("lock") + "不执行主动建议</span>";
+      ? '<span class="exec-state">' + icon("check") + "executed · " + f.executedAt + " 已应用</span>"
+      : '<span class="exec-state muted">' + icon("lock") + "不执行主动建议</span>";
     return (
-      '<article class="card fund-card">' +
-      '<div class="fund-top"><div><div class="fund-name">' + f.name + '</div><div class="fund-code">' + f.code + " · 目标权重 " + pct(f.target, 0) + "</div></div>" + qBadge(f.quality, f.stale ? "stale 延迟" : null) + "</div>" +
-      '<div class="fund-mid"><div><div class="fund-pnl ' + cls(pnl) + '">' + signedYuan(pnl) + "<small>元</small></div><div class=\"fund-amt\">今日预估 " + signedPct(f.dayPct) + "</div></div>" +
-      '<div class="fund-amt">持仓<b>' + wan(f.amount) + "</b>实际权重 " + pct(f.weight, 1) + "</div></div>" +
-      '<div class="weight-row"><span>权重</span><div class="weight-track"><div class="weight-fill" style="width:' + fillW + "%;background:" + (f.stale ? "var(--amber)" : "var(--blue)") + '"></div><div class="weight-target" style="left:' + targetLeft + '%"></div></div><span>目标 ' + pct(f.target, 0) + "</span></div>" +
-      '<div class="fund-action">' + actionChip(f.action) + (f.amountWan > 0 ? '<span class="chip plain">' + f.amountWan.toFixed(1) + " 万</span>" : '<span class="chip plain">维持仓位</span>') + '<span class="q neutral">偏离 ' + signedPp(dev) + "</span></div>" +
-      '<div class="fund-reason">' + f.reason + "</div>" +
-      '<div class="fund-foot">' + exec + "<span>只读</span></div>" +
+      '<article class="card fund-card' + (stale ? " is-stale" : "") + '">' +
+      '<header class="fund-head">' +
+      '<div class="fund-head-main">' +
+      '<div class="fund-name">' + f.name + "</div>" +
+      '<div class="fund-meta"><span class="fund-code">' + f.code + '</span><span class="fund-sep">·</span><span>目标权重 ' + pct(f.target, 0) + "</span></div>" +
+      "</div>" +
+      '<div class="fund-badges">' + groupTag("actual") + qBadge(f.estQuality, stale ? "stale 延迟" : "estimate 估算") + "</div>" +
+      "</header>" +
+
+      '<section class="fund-zone live-zone" aria-label="实时估值">' +
+      '<div class="zone-head"><div class="zone-title"><span class="zone-no">1</span>实时估值</div>' + realtimeLabel + "</div>" +
+      '<div class="live-grid">' +
+      '<div class="live-cell"><span class="cell-label">估算净值</span><b class="cell-value tabular">' + nav4(f.estNav) + '</b><span class="cell-sub ' + cls(f.estPct) + '">' + signedPct(f.estPct) + " 估算涨跌</span></div>" +
+      '<div class="live-cell"><span class="cell-label">今日预估收益</span><b class="cell-value tabular ' + cls(f.estPnl) + '">' + signedYuan(f.estPnl) + '<small>元</small></b><span class="cell-sub">盘中估算，非官方</span></div>' +
+      "</div>" +
+      '<div class="live-meta">' + timeLine + '<span class="live-source">数据源 ' + f.estSource + "</span></div>" +
+      staleNote +
+      "</section>" +
+
+      '<div class="card-divider" role="separator" aria-label="实时估值与持仓对比分割线"></div>' +
+
+      '<section class="fund-zone compare-zone" aria-label="持仓与目标对比">' +
+      '<div class="zone-head"><div class="zone-title"><span class="zone-no">2</span>持仓 vs 目标</div><span class="zone-tag">按总资产 67.9 万</span></div>' +
+      '<div class="compare-grid">' +
+      '<div class="compare-cell"><span class="cell-label">实际持仓</span><b class="cell-value tabular">' + wan(f.amount) + "</b></div>" +
+      '<div class="compare-cell is-target"><span class="cell-label">目标持仓</span><b class="cell-value tabular">' + wan(f.targetAmount) + "</b></div>" +
+      '<div class="compare-cell"><span class="cell-label">实际权重</span><b class="cell-value tabular">' + pct(f.weight, 1) + "</b></div>" +
+      '<div class="compare-cell is-target"><span class="cell-label">目标权重</span><b class="cell-value tabular">' + pct(f.target, 1) + "</b></div>" +
+      '<div class="compare-cell is-wide"><span class="cell-label">偏离</span><b class="cell-value tabular ' + cls(dev) + '">' + signedPp(dev) + "</b></div>" +
+      "</div>" +
+      '<div class="weight-line">' +
+      '<div class="weight-track"><div class="weight-fill' + (stale ? " stale" : "") + '" style="width:' + fillW + '%"></div><div class="weight-target" style="left:' + targetLeft + '%" aria-hidden="true"></div></div>' +
+      '<div class="weight-labels"><span>实际 ' + pct(f.weight, 1) + "</span><span>目标 " + pct(f.target, 1) + "</span></div>" +
+      "</div>" +
+      "</section>" +
+
+      '<div class="card-divider" role="separator" aria-label="持仓对比与今日建议分割线"></div>' +
+
+      '<section class="fund-zone advice-zone" aria-label="今日建议">' +
+      '<div class="zone-head"><div class="zone-title"><span class="zone-no">3</span>今日建议 <span class="zone-tag">14:30 定期分析</span></div>' + exec + "</div>" +
+      '<div class="advice-row">' + actionChip(f.action) +
+      (f.amountWan > 0 ? '<span class="chip plain">' + f.amountWan.toFixed(1) + " 万</span>" : '<span class="chip plain">维持仓位</span>') +
+      '<span class="q neutral">审计保留</span></div>' +
+      '<p class="advice-reason">' + f.reason + "</p>" +
+      '<div class="advice-foot">' + icon("lock") + "只读原型：建议由 14:30 定期分析生成，客户端不提供下单按钮。</div>" +
+      "</section>" +
       "</article>"
     );
   }
 
   function qualityCard() {
+    var rt = M.meta.realtime;
     return (
       '<div class="card col-12 card-pad">' +
       '<div class="section-head" style="margin-bottom:10px"><div><h2 style="margin:0;font-size:15px">数据时间与质量</h2><div class="hint">asof ' + M.meta.asof + " · " + M.meta.timezone + '</div></div><span class="q estimate">estimate 盘中估算</span></div>' +
       '<div class="quality-legend" style="background:var(--surface-2)">' +
       qBadge("official", "official · 官方净值到齐") + qBadge("estimate", "estimate · 盘中估算") + qBadge("partial", "partial · 部分到齐") + qBadge("stale", "stale · 数据延迟") +
       "</div>" +
+      '<div class="realtime-note">' + icon("refresh") +
+      "<div><b>实时估值：" + rt.trigger + "</b>（本次计算 " + rt.calcTime + "）。" + rt.demoNote +
+      "<br><b>定期分析：</b>每日 14:30 生成逐基金建议；14:31 记录执行状态。" + rt.staleNote + "</div></div>" +
       '<div class="risk-note">' + icon("warning") + "<span>今日快照为盘中估算，晚间 21:30 后按官方净值修正；修正前请勿以估算数字对账。基准组与 AI 影子组均为模拟，不涉及真实资金。</span></div>" +
       "</div>"
     );
@@ -244,7 +306,7 @@
     var stats = document.getElementById("today-stats");
     if (stats) stats.innerHTML = statCards();
     var adv = document.getElementById("today-advice");
-    if (adv) adv.innerHTML = adviceBanner();
+    if (adv) adv.innerHTML = decisionSummary();
     var grid = document.getElementById("fund-grid");
     if (grid) grid.innerHTML = M.groups.actual.funds.map(fundCard).join("");
     var q = document.getElementById("today-quality");
