@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>历史 · Musi 投资助手原型</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="history">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h1>历史</h1>
+            <p class="lede">每日建议、快照与官方修正时间线；交易记录保留执行 / 回滚状态与审计痕迹。</p>
+          </div>
+          <div class="head-side">
+            <span class="ro-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><rect x="4.5" y="10" width="15" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>只读</span>
+          </div>
+        </div>
+
+        <section class="grid grid-12" id="history-summary" aria-label="历史概览"></section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>建议与快照时间线</h2>
+              <div class="hint">每条记录保留数据时间与质量；官方修正以 estimate → official / partial 标记。</div>
+            </div>
+            <span class="ro-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><rect x="4.5" y="10" width="15" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>只读</span>
+          </div>
+          <div class="timeline" id="timeline"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>交易记录</h2>
+              <div class="hint">建议执行写入 trades(source=advice)；回滚保留审计，不物理删除历史。</div>
+            </div>
+            <span class="q estimate">estimate / official</span>
+          </div>
+          <div class="trades-wrap" id="trades"></div>
+        </section>
+      </main>
+      <footer class="site-foot" id="site-footer"></footer>
+    </div>
+    <nav class="bottom-nav" id="bottom-nav" aria-label="移动端主导航"></nav>
+  </div>
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

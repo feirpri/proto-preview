@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>设置 · Musi 投资助手原型</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="settings">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h1>设置</h1>
+            <p class="lede">关键位、目标仓位与权重、提醒、数据源、token 与备份恢复入口。本页全部只读展示。</p>
+          </div>
+          <div class="head-side">
+            <span class="ro-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><rect x="4.5" y="10" width="15" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>只读</span>
+          </div>
+        </div>
+
+        <div class="settings-banner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          <div><b>只读展示：</b>所有设置项均不能在客户端修改。关键位、目标权重、提醒与数据源变更需通过 MCP 写入口提交，备份恢复需在服务端执行。</div>
+        </div>
+
+        <section class="grid grid-12 section">
+          <div class="card col-6">
+            <div class="card-head"><h3>关键位</h3><span class="sub">市场状态阈值</span></div>
+            <div class="card-pad setting-group" id="settings-levels"></div>
+          </div>
+          <div class="card col-6">
+            <div class="card-head"><h3>目标仓位与权重</h3><span class="sub">合计 72%</span></div>
+            <div class="card-pad setting-group" id="settings-weights"></div>
+          </div>
+        </section>
+
+        <section class="grid grid-12 section">
+          <div class="card col-6">
+            <div class="card-head"><h3>提醒</h3><span class="sub">只提醒，不执行</span></div>
+            <div class="card-pad setting-group" id="settings-reminders"></div>
+          </div>
+          <div class="card col-6">
+            <div class="card-head"><h3>数据源与 token</h3><span class="sub">只读状态</span></div>
+            <div class="card-pad setting-group" id="settings-sources"></div>
+          </div>
+        </section>
+
+        <section class="grid grid-12 section">
+          <div class="card col-12">
+            <div class="card-head"><h3>备份与恢复</h3><span class="sub">服务端执行</span></div>
+            <div class="card-pad setting-group" id="settings-backup"></div>
+          </div>
+        </section>
+
+        <div class="settings-banner" style="margin-top:16px;background:var(--surface-2);border-color:var(--border);color:var(--muted)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.2c0 4.3 2.9 7.7 7 9.8 4.1-2.1 7-5.5 7-9.8V6Z"/></svg>
+          <div>原型简化：本页仅展示字段形态与信息层级，未接入真实设置读写；开关为静态状态，不响应点击。</div>
+        </div>
+      </main>
+      <footer class="site-foot" id="site-footer"></footer>
+    </div>
+    <nav class="bottom-nav" id="bottom-nav" aria-label="移动端主导航"></nav>
+  </div>
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

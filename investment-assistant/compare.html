@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>对比 · Musi 投资助手原型</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="compare">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h1>对比</h1>
+            <p class="lede">实盘、AI 影子与沪深300 基准的三线对比。曲线以基点 100 归一化，区间可切换。</p>
+          </div>
+          <div class="head-side">
+            <span class="ro-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><rect x="4.5" y="10" width="15" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>只读</span>
+          </div>
+        </div>
+
+        <section class="section" style="margin-top:0">
+          <div class="section-head">
+            <div id="range-tabs"></div>
+            <span class="hint" id="compare-meta"></span>
+          </div>
+        </section>
+
+        <section class="card chart-card">
+          <div class="chart-top">
+            <div class="legend">
+              <span class="legend-item"><span class="legend-swatch" style="background:#2563eb"></span>实盘 <b id="lg-actual"></b></span>
+              <span class="legend-item"><span class="legend-swatch" style="background:#7c3aed"></span>AI 影子 <b id="lg-ai"></b></span>
+              <span class="legend-item"><span class="legend-swatch" style="background:#d97706"></span>沪深300 基准 <b id="lg-bench"></b></span>
+            </div>
+            <span class="q estimate">estimate 拼接</span>
+          </div>
+          <div class="chart-wrap" id="chart"></div>
+        </section>
+
+        <section class="grid grid-12 section" style="margin-top:14px" id="compare-metrics" aria-label="对比指标"></section>
+
+        <section class="grid grid-12 section">
+          <div class="card col-7">
+            <div class="card-head"><h3>指标明细</h3><span class="sub">区间内，按基点 100 计算</span></div>
+            <div class="card-pad" style="padding-top:8px">
+              <table class="metrics-table" id="compare-table"></table>
+            </div>
+          </div>
+          <div class="card col-5">
+            <div class="card-head"><h3>口径与提示</h3><span class="sub">只读</span></div>
+            <div class="card-pad">
+              <div class="deviation-list">
+                <div class="dev-item"><span class="bar"></span><div><div class="t">三组互不写入</div><div class="d">实盘只反映真实持仓行情；AI 影子严格执行每日建议（模拟）；基准组跟踪沪深300。</div></div></div>
+                <div class="dev-item warn"><span class="bar"></span><div><div class="t">估算与官方严格分离</div><div class="d">当前末端为 11-10 盘中 estimate，起算包含 11-07 official；修正后曲线会自动重算。</div></div></div>
+                <div class="dev-item"><span class="bar"></span><div><div class="t">超额收益口径</div><div class="d">超额 = 组累计收益 − 沪深300 累计收益；未扣费用，仅用于原型展示。</div></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="site-foot" id="site-footer"></footer>
+    </div>
+    <nav class="bottom-nav" id="bottom-nav" aria-label="移动端主导航"></nav>
+  </div>
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

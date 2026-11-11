@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>组合 · Musi 投资助手原型</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="portfolio">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h1>组合</h1>
+            <p class="lede">实盘 / AI 影子 / 沪深300 基准三组切换，查看持仓、现金、目标权重与实际权重偏离。客户端只读。</p>
+          </div>
+          <div class="head-side">
+            <span class="ro-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><rect x="4.5" y="10" width="15" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>只读</span>
+          </div>
+        </div>
+
+        <section class="section" style="margin-top:0">
+          <div class="section-head">
+            <div id="group-tabs"></div>
+            <span class="hint" id="group-note"></span>
+          </div>
+        </section>
+
+        <section class="grid grid-12" id="portfolio-stats" aria-label="组合总览"></section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>持仓与权重</h2>
+              <div class="hint">按总资产 67.9 万计；目标权重合计 72%，现金目标 28%。当前为 14:30 估算快照（执行前）。</div>
+            </div>
+            <span class="q estimate">estimate</span>
+          </div>
+          <div class="holdings" id="holdings"></div>
+        </section>
+
+        <section class="grid grid-12 section">
+          <div class="card col-7">
+            <div class="card-head"><h3>偏离提示</h3><span class="sub">只读建议</span></div>
+            <div class="card-pad"><div class="deviation-list" id="deviation-list"></div></div>
+          </div>
+          <div class="card col-5">
+            <div class="card-head"><h3>关键位</h3><span class="sub">震荡 · 盘中</span></div>
+            <div class="card-pad" id="portfolio-levels"></div>
+          </div>
+        </section>
+      </main>
+      <footer class="site-foot" id="site-footer"></footer>
+    </div>
+    <nav class="bottom-nav" id="bottom-nav" aria-label="移动端主导航"></nav>
+  </div>
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

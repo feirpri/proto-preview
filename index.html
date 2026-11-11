@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>原型预览 · Paperclip</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 48px 24px 64px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f6f7fb; color: #0f172a;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  header h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -0.02em; }
+  header p { margin: 0; color: #64748b; font-size: 14px; line-height: 1.6; }
+  .grid { display: grid; gap: 16px; margin-top: 32px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .card {
+    display: block; padding: 20px; border-radius: 14px; text-decoration: none;
+    background: #fff; border: 1px solid #e2e8f0; color: inherit;
+    transition: border-color .15s, box-shadow .15s, transform .15s;
+  }
+  .card:hover { border-color: #8b5cf6; box-shadow: 0 6px 20px rgba(139, 92, 246, .12); transform: translateY(-2px); }
+  .badge {
+    display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 12px;
+    background: #ede9fe; color: #6d28d9; margin-bottom: 12px;
+  }
+  .card h2 { margin: 0 0 6px; font-size: 17px; }
+  .card p { margin: 0; color: #64748b; font-size: 13px; line-height: 1.6; }
+  .path { display: block; margin-top: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #94a3b8; }
+  footer { margin-top: 40px; color: #94a3b8; font-size: 12px; line-height: 1.7; }
+  footer a { color: #6d28d9; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>原型预览</h1>
+    <p>每个项目一个目录，静态托管在 GitHub Pages。仅用于视觉与交互确认，不含生产代码、不接真实 API。</p>
+  </header>
+
+  <main class="grid">
+    <a class="card" href="./investment-assistant/">
+      <span class="badge">原型 v1</span>
+      <h2>投资助手</h2>
+      <p>PWA 五页（今日 / 组合 / 对比 / 历史 / 设置）+ Chrome 扩展 popup，只读静态原型。</p>
+      <span class="path">/investment-assistant/</span>
+    </a>
+  </main>
+
+  <footer>
+    模板：新项目在仓库根目录新建 <code>&lt;project-slug&gt;/</code>，放入 <code>index.html</code> 即可预览；<br>
+    项目页请勿放置真实密钥、个人账户或非公开数据。仓库：<a href="https://github.com/feirpri/proto-preview">feirpri/proto-preview</a>。
+  </footer>
+</div>
+</body>
+</html>
