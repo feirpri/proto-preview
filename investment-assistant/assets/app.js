@@ -1,9 +1,10 @@
-/* Musi 投资助手 · 静态原型交互与渲染（无构建链，原生 JS）· v6 */
+/* Musi 投资助手 · 静态原型交互与渲染（无构建链，原生 JS）· v7 */
 (function () {
   "use strict";
 
   var M = window.MOCK;
   if (!M) return;
+  if (window.MusiGate && !window.MusiGate.isAuthorized()) return;
 
   var ICONS = {
     home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/>',
@@ -345,6 +346,8 @@
   var TREND_KEYS = ["1w", "1m", "1y", "ytd", "3y", "5y"];
   var chartPeriods = {};
   var savedState = null;
+  var BASE_FUNDS = M.groups.actual.funds.map(function (f) { return Object.assign({}, f); });
+  var BASE_CASH = M.groups.actual.cash;
   var BASE_POSITIONS = {};
   var BASE_FUNDS = null;
   var BASE_CASH = 0;
@@ -608,17 +611,50 @@
     return auditOf().filter(function (a) { return a.code === code; });
   }
 
+  function round6(n) { return Math.round(n * 1000000) / 1000000; }
+  function round4(n) { return Math.round(n * 10000) / 10000; }
+  function money2s(n) {
+    if (!isFinite(n)) return "—";
+    return (n < 0 ? "−" : "") + "¥" + Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function fmtShares(n) {
+    if (!isFinite(n)) return "—";
+    return Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 6 });
+  }
+  function fmtSharesPlain(n) {
+    return String(round6(n));
+  }
+  function nowLocalInput() {
+    var d = new Date();
+    function p(v) { return String(v).padStart(2, "0"); }
+    return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + "T" + p(d.getHours()) + ":" + p(d.getMinutes());
+  }
+  function fmtAt(at) {
+    return String(at || "").replace("T", " ");
+  }
+  function eventKey(e) { return String(e.at || "") + "|" + String(e.seq == null ? 0 : e.seq).padStart(9, "0"); }
+  function sortEvents(events) {
+    return events.slice().sort(function (a, b) {
+      var ka = eventKey(a), kb = eventKey(b);
+      return ka < kb ? -1 : ka > kb ? 1 : 0;
+    });
+  }
+
   function readHomeState() {
     if (savedState) return savedState;
     var raw = null;
     try { raw = localStorage.getItem(HOME_STORE); } catch (e) { raw = null; }
     var st = null;
     try { st = raw ? JSON.parse(raw) : null; } catch (e) { st = null; }
-    savedState = st || {};
+    if (!st || typeof st !== "object") st = {};
+    if (!Array.isArray(st.events)) st.events = [];
+    if (typeof st.seq !== "number") st.seq = st.events.reduce(function (m, e) { return Math.max(m, Number(e.seq) || 0); }, 0);
+    savedState = st;
     return savedState;
   }
   function writeHomeState() {
     var st = readHomeState();
+    st.version = 7;
     st.open = openFund;
     st.periods = chartPeriods;
     st.scrollY = window.scrollY || 0;
@@ -639,6 +675,118 @@
     applyPortfolio();
     try { localStorage.removeItem(HOME_STORE); } catch (e) { /* ignore */ }
   }
+  function fundOfState(pf, code) {
+    if (!pf) return null;
+    return pf.map[code] || null;
+  }
+  function previewEvent(ev) {
+    var st = readHomeState();
+    var ins = Object.assign({}, ev);
+    ins.seq = (st.seq || 0) + 1;
+    var beforeEvents = st.events.filter(function (e) { return String(e.at) <= String(ev.at); });
+    var future = st.events.filter(function (e) { return String(e.at) > String(ev.at); });
+    var before = computeState(beforeEvents);
+    var afterAt = computeState(beforeEvents.concat([ins]));
+    var afterAll = computeState(st.events.concat([ins]));
+    return { ev: ins, before: before, afterAt: afterAt, afterAll: afterAll, future: future };
+  }
+  function decimalsOf(n) {
+    var s = String(n);
+    if (s.indexOf("e") >= 0) return 0;
+    var i = s.indexOf(".");
+    return i < 0 ? 0 : s.length - i - 1;
+  }
+  function validateEvent(ev, pv) {
+    var errs = [];
+    var before = pv.before, after = pv.afterAt;
+    var p = ev.code ? before.map[ev.code] : null;
+    if (!isFinite(Number(ev.shares)) && (ev.type === "buy" || ev.type === "sell" || ev.type === "add")) errs.push("请输入有效的份额。");
+    if (!isFinite(Number(ev.nav)) && (ev.type === "buy" || ev.type === "sell" || ev.type === "add" || ev.type === "edit" || ev.type === "clear")) errs.push("请输入有效的净值。");
+    if ((ev.type === "buy" || ev.type === "sell" || ev.type === "clear") && !(Number(ev.nav) > 0)) errs.push("成交净值必须大于 0。");
+    if ((ev.type === "buy" || ev.type === "sell" || ev.type === "add") && Number(ev.shares) < 0) errs.push("份额不能为负。");
+    if ((ev.type === "buy" || ev.type === "sell" || ev.type === "add") && decimalsOf(ev.shares) > 6) errs.push("份额最多 6 位小数。");
+    if (ev.amountText != null && decimalsOf(ev.amountText) > 2) errs.push("金额最多 2 位小数。");
+    if (ev.type === "sell" || ev.type === "clear") {
+      if (!p) errs.push("请选择要赎回/清仓的基金。");
+      else if (ev.type === "sell" && Number(ev.shares) > p.shares + 0.0000005) errs.push("赎回份额不能超过当前持有 " + fmtShares(p.shares) + " 份。");
+    }
+    if (ev.type === "add") {
+      if (!ev.code) errs.push("请输入基金代码。");
+      if (before.map[ev.code]) errs.push("基金代码 " + ev.code + " 已存在，不能重复。");
+      if (!ev.name) errs.push("请输入基金名称。");
+      if (!(Number(ev.nav) > 0)) errs.push("净值必须大于 0。");
+    }
+    if (ev.type === "edit") {
+      if (!p) errs.push("基金不存在，可能已被删除。");
+      if (!(Number(ev.nav) > 0)) errs.push("净值必须大于 0。");
+    }
+    if (ev.type === "delete" && !p) errs.push("基金不存在，可能已被删除。");
+    if (ev.type === "cash" && (!isFinite(Number(ev.cash)) || Number(ev.cash) < 0)) errs.push("现金不能为负。");
+    if (ev.type === "total") {
+      if (!isFinite(Number(ev.total)) || Number(ev.total) < 0) errs.push("总资产不能为负。");
+      else if (Number(ev.total) < before.holdings - 0.005) errs.push("总资产不能低于当前持仓市值 " + money2(before.holdings) + "（现金不能为负）。");
+    }
+    if ((ev.type === "buy" || ev.type === "add") && after.cash < -0.005) errs.push("现金不足，操作后现金将为 " + money2(after.cash) + "。");
+    if (ev.type === "sell" && after.cash < -0.005) errs.push("现金不能为负。");
+    var weightSum = 0;
+    after.funds.forEach(function (f) { weightSum += f.weight; });
+    if (weightSum > 1.000001) errs.push("操作后总权重为 " + pct(weightSum, 1) + "，不能超过 100%。");
+    if (after.total < 0) errs.push("总资产不能为负。");
+    return errs;
+  }
+  function eventLabel(type) {
+    return ({
+      buy: "申购/加仓", sell: "赎回/减仓", clear: "清仓", cash: "现金调整",
+      total: "总额校正", add: "新增基金", edit: "编辑基金", delete: "删除基金"
+    })[type] || type;
+  }
+  function auditFromPreview(ev, pv) {
+    var before = pv.before, after = pv.afterAt;
+    var bf = ev.code ? before.map[ev.code] : null;
+    var af = ev.code ? after.map[ev.code] : null;
+    var bits = [];
+    if (ev.code && (bf || af)) {
+      bits.push("份额 " + fmtShares(bf ? bf.shares : 0) + " → " + fmtShares(af ? af.shares : 0));
+      bits.push("市值 " + money2(bf ? bf.shares * bf.nav : 0) + " → " + money2(af ? af.shares * af.nav : 0));
+    }
+    if (ev.type === "cash" || ev.type === "total" || Math.abs(after.cash - before.cash) > 0.005) {
+      bits.push("现金 " + money2s(before.cash) + " → " + money2s(after.cash));
+    }
+    bits.push("总额 " + money2s(before.total) + " → " + money2s(after.total));
+    var name = ev.name || (af && af.name) || (bf && bf.name) || "组合";
+    return {
+      at: ev.at, time: fmtAt(ev.at), type: ev.type, label: eventLabel(ev.type),
+      code: ev.code || "", name: name, source: "网页",
+      text: bits.join(" · "),
+      before: { shares: bf ? bf.shares : null, cash: before.cash, total: before.total, holdings: before.holdings },
+      after: { shares: af ? af.shares : null, cash: after.cash, total: after.total, holdings: after.holdings },
+      futureCount: pv.future.length
+    };
+  }
+  function commitEvent(ev) {
+    if (window.MusiGate && !window.MusiGate.isAuthorized()) return null;
+    var pv = previewEvent(ev);
+    var errs = validateEvent(pv.ev, pv);
+    if (errs.length) return { error: errs[0], errors: errs, preview: pv };
+    var st = readHomeState();
+    st.events.push(pv.ev);
+    st.seq = pv.ev.seq;
+    savedState = st;
+    writeHomeState();
+    initPortfolio();
+    return { entry: auditFromPreview(pv.ev, pv), preview: pv, ev: pv.ev };
+  }
+  function undoLastEvent() {
+    var st = readHomeState();
+    if (!st.events.length) return null;
+    var removed = st.events.pop();
+    st.seq = st.events.reduce(function (m, e) { return Math.max(m, Number(e.seq) || 0); }, 0);
+    savedState = st;
+    writeHomeState();
+    initPortfolio();
+    return removed;
+  }
+
   function periodOf(code) {
     return chartPeriods[code] || TREND_DEFAULT;
   }
@@ -1050,12 +1198,13 @@
   function fundFacts(f) {
     var dev = f.weight - f.target;
     return '<div class="fund-facts">' +
+      fundFact("持有份额", fmtShares(f.shares)) +
+      fundFact("当前净值", f.nav.toFixed(4)) +
       fundFact("当前持仓市值", wan(f.amount)) +
       fundFact("当前权重", pct(f.weight, 1)) +
       fundFact("组合目标权重", pct(f.target, 1)) +
       fundFact("当前偏离", signedPp(dev), Math.abs(dev) >= 0.02 ? "warn" : "") +
       fundFact("持仓成本净值", f.costNav.toFixed(4)) +
-      fundFact("估算净值", f.estNav.toFixed(4)) +
       "</div>";
   }
 
@@ -1073,7 +1222,7 @@
   function adjustMetrics(f, targetAmount) {
     var total = M.groups.actual.total;
     targetAmount = round2(targetAmount);
-    var targetWeight = targetAmount / total;
+    var targetWeight = total > 0 ? targetAmount / total : 0;
     return {
       targetAmount: targetAmount,
       targetWeight: targetWeight,
@@ -1116,7 +1265,7 @@
       }).join("")
       : '<li class="pa-audit-empty">暂无本地调整记录。</li>';
     return '<div class="position-adjust" data-pa="' + f.code + '">' +
-      '<div class="pa-head"><div class="pa-title"><b>仓位调整</b><span class="pa-demo-chip">' + icon("warning") + M.meta.writeDemo + "</span></div>" +
+      '<div class="pa-head"><div class="pa-title"><b>目标权重调整</b><span class="pa-demo-chip">' + icon("warning") + M.meta.writeDemo + "</span></div>" +
       '<span class="pa-status tabular" data-pa-status tabindex="-1">' + paStatusText(f, m) + "</span></div>" +
       '<div class="pa-targets">' +
       paTarget("当前权重 → 目标权重", pct(f.weight, 1) + " → " + pct(m.targetWeight, 1), "weight") +
@@ -1130,7 +1279,6 @@
       '<label class="pa-field"><span>目标权重</span><span class="pa-inputwrap"><input type="number" name="weight" inputmode="decimal" min="0" max="100" step="0.1" value="' + (m.targetWeight * 100).toFixed(2) + '" aria-label="目标权重百分比"><i>%</i></span></label>' +
       '<label class="pa-field"><span>调整金额</span><span class="pa-inputwrap"><input type="number" name="amount" inputmode="numeric" step="100" value="' + m.delta + '" aria-label="调整金额元"><i>元</i></span></label>' +
       '<button class="pa-save" type="submit">保存调整（演示）</button>' +
-      '<button class="pa-reset" type="button" data-pa-reset="' + f.code + '">恢复此基金</button>' +
       "</div>" +
       '<p class="pa-error" data-pa-error role="alert"' + (err ? "" : " hidden") + ">" + err + "</p>" +
       "</form>" +
@@ -1207,11 +1355,13 @@
     var amount = tr.querySelector(".fund-amount-cell");
     var weight = tr.querySelector(".fund-weight-cell");
     var pnl = tr.querySelector(".fund-pnl-cell");
+    var unit = tr.querySelector(".fund-unit-cell");
     var wm = tr.querySelector(".fund-weight-mobile");
     var tm = tr.querySelector(".fund-target-mobile");
     var pnlValue = estPnlOf(f);
     if (amount) amount.textContent = wan(f.amount);
     if (weight) weight.textContent = pct(f.weight, 1);
+    if (unit) unit.innerHTML = '<b class="tabular">' + fmtShares(f.shares) + '</b> 份<small class="tabular">净值 ' + nav4(f.nav) + "</small>";
     if (pnl) {
       pnl.textContent = signedMoney(pnlValue);
       pnl.className = "r tabular fund-pnl-cell " + cls(pnlValue);
@@ -1222,7 +1372,7 @@
   function rerenderAdviceRow(f) {
     var row = document.getElementById("advice-" + f.code);
     if (!row) return;
-    row.innerHTML = '<td colspan="6">' + advicePanel(f) + "</td>";
+    row.innerHTML = '<td colspan="7">' + advicePanel(f) + "</td>";
     var status = row.querySelector("[data-pa-status]");
     if (status) status.focus();
   }
@@ -1299,8 +1449,8 @@
   function renderHomeAudit() {
     var el = document.getElementById("home-audit-body");
     if (!el) return;
-    var audit = auditOf().slice().reverse();
-    var count = audit.length;
+    var events = eventsOf().slice().reverse();
+    var count = events.length;
     var rows = count
       ? audit.map(auditRowHTML).join("")
       : '<li class="audit-empty">暂无本地调整记录。演示写入保存在本机 localStorage，可随时恢复演示初始值。</li>';
@@ -1748,7 +1898,9 @@
       (f.stale ? f.estTime + "（stale）" : updateTime()) + "</span></div>" +
       '<div class="chart-stack">' + intradayBlock(f) + trendBlock(f) + "</div>" +
       '<div class="advice-panel-foot">' + icon("lock") + "<span>仓位调整仅演示写入本地；真实执行仍仅通过 MCP 写入口。</span>" +
-      '<a class="text-link" href="advice.html#fund-' + f.code + '">完整明细' + icon("arrow") + "</a></div>" +
+      (M.advice.rows.some(function (r) { return r.code === f.code; })
+        ? '<a class="text-link" href="advice.html#fund-' + f.code + '">完整明细' + icon("arrow") + "</a>"
+        : '<span class="text-link muted">该基金暂无每日建议</span>') + "</div>" +
       "</div>"
     );
   }
@@ -1768,27 +1920,58 @@
       '<span class="fund-name">' + f.name + "</span>" +
       '<span class="fund-sub"><span class="fund-code">' + f.code + '</span><span class="fund-sep">·</span>' + groupTag("actual") +
       '<span class="fund-weight-mobile">权重 ' + pct(f.weight, 1) + '</span>' +
-      '<span class="fund-target-mobile">目标 ' + pct(f.target, 1) + '</span><span class="fund-quality-mobile">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</span></span>" +
+      '<span class="fund-target-mobile">目标 ' + pct(f.target, 1) + '</span>' +
+      '<span class="fund-quality-mobile">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</span>" +
+      '<span class="fund-quality-desktop">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</span></span>" +
       "</span>" +
       "</button>" +
       staleLine +
       "</th>" +
+      '<td class="r tabular fund-unit-cell" data-label="份额 / 净值"><b class="tabular">' + fmtShares(f.shares) + '</b> 份<small class="tabular">净值 ' + nav4(f.nav) + "</small></td>" +
       '<td class="r tabular fund-amount-cell" data-label="当前持仓市值">' + wan(f.amount) + "</td>" +
       '<td class="r tabular fund-weight-cell" data-label="当前权重">' + pct(f.weight, 1) + "</td>" +
       '<td class="r tabular fund-pct-cell ' + cls(f.estPct) + '" data-label="估算涨跌幅">' + signedPct(f.estPct) + "</td>" +
       '<td class="r tabular fund-pnl-cell ' + cls(estPnlOf(f)) + '" data-label="今日预估收益">' + signedMoney(estPnlOf(f)) + "</td>" +
-      '<td class="r fund-quality-cell">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</td>" +
+      '<td class="r fund-actions-cell" data-label="操作"><div class="fund-actions">' +
+      '<button class="fa-btn" type="button" data-edit="' + f.code + '" aria-label="编辑 ' + f.name + '">编辑</button>' +
+      '<button class="fa-btn danger" type="button" data-delete="' + f.code + '" aria-label="删除 ' + f.name + '">删除</button>' +
+      "</div></td>" +
       "</tr>" +
       '<tr class="fund-advice-row" id="' + id + '" hidden>' +
-      '<td colspan="6">' + advicePanel(f) + "</td>" +
+      '<td colspan="7">' + advicePanel(f) + "</td>" +
       "</tr>"
     );
   }
 
+  function renderPortfolioToolbar() {
+    var el = document.getElementById("pf-toolbar");
+    if (!el) return;
+    var g = M.groups.actual;
+    var weight = g.total > 0 ? g.holdings / g.total : 0;
+    el.innerHTML =
+      '<div class="pf-stats">' +
+      '<div class="pf-stat"><span>持仓市值</span><b class="tabular">' + wan2(g.holdings) + "</b></div>" +
+      '<div class="pf-stat"><span>现金</span><b class="tabular">' + money2(g.cash) + "</b></div>" +
+      '<div class="pf-stat"><span>总资产</span><b class="tabular">' + wan2(g.total) + "</b></div>" +
+      '<div class="pf-stat"><span>总权重</span><b class="tabular">' + pct(weight, 1) + "</b></div>" +
+      '<div class="pf-stat"><span>基金数</span><b class="tabular">' + g.funds.length + " 只</b></div>" +
+      "</div>" +
+      '<div class="pf-ops" role="group" aria-label="实盘记账操作">' +
+      '<button class="pf-btn primary" type="button" data-op="buy">申购 / 加仓</button>' +
+      '<button class="pf-btn" type="button" data-op="sell">赎回 / 减仓</button>' +
+      '<button class="pf-btn" type="button" data-op="clear">清仓</button>' +
+      '<button class="pf-btn" type="button" data-op="add">新增基金</button>' +
+      '<button class="pf-btn" type="button" data-op="cash">现金调整</button>' +
+      '<button class="pf-btn" type="button" data-op="total">总额校正</button>' +
+      '<button class="pf-btn ghost" type="button" data-write-reset>恢复演示初始值</button>' +
+      "</div>" +
+      '<p class="pf-note">' + icon("warning") + "<span>" + M.meta.writeDemo + " · 按份额记账，金额 = 份额 × 净值；可选生效时间，历史时间会重算后续操作。原型模拟门禁，真实 token 由服务端生成。</span></p>";
+  }
+
   function renderHomeFunds() {
-    applySavedState();
     var body = document.getElementById("fund-body");
     if (body) body.innerHTML = M.groups.actual.funds.map(fundRow).join("");
+    renderPortfolioToolbar();
     openFund = null;
     var saved = readHomeState();
     if (saved && saved.open && document.getElementById("advice-" + saved.open)) {
@@ -1803,12 +1986,279 @@
     applyPortfolio();
     var body = document.getElementById("fund-body");
     if (body) body.innerHTML = M.groups.actual.funds.map(fundRow).join("");
+    renderPortfolioToolbar();
     openFund = null;
     savedState = {};
     try { localStorage.removeItem(HOME_STORE); } catch (e) { /* ignore */ }
     renderLedger();
   }
 
+
+  /* ---------------- v7：实盘记账确认弹层 ---------------- */
+  var opCtx = { mode: null, entry: "shares", returnFocus: null };
+
+  function opFundOptions(selected, includeZero) {
+    return M.groups.actual.funds.filter(function (f) { return includeZero || f.shares > 0.0000005; }).map(function (f) {
+      return '<option value="' + f.code + '"' + (f.code === selected ? " selected" : "") + ">" + f.name + "（" + f.code + "）· 持有 " + fmtShares(f.shares) + " 份</option>";
+    }).join("");
+  }
+  function opField(label, inner, clsName) {
+    return '<label class="op-field ' + (clsName || "") + '"><span>' + label + "</span>" + inner + "</label>";
+  }
+  function opModalHTML(mode, code) {
+    var isTrade = mode === "buy" || mode === "sell";
+    var isFund = isTrade || mode === "clear" || mode === "delete";
+    var f = code ? fundByCode(code) : (M.groups.actual.funds[0] || null);
+    var at = nowLocalInput();
+    var title = ({
+      buy: "申购 / 加仓", sell: "赎回 / 减仓", clear: "清仓", add: "新增基金",
+      edit: "编辑基金", delete: "删除基金", cash: "现金调整", total: "总额校正"
+    })[mode] || "实盘操作";
+    var body = "";
+    if (isFund) {
+      body += '<div class="op-row">' +
+        '<label class="op-field"><span>基金</span><select name="fund"' + (mode === "edit" || mode === "delete" ? " disabled" : "") + ">" +
+        opFundOptions(code || (f && f.code), mode === "buy" || mode === "add") + "</select></label>" +
+        "</div>";
+    }
+    if (isTrade) {
+      body += '<fieldset class="op-entry"><legend>录入方式</legend>' +
+        '<label><input type="radio" name="entry" value="shares" checked> 按份额</label>' +
+        '<label><input type="radio" name="entry" value="amount"> 按金额（自动反算份额）</label>' +
+        "</fieldset>" +
+        '<div class="op-grid">' +
+        opField("份额", '<span class="op-input"><input name="shares" type="number" inputmode="decimal" step="0.000001" min="0" value=""><i>份</i></span>') +
+        opField("金额", '<span class="op-input"><input name="amount" type="number" inputmode="decimal" step="0.01" min="0" value=""><i>元</i></span>') +
+        opField("成交净值", '<span class="op-input"><input name="nav" type="number" inputmode="decimal" step="0.0001" min="0" value="' + (f ? f.nav.toFixed(4) : "1.0000") + '"></span>') +
+        opField("生效时间", '<input name="at" type="datetime-local" step="60" value="' + at + '">') +
+        "</div>";
+    } else if (mode === "clear") {
+      body += '<div class="op-grid">' +
+        opField("成交净值", '<span class="op-input"><input name="nav" type="number" inputmode="decimal" step="0.0001" min="0" value="' + (f ? f.nav.toFixed(4) : "1.0000") + '"></span>') +
+        opField("生效时间", '<input name="at" type="datetime-local" step="60" value="' + at + '">') +
+        "</div>";
+    } else if (mode === "cash" || mode === "total") {
+      var val = mode === "cash" ? M.groups.actual.cash : M.groups.actual.total;
+      body += '<div class="op-grid">' +
+        opField(mode === "cash" ? "现金（元）" : "总资产（元）", '<span class="op-input"><input name="value" type="number" inputmode="decimal" step="0.01" min="0" value="' + round2(val) + '"><i>元</i></span>') +
+        opField("生效时间", '<input name="at" type="datetime-local" step="60" value="' + at + '">') +
+        "</div>" +
+        '<p class="op-hint">' + (mode === "cash" ? "现金调整只改现金，总资产 = 持仓市值 + 现金。" : "总额校正会反推现金 = 总资产 − 持仓市值，现金不能为负。") + "</p>";
+    } else if (mode === "add" || mode === "edit") {
+      body += '<div class="op-grid">' +
+        opField("基金代码", '<input name="code" type="text" inputmode="numeric" maxlength="12" value="' + (mode === "edit" && f ? f.code : "") + '"' + (mode === "edit" ? " readonly" : "") + ">") +
+        opField("基金名称", '<input name="name" type="text" maxlength="40" value="' + (mode === "edit" && f ? f.name : "") + '">') +
+        opField("份额", '<span class="op-input"><input name="shares" type="number" inputmode="decimal" step="0.000001" min="0" value="' + (mode === "edit" && f ? fmtSharesPlain(f.shares) : "0") + '"><i>份</i></span>') +
+        opField("净值 / 现价", '<input name="nav" type="number" inputmode="decimal" step="0.0001" min="0" value="' + (mode === "edit" && f ? f.nav.toFixed(4) : "1.0000") + '">') +
+        opField("持仓成本净值", '<input name="costNav" type="number" inputmode="decimal" step="0.0001" min="0" value="' + (mode === "edit" && f ? f.costNav.toFixed(4) : "1.0000") + '">') +
+        opField("目标权重（%）", '<input name="target" type="number" inputmode="decimal" step="0.1" min="0" max="100" value="' + (mode === "edit" && f ? (f.target * 100).toFixed(1) : "0") + '">') +
+        opField("生效时间", '<input name="at" type="datetime-local" step="60" value="' + at + '">') +
+        "</div>" +
+        '<p class="op-hint">' + (mode === "add" ? "新增持仓按「份额 × 净值」从现金扣减；仅新增代码与名称时可将份额填 0。" : "编辑为数据校正：现金不变，持仓市值与总资产随份额/净值变化。基金代码不可修改。") + "</p>";
+    } else if (mode === "delete") {
+      body += '<p class="op-hint warning">删除为数据校正：不产生卖出回款，现金不变，总资产减少该基金市值。若要卖出请使用「清仓」。</p>' +
+        '<div class="op-grid">' + opField("生效时间", '<input name="at" type="datetime-local" step="60" value="' + at + '">') + "</div>";
+    }
+    return '<div class="op-card" role="dialog" aria-modal="true" aria-labelledby="op-title">' +
+      '<div class="op-head"><div><h2 id="op-title">' + title + '</h2><p>确认前会展示受影响行的「前 → 后」对照；保存后仅写入本机 localStorage。</p></div>' +
+      '<button class="op-close" type="button" data-op-cancel aria-label="关闭">×</button></div>' +
+      '<form class="op-form" data-op-form novalidate>' + body +
+      '<div class="op-preview" data-op-preview aria-live="polite"></div>' +
+      '<p class="op-error" data-op-error role="alert" hidden></p>' +
+      '<div class="op-actions"><button type="button" class="op-btn" data-op-cancel>取消</button>' +
+      '<button type="submit" class="op-btn primary" data-op-save>确认写入（演示）</button></div>' +
+      "</form>" +
+      '<p class="op-foot">' + M.meta.writeDemo + " · 原型模拟门禁，真实 token 由服务端生成。</p>" +
+      "</div>";
+  }
+
+  function ensureOpModal() {
+    var host = document.getElementById("op-modal");
+    if (!host) {
+      host = document.createElement("div");
+      host.id = "op-modal";
+      host.className = "op-overlay";
+      host.hidden = true;
+      document.body.appendChild(host);
+    }
+    return host;
+  }
+  function openOpModal(mode, code) {
+    opCtx.mode = mode;
+    opCtx.entry = "shares";
+    opCtx.returnFocus = document.activeElement;
+    var host = ensureOpModal();
+    host.innerHTML = opModalHTML(mode, code);
+    host.hidden = false;
+    host.classList.add("open");
+    document.body.classList.add("op-open");
+    host.onclick = function (e) { if (e.target === host) closeOpModal(); };
+    var form = host.querySelector("[data-op-form]");
+    form.addEventListener("input", onOpInput);
+    form.addEventListener("change", onOpInput);
+    form.addEventListener("submit", onOpSubmit);
+    host.querySelectorAll("[data-op-cancel]").forEach(function (b) {
+      b.addEventListener("click", closeOpModal);
+    });
+    syncOpFields();
+    renderOpPreview();
+    var first = form.querySelector("input:not([readonly]), select:not([disabled])");
+    if (first) setTimeout(function () { try { first.focus(); } catch (e) { /* ignore */ } }, 30);
+  }
+  function closeOpModal() {
+    var host = document.getElementById("op-modal");
+    if (!host) return;
+    host.hidden = true;
+    host.classList.remove("open");
+    host.innerHTML = "";
+    document.body.classList.remove("op-open");
+    if (opCtx.returnFocus && opCtx.returnFocus.focus) {
+      try { opCtx.returnFocus.focus(); } catch (e) { /* ignore */ }
+    }
+  }
+  function opForm() { return document.querySelector("[data-op-form]"); }
+  function opVal(name) {
+    var form = opForm();
+    if (!form) return "";
+    var el = form.querySelector('[name="' + name + '"]');
+    return el ? el.value : "";
+  }
+  function onOpInput(e) {
+    var name = e.target && e.target.name;
+    if (name === "entry") opCtx.entry = e.target.value;
+    if (name === "fund" && (opCtx.mode === "buy" || opCtx.mode === "sell" || opCtx.mode === "clear")) {
+      var nf = fundByCode(e.target.value);
+      var navEl = opForm() && opForm().querySelector('[name="nav"]');
+      if (nf && navEl) navEl.value = nf.nav.toFixed(4);
+    }
+    if (opCtx.mode === "buy" || opCtx.mode === "sell") {
+      if (name === "shares") opCtx.entry = "shares";
+      if (name === "amount") opCtx.entry = "amount";
+      syncOpFields(name);
+    }
+    renderOpPreview();
+  }
+  function syncOpFields(changed) {
+    var form = opForm();
+    if (!form) return;
+    if (opCtx.mode !== "buy" && opCtx.mode !== "sell") return;
+    var sharesEl = form.querySelector('[name="shares"]');
+    var amountEl = form.querySelector('[name="amount"]');
+    var navEl = form.querySelector('[name="nav"]');
+    var nav = parseFloat(navEl && navEl.value);
+    if (!isFinite(nav) || nav <= 0) return;
+    if (opCtx.entry === "amount") {
+      var amount = parseFloat(amountEl.value);
+      if (isFinite(amount)) sharesEl.value = (round6(amount / nav)).toFixed(6);
+    } else {
+      var shares = parseFloat(sharesEl.value);
+      if (isFinite(shares)) amountEl.value = round2(shares * nav).toFixed(2);
+    }
+    var radios = form.querySelectorAll('[name="entry"]');
+    Array.prototype.forEach.call(radios, function (r) { r.checked = r.value === opCtx.entry; });
+  }
+  function formToEvent() {
+    var form = opForm();
+    if (!form) return null;
+    var at = opVal("at") || nowLocalInput();
+    var mode = opCtx.mode;
+    if (mode === "buy" || mode === "sell") {
+      var code = opVal("fund");
+      var nav = parseFloat(opVal("nav"));
+      var shares, amountText;
+      if (opCtx.entry === "amount") {
+        var amountRaw = parseFloat(opVal("amount"));
+        shares = isFinite(amountRaw) && nav > 0 ? round6(amountRaw / nav) : NaN;
+        amountText = opVal("amount");
+      } else {
+        shares = parseFloat(opVal("shares"));
+        amountText = isFinite(shares) && nav > 0 ? round2(shares * nav).toFixed(2) : "";
+      }
+      return { type: mode, code: code, shares: shares, nav: nav, at: at, source: "网页",
+        amountText: amountText, note: mode === "buy" ? "申购/加仓" : "赎回/减仓" };
+    }
+    if (mode === "clear") return { type: "clear", code: opVal("fund"), nav: parseFloat(opVal("nav")), at: at, source: "网页", note: "清仓" };
+    if (mode === "delete") return { type: "delete", code: opVal("fund"), at: at, source: "网页", note: "删除基金" };
+    if (mode === "cash") return { type: "cash", cash: parseFloat(opVal("value")), at: at, source: "网页", note: "现金调整" };
+    if (mode === "total") return { type: "total", total: parseFloat(opVal("value")), at: at, source: "网页", note: "总额校正" };
+    if (mode === "add" || mode === "edit") {
+      return {
+        type: mode, code: opVal("code").trim(), name: opVal("name").trim(),
+        shares: parseFloat(opVal("shares")), nav: parseFloat(opVal("nav")),
+        costNav: parseFloat(opVal("costNav")), target: (parseFloat(opVal("target")) || 0) / 100,
+        at: at, source: "网页", note: mode === "add" ? "新增基金" : "编辑基金"
+      };
+    }
+    return null;
+  }
+  function diffCell(before, after, fmt) {
+    var b = fmt(before), a = fmt(after);
+    var c = before === after ? "" : after > before ? "up" : "down";
+    return { b: b, a: a, cls: c, changed: before !== after };
+  }
+  function renderOpPreview() {
+    var form = opForm();
+    if (!form) return;
+    var prev = form.querySelector("[data-op-preview]");
+    var errEl = form.querySelector("[data-op-error]");
+    var save = form.querySelector("[data-op-save]");
+    var ev = formToEvent();
+    if (!ev || !prev) return;
+    var pv = previewEvent(ev);
+    var errs = validateEvent(pv.ev, pv);
+    var bf = ev.code ? pv.before.map[ev.code] : null;
+    var af = ev.code ? pv.afterAt.map[ev.code] : null;
+    var fundRows = "";
+    var duplicateAdd = ev.type === "add" && !!pv.before.map[ev.code];
+    if (ev.code && !duplicateAdd) {
+      var rows = [
+        ["基金份额", bf ? bf.shares : 0, af ? af.shares : 0, fmtShares],
+        ["单位成本", bf ? bf.costNav : 0, af ? af.costNav : 0, function (v) { return Number(v).toFixed(4); }],
+        ["持仓市值", bf ? bf.shares * bf.nav : 0, af ? af.shares * af.nav : 0, money2],
+        ["权重", bf && pv.before.total > 0 ? bf.shares * bf.nav / pv.before.total : 0, af && pv.afterAt.total > 0 ? af.shares * af.nav / pv.afterAt.total : 0, function (v) { return pct(v, 2); }]
+      ];
+      fundRows = rows.map(function (r) {
+        var d = diffCell(r[1], r[2], r[3]);
+        return "<tr" + (d.changed ? ' class="changed"' : "") + "><th>" + r[0] + '</th><td class="tabular">' + d.b + '</td><td class="tabular ' + d.cls + '">' + d.a + "</td></tr>";
+      }).join("");
+    } else if (duplicateAdd) {
+      fundRows = '<tr><th>基金代码</th><td class="tabular">' + ev.code + '</td><td class="tabular">已存在，不能重复</td></tr>';
+    }
+    var cashD = diffCell(pv.before.cash, pv.afterAt.cash, money2s);
+    var totalD = diffCell(pv.before.total, pv.afterAt.total, money2s);
+    var wD = diffCell(pv.before.total > 0 ? pv.before.holdings / pv.before.total : 0, pv.afterAt.total > 0 ? pv.afterAt.holdings / pv.afterAt.total : 0, function (v) { return pct(v, 2); });
+    prev.innerHTML = '<div class="op-preview-head"><b>操作前 → 操作后</b><span>' + eventLabel(ev.type) + (af ? " · " + af.name : "") + " · 生效 " + fmtAt(ev.at) + "</span></div>" +
+      '<div class="op-diff-wrap"><table class="op-diff"><caption class="sr-only">受影响行操作前与操作后对照</caption>' +
+      '<thead><tr><th>项目</th><th>操作前</th><th>操作后</th></tr></thead><tbody>' + fundRows +
+      '<tr' + (cashD.changed ? ' class="changed"' : "") + '><th>现金</th><td class="tabular">' + cashD.b + '</td><td class="tabular ' + cashD.cls + '">' + cashD.a + "</td></tr>" +
+      '<tr' + (totalD.changed ? ' class="changed"' : "") + '><th>总资产</th><td class="tabular">' + totalD.b + '</td><td class="tabular ' + totalD.cls + '">' + totalD.a + "</td></tr>" +
+      '<tr' + (wD.changed ? ' class="changed"' : "") + '><th>总权重</th><td class="tabular">' + wD.b + '</td><td class="tabular ' + wD.cls + '">' + wD.a + "</td></tr>" +
+      "</tbody></table></div>" +
+      (pv.future.length
+        ? '<p class="op-recalc">' + icon("warning") + "<span>生效时间早于 " + pv.future.length + " 条历史操作，保存后将重算后续 " + pv.future.length + " 条；相关收益与图表会随之变化。</span></p>"
+        : '<p class="op-ok">' + icon("check") + "<span>将写入本地审计，可撤销上一笔或恢复演示初始值。</span></p>") +
+      '<p class="op-final">保存后当前组合：总资产 ' + money2s(pv.afterAll.total) + " · 现金 " + money2s(pv.afterAll.cash) + " · " + pv.afterAll.funds.length + " 只基金。</p>";
+    if (errEl) {
+      errEl.textContent = errs.join(" ");
+      errEl.hidden = errs.length === 0;
+    }
+    if (save) save.disabled = errs.length > 0;
+  }
+  function onOpSubmit(e) {
+    e.preventDefault();
+    var ev = formToEvent();
+    if (!ev) return;
+    var res = commitEvent(ev);
+    if (!res || res.error) {
+      var errEl = document.querySelector("[data-op-error]");
+      if (errEl) { errEl.textContent = (res && res.error) || "保存失败，请检查输入。"; errEl.hidden = false; }
+      return;
+    }
+    closeOpModal();
+    renderAllFundsKeepOpen();
+    renderHomeAudit();
+    showWriteToast("已保存演示写入 · " + eventLabel(ev.type) + " · " + (res.entry.name || "组合"), res.entry);
+  }
   function setFundOpen(code, open) {
     var btn = document.querySelector('[data-expand="' + code + '"]');
     var row = document.getElementById("advice-" + code);
@@ -1847,12 +2297,12 @@
       qBadge("official", "official · 官方净值到齐") + qBadge("estimate", "estimate · 盘中估算") + qBadge("partial", "partial · 部分到齐") + qBadge("stale", "stale · 数据延迟") +
       "</div>" +
       '<div class="realtime-note">' + icon("database") +
-      "<div><b>持仓口径：</b>首页以当前持仓市值与当前权重为主，估算净值降为展开区次要信息；今日预估收益按当前持仓计算，非官方净值；晚间 21:30 后按官方净值修正。" + rt.staleNote +
+      "<div><b>持仓口径：</b>首页以份额 × 净值的当前持仓市值与当前权重为主，展开区展示持有份额、单位成本、当前净值；今日预估收益按当前持仓计算，非官方净值；晚间 21:30 后按官方净值修正。" + rt.staleNote +
       "<br><b>估值与 PE：</b>指数 PE-TTM 与近 10 年历史分位数为构造的演示值，生产环境接口与授权待数据调研任务确认。" +
       "<br><b>趋势图：</b>当日分时与近一周/一月/一年/今年/三年/五年净值为演示序列，今日估算与持仓成本以虚线标示；生产可用性与历史覆盖待确认，不代表已接入稳定接口。" +
       "<br><b>刷新：</b>进入页面自动刷新一次，也可点击页头「刷新估值」手动刷新；刷新后保留展开行、图表周期与滚动位置。" + rt.demoNote + "数据源 " + rt.source + "。" +
       "<br><b>建议：</b>每日 14:30 生成逐基金建议，首页点击基金名称展开，完整明细见「建议」页；建议只读，真实执行仅通过 MCP 写入口。" +
-      "<br><b>演示写入：</b>" + M.meta.writeDemo + "。调整后目标值按估算净值折算并保留两位小数；网页端输入会校验非负、可用现金/份额、总权重 ≤100% 与最小变动单位。" + M.meta.writeNote +
+      "<br><b>演示写入：</b>" + M.meta.writeDemo + "。持仓可新增/编辑/删除，支持按份额申购、赎回、清仓、加减仓、现金与总额校正；金额 = 份额 × 净值，可双向折算。每笔可选生效时间并展示操作前/后对照；历史时间会重算后续 N 条。输入校验非负、可用现金/份额、总权重 ≤100%、份额 ≤6 位小数、金额 2 位小数与基金代码不可重复。" + M.meta.writeNote +
       "</div></div>" +
       '<div class="risk-note">' + icon("warning") + "<span>估算可能被官方净值修正；AI 影子组与沪深300 基准组均为模拟，不涉及真实资金。" + M.meta.disclaimer + "</span></div>" +
       "</div>"
@@ -1977,6 +2427,11 @@
       if (f) saveAdjust(f);
     });
     document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && document.getElementById("op-modal") && !document.getElementById("op-modal").hidden) {
+        e.preventDefault();
+        closeOpModal();
+        return;
+      }
       if (e.key === "Escape" && zoomState.open) {
         e.preventDefault();
         closeZoom();
@@ -2510,7 +2965,7 @@
       '<div class="ext-wrap"><div class="ext-icon">M</div><span class="ext-badge">' + signedPct(sh.pct) + "</span></div>" +
       "</div>" +
       '<div class="popup-panel">' +
-      '<div class="popup-head"><div class="popup-brand"><div class="brand-mark">M</div><div><div class="brand-name">Musi 投资助手</div><div class="brand-sub">' + M.meta.asof + " · " + M.meta.timezone + '</div></div></div><span class="ro-chip">' + icon("lock") + "只读</span></div>" +
+      '<div class="popup-head"><div class="popup-brand"><div class="brand-mark">M</div><div><div class="brand-name">Musi 投资助手</div><div class="brand-sub">' + M.meta.asof + " · " + M.meta.timezone + '</div></div></div><div class="popup-head-actions"><span class="ro-chip">' + icon("lock") + '只读</span><button class="popup-logout" type="button" data-logout>退出</button></div></div>' +
       '<div class="popup-data"><span class="dot live"></span>本次更新 <b>' + M.meta.realtime.calcTime + "</b>" + qBadge("estimate", "estimate") + "</div>" +
 
       '<div class="popup-block"><div class="popup-block-head"><span>大盘指数</span><span class="popup-ud"><span class="ud-swatch up"></span>涨 <span class="ud-swatch down"></span>跌</span></div>' +
@@ -2606,6 +3061,7 @@
 
   function bootApp() {
     var page = document.body.getAttribute("data-page");
+    initPortfolio();
     if (page !== "popup") mountShell(page);
     if (PAGES[page]) PAGES[page]();
     if (page === "compare") {

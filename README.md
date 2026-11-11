@@ -34,7 +34,7 @@ proto-preview/
 
 ## 约束
 
-- 只放**只读静态原型**：不含生产代码、不接真实 API、不写入任何业务数据。
+- 只放**静态原型**：不含生产代码、不接真实 API、不写入任何业务数据；v7 的实盘编辑仅写入浏览器 localStorage，token 门禁仅为交互演示。
 - 不放真实密钥、个人账户、持仓明细等敏感信息；本仓库会公开托管。
 - 原型中的数字均为演示数据，不构成投资建议。
 
@@ -57,9 +57,14 @@ v6 状态截图（保留）：
 
 | 状态 | 桌面 | 移动 |
 |---|---|---|
-| 调整后目标值（展开区） | [v6-adjust-1440](./investment-assistant/screenshots/v6-adjust-1440.png) | [v6-adjust-390](./investment-assistant/screenshots/v6-adjust-390.png) |
-| 图表放大视图 | [v6-zoom-1440](./investment-assistant/screenshots/v6-zoom-1440.png) | [v6-zoom-390](./investment-assistant/screenshots/v6-zoom-390.png) |
-| 网页端模拟写入态（含本地审计） | [v6-write-1440](./investment-assistant/screenshots/v6-write-1440.png) | [v6-write-390](./investment-assistant/screenshots/v6-write-390.png) |
+| Token 门禁（无 token 只能停留输入页） | [v7-gate-1440](./investment-assistant/screenshots/v7-gate-1440.png) | [v7-gate-390](./investment-assistant/screenshots/v7-gate-390.png) |
+| 编辑基金（全量实盘编辑） | [v7-edit-1440](./investment-assistant/screenshots/v7-edit-1440.png) | [v7-edit-390](./investment-assistant/screenshots/v7-edit-390.png) |
+| 按份额操作（金额自动折算） | [v7-shares-1440](./investment-assistant/screenshots/v7-shares-1440.png) | [v7-shares-390](./investment-assistant/screenshots/v7-shares-390.png) |
+| 操作前/后对照 + 历史重算提示 | [v7-diff-1440](./investment-assistant/screenshots/v7-diff-1440.png) | [v7-diff-390](./investment-assistant/screenshots/v7-diff-390.png) |
+| 本地审计（时间/类型/基金/前→后/来源） | [v7-history-1440](./investment-assistant/screenshots/v7-history-1440.png) | [v7-history-390](./investment-assistant/screenshots/v7-history-390.png) |
+| 调整后目标值（v6 保留） | [v6-adjust-1440](./investment-assistant/screenshots/v6-adjust-1440.png) | [v6-adjust-390](./investment-assistant/screenshots/v6-adjust-390.png) |
+| 图表放大视图（v6 保留） | [v6-zoom-1440](./investment-assistant/screenshots/v6-zoom-1440.png) | [v6-zoom-390](./investment-assistant/screenshots/v6-zoom-390.png) |
+| 目标权重写入态（v6 保留） | [v6-write-1440](./investment-assistant/screenshots/v6-write-1440.png) | [v6-write-390](./investment-assistant/screenshots/v6-write-390.png) |
 
 v7 状态截图：
 
