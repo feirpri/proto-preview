@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-11T05:55:45.150Z",
-  "version": "v4",
+  "generatedAt": "2026-11-11T09:14:21.702Z",
+  "version": "v5",
   "widths": [
     360,
     390,
@@ -27,141 +27,160 @@
           "indexChecks": [
             {
               "name": "上证指数",
-              "value": "3,628.41",
+              "value": "3,628.41+15.21 点",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "pe": "15.82",
+              "pePct": "61%",
+              "peBarWidth": "61%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "深证成指",
-              "value": "11,452.68",
+              "value": "11,452.68+73.96 点",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "pe": "24.36",
+              "pePct": "48%",
+              "peBarWidth": "48%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "创业板指",
-              "value": "2,431.20",
+              "value": "2,431.20+20.73 点",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "pe": "33.15",
+              "pePct": "27%",
+              "peBarWidth": "27%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "沪深300",
-              "value": "4,285.63",
+              "value": "4,285.63+13.25 点",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "pe": "13.47",
+              "pePct": "54%",
+              "peBarWidth": "54%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             }
+          ],
+          "indexColumns": [
+            "指数",
+            "点位",
+            "涨跌幅",
+            "PE-TTM",
+            "PE 历史分位近 10 年 · 演示",
+            "状态"
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
-              "nav": "1.2945",
+              "amount": "14.5 万",
+              "weight": "21.4%",
               "pct": "+0.82%",
               "pnl": "+1,189元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006503",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
-              "nav": "1.1390",
+              "amount": "13.9 万",
+              "weight": "20.5%",
               "pct": "+1.15%",
               "pnl": "+1,599元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-018345",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
-              "nav": "2.0453",
+              "amount": "10.4 万",
+              "weight": "15.3%",
               "pct": "+0.21%",
               "pnl": "+218元",
-              "target": "22%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006864",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
-              "nav": "0.9923",
+              "amount": "7.1 万",
+              "weight": "10.5%",
               "pct": "+0.64%",
               "pnl": "+454元",
-              "target": "8%",
               "quality": "stale",
               "stale": true,
               "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-007818",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
-              "nav": "0.9963",
+              "amount": "7 万",
+              "weight": "10.3%",
               "pct": "−0.37%",
               "pnl": "−259元",
-              "target": "10%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell down",
-                "r tabular fund-pnl-cell down",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-015790",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             }
           ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ],
           "fundRowsInViewport": false,
-          "lastFundBottom": 1493,
+          "lastFundBottom": 1704,
           "headerTime": "14:32:10",
           "allUpdateTimes": [
             "14:32:10"
@@ -174,7 +193,9 @@
           },
           "refreshVisible": true,
           "staleCount": 1,
-          "noAdviceJumpText": true,
+          "toggleInNameCell": true,
+          "navColumnRemoved": true,
+          "targetColumnMovedToPanel": true,
           "noFundRowLinks": true,
           "indexTable": true,
           "fundTable": true,
@@ -183,7 +204,47 @@
           "downColor": "#16a34a",
           "indexStateColHidden": true,
           "fundTableMode": "stacked",
-          "fundNumberSingleLine": false
+          "indexTableMode": "stacked",
+          "peDemoNote": true,
+          "chartDemoNote": true
+        },
+        "expanded": {
+          "viewportWidth": 360,
+          "scrollWidth": 360,
+          "overflowX": 0,
+          "clipped": [],
+          "overflowers": [],
+          "touchSmall": [],
+          "clippedCount": 0,
+          "overflowersCount": 0,
+          "touchSmallCount": 0,
+          "checks": {
+            "open": true,
+            "charts": 2,
+            "intraday": true,
+            "multiPeriod": true,
+            "svgs": 2,
+            "todayLine": 2,
+            "costLine": 1,
+            "crossMarkers": 1,
+            "legend": [
+              "估算涨跌幅今日估算",
+              "历史净值今日估算持仓成本历史交叉"
+            ],
+            "dataTables": 1,
+            "ariaOk": true,
+            "facts": [
+              "当前持仓市值14.5 万",
+              "当前权重21.4%",
+              "目标权重16%",
+              "偏离+5.4pct",
+              "持仓成本净值1.2280",
+              "估算净值1.2945"
+            ],
+            "openRows": 1,
+            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
+          },
+          "collapsedOverflowX": 0
         }
       },
       "390": {
@@ -201,141 +262,160 @@
           "indexChecks": [
             {
               "name": "上证指数",
-              "value": "3,628.41",
+              "value": "3,628.41+15.21 点",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "pe": "15.82",
+              "pePct": "61%",
+              "peBarWidth": "61%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "深证成指",
-              "value": "11,452.68",
+              "value": "11,452.68+73.96 点",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "pe": "24.36",
+              "pePct": "48%",
+              "peBarWidth": "48%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "创业板指",
-              "value": "2,431.20",
+              "value": "2,431.20+20.73 点",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "pe": "33.15",
+              "pePct": "27%",
+              "peBarWidth": "27%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "沪深300",
-              "value": "4,285.63",
+              "value": "4,285.63+13.25 点",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "pe": "13.47",
+              "pePct": "54%",
+              "peBarWidth": "54%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             }
+          ],
+          "indexColumns": [
+            "指数",
+            "点位",
+            "涨跌幅",
+            "PE-TTM",
+            "PE 历史分位近 10 年 · 演示",
+            "状态"
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
-              "nav": "1.2945",
+              "amount": "14.5 万",
+              "weight": "21.4%",
               "pct": "+0.82%",
               "pnl": "+1,189元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006503",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
-              "nav": "1.1390",
+              "amount": "13.9 万",
+              "weight": "20.5%",
               "pct": "+1.15%",
               "pnl": "+1,599元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-018345",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
-              "nav": "2.0453",
+              "amount": "10.4 万",
+              "weight": "15.3%",
               "pct": "+0.21%",
               "pnl": "+218元",
-              "target": "22%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006864",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
-              "nav": "0.9923",
+              "amount": "7.1 万",
+              "weight": "10.5%",
               "pct": "+0.64%",
               "pnl": "+454元",
-              "target": "8%",
               "quality": "stale",
               "stale": true,
               "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-007818",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
-              "nav": "0.9963",
+              "amount": "7 万",
+              "weight": "10.3%",
               "pct": "−0.37%",
               "pnl": "−259元",
-              "target": "10%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell down",
-                "r tabular fund-pnl-cell down",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-015790",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             }
           ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ],
           "fundRowsInViewport": false,
-          "lastFundBottom": 1494,
+          "lastFundBottom": 1623,
           "headerTime": "14:32:10",
           "allUpdateTimes": [
             "14:32:10"
@@ -348,7 +428,9 @@
           },
           "refreshVisible": true,
           "staleCount": 1,
-          "noAdviceJumpText": true,
+          "toggleInNameCell": true,
+          "navColumnRemoved": true,
+          "targetColumnMovedToPanel": true,
           "noFundRowLinks": true,
           "indexTable": true,
           "fundTable": true,
@@ -357,7 +439,47 @@
           "downColor": "#16a34a",
           "indexStateColHidden": true,
           "fundTableMode": "stacked",
-          "fundNumberSingleLine": false
+          "indexTableMode": "stacked",
+          "peDemoNote": true,
+          "chartDemoNote": true
+        },
+        "expanded": {
+          "viewportWidth": 390,
+          "scrollWidth": 390,
+          "overflowX": 0,
+          "clipped": [],
+          "overflowers": [],
+          "touchSmall": [],
+          "clippedCount": 0,
+          "overflowersCount": 0,
+          "touchSmallCount": 0,
+          "checks": {
+            "open": true,
+            "charts": 2,
+            "intraday": true,
+            "multiPeriod": true,
+            "svgs": 2,
+            "todayLine": 2,
+            "costLine": 1,
+            "crossMarkers": 1,
+            "legend": [
+              "估算涨跌幅今日估算",
+              "历史净值今日估算持仓成本历史交叉"
+            ],
+            "dataTables": 1,
+            "ariaOk": true,
+            "facts": [
+              "当前持仓市值14.5 万",
+              "当前权重21.4%",
+              "目标权重16%",
+              "偏离+5.4pct",
+              "持仓成本净值1.2280",
+              "估算净值1.2945"
+            ],
+            "openRows": 1,
+            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
+          },
+          "collapsedOverflowX": 0
         }
       },
       "414": {
@@ -375,141 +497,160 @@
           "indexChecks": [
             {
               "name": "上证指数",
-              "value": "3,628.41",
+              "value": "3,628.41+15.21 点",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "pe": "15.82",
+              "pePct": "61%",
+              "peBarWidth": "61%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "深证成指",
-              "value": "11,452.68",
+              "value": "11,452.68+73.96 点",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "pe": "24.36",
+              "pePct": "48%",
+              "peBarWidth": "48%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "创业板指",
-              "value": "2,431.20",
+              "value": "2,431.20+20.73 点",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "pe": "33.15",
+              "pePct": "27%",
+              "peBarWidth": "27%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "沪深300",
-              "value": "4,285.63",
+              "value": "4,285.63+13.25 点",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "pe": "13.47",
+              "pePct": "54%",
+              "peBarWidth": "54%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 2
+              "pctColor": "rgb(220, 38, 38)"
             }
+          ],
+          "indexColumns": [
+            "指数",
+            "点位",
+            "涨跌幅",
+            "PE-TTM",
+            "PE 历史分位近 10 年 · 演示",
+            "状态"
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
-              "nav": "1.2945",
+              "amount": "14.5 万",
+              "weight": "21.4%",
               "pct": "+0.82%",
               "pnl": "+1,189元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006503",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
-              "nav": "1.1390",
+              "amount": "13.9 万",
+              "weight": "20.5%",
               "pct": "+1.15%",
               "pnl": "+1,599元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-018345",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
-              "nav": "2.0453",
+              "amount": "10.4 万",
+              "weight": "15.3%",
               "pct": "+0.21%",
               "pnl": "+218元",
-              "target": "22%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006864",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
-              "nav": "0.9923",
+              "amount": "7.1 万",
+              "weight": "10.5%",
               "pct": "+0.64%",
               "pnl": "+454元",
-              "target": "8%",
               "quality": "stale",
               "stale": true,
               "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-007818",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
-              "nav": "0.9963",
+              "amount": "7 万",
+              "weight": "10.3%",
               "pct": "−0.37%",
               "pnl": "−259元",
-              "target": "10%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell down",
-                "r tabular fund-pnl-cell down",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-015790",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             }
           ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ],
           "fundRowsInViewport": false,
-          "lastFundBottom": 1494,
+          "lastFundBottom": 1623,
           "headerTime": "14:32:10",
           "allUpdateTimes": [
             "14:32:10"
@@ -522,7 +663,9 @@
           },
           "refreshVisible": true,
           "staleCount": 1,
-          "noAdviceJumpText": true,
+          "toggleInNameCell": true,
+          "navColumnRemoved": true,
+          "targetColumnMovedToPanel": true,
           "noFundRowLinks": true,
           "indexTable": true,
           "fundTable": true,
@@ -531,7 +674,47 @@
           "downColor": "#16a34a",
           "indexStateColHidden": true,
           "fundTableMode": "stacked",
-          "fundNumberSingleLine": false
+          "indexTableMode": "stacked",
+          "peDemoNote": true,
+          "chartDemoNote": true
+        },
+        "expanded": {
+          "viewportWidth": 414,
+          "scrollWidth": 414,
+          "overflowX": 0,
+          "clipped": [],
+          "overflowers": [],
+          "touchSmall": [],
+          "clippedCount": 0,
+          "overflowersCount": 0,
+          "touchSmallCount": 0,
+          "checks": {
+            "open": true,
+            "charts": 2,
+            "intraday": true,
+            "multiPeriod": true,
+            "svgs": 2,
+            "todayLine": 2,
+            "costLine": 1,
+            "crossMarkers": 1,
+            "legend": [
+              "估算涨跌幅今日估算",
+              "历史净值今日估算持仓成本历史交叉"
+            ],
+            "dataTables": 1,
+            "ariaOk": true,
+            "facts": [
+              "当前持仓市值14.5 万",
+              "当前权重21.4%",
+              "目标权重16%",
+              "偏离+5.4pct",
+              "持仓成本净值1.2280",
+              "估算净值1.2945"
+            ],
+            "openRows": 1,
+            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
+          },
+          "collapsedOverflowX": 0
         }
       },
       "768": {
@@ -549,141 +732,160 @@
           "indexChecks": [
             {
               "name": "上证指数",
-              "value": "3,628.41",
+              "value": "3,628.41+15.21 点",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "pe": "15.82",
+              "pePct": "61%",
+              "peBarWidth": "61%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 4
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "深证成指",
-              "value": "11,452.68",
+              "value": "11,452.68+73.96 点",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "pe": "24.36",
+              "pePct": "48%",
+              "peBarWidth": "48%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 4
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "创业板指",
-              "value": "2,431.20",
+              "value": "2,431.20+20.73 点",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "pe": "33.15",
+              "pePct": "27%",
+              "peBarWidth": "27%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 4
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "沪深300",
-              "value": "4,285.63",
+              "value": "4,285.63+13.25 点",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "pe": "13.47",
+              "pePct": "54%",
+              "peBarWidth": "54%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 4
+              "pctColor": "rgb(220, 38, 38)"
             }
+          ],
+          "indexColumns": [
+            "指数",
+            "点位",
+            "涨跌幅",
+            "PE-TTM",
+            "PE 历史分位近 10 年 · 演示",
+            "状态"
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
-              "nav": "1.2945",
+              "amount": "14.5 万",
+              "weight": "21.4%",
               "pct": "+0.82%",
               "pnl": "+1,189元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006503",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
-              "nav": "1.1390",
+              "amount": "13.9 万",
+              "weight": "20.5%",
               "pct": "+1.15%",
               "pnl": "+1,599元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-018345",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
-              "nav": "2.0453",
+              "amount": "10.4 万",
+              "weight": "15.3%",
               "pct": "+0.21%",
               "pnl": "+218元",
-              "target": "22%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006864",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
-              "nav": "0.9923",
+              "amount": "7.1 万",
+              "weight": "10.5%",
               "pct": "+0.64%",
               "pnl": "+454元",
-              "target": "8%",
               "quality": "stale",
               "stale": true,
               "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-007818",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
-              "nav": "0.9963",
+              "amount": "7 万",
+              "weight": "10.3%",
               "pct": "−0.37%",
               "pnl": "−259元",
-              "target": "10%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell down",
-                "r tabular fund-pnl-cell down",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-015790",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             }
           ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ],
           "fundRowsInViewport": false,
-          "lastFundBottom": 1374,
+          "lastFundBottom": 1185,
           "headerTime": "14:32:10",
           "allUpdateTimes": [
             "14:32:10"
@@ -696,7 +898,9 @@
           },
           "refreshVisible": true,
           "staleCount": 1,
-          "noAdviceJumpText": true,
+          "toggleInNameCell": true,
+          "navColumnRemoved": true,
+          "targetColumnMovedToPanel": true,
           "noFundRowLinks": true,
           "indexTable": true,
           "fundTable": true,
@@ -705,7 +909,47 @@
           "downColor": "#16a34a",
           "indexStateColHidden": false,
           "fundTableMode": "stacked",
-          "fundNumberSingleLine": false
+          "indexTableMode": "table",
+          "peDemoNote": true,
+          "chartDemoNote": true
+        },
+        "expanded": {
+          "viewportWidth": 768,
+          "scrollWidth": 768,
+          "overflowX": 0,
+          "clipped": [],
+          "overflowers": [],
+          "touchSmall": [],
+          "clippedCount": 0,
+          "overflowersCount": 0,
+          "touchSmallCount": 0,
+          "checks": {
+            "open": true,
+            "charts": 2,
+            "intraday": true,
+            "multiPeriod": true,
+            "svgs": 2,
+            "todayLine": 2,
+            "costLine": 1,
+            "crossMarkers": 1,
+            "legend": [
+              "估算涨跌幅今日估算",
+              "历史净值今日估算持仓成本历史交叉"
+            ],
+            "dataTables": 1,
+            "ariaOk": true,
+            "facts": [
+              "当前持仓市值14.5 万",
+              "当前权重21.4%",
+              "目标权重16%",
+              "偏离+5.4pct",
+              "持仓成本净值1.2280",
+              "估算净值1.2945"
+            ],
+            "openRows": 1,
+            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
+          },
+          "collapsedOverflowX": 0
         }
       },
       "1024": {
@@ -723,151 +967,160 @@
           "indexChecks": [
             {
               "name": "上证指数",
-              "value": "3,628.41",
+              "value": "3,628.41+15.21 点",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "pe": "15.82",
+              "pePct": "61%",
+              "peBarWidth": "61%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "深证成指",
-              "value": "11,452.68",
+              "value": "11,452.68+73.96 点",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "pe": "24.36",
+              "pePct": "48%",
+              "peBarWidth": "48%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "创业板指",
-              "value": "2,431.20",
+              "value": "2,431.20+20.73 点",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "pe": "33.15",
+              "pePct": "27%",
+              "peBarWidth": "27%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "沪深300",
-              "value": "4,285.63",
+              "value": "4,285.63+13.25 点",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "pe": "13.47",
+              "pePct": "54%",
+              "peBarWidth": "54%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             }
+          ],
+          "indexColumns": [
+            "指数",
+            "点位",
+            "涨跌幅",
+            "PE-TTM",
+            "PE 历史分位近 10 年 · 演示",
+            "状态"
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
-              "nav": "1.2945",
+              "amount": "14.5 万",
+              "weight": "21.4%",
               "pct": "+0.82%",
               "pnl": "+1,189元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006503",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
-              "nav": "1.1390",
+              "amount": "13.9 万",
+              "weight": "20.5%",
               "pct": "+1.15%",
               "pnl": "+1,599元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-018345",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
-              "nav": "2.0453",
+              "amount": "10.4 万",
+              "weight": "15.3%",
               "pct": "+0.21%",
               "pnl": "+218元",
-              "target": "22%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006864",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
-              "nav": "0.9923",
+              "amount": "7.1 万",
+              "weight": "10.5%",
               "pct": "+0.64%",
               "pnl": "+454元",
-              "target": "8%",
               "quality": "stale",
               "stale": true,
               "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-007818",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
-              "nav": "0.9963",
+              "amount": "7 万",
+              "weight": "10.3%",
               "pct": "−0.37%",
               "pnl": "−259元",
-              "target": "10%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell down",
-                "r tabular fund-pnl-cell down",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-015790",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             }
           ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ],
           "fundRowsInViewport": true,
-          "lastFundBottom": 891,
+          "lastFundBottom": 898,
           "headerTime": "14:32:10",
           "allUpdateTimes": [
             "14:32:10"
@@ -880,7 +1133,9 @@
           },
           "refreshVisible": true,
           "staleCount": 1,
-          "noAdviceJumpText": true,
+          "toggleInNameCell": true,
+          "navColumnRemoved": true,
+          "targetColumnMovedToPanel": true,
           "noFundRowLinks": true,
           "indexTable": true,
           "fundTable": true,
@@ -889,7 +1144,47 @@
           "downColor": "#16a34a",
           "indexStateColHidden": false,
           "fundTableMode": "table",
-          "fundNumberSingleLine": false
+          "indexTableMode": "table",
+          "peDemoNote": true,
+          "chartDemoNote": true
+        },
+        "expanded": {
+          "viewportWidth": 1024,
+          "scrollWidth": 1024,
+          "overflowX": 0,
+          "clipped": [],
+          "overflowers": [],
+          "touchSmall": [],
+          "clippedCount": 0,
+          "overflowersCount": 0,
+          "touchSmallCount": 0,
+          "checks": {
+            "open": true,
+            "charts": 2,
+            "intraday": true,
+            "multiPeriod": true,
+            "svgs": 2,
+            "todayLine": 2,
+            "costLine": 1,
+            "crossMarkers": 1,
+            "legend": [
+              "估算涨跌幅今日估算",
+              "历史净值今日估算持仓成本历史交叉"
+            ],
+            "dataTables": 1,
+            "ariaOk": true,
+            "facts": [
+              "当前持仓市值14.5 万",
+              "当前权重21.4%",
+              "目标权重16%",
+              "偏离+5.4pct",
+              "持仓成本净值1.2280",
+              "估算净值1.2945"
+            ],
+            "openRows": 1,
+            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
+          },
+          "collapsedOverflowX": 0
         }
       },
       "1280": {
@@ -907,148 +1202,157 @@
           "indexChecks": [
             {
               "name": "上证指数",
-              "value": "3,628.41",
+              "value": "3,628.41+15.21 点",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "pe": "15.82",
+              "pePct": "61%",
+              "peBarWidth": "61%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "深证成指",
-              "value": "11,452.68",
+              "value": "11,452.68+73.96 点",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "pe": "24.36",
+              "pePct": "48%",
+              "peBarWidth": "48%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "创业板指",
-              "value": "2,431.20",
+              "value": "2,431.20+20.73 点",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "pe": "33.15",
+              "pePct": "27%",
+              "peBarWidth": "27%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "沪深300",
-              "value": "4,285.63",
+              "value": "4,285.63+13.25 点",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "pe": "13.47",
+              "pePct": "54%",
+              "peBarWidth": "54%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             }
+          ],
+          "indexColumns": [
+            "指数",
+            "点位",
+            "涨跌幅",
+            "PE-TTM",
+            "PE 历史分位近 10 年 · 演示",
+            "状态"
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
-              "nav": "1.2945",
+              "amount": "14.5 万",
+              "weight": "21.4%",
               "pct": "+0.82%",
               "pnl": "+1,189元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006503",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
-              "nav": "1.1390",
+              "amount": "13.9 万",
+              "weight": "20.5%",
               "pct": "+1.15%",
               "pnl": "+1,599元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-018345",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
-              "nav": "2.0453",
+              "amount": "10.4 万",
+              "weight": "15.3%",
               "pct": "+0.21%",
               "pnl": "+218元",
-              "target": "22%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006864",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
-              "nav": "0.9923",
+              "amount": "7.1 万",
+              "weight": "10.5%",
               "pct": "+0.64%",
               "pnl": "+454元",
-              "target": "8%",
               "quality": "stale",
               "stale": true,
               "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-007818",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
-              "nav": "0.9963",
+              "amount": "7 万",
+              "weight": "10.3%",
               "pct": "−0.37%",
               "pnl": "−259元",
-              "target": "10%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell down",
-                "r tabular fund-pnl-cell down",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-015790",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             }
+          ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
           ],
           "fundRowsInViewport": true,
           "lastFundBottom": 891,
@@ -1064,7 +1368,9 @@
           },
           "refreshVisible": true,
           "staleCount": 1,
-          "noAdviceJumpText": true,
+          "toggleInNameCell": true,
+          "navColumnRemoved": true,
+          "targetColumnMovedToPanel": true,
           "noFundRowLinks": true,
           "indexTable": true,
           "fundTable": true,
@@ -1073,7 +1379,47 @@
           "downColor": "#16a34a",
           "indexStateColHidden": false,
           "fundTableMode": "table",
-          "fundNumberSingleLine": false
+          "indexTableMode": "table",
+          "peDemoNote": true,
+          "chartDemoNote": true
+        },
+        "expanded": {
+          "viewportWidth": 1280,
+          "scrollWidth": 1280,
+          "overflowX": 0,
+          "clipped": [],
+          "overflowers": [],
+          "touchSmall": [],
+          "clippedCount": 0,
+          "overflowersCount": 0,
+          "touchSmallCount": 0,
+          "checks": {
+            "open": true,
+            "charts": 2,
+            "intraday": true,
+            "multiPeriod": true,
+            "svgs": 2,
+            "todayLine": 2,
+            "costLine": 1,
+            "crossMarkers": 1,
+            "legend": [
+              "估算涨跌幅今日估算",
+              "历史净值今日估算持仓成本历史交叉"
+            ],
+            "dataTables": 1,
+            "ariaOk": true,
+            "facts": [
+              "当前持仓市值14.5 万",
+              "当前权重21.4%",
+              "目标权重16%",
+              "偏离+5.4pct",
+              "持仓成本净值1.2280",
+              "估算净值1.2945"
+            ],
+            "openRows": 1,
+            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
+          },
+          "collapsedOverflowX": 0
         }
       },
       "1440": {
@@ -1091,151 +1437,160 @@
           "indexChecks": [
             {
               "name": "上证指数",
-              "value": "3,628.41",
+              "value": "3,628.41+15.21 点",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "pe": "15.82",
+              "pePct": "61%",
+              "peBarWidth": "61%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "深证成指",
-              "value": "11,452.68",
+              "value": "11,452.68+73.96 点",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "pe": "24.36",
+              "pePct": "48%",
+              "peBarWidth": "48%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "创业板指",
-              "value": "2,431.20",
+              "value": "2,431.20+20.73 点",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "pe": "33.15",
+              "pePct": "27%",
+              "peBarWidth": "27%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             },
             {
               "name": "沪深300",
-              "value": "4,285.63",
+              "value": "4,285.63+13.25 点",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "pe": "13.47",
+              "pePct": "54%",
+              "peBarWidth": "54%",
               "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 3
+              "pctColor": "rgb(220, 38, 38)"
             }
+          ],
+          "indexColumns": [
+            "指数",
+            "点位",
+            "涨跌幅",
+            "PE-TTM",
+            "PE 历史分位近 10 年 · 演示",
+            "状态"
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
-              "nav": "1.2945",
+              "amount": "14.5 万",
+              "weight": "21.4%",
               "pct": "+0.82%",
               "pnl": "+1,189元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006503",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
-              "nav": "1.1390",
+              "amount": "13.9 万",
+              "weight": "20.5%",
               "pct": "+1.15%",
               "pnl": "+1,599元",
-              "target": "16%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-018345",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
-              "nav": "2.0453",
+              "amount": "10.4 万",
+              "weight": "15.3%",
               "pct": "+0.21%",
               "pnl": "+218元",
-              "target": "22%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-006864",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
-              "nav": "0.9923",
+              "amount": "7.1 万",
+              "weight": "10.5%",
               "pct": "+0.64%",
               "pnl": "+454元",
-              "target": "8%",
               "quality": "stale",
               "stale": true,
               "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell up",
-                "r tabular fund-pnl-cell up",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-007818",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
-              "nav": "0.9963",
+              "amount": "7 万",
+              "weight": "10.3%",
               "pct": "−0.37%",
               "pnl": "−259元",
-              "target": "10%",
               "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "hasJumpLink": false,
-              "cellsVisible": [
-                "fund-name-cell",
-                "r tabular fund-nav-cell",
-                "r tabular fund-pct-cell down",
-                "r tabular fund-pnl-cell down",
-                "r tabular fund-target-cell",
-                "r fund-quality-cell",
-                "r fund-action-cell"
-              ]
+              "toggleInNameCell": true,
+              "ariaExpanded": "false",
+              "ariaControls": "advice-015790",
+              "chevron": true,
+              "navCell": false,
+              "targetCell": false,
+              "hasJumpLink": false
             }
           ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ],
           "fundRowsInViewport": true,
-          "lastFundBottom": 889,
+          "lastFundBottom": 888,
           "headerTime": "14:32:10",
           "allUpdateTimes": [
             "14:32:10"
@@ -1248,7 +1603,9 @@
           },
           "refreshVisible": true,
           "staleCount": 1,
-          "noAdviceJumpText": true,
+          "toggleInNameCell": true,
+          "navColumnRemoved": true,
+          "targetColumnMovedToPanel": true,
           "noFundRowLinks": true,
           "indexTable": true,
           "fundTable": true,
@@ -1257,7 +1614,47 @@
           "downColor": "#16a34a",
           "indexStateColHidden": false,
           "fundTableMode": "table",
-          "fundNumberSingleLine": false
+          "indexTableMode": "table",
+          "peDemoNote": true,
+          "chartDemoNote": true
+        },
+        "expanded": {
+          "viewportWidth": 1440,
+          "scrollWidth": 1440,
+          "overflowX": 0,
+          "clipped": [],
+          "overflowers": [],
+          "touchSmall": [],
+          "clippedCount": 0,
+          "overflowersCount": 0,
+          "touchSmallCount": 0,
+          "checks": {
+            "open": true,
+            "charts": 2,
+            "intraday": true,
+            "multiPeriod": true,
+            "svgs": 2,
+            "todayLine": 2,
+            "costLine": 1,
+            "crossMarkers": 1,
+            "legend": [
+              "估算涨跌幅今日估算",
+              "历史净值今日估算持仓成本历史交叉"
+            ],
+            "dataTables": 1,
+            "ariaOk": true,
+            "facts": [
+              "当前持仓市值14.5 万",
+              "当前权重21.4%",
+              "目标权重16%",
+              "偏离+5.4pct",
+              "持仓成本净值1.2280",
+              "估算净值1.2945"
+            ],
+            "openRows": 1,
+            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
+          },
+          "collapsedOverflowX": 0
         }
       }
     },
@@ -1803,14 +2200,8 @@
           "false",
           "false"
         ],
-        "labels": [
-          "收起",
-          "展开",
-          "展开",
-          "展开",
-          "展开"
-        ],
-        "panel": "操作减仓金额0.8 万执行状态executed · 14:31 已应用权重 21.4% 高于目标 16.0%，按反抽规则减偏离部分，降低权益仓位。当前估值 1.2945 +0.82% · 实际权重 21.4% · 目标权重 16%只读：执行仅通过 MCP 写入口。完整明细",
+        "chevronRotate": "matrix(0.0259936, 0.999662, -0.999662, 0.0259936, 0, 0)",
+        "charts": 2,
         "noOverflow": true
       },
       "second": {
@@ -1838,7 +2229,7 @@
           "false",
           "false"
         ],
-        "focus": "expand-btn"
+        "focus": "fund-toggle"
       },
       "afterSpace": {
         "open": 0,
@@ -1849,6 +2240,24 @@
           "false",
           "false"
         ]
+      },
+      "afterEscape": {
+        "open": 0,
+        "focus": "006864"
+      }
+    },
+    "period": {
+      "after1m": {
+        "active": "近一月",
+        "aria": "财通集成电路产业股票C 近一月净值趋势（演示数据）：起点 1.2867，终点 1",
+        "selected": 1
+      }
+    },
+    "empty": {
+      "fiveYear": {
+        "empty": true,
+        "text": "近五年暂无数据演示：该基金成立不足 5 年，近五年净值暂无数据；生产可用性待数据调研确认。",
+        "active": "近五年"
       }
     },
     "manual": {
@@ -1859,52 +2268,32 @@
       "open": [
         "advice-006503"
       ],
-      "scrollY": 430,
-      "docHeightBefore": null,
+      "active": "近一月",
+      "scrollY": 520,
       "overflowX": 0,
-      "status": "估值已更新",
-      "label": "刷新估值",
-      "small": 0
+      "status": "估值已更新"
+    },
+    "reload": {
+      "open": [
+        "advice-006864"
+      ],
+      "active": [
+        "近三年"
+      ],
+      "scrollY": 640,
+      "overflow": 0
     },
     "mobile": {
       "expand": {
-        "open": null,
-        "expanded": [
-          "false",
-          "false",
-          "false",
-          "false",
-          "false"
-        ],
-        "labels": [
-          "展开",
-          "展开",
-          "展开",
-          "展开",
-          "展开"
-        ],
-        "panel": null,
-        "noOverflow": true
-      },
-      "manual": {
-        "time": "14:32:57",
-        "allTimes": [
-          "14:32:57"
-        ],
-        "open": [
-          "advice-006503"
-        ],
-        "scrollY": 430,
-        "docHeightBefore": null,
-        "overflowX": 0,
-        "status": "估值已更新",
-        "label": "刷新估值",
-        "small": 0
+        "open": "advice-006503",
+        "charts": 2,
+        "noOverflow": true,
+        "segHeight": 44
       }
     }
   },
   "summary": {
-    "scope": "7 页 × 7 档宽度 + popup 390",
+    "scope": "7 页 × 7 档宽度 + popup 390；首页含展开态测量（含趋势图）",
     "viewportCells": 50,
     "widths": [
       360,
@@ -1921,7 +2310,13 @@
       "overflowers": 0,
       "touchSmall": 0
     },
-    "v4Checks": {
+    "expandedViolations": {
+      "overflow": 0,
+      "clipped": 0,
+      "overflowers": 0,
+      "touchSmall": 0
+    },
+    "v5Checks": {
       "homeIndices": [
         4,
         4,
@@ -1940,7 +2335,25 @@
         5,
         5
       ],
-      "tablesAtAllWidths": true,
+      "indexColumns": [
+        "指数",
+        "点位",
+        "涨跌幅",
+        "PE-TTM",
+        "PE 历史分位近 10 年 · 演示",
+        "状态"
+      ],
+      "fundColumns": [
+        "基金点击名称展开",
+        "当前持仓市值",
+        "当前权重",
+        "估算涨跌幅",
+        "今日预估收益按当前持仓估算",
+        "质量"
+      ],
+      "peShownAtAllWidths": true,
+      "peDemoNoteAtAllWidths": true,
+      "chartDemoNoteAtAllWidths": true,
       "singleGlobalTimeAtAllWidths": true,
       "timeToSecondAtAllWidths": true,
       "staleRows": [
@@ -1952,17 +2365,40 @@
         1,
         1
       ],
-      "noAdviceJumpText": true,
+      "toggleInNameCellAtAllWidths": true,
+      "navColumnRemoved": true,
+      "targetColumnMovedToPanel": true,
       "noFundRowLinks": true,
       "noFormControls": true,
       "fiveFundsInViewportAt1440": true,
       "fiveFundsInViewportAt1280": true,
       "fiveFundsInViewportAt1024": true,
       "stackedFundTableBelow900": true,
+      "stackedIndexTableBelow640": true,
+      "chartsAtAllWidths": true,
+      "todayDashedLine": true,
+      "costDashedLine": true,
+      "crossMarkers": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "chartAria": true,
+      "chartDataTables": true,
       "oneRowExpandedAtATime": true,
       "keyboardToggleWorks": true,
-      "refreshKeepsOpenAndScroll": true,
-      "manualRefreshAdvancesTime": true
+      "escapeClosesAndRefocuses": true,
+      "chartPeriodSwitch": true,
+      "missingPeriodEmptyState": true,
+      "refreshKeepsOpenPeriodAndScroll": true,
+      "manualRefreshAdvancesTime": true,
+      "reloadKeepsOpenPeriod": true,
+      "mobileExpandedNoOverflow": true,
+      "touchTargetsAtLeast44": true
     }
   },
   "screenshots": [

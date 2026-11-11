@@ -305,6 +305,123 @@
     }
   };
 
+  /* ---------------- v5 演示数据：持仓成本 + 分时/多周期净值 + 指数 PE 分位 ----------------
+     说明：以下序列全部为构造的演示数据，用于确认图表形态；不代表真实净值，
+     生产环境是否存在稳定接口由数据可行性调研任务确认。 */
+  var TREND_PERIODS = [
+    { key: "1w", label: "近一周", days: 5 },
+    { key: "1m", label: "近一月", days: 22 },
+    { key: "1y", label: "近一年", days: 244 },
+    { key: "ytd", label: "今年", days: null },
+    { key: "3y", label: "近三年", days: 732 },
+    { key: "5y", label: "近五年", days: 1250 }
+  ];
+  var TREND_N = 1260;
+  var TREND_DATES = businessDaysEnding(ASOF, TREND_N);
+
+  function r4(v) { return Math.round(v * 10000) / 10000; }
+
+  function buildNavPath(seed, nav, amp, phase) {
+    var rnd = mulberry32(seed);
+    var noise = 0;
+    var factor = [];
+    for (var t = 0; t < TREND_N; t++) {
+      var p = t / (TREND_N - 1);
+      noise += (rnd() - 0.5) * 0.0042;
+      factor.push(
+        0.8 + 0.2 * p +
+        amp * Math.sin(p * Math.PI * 2 * 2.4 + phase) +
+        amp * 0.45 * Math.sin(p * Math.PI * 2 * 6.1 + phase * 1.7) +
+        noise
+      );
+    }
+    var last = factor[TREND_N - 1];
+    var out = [];
+    for (var i = 0; i < TREND_N; i++) out.push(r4((nav * factor[i]) / last));
+    return out;
+  }
+
+  function minuteOf(t) {
+    var p = t.split(":").map(Number);
+    return p[0] * 60 + p[1];
+  }
+
+  function buildIntraday(f, idx) {
+    var mins = [];
+    var m;
+    for (m = 570; m <= 690; m += 5) mins.push(m);
+    for (m = 780; m <= 900; m += 5) mins.push(m);
+    var target = minuteOf(f.estTime);
+    var pts = mins.filter(function (x) { return x <= target; });
+    var rnd = mulberry32(7000 + idx * 131);
+    var raw = [0];
+    var v = 0;
+    for (var i = 1; i < pts.length; i++) {
+      v += (rnd() - 0.5) * 0.0017 + 0.00002;
+      raw.push(v);
+    }
+    var lastRaw = raw[raw.length - 1] || 0;
+    var points = pts.map(function (x, i) {
+      return { min: x, pct: raw[i] - lastRaw + f.estPct };
+    });
+    if (points.length) {
+      points[0].pct = 0;
+      points[points.length - 1].pct = f.estPct;
+    }
+    if (!points.length || points[points.length - 1].min !== target) {
+      points.push({ min: target, pct: f.estPct, exact: true });
+    }
+    return {
+      points: points,
+      lastTime: f.estTime,
+      lastPct: f.estPct,
+      stale: !!f.stale,
+      lastMin: target
+    };
+  }
+
+  function buildTrend(f, idx) {
+    var amp = 0.055 + (idx % 3) * 0.018;
+    var values = buildNavPath(20261110 + idx * 97, f.nav, amp, idx * 0.9 + 0.3);
+    var oneYear = values.slice(TREND_N - 244);
+    var mn = Math.min.apply(null, oneYear);
+    var mx = Math.max.apply(null, oneYear);
+    var costNav = r4((mn + mx) / 2);
+    var ytdFrom = 0;
+    for (var i = 0; i < TREND_DATES.length; i++) {
+      if (TREND_DATES[i] >= "2026-01-01") { ytdFrom = i; break; }
+    }
+    var periods = {};
+    TREND_PERIODS.forEach(function (p) {
+      var from = p.key === "ytd" ? ytdFrom : TREND_N - (p.days + 1);
+      from = Math.max(0, from);
+      var vals = values.slice(from);
+      var dates = TREND_DATES.slice(from);
+      periods[p.key] = {
+        key: p.key, label: p.label,
+        available: true,
+        dates: dates, values: vals, n: vals.length,
+        start: dates[0], end: dates[dates.length - 1]
+      };
+    });
+    if (idx === 4) {
+      periods["5y"].available = false;
+      periods["5y"].note = "演示：该基金成立不足 5 年，近五年净值暂无数据；生产可用性待数据调研确认。";
+    }
+    return {
+      costNav: costNav,
+      periods: periods,
+      intraday: buildIntraday(f, idx),
+      demo: true
+    };
+  }
+
+  GROUPS.actual.funds.forEach(function (f, i) {
+    var t = buildTrend(f, i);
+    f.trend = t;
+    f.costNav = t.costNav;
+  });
+
   var adviceRows = actualFunds.map(function (f) {
     return {
       code: f.code, name: f.name, short: f.short,
@@ -321,7 +438,7 @@
   window.MOCK = {
     meta: {
       product: "Musi 投资助手",
-      version: "原型 v4",
+      version: "原型 v5",
       asof: ASOF_TIME,
       asofDate: ASOF,
       realtime: {
@@ -342,18 +459,21 @@
       lastOfficialQuality: "official",
       session: "A 股盘中",
       seedBaseline: "2026-11-05 收盘",
-      disclaimer: "本原型所有数字均为演示数据，仅用于界面确认，不构成投资建议，也不代表任何收益承诺。"
+      disclaimer: "本原型所有数字均为演示数据，仅用于界面确认，不构成投资建议，也不代表任何收益承诺。",
+      trendDemo: "演示数据 · 生产接入待确认",
+      peNote: "PE-TTM 与历史分位数为演示值；分位窗口近 10 年；生产数据接口待调研确认。"
     },
     market: {
       state: "震荡",
       stateKey: "range",
       stateDesc: "指数位于支撑位与压力位之间，未触发破位或反抽规则。",
       indices: [
-        { code: "000001", name: "上证指数", value: 3628.41, pct: 0.0042, change: 15.21, high: 3635.2, low: 3601.7 },
-        { code: "399001", name: "深证成指", value: 11452.68, pct: 0.0065, change: 73.96, high: 11480.3, low: 11370.1 },
-        { code: "399006", name: "创业板指", value: 2431.2, pct: 0.0086, change: 20.73, high: 2444.8, low: 2409.5 },
-        { code: "000300", name: "沪深300", value: 4285.63, pct: 0.0031, change: 13.25, high: 4301.4, low: 4262.8 }
+        { code: "000001", name: "上证指数", value: 3628.41, pct: 0.0042, change: 15.21, high: 3635.2, low: 3601.7, pe: 15.82, pePctile: 0.61, peWindow: "近 10 年" },
+        { code: "399001", name: "深证成指", value: 11452.68, pct: 0.0065, change: 73.96, high: 11480.3, low: 11370.1, pe: 24.36, pePctile: 0.48, peWindow: "近 10 年" },
+        { code: "399006", name: "创业板指", value: 2431.2, pct: 0.0086, change: 20.73, high: 2444.8, low: 2409.5, pe: 33.15, pePctile: 0.27, peWindow: "近 10 年" },
+        { code: "000300", name: "沪深300", value: 4285.63, pct: 0.0031, change: 13.25, high: 4301.4, low: 4262.8, pe: 13.47, pePctile: 0.54, peWindow: "近 10 年" }
       ],
+      peDemo: { label: "演示数据 · 生产接入待确认", window: "近 10 年", metric: "PE-TTM" },
       levels: {
         sh: { support: 3590, break: 3574, resistance: 3650 },
         cy: { support: 2376, resistance: 2500 }

@@ -969,9 +969,18 @@ body.sheet-open { overflow: hidden; }
   font-size: 10px; font-weight: 500;
 }
 body.is-refreshing .table-card { opacity: 0.62; transition: opacity 0.2s ease; }
+.table-note {
+  margin: 8px 2px 0; color: var(--muted-2);
+  font-size: 10.5px; line-height: 1.55;
+}
 
-/* 大盘指数表 */
-.index-table thead th:first-child { width: 34%; }
+/* 大盘指数表（v5：新增 PE-TTM 与历史分位） */
+.index-table thead th:nth-child(1) { width: 25%; }
+.index-table thead th:nth-child(2) { width: 16%; }
+.index-table thead th:nth-child(3) { width: 12%; }
+.index-table thead th:nth-child(4) { width: 12%; }
+.index-table thead th:nth-child(5) { width: 23%; }
+.index-table thead th:nth-child(6) { width: 12%; }
 .index-row:hover { background: #fbfcff; }
 .index-name-cell { font-weight: 650; line-height: 1.35; }
 .index-name-cell .nm { display: block; }
@@ -980,22 +989,45 @@ body.is-refreshing .table-card { opacity: 0.62; transition: opacity 0.2s ease; }
   font-size: 10.5px; font-weight: 500; font-variant-numeric: tabular-nums;
 }
 .index-value { font-size: 15px; font-weight: 700; letter-spacing: -0.2px; }
+.index-value .index-points {
+  display: block; margin-top: 1px; font-size: 10px;
+  font-weight: 600; letter-spacing: 0;
+}
 .index-pct { font-weight: 700; }
-.index-points { font-weight: 600; }
+.index-pe { font-weight: 650; color: var(--text-2); }
 .index-state-cell { color: var(--muted); white-space: nowrap; }
+.pe-wrap { display: inline-flex; align-items: center; gap: 6px; justify-content: flex-end; }
+.pe-bar {
+  display: inline-block; width: 54px; height: 5px; border-radius: 99px;
+  background: #e6ebf4; overflow: hidden; flex: none;
+}
+.pe-bar i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #60a5fa, #2563eb); }
+.pe-wrap b { font-size: 11.5px; font-weight: 650; color: var(--text-2); }
 .index-state-cell .ud-dot { display: inline-block; margin-right: 5px; vertical-align: 1px; }
 
-/* 基金估值表 */
-.fund-table thead th:nth-child(1) { width: 31%; }
-.fund-table thead th:nth-child(2) { width: 12%; }
-.fund-table thead th:nth-child(3) { width: 11%; }
-.fund-table thead th:nth-child(4) { width: 15%; }
-.fund-table thead th:nth-child(5) { width: 9%; }
-.fund-table thead th:nth-child(6) { width: 10%; }
+/* 基金持仓表（v5：持仓优先 + 名称即展开控件） */
+.fund-table > thead > tr > th:nth-child(1) { width: 28%; }
+.fund-table > thead > tr > th:nth-child(2) { width: 15%; }
+.fund-table > thead > tr > th:nth-child(3) { width: 11%; }
+.fund-table > thead > tr > th:nth-child(4) { width: 12%; }
+.fund-table > thead > tr > th:nth-child(5) { width: 17%; }
+.fund-table > thead > tr > th:nth-child(6) { width: 10%; }
 .fund-row:hover { background: #fbfcff; }
 .fund-row.is-stale { background: rgba(253, 236, 236, 0.42); }
 .fund-row.is-open { background: var(--blue-soft); }
 .fund-name-cell { font-weight: 400; line-height: 1.35; }
+.fund-toggle {
+  display: flex; align-items: flex-start; gap: 6px; width: 100%;
+  min-height: 44px; padding: 0; margin: 0; border: 0; background: transparent;
+  color: inherit; text-align: left; cursor: pointer;
+}
+.fund-title { display: block; min-width: 0; flex: 1; padding-top: 3px; }
+.fund-toggle:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
+.fund-toggle .fund-chevron {
+  width: 16px; height: 16px; flex: none; color: var(--blue);
+  margin-top: 5px; transition: transform 0.16s ease;
+}
+.fund-toggle[aria-expanded="true"] .fund-chevron { transform: rotate(90deg); }
 .fund-name-cell .fund-name {
   display: block; font-size: 13px; font-weight: 650;
   line-height: 1.35; overflow-wrap: anywhere;
@@ -1005,23 +1037,93 @@ body.is-refreshing .table-card { opacity: 0.62; transition: opacity 0.2s ease; }
   margin-top: 2px; color: var(--muted); font-size: 10.5px;
 }
 .fund-sub .group-tag { padding: 1px 6px; font-size: 10px; }
-.fund-target-mobile, .fund-quality-mobile { display: none; }
+.fund-target-mobile, .fund-quality-mobile, .fund-weight-mobile { display: none; }
+.fund-amount-cell { font-weight: 700; font-size: 13px; }
+.fund-weight-cell { font-weight: 650; }
 .stale-inline {
   display: flex; align-items: center; gap: 4px; margin-top: 3px;
   color: var(--red); font-size: 10px; line-height: 1.4;
 }
 .stale-inline svg { width: 11px; height: 11px; }
-.fund-table tbody td { white-space: nowrap; }
-.fund-table td small { margin-left: 1px; font-size: 10.5px; color: var(--muted); }
-.expand-btn {
-  display: inline-flex; align-items: center; justify-content: flex-end; gap: 4px;
-  min-height: 44px; min-width: 64px; padding: 0 4px;
-  border: 0; background: transparent; color: var(--blue);
-  font-size: 12px; font-weight: 650; cursor: pointer;
+.fund-table > tbody > tr > td { white-space: nowrap; }
+.fund-table > tbody > tr > td small { margin-left: 1px; font-size: 10.5px; color: var(--muted); }
+/* v5 展开区：资金字段 + 趋势图 */
+.fund-facts {
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px; margin-top: 8px;
 }
-.expand-btn .expand-ico { width: 14px; height: 14px; transition: transform 0.16s ease; }
-.expand-btn[aria-expanded="true"] .expand-ico { transform: rotate(90deg); }
-.fund-advice-row > td {
+.fund-fact {
+  padding: 8px 10px; border-radius: 9px; border: 1px solid var(--border);
+  background: var(--surface); min-width: 0;
+}
+.fund-fact span {
+  display: block; color: var(--muted); font-size: 10.5px; line-height: 1.35;
+}
+.fund-fact b { display: block; margin-top: 2px; font-size: 13px; font-weight: 700; }
+.fund-fact b.warn { color: var(--amber, #b45309); }
+.chart-stack { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
+.chart-card {
+  border: 1px solid var(--border); border-radius: 11px;
+  background: var(--surface); padding: 10px 12px 11px; min-width: 0;
+}
+.chart-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 10px; flex-wrap: wrap;
+}
+.chart-head h4 { margin: 0; font-size: 12.5px; font-weight: 700; }
+.chart-sub { display: block; margin-top: 2px; color: var(--muted); font-size: 10.5px; line-height: 1.45; }
+.chart-last { color: var(--muted); font-size: 10.5px; white-space: nowrap; }
+.chart-last b { font-variant-numeric: tabular-nums; }
+.chart-canvas { margin-top: 6px; min-width: 0; }
+.trend-svg { display: block; width: 100%; height: auto; }
+.seg {
+  display: flex; flex-wrap: wrap; gap: 4px; align-items: center;
+}
+.seg-btn {
+  min-height: 44px; min-width: 48px; padding: 0 9px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--surface-2);
+  color: var(--muted); font-size: 11px; font-weight: 600; cursor: pointer;
+}
+.seg-btn.active { border-color: #bfd3fb; background: var(--blue-soft); color: #1d4ed8; }
+.seg-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
+.chart-legend {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-top: 6px; color: var(--muted); font-size: 10.5px;
+}
+.chart-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.lg-line { width: 16px; height: 0; border-top: 2px solid #2563eb; }
+.lg-dash { width: 16px; height: 0; border-top: 1.5px dashed #2563eb; }
+.lg-dash.cost { border-top-color: #d97706; }
+.lg-dot { width: 8px; height: 8px; border-radius: 50%; border: 2px solid #d97706; background: #fff; }
+.chart-demo-note {
+  display: flex; align-items: flex-start; gap: 5px;
+  margin: 7px 0 0; color: var(--muted-2); font-size: 10px; line-height: 1.5;
+}
+.chart-demo-note span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.chart-demo-note svg { width: 12px; height: 12px; flex: none; margin-top: 1px; color: #b45309; }
+.chart-data { margin-top: 7px; border-top: 1px dashed var(--border); padding-top: 7px; }
+.chart-data summary {
+  display: flex; align-items: center; gap: 5px; min-height: 44px;
+  color: var(--blue); font-size: 11px; font-weight: 600; cursor: pointer;
+}
+.chart-data summary svg { width: 13px; height: 13px; }
+.chart-data table {
+  width: 100%; border-collapse: collapse; margin-top: 5px;
+  font-size: 10.5px;
+}
+.chart-data caption { text-align: left; color: var(--muted-2); font-size: 10px; padding-bottom: 4px; }
+.chart-data th, .chart-data td { padding: 4px 6px; border-top: 1px solid var(--border); text-align: left; }
+.chart-data th.r, .chart-data td.r { text-align: right; }
+.chart-data-note { margin: 5px 0 0; color: var(--muted-2); font-size: 10px; line-height: 1.5; }
+.chart-empty {
+  display: flex; align-items: flex-start; gap: 8px;
+  padding: 18px 12px; border: 1px dashed var(--border); border-radius: 9px;
+  background: var(--surface-2); color: var(--muted);
+}
+.chart-empty svg { width: 16px; height: 16px; flex: none; color: #b45309; margin-top: 1px; }
+.chart-empty b { display: block; font-size: 12px; color: var(--text-2); }
+.chart-empty span { display: block; margin-top: 2px; font-size: 10.5px; line-height: 1.5; }
+.fund-table > tbody > tr.fund-advice-row > td {
   padding: 0; border-top: 0; white-space: normal;
   background: var(--surface-2);
 }
@@ -1062,17 +1164,17 @@ body.is-refreshing .table-card { opacity: 0.62; transition: opacity 0.2s ease; }
     text-align: left !important; white-space: normal !important;
   }
   .fund-row .fund-name-cell { grid-column: 1 / -1; }
-  .fund-row .fund-target-cell, .fund-row .fund-quality-cell { display: none; }
-  .fund-row .fund-target-mobile, .fund-row .fund-quality-mobile { display: inline-flex; }
+  .fund-row .fund-weight-cell, .fund-row .fund-quality-cell { display: none; }
+  .fund-row .fund-target-mobile, .fund-row .fund-quality-mobile, .fund-row .fund-weight-mobile { display: inline-flex; }
   .fund-row td[data-label]::before {
     content: attr(data-label); display: block; margin-bottom: 1px;
     color: var(--muted); font-size: 10px; font-weight: 500; line-height: 1.3;
   }
-  .fund-row .fund-action-cell { grid-column: 1 / -1; justify-self: end; }
   .fund-advice-row { display: block; }
   .fund-advice-row > td { display: block; }
   .advice-panel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .advice-panel-grid .advice-cell:last-child { grid-column: 1 / -1; }
+  .fund-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 /* 手机：大盘表也改为堆叠行；基金表收为两列 */
@@ -1091,17 +1193,34 @@ body.is-refreshing .table-card { opacity: 0.62; transition: opacity 0.2s ease; }
   .index-row .index-name-cell { grid-column: 1; grid-row: 1; }
   .index-row .index-value { grid-column: 2; grid-row: 1; text-align: right !important; font-size: 14px; }
   .index-row .index-pct { grid-column: 1; grid-row: 2; font-size: 12.5px; }
-  .index-row .index-points { grid-column: 2; grid-row: 2; text-align: right !important; font-size: 11.5px; }
+  .index-row .index-pe { grid-column: 2; grid-row: 2; text-align: right !important; font-size: 12px; }
+  .index-row .index-pe::before { content: "PE "; color: var(--muted-2); font-size: 10px; font-weight: 500; }
+  .index-row .index-pctile-cell {
+    grid-column: 1 / -1; grid-row: 3;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .index-row .index-pctile-cell::before {
+    content: "PE 历史分位（近 10 年）"; color: var(--muted-2);
+    font-size: 10px; font-weight: 500;
+  }
+  .index-row .index-pctile-cell .pe-wrap { justify-content: flex-start; }
+  .index-row .index-pctile-cell .pe-bar { width: 70px; }
+  .index-row .index-points { display: inline; margin-left: 6px; font-size: 10px; }
   .index-row .index-state-cell { display: none; }
   .data-table th, .data-table td { padding-left: 14px; padding-right: 14px; }
 }
 
 @media (max-width: 520px) {
   .fund-table tr.fund-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .fund-row .fund-action-cell { grid-column: 2; align-self: end; justify-self: end; }
   .advice-panel { padding: 10px 12px 12px; border-left: 0; }
   .advice-panel .advice-compare, .advice-panel .advice-reason { font-size: 11.5px; }
   .advice-panel-foot .text-link { margin-left: 0; }
+  .fund-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chart-card { padding: 9px 10px 10px; }
+  .chart-head { gap: 6px; }
+  .seg { width: 100%; }
+  .seg-btn { flex: 1 1 auto; padding: 0 7px; font-size: 10.5px; }
+  .chart-last { font-size: 10px; }
 }
 
 /* 桌面：压缩行高，保证 5 只基金在一屏内 */
@@ -1110,6 +1229,17 @@ body.is-refreshing .table-card { opacity: 0.62; transition: opacity 0.2s ease; }
   .data-table thead th { padding-top: 7px; padding-bottom: 7px; }
   .index-name-cell .nm { line-height: 1.3; }
   body[data-page="home"] .section { margin-top: 18px; }
+  .fund-table > tbody > tr > th,
+  .fund-table > tbody > tr > td { padding-top: 3px; padding-bottom: 3px; }
+}
+@media (min-width: 901px) and (max-width: 1200px) {
+  body[data-page="home"] .section { margin-top: 10px; }
+  .fund-table > thead > tr > th:nth-child(1) { width: 31%; }
+  .fund-table > thead > tr > th:nth-child(2) { width: 14%; }
+  .fund-table > thead > tr > th:nth-child(3) { width: 10%; }
+  .fund-table > thead > tr > th:nth-child(4) { width: 11%; }
+  .fund-table > thead > tr > th:nth-child(5) { width: 15%; }
+  .fund-table > thead > tr > th:nth-child(6) { width: 11%; }
 }
 body[data-page="home"] .content { padding-top: 20px; }
 body[data-page="home"] .page-head { margin-bottom: 12px; }

@@ -25,6 +25,8 @@
     refresh: '<path d="M20 11a8 8 0 0 0-14.9-4"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.9 4"/><path d="M20 20v-4h-4"/>',
     external: '<path d="M7 17 17 7"/><path d="M9 7h8v8"/>',
     trend: '<path d="m3 16 6-6 4 4 8-8"/><path d="M15 6h6v6"/>',
+    chevron: '<path d="m9 18 6-6-6-6"/>',
+    list: '<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3.5 6h.01"/><path d="M3.5 12h.01"/><path d="M3.5 18h.01"/>',
     file: '<path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/><path d="M9 12h6"/><path d="M9 16h6"/>',
     news: '<path d="M4 5h12v14H5a2 2 0 0 1-2-2Z"/><path d="M16 8h3a1 1 0 0 1 1 1v8a2 2 0 0 1-2 2H5"/><path d="M7 9h6"/><path d="M7 12.5h6"/><path d="M7 16h4"/>',
     bulb: '<path d="M9.5 18h5"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1.2.9 2h5.2c0-.8.3-1.5.9-2A6 6 0 0 0 12 3Z"/>',
@@ -268,14 +270,25 @@
       roChip("只读");
   }
 
+  function peBar(ix) {
+    var p = Math.round(ix.pePctile * 100);
+    return (
+      '<span class="pe-wrap" title="' + (ix.peWindow || "近 10 年") + '分位 ' + p + '%（演示值）">' +
+      '<span class="pe-bar" aria-hidden="true"><i style="width:' + p + '%"></i></span>' +
+      '<b class="tabular">' + p + "%</b></span>"
+    );
+  }
+
   function indexRow(ix) {
     var c = cls(ix.pct);
     return (
       '<tr class="index-row ' + c + '">' +
       '<th scope="row" class="index-name-cell"><span class="nm">' + ix.name + '</span><span class="cd">' + ix.code + "</span></th>" +
-      '<td class="r index-value tabular" data-label="点位">' + num2(ix.value) + "</td>" +
+      '<td class="r index-value tabular" data-label="点位">' + num2(ix.value) +
+      '<small class="index-points ' + c + '">' + signedNum(ix.change) + " 点</small></td>" +
       '<td class="r index-pct tabular ' + c + '" data-label="涨跌幅">' + signedPct(ix.pct) + "</td>" +
-      '<td class="r index-points tabular ' + c + '" data-label="涨跌点数">' + signedNum(ix.change) + " 点</td>" +
+      '<td class="r index-pe tabular" data-label="PE-TTM">' + ix.pe.toFixed(2) + "</td>" +
+      '<td class="r index-pctile-cell" data-label="PE 分位">' + peBar(ix) + "</td>" +
       '<td class="r index-state-cell"><span class="ud-dot ' + c + '"></span>' + direction(ix.pct) + "</td>" +
       "</tr>"
     );
@@ -284,6 +297,245 @@
   function renderHomeIndices() {
     var el = document.getElementById("index-body");
     if (el) el.innerHTML = M.market.indices.map(indexRow).join("");
+  }
+
+  /* ---------------- v5：展开状态、分时与多周期趋势图 ---------------- */
+  var TREND_DEFAULT = "1y";
+  var TREND_KEYS = ["1w", "1m", "1y", "ytd", "3y", "5y"];
+  var HOME_STORE = "musi.home.v5";
+  var chartPeriods = {};
+
+  function readHomeState() {
+    try {
+      var raw = sessionStorage.getItem(HOME_STORE);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+  }
+  function writeHomeState() {
+    try {
+      sessionStorage.setItem(HOME_STORE, JSON.stringify({
+        open: openFund, periods: chartPeriods, scrollY: window.scrollY || 0
+      }));
+    } catch (e) { /* sessionStorage 不可用时忽略 */ }
+  }
+  function periodOf(code) {
+    return chartPeriods[code] || TREND_DEFAULT;
+  }
+  function fundByCode(code) {
+    return M.groups.actual.funds.filter(function (f) { return f.code === code; })[0];
+  }
+  function chartSize() {
+    var w = window.innerWidth;
+    if (w <= 520) return { W: 360, H: 214, fs: 9.5, pad: { l: 34, r: 64, t: 20, b: 24 }, ticks: 4 };
+    if (w <= 1100) return { W: 700, H: 232, fs: 10, pad: { l: 44, r: 66, t: 22, b: 26 }, ticks: 4 };
+    return { W: 980, H: 268, fs: 10.5, pad: { l: 52, r: 68, t: 24, b: 28 }, ticks: 5 };
+  }
+  function shortDate(d, n) {
+    return n > 320 ? d.slice(0, 7) : d.slice(5);
+  }
+  function xLabelIdx(n) {
+    if (n <= 1) return [0];
+    return [0, Math.round((n - 1) / 3), Math.round(((n - 1) * 2) / 3), n - 1]
+      .filter(function (v, i, a) { return a.indexOf(v) === i; });
+  }
+  function crossList(vals, cost) {
+    var out = [];
+    for (var i = 0; i < vals.length - 1; i++) {
+      var a = vals[i] - cost;
+      var b = vals[i + 1] - cost;
+      if ((a < 0 && b > 0) || (a > 0 && b < 0)) out.push({ idx: i + a / (a - b) });
+    }
+    return out;
+  }
+  function sampledIdx(n) {
+    var step = Math.max(1, Math.ceil(n / 10));
+    var out = [];
+    for (var i = 0; i < n; i += step) out.push(i);
+    if (out[out.length - 1] !== n - 1) out.push(n - 1);
+    return out;
+  }
+
+  function trendChartSVG(f, key) {
+    var p = f.trend.periods[key];
+    if (!p || p.available === false) return "";
+    var g = chartSize();
+    var vals = p.values;
+    var n = vals.length;
+    var est = f.estNav;
+    var cost = f.costNav;
+    var sMin = Math.min.apply(null, vals);
+    var sMax = Math.max.apply(null, vals);
+    var lo = Math.min(sMin, est, cost);
+    var hi = Math.max(sMax, est, cost);
+    var padV = (hi - lo) * 0.14 || 0.02;
+    var yMin = lo - padV;
+    var yMax = hi + padV;
+    function x(i) { return g.pad.l + (n <= 1 ? 0.5 : i / (n - 1)) * (g.W - g.pad.l - g.pad.r); }
+    function y(v) { return g.pad.t + ((yMax - v) / (yMax - yMin)) * (g.H - g.pad.t - g.pad.b); }
+    var grid = "";
+    for (var t = 0; t < g.ticks; t++) {
+      var vv = yMin + ((yMax - yMin) * t) / (g.ticks - 1);
+      var yy = y(vv);
+      grid += '<line x1="' + g.pad.l + '" y1="' + yy.toFixed(1) + '" x2="' + (g.W - g.pad.r) + '" y2="' + yy.toFixed(1) + '" stroke="#e9edf5" stroke-width="1"/>' +
+        '<text x="' + (g.pad.l - 6) + '" y="' + (yy + 3.2).toFixed(1) + '" text-anchor="end" fill="#94a3b8" font-size="' + g.fs + '">' + vv.toFixed(3) + "</text>";
+    }
+    var pts = vals.map(function (v, i) { return { x: x(i), y: y(v) }; });
+    var d = smoothPath(pts);
+    var area = '<path d="' + d + " L" + pts[pts.length - 1].x.toFixed(2) + "," + (g.H - g.pad.b) + " L" + pts[0].x.toFixed(2) + "," + (g.H - g.pad.b) + ' Z" fill="rgba(37,99,235,0.09)"/>';
+    var line = '<path d="' + d + '" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+    var crosses = crossList(vals, cost);
+    var crossMarks = crosses.map(function (c) {
+      var cxp = x(c.idx);
+      var cyp = y(cost);
+      return '<line x1="' + cxp.toFixed(1) + '" y1="' + g.pad.t + '" x2="' + cxp.toFixed(1) + '" y2="' + (g.H - g.pad.b) + '" stroke="#d97706" stroke-width="1" stroke-dasharray="2 4" opacity="0.35"/>' +
+        '<circle cx="' + cxp.toFixed(1) + '" cy="' + cyp.toFixed(1) + '" r="3.1" fill="#fff" stroke="#d97706" stroke-width="2"/>';
+    }).join("");
+    function hLine(v, color, label) {
+      var yy = y(v);
+      return '<line x1="' + g.pad.l + '" y1="' + yy.toFixed(1) + '" x2="' + (g.W - g.pad.r) + '" y2="' + yy.toFixed(1) + '" stroke="' + color + '" stroke-width="1.5" stroke-dasharray="7 5"/>' +
+        '<text x="' + (g.W - 6) + '" y="' + (yy - 5).toFixed(1) + '" text-anchor="end" fill="' + color + '" font-size="' + g.fs + '" font-weight="700">' + label + "</text>" +
+        '<text x="' + (g.W - 6) + '" y="' + (yy + g.fs + 3).toFixed(1) + '" text-anchor="end" fill="' + color + '" font-size="' + g.fs + '">' + v.toFixed(4) + "</text>";
+    }
+    var last = pts[pts.length - 1];
+    var lastDot = '<circle cx="' + last.x.toFixed(2) + '" cy="' + last.y.toFixed(2) + '" r="3.4" fill="#fff" stroke="#2563eb" stroke-width="2.2"/>';
+    var xLabels = xLabelIdx(n).map(function (ii, k, arr) {
+      var anchor = k === 0 ? "start" : k === arr.length - 1 ? "end" : "middle";
+      return '<text x="' + x(ii).toFixed(1) + '" y="' + (g.H - 8) + '" text-anchor="' + anchor + '" fill="#94a3b8" font-size="' + g.fs + '">' + shortDate(p.dates[ii], n) + "</text>";
+    }).join("");
+    var aria = f.name + " " + p.label + "净值趋势（演示数据）：起点 " + vals[0].toFixed(4) + "，终点 " + vals[n - 1].toFixed(4) +
+      "，区间最高 " + sMax.toFixed(4) + "，最低 " + sMin.toFixed(4) +
+      "；今日估算 " + est.toFixed(4) + "，持仓成本 " + cost.toFixed(4) + "；历史交叉 " + crosses.length + " 处。";
+    return '<svg class="trend-svg" viewBox="0 0 ' + g.W + " " + g.H + '" role="img" aria-label="' + aria + '">' +
+      grid + area + line + crossMarks + hLine(est, "#2563eb", "今日估算") + hLine(cost, "#d97706", "持仓成本") +
+      lastDot + xLabels + "</svg>";
+  }
+
+  function trendDataTable(f, key) {
+    var p = f.trend.periods[key];
+    var idxs = sampledIdx(p.n);
+    var rows = idxs.map(function (i) {
+      return "<tr><td>" + p.dates[i] + '</td><td class="r tabular">' + p.values[i].toFixed(4) + "</td></tr>";
+    }).join("");
+    var crosses = crossList(p.values, f.costNav).length;
+    return '<details class="chart-data"><summary>' + icon("list") + "查看数据表（抽样 " + idxs.length + " 行）</summary>" +
+      '<table><caption>' + f.name + " " + p.label + "净值（演示数据）</caption>" +
+      '<thead><tr><th scope="col">日期</th><th scope="col" class="r">净值</th></tr></thead><tbody>' + rows + "</tbody></table>" +
+      '<p class="chart-data-note">区间 ' + p.start + " → " + p.end + " · 共 " + p.n + " 个交易日 · 今日估算 " +
+      f.estNav.toFixed(4) + " · 持仓成本 " + f.costNav.toFixed(4) + " · 历史交叉 " + crosses + " 处 · 演示数据</p></details>";
+  }
+
+  function trendLegend() {
+    return '<div class="chart-legend">' +
+      '<span><i class="lg-line"></i>历史净值</span>' +
+      '<span><i class="lg-dash today"></i>今日估算</span>' +
+      '<span><i class="lg-dash cost"></i>持仓成本</span>' +
+      '<span><i class="lg-dot"></i>历史交叉</span></div>';
+  }
+
+  function trendBody(f, key) {
+    var p = f.trend.periods[key];
+    if (!p || p.available === false) {
+      return '<div class="chart-empty" role="status">' + icon("warning") +
+        "<div><b>" + (p ? p.label : "") + "暂无数据</b><span>" + (p ? p.note : "该周期暂不可用。") + "</span></div></div>";
+    }
+    return '<div class="chart-canvas">' + trendChartSVG(f, key) + "</div>" + trendLegend() + trendDataTable(f, key) +
+      '<p class="chart-demo-note">' + icon("warning") + "<span>" + M.meta.trendDemo +
+      "：本图为构造的净值序列；生产环境接口、更新频率与历史覆盖待数据调研结论。</span></p>";
+  }
+
+  function xOfMinute(min, g) {
+    var plotW = g.W - g.pad.l - g.pad.r;
+    if (min <= 690) return g.pad.l + ((min - 570) / 240) * (plotW * 0.5);
+    return g.pad.l + plotW * 0.5 + ((min - 780) / 240) * (plotW * 0.5);
+  }
+
+  function intradaySVG(f) {
+    var d = f.trend.intraday;
+    var pts = d.points;
+    var g = chartSize();
+    var H = window.innerWidth <= 520 ? 192 : 228;
+    var vals = pts.map(function (p) { return p.pct; });
+    var lo = Math.min.apply(null, vals.concat([0]));
+    var hi = Math.max.apply(null, vals.concat([0]));
+    var padV = Math.max(0.0015, (hi - lo) * 0.18);
+    var yMin = lo - padV;
+    var yMax = hi + padV;
+    function y(v) { return g.pad.t + ((yMax - v) / (yMax - yMin)) * (H - g.pad.t - g.pad.b); }
+    var grid = "";
+    for (var t = 0; t < 3; t++) {
+      var vv = yMin + ((yMax - yMin) * t) / 2;
+      var yy = y(vv);
+      grid += '<line x1="' + g.pad.l + '" y1="' + yy.toFixed(1) + '" x2="' + (g.W - g.pad.r) + '" y2="' + yy.toFixed(1) + '" stroke="#e9edf5" stroke-width="1"/>' +
+        '<text x="' + (g.pad.l - 6) + '" y="' + (yy + 3.2).toFixed(1) + '" text-anchor="end" fill="#94a3b8" font-size="' + g.fs + '">' + signedPct(vv, 2) + "</text>";
+    }
+    var xy = pts.map(function (p) { return { x: xOfMinute(p.min, g), y: y(p.pct) }; });
+    var dPath = smoothPath(xy);
+    var area = '<path d="' + dPath + " L" + xy[xy.length - 1].x.toFixed(2) + "," + (H - g.pad.b) + " L" + xy[0].x.toFixed(2) + "," + (H - g.pad.b) + ' Z" fill="rgba(37,99,235,0.10)"/>';
+    var line = '<path d="' + dPath + '" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+    var lp = xy[xy.length - 1];
+    var ly = y(d.lastPct);
+    var anchor = lp.x > g.W * 0.72 ? "end" : "start";
+    var dx = anchor === "end" ? -6 : 6;
+    var lastLabel = '<circle cx="' + lp.x.toFixed(1) + '" cy="' + ly.toFixed(1) + '" r="3.4" fill="#fff" stroke="#2563eb" stroke-width="2.2"/>' +
+      '<text x="' + (lp.x + dx).toFixed(1) + '" y="' + (ly - 8).toFixed(1) + '" text-anchor="' + anchor + '" fill="#1d4ed8" font-size="' + g.fs + '" font-weight="700">' +
+      d.lastTime.slice(0, 5) + " · " + signedPct(d.lastPct) + "</text>";
+    var yd = y(d.lastPct);
+    var todayLine = '<line x1="' + g.pad.l + '" y1="' + yd.toFixed(1) + '" x2="' + (g.W - g.pad.r) + '" y2="' + yd.toFixed(1) + '" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.75"/>' +
+      '<text x="' + (g.pad.l + 4) + '" y="' + (yd - 6).toFixed(1) + '" fill="#2563eb" font-size="' + g.fs + '" font-weight="700">今日估算 ' + signedPct(d.lastPct) + "</text>";
+    var xMarks = window.innerWidth <= 520 ? [570, 690, 780, 900] : [570, 630, 690, 780, 840, 900];
+    var xLabels = xMarks.map(function (m, k, arr) {
+      var anchor2 = k === 0 ? "start" : k === arr.length - 1 ? "end" : "middle";
+      return '<text x="' + xOfMinute(m, g).toFixed(1) + '" y="' + (H - 8) + '" text-anchor="' + anchor2 + '" fill="#94a3b8" font-size="' + g.fs + '">' +
+        timeOf(m * 60).slice(0, 5) + "</text>";
+    }).join("");
+    var aria = f.name + " 当日分时估算涨跌幅（演示数据）：09:30–11:30、13:00–15:00；最后一点 " + d.lastTime.slice(0, 5) + " " + signedPct(d.lastPct) + "。";
+    return '<svg class="trend-svg" viewBox="0 0 ' + g.W + " " + H + '" role="img" aria-label="' + aria + '">' +
+      grid + area + line + todayLine + lastLabel + xLabels + "</svg>";
+  }
+
+  function intradayBlock(f) {
+    var d = f.trend.intraday;
+    return '<div class="chart-card">' +
+      '<div class="chart-head"><div><h4>当日分时</h4><span class="chart-sub">09:30–11:30 / 13:00–15:00 · 估算涨跌幅</span></div>' +
+      '<span class="chart-last">最后一点 <b>' + d.lastTime.slice(0, 5) + '</b> · <b class="' + cls(d.lastPct) + '">' + signedPct(d.lastPct) + "</b></span></div>" +
+      '<div class="chart-canvas">' + intradaySVG(f) + "</div>" +
+      '<div class="chart-legend"><span><i class="lg-line"></i>估算涨跌幅</span><span><i class="lg-dash today"></i>今日估算</span></div>' +
+      '<p class="chart-demo-note">' + icon("warning") + "<span>" + M.meta.trendDemo +
+      "；持仓成本线与历史交叉位置见下方多周期趋势。</span></p></div>";
+  }
+
+  function trendSeg(f) {
+    var cur = periodOf(f.code);
+    return '<div class="seg" role="tablist" aria-label="趋势周期（' + f.name + '）">' +
+      TREND_KEYS.map(function (k) {
+        var p = f.trend.periods[k];
+        return '<button class="seg-btn' + (k === cur ? " active" : "") + '" type="button" role="tab" aria-selected="' + (k === cur) +
+          '" data-period="' + k + '" data-period-fund="' + f.code + '">' + p.label + "</button>";
+      }).join("") + "</div>";
+  }
+
+  function trendBlock(f) {
+    return '<div class="chart-card">' +
+      '<div class="chart-head"><div><h4>多周期趋势</h4><span class="chart-sub">净值曲线 · 今日估算与持仓成本为水平虚线</span></div>' +
+      trendSeg(f) + "</div>" +
+      '<div class="chart-body" data-chart-body="' + f.code + '">' + trendBody(f, periodOf(f.code)) + "</div>" +
+      "</div>";
+  }
+
+  function fundFact(label, value, clsName) {
+    return '<div class="fund-fact"><span>' + label + '</span><b class="tabular ' + (clsName || "") + '">' + value + "</b></div>";
+  }
+
+  function fundFacts(f) {
+    var dev = f.weight - f.target;
+    return '<div class="fund-facts">' +
+      fundFact("当前持仓市值", wan(f.amount)) +
+      fundFact("当前权重", pct(f.weight, 1)) +
+      fundFact("目标权重", pct(f.target, 0)) +
+      fundFact("偏离", signedPp(dev), Math.abs(dev) >= 0.02 ? "warn" : "") +
+      fundFact("持仓成本净值", f.costNav.toFixed(4)) +
+      fundFact("估算净值", f.estNav.toFixed(4)) +
+      "</div>";
   }
 
   function advicePanel(f) {
@@ -297,8 +549,12 @@
       '<div class="advice-cell"><span class="cell-label">金额</span><b class="cell-value tabular">' + (f.amountWan > 0 ? f.amountWan.toFixed(1) + " 万" : "0 万") + "</b></div>" +
       '<div class="advice-cell"><span class="cell-label">执行状态</span>' + exec + "</div>" +
       "</div>" +
+      fundFacts(f) +
       '<p class="advice-reason">' + f.reason + "</p>" +
-      '<div class="advice-compare">' + icon("trend") + "<span>当前估值 " + nav4(f.estNav) + ' <b class="' + cls(f.estPct) + '">' + signedPct(f.estPct) + '</b> · 实际权重 ' + pct(f.weight, 1) + " · 目标权重 " + pct(f.target, 0) + "</span></div>" +
+      '<div class="advice-compare">' + icon("trend") + "<span>估算涨跌幅 <b class=\"" + cls(f.estPct) + "\">" + signedPct(f.estPct) +
+      "</b> · 今日预估收益 <b class=\"" + cls(f.estPnl) + "\">" + signedYuan(f.estPnl) + " 元</b> · 数据 " +
+      (f.stale ? f.estTime + "（stale）" : updateTime()) + "</span></div>" +
+      '<div class="chart-stack">' + intradayBlock(f) + trendBlock(f) + "</div>" +
       '<div class="advice-panel-foot">' + icon("lock") + "<span>只读：执行仅通过 MCP 写入口。</span>" +
       '<a class="text-link" href="advice.html#fund-' + f.code + '">完整明细' + icon("arrow") + "</a></div>" +
       "</div>"
@@ -314,20 +570,25 @@
     return (
       '<tr class="fund-row' + (stale ? " is-stale" : "") + '" data-fund="' + f.code + '">' +
       '<th scope="row" class="fund-name-cell">' +
+      '<button class="fund-toggle" type="button" data-expand="' + f.code + '" aria-expanded="false" aria-controls="' + id + '">' +
+      icon("chevron", "fund-chevron") +
+      '<span class="fund-title">' +
       '<span class="fund-name">' + f.name + "</span>" +
       '<span class="fund-sub"><span class="fund-code">' + f.code + '</span><span class="fund-sep">·</span>' + groupTag("actual") +
+      '<span class="fund-weight-mobile">权重 ' + pct(f.weight, 1) + '</span>' +
       '<span class="fund-target-mobile">目标 ' + pct(f.target, 0) + '</span><span class="fund-quality-mobile">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</span></span>" +
+      "</span>" +
+      "</button>" +
       staleLine +
       "</th>" +
-      '<td class="r tabular fund-nav-cell" data-label="估算净值">' + nav4(f.estNav) + "</td>" +
+      '<td class="r tabular fund-amount-cell" data-label="当前持仓市值">' + wan(f.amount) + "</td>" +
+      '<td class="r tabular fund-weight-cell" data-label="当前权重">' + pct(f.weight, 1) + "</td>" +
       '<td class="r tabular fund-pct-cell ' + cls(f.estPct) + '" data-label="估算涨跌幅">' + signedPct(f.estPct) + "</td>" +
       '<td class="r tabular fund-pnl-cell ' + cls(f.estPnl) + '" data-label="今日预估收益">' + signedYuan(f.estPnl) + "<small>元</small></td>" +
-      '<td class="r tabular fund-target-cell">' + pct(f.target, 0) + "</td>" +
       '<td class="r fund-quality-cell">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</td>" +
-      '<td class="r fund-action-cell"><button class="expand-btn" type="button" data-expand="' + f.code + '" aria-expanded="false" aria-controls="' + id + '"><span class="expand-label">展开</span>' + icon("arrow", "expand-ico") + "</button></td>" +
       "</tr>" +
       '<tr class="fund-advice-row" id="' + id + '" hidden>' +
-      '<td colspan="7">' + advicePanel(f) + "</td>" +
+      '<td colspan="6">' + advicePanel(f) + "</td>" +
       "</tr>"
     );
   }
@@ -336,6 +597,19 @@
     var body = document.getElementById("fund-body");
     if (body) body.innerHTML = M.groups.actual.funds.map(fundRow).join("");
     openFund = null;
+    var saved = readHomeState();
+    if (saved && saved.periods) {
+      Object.keys(saved.periods).forEach(function (k) {
+        if (TREND_KEYS.indexOf(saved.periods[k]) >= 0) chartPeriods[k] = saved.periods[k];
+      });
+    }
+    if (saved && saved.open && document.getElementById("advice-" + saved.open)) {
+      setFundOpen(saved.open, true);
+      refreshChart(saved.open);
+      if (saved.scrollY > 0) {
+        setTimeout(function () { window.scrollTo(0, saved.scrollY); }, 40);
+      }
+    }
   }
 
   function setFundOpen(code, open) {
@@ -343,18 +617,28 @@
     var row = document.getElementById("advice-" + code);
     if (!btn || !row) return;
     btn.setAttribute("aria-expanded", open ? "true" : "false");
-    var label = btn.querySelector(".expand-label");
-    if (label) label.textContent = open ? "收起" : "展开";
     row.hidden = !open;
     var tr = btn.closest("tr");
     if (tr) tr.classList.toggle("is-open", open);
     openFund = open ? code : null;
+    writeHomeState();
   }
 
   function toggleFund(code) {
     var isOpen = openFund === code;
     if (openFund && openFund !== code) setFundOpen(openFund, false);
     setFundOpen(code, !isOpen);
+  }
+
+  function refreshChart(code) {
+    var f = fundByCode(code);
+    var wrap = document.querySelector('[data-chart-body="' + code + '"]');
+    if (f && wrap) wrap.innerHTML = trendBody(f, periodOf(code));
+    Array.prototype.forEach.call(document.querySelectorAll('[data-period-fund="' + code + '"]'), function (b) {
+      var on = b.getAttribute("data-period") === periodOf(code);
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-selected", on ? "true" : "false");
+    });
   }
 
   function qualityCard() {
@@ -366,9 +650,11 @@
       qBadge("official", "official · 官方净值到齐") + qBadge("estimate", "estimate · 盘中估算") + qBadge("partial", "partial · 部分到齐") + qBadge("stale", "stale · 数据延迟") +
       "</div>" +
       '<div class="realtime-note">' + icon("database") +
-      "<div><b>估值口径：</b>盘中为 estimate 估算，今日预估收益按当前持仓计算，非官方净值；晚间 21:30 后按官方净值修正，修正前请勿以估算数字对账。" + rt.staleNote +
-      "<br><b>刷新：</b>进入页面自动刷新一次，也可点击页头「刷新估值」手动刷新。" + rt.demoNote + "数据源 " + rt.source + "。" +
-      "<br><b>建议：</b>每日 14:30 生成逐基金建议，首页行内展开查看，完整明细见「建议」页；建议只读，执行仅通过 MCP 写入口。" +
+      "<div><b>持仓口径：</b>首页以当前持仓市值与当前权重为主，估算净值降为展开区次要信息；今日预估收益按当前持仓计算，非官方净值；晚间 21:30 后按官方净值修正。" + rt.staleNote +
+      "<br><b>估值与 PE：</b>指数 PE-TTM 与近 10 年历史分位数为构造的演示值，生产环境接口与授权待数据调研任务确认。" +
+      "<br><b>趋势图：</b>当日分时与近一周/一月/一年/今年/三年/五年净值为演示序列，今日估算与持仓成本以虚线标示；生产可用性与历史覆盖待确认，不代表已接入稳定接口。" +
+      "<br><b>刷新：</b>进入页面自动刷新一次，也可点击页头「刷新估值」手动刷新；刷新后保留展开行、图表周期与滚动位置。" + rt.demoNote + "数据源 " + rt.source + "。" +
+      "<br><b>建议：</b>每日 14:30 生成逐基金建议，首页点击基金名称展开，完整明细见「建议」页；建议只读，执行仅通过 MCP 写入口。" +
       "</div></div>" +
       '<div class="risk-note">' + icon("warning") + "<span>估算可能被官方净值修正；AI 影子组与沪深300 基准组均为模拟，不涉及真实资金。" + M.meta.disclaimer + "</span></div>" +
       "</div>"
@@ -433,6 +719,14 @@
         manualRefresh();
         return;
       }
+      var seg = e.target.closest("[data-period]");
+      if (seg) {
+        var segCode = seg.getAttribute("data-period-fund");
+        chartPeriods[segCode] = seg.getAttribute("data-period");
+        refreshChart(segCode);
+        writeHomeState();
+        return;
+      }
       var btn = e.target.closest("[data-expand]");
       if (btn) toggleFund(btn.getAttribute("data-expand"));
     });
@@ -443,6 +737,17 @@
         var btn = document.querySelector('[data-expand="' + code + '"]');
         if (btn) btn.focus();
       }
+    });
+    var resizeTimer = null;
+    window.addEventListener("resize", function () {
+      if (!openFund) return;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { if (openFund) refreshChart(openFund); }, 160);
+    });
+    var scrollTimer = null;
+    window.addEventListener("scroll", function () {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(writeHomeState, 200);
     });
   }
 
