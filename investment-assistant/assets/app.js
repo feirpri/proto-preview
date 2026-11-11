@@ -1,4 +1,4 @@
-/* Musi 投资助手 · 静态原型交互与渲染（无构建链，原生 JS）· v3 */
+/* Musi 投资助手 · 静态原型交互与渲染（无构建链，原生 JS）· v4 */
 (function () {
   "use strict";
 
@@ -113,6 +113,7 @@
 
   /* ---------------- 模拟刷新时钟 ---------------- */
   var RT = { time: M.meta.realtime.calcTime, busy: false, ready: false };
+  var openFund = null;
 
   function secOf(t) {
     var p = t.split(":").map(Number);
@@ -136,8 +137,10 @@
   }
 
   function dataChip() {
-    var t = document.body.getAttribute("data-page") === "home" ? updateTime() : M.meta.asof.slice(11);
-    return '<span class="data-chip"><span class="dot live"></span>数据时间 <b data-update-time>' + t + "</b>" + qBadge(M.meta.quality, "estimate") + "</span>";
+    if (document.body.getAttribute("data-page") === "home") {
+      return '<span class="data-chip"><span class="dot live"></span>数据日期 <b>' + M.meta.asofDate + "</b>" + qBadge(M.meta.quality, "estimate") + "</span>";
+    }
+    return '<span class="data-chip"><span class="dot live"></span>数据时间 <b data-update-time>' + M.meta.asof.slice(11) + "</b>" + qBadge(M.meta.quality, "estimate") + "</span>";
   }
   function miniBrand() {
     return '<div class="brand"><div class="brand-mark">M</div><div><div class="brand-name">Musi 投资助手</div><div class="brand-sub">只读原型 · ' + M.meta.version + "</div></div></div>";
@@ -230,12 +233,16 @@
 
     var foot = document.getElementById("site-footer");
     if (foot) {
-      foot.innerHTML =
-        '<div class="quality-legend"><span class="lg-title">数据质量</span>' +
-        qBadge("official") + qBadge("estimate") + qBadge("partial") + qBadge("stale") +
-        '<span class="lg-title" style="margin-left:8px">三组颜色</span>' +
-        '<span class="group-tag actual">实盘</span><span class="group-tag ai">AI 影子</span><span class="group-tag bench">沪深300 基准</span></div>' +
-        '<div class="risk-note">' + icon("warning") + "<span>" + M.meta.disclaimer + " 数据日期 " + M.meta.asofDate + "（" + M.meta.timezone + "）。</span></div>";
+      if (active === "home") {
+        foot.innerHTML = "";
+      } else {
+        foot.innerHTML =
+          '<div class="quality-legend"><span class="lg-title">数据质量</span>' +
+          qBadge("official") + qBadge("estimate") + qBadge("partial") + qBadge("stale") +
+          '<span class="lg-title" style="margin-left:8px">三组颜色</span>' +
+          '<span class="group-tag actual">实盘</span><span class="group-tag ai">AI 影子</span><span class="group-tag bench">沪深300 基准</span></div>' +
+          '<div class="risk-note">' + icon("warning") + "<span>" + M.meta.disclaimer + " 数据日期 " + M.meta.asofDate + "（" + M.meta.timezone + "）。</span></div>";
+      }
     }
 
     var bottom = document.getElementById("bottom-nav");
@@ -261,78 +268,109 @@
       roChip("只读");
   }
 
-  function indexCard(ix) {
+  function indexRow(ix) {
     var c = cls(ix.pct);
     return (
-      '<article class="index-card ' + c + '">' +
-      '<div class="index-head"><span class="index-name">' + ix.name + '</span><span class="index-code">' + ix.code + "</span></div>" +
-      '<div class="index-value tabular">' + num2(ix.value) + "</div>" +
-      '<div class="index-change"><span class="index-pct tabular ' + c + '">' + signedPct(ix.pct) + '</span><span class="index-points tabular ' + c + '">' + signedNum(ix.change) + " 点</span></div>" +
-      '<div class="index-foot"><span class="ud-dot ' + c + '"></span>' + direction(ix.pct) + " · 较昨收</div>" +
-      "</article>"
+      '<tr class="index-row ' + c + '">' +
+      '<th scope="row" class="index-name-cell"><span class="nm">' + ix.name + '</span><span class="cd">' + ix.code + "</span></th>" +
+      '<td class="r index-value tabular" data-label="点位">' + num2(ix.value) + "</td>" +
+      '<td class="r index-pct tabular ' + c + '" data-label="涨跌幅">' + signedPct(ix.pct) + "</td>" +
+      '<td class="r index-points tabular ' + c + '" data-label="涨跌点数">' + signedNum(ix.change) + " 点</td>" +
+      '<td class="r index-state-cell"><span class="ud-dot ' + c + '"></span>' + direction(ix.pct) + "</td>" +
+      "</tr>"
     );
   }
 
   function renderHomeIndices() {
-    var el = document.getElementById("index-grid");
-    if (el) el.innerHTML = M.market.indices.map(indexCard).join("");
+    var el = document.getElementById("index-body");
+    if (el) el.innerHTML = M.market.indices.map(indexRow).join("");
   }
 
-  function fundMeta() {
-    var el = document.getElementById("home-fund-meta");
-    if (!el) return;
-    el.innerHTML = '<span class="live-inline"><span class="dot live"></span>本次更新 <b data-update-time>' + updateTime() + "</b></span>" + qBadge("estimate", "estimate 估算");
+  function advicePanel(f) {
+    var exec = f.executed
+      ? '<span class="exec-state">' + icon("check") + "executed · " + (f.executedAt || "14:31") + " 已应用</span>"
+      : '<span class="exec-state pending">' + icon("clock") + "待执行（14:30 生成）</span>";
+    return (
+      '<div class="advice-panel">' +
+      '<div class="advice-panel-grid">' +
+      '<div class="advice-cell"><span class="cell-label">操作</span><span class="advice-op">' + actionChip(f.action) + "</span></div>" +
+      '<div class="advice-cell"><span class="cell-label">金额</span><b class="cell-value tabular">' + (f.amountWan > 0 ? f.amountWan.toFixed(1) + " 万" : "0 万") + "</b></div>" +
+      '<div class="advice-cell"><span class="cell-label">执行状态</span>' + exec + "</div>" +
+      "</div>" +
+      '<p class="advice-reason">' + f.reason + "</p>" +
+      '<div class="advice-compare">' + icon("trend") + "<span>当前估值 " + nav4(f.estNav) + ' <b class="' + cls(f.estPct) + '">' + signedPct(f.estPct) + '</b> · 实际权重 ' + pct(f.weight, 1) + " · 目标权重 " + pct(f.target, 0) + "</span></div>" +
+      '<div class="advice-panel-foot">' + icon("lock") + "<span>只读：执行仅通过 MCP 写入口。</span>" +
+      '<a class="text-link" href="advice.html#fund-' + f.code + '">完整明细' + icon("arrow") + "</a></div>" +
+      "</div>"
+    );
   }
 
-  function fundEstimateCard(f) {
+  function fundRow(f) {
     var stale = f.stale;
-    var note = stale
-      ? '<div class="stale-note">' + icon("warning") + "<span>stale · 最近可用 " + f.estTime + " · 延迟 " + staleDelayMin() + " 分钟（本次未取到新值），不冒充实时。</span></div>"
+    var id = "advice-" + f.code;
+    var staleLine = stale
+      ? '<span class="stale-inline">' + icon("warning") + "最近可用 " + f.estTime + " · 延迟 <b data-stale-min>" + staleDelayMin() + "</b> 分钟</span>"
       : "";
     return (
-      '<article class="card fund-card est-card' + (stale ? " is-stale" : "") + '">' +
-      '<header class="fund-head">' +
-      '<div class="fund-head-main">' +
-      '<div class="fund-name">' + f.name + "</div>" +
-      '<div class="fund-meta"><span class="fund-code">' + f.code + '</span><span class="fund-sep">·</span><span>目标权重 ' + pct(f.target, 0) + "</span></div>" +
-      "</div>" +
-      '<div class="fund-badges">' + groupTag("actual") + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</div>" +
-      "</header>" +
-
-      '<section class="fund-zone" aria-label="基金实时估值">' +
-      '<div class="estimate-grid">' +
-      '<div class="est-cell"><span class="cell-label">估算净值</span><b class="cell-value tabular">' + nav4(f.estNav) + '</b><span class="cell-sub">' + (stale ? "最近可用值" : "盘中估算") + "</span></div>" +
-      '<div class="est-cell"><span class="cell-label">估算涨跌幅</span><b class="cell-value tabular ' + cls(f.estPct) + '">' + signedPct(f.estPct) + '</b><span class="cell-sub">' + direction(f.estPct) + "</span></div>" +
-      '<div class="est-cell is-wide"><span class="cell-label">今日预估收益</span><b class="cell-value tabular ' + cls(f.estPnl) + '">' + signedYuan(f.estPnl) + '<small>元</small></b><span class="cell-sub">按当前持仓估算，非官方净值</span></div>' +
-      "</div>" +
-      '<div class="live-meta">' +
-      '<span class="calc-time' + (stale ? " warn" : "") + '">' + icon("clock") + (stale ? "最近可用 " + f.estTime : "本次更新 " + updateTime()) + "</span>" +
-      '<span class="live-source">数据源 ' + f.estSource + "</span>" +
-      "</div>" +
-      note +
-      '<div class="est-foot"><a class="text-link" href="advice.html#fund-' + f.code + '">查看该基金建议' + icon("arrow") + "</a></div>" +
-      "</section>" +
-      "</article>"
+      '<tr class="fund-row' + (stale ? " is-stale" : "") + '" data-fund="' + f.code + '">' +
+      '<th scope="row" class="fund-name-cell">' +
+      '<span class="fund-name">' + f.name + "</span>" +
+      '<span class="fund-sub"><span class="fund-code">' + f.code + '</span><span class="fund-sep">·</span>' + groupTag("actual") +
+      '<span class="fund-target-mobile">目标 ' + pct(f.target, 0) + '</span><span class="fund-quality-mobile">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</span></span>" +
+      staleLine +
+      "</th>" +
+      '<td class="r tabular fund-nav-cell" data-label="估算净值">' + nav4(f.estNav) + "</td>" +
+      '<td class="r tabular fund-pct-cell ' + cls(f.estPct) + '" data-label="估算涨跌幅">' + signedPct(f.estPct) + "</td>" +
+      '<td class="r tabular fund-pnl-cell ' + cls(f.estPnl) + '" data-label="今日预估收益">' + signedYuan(f.estPnl) + "<small>元</small></td>" +
+      '<td class="r tabular fund-target-cell">' + pct(f.target, 0) + "</td>" +
+      '<td class="r fund-quality-cell">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</td>" +
+      '<td class="r fund-action-cell"><button class="expand-btn" type="button" data-expand="' + f.code + '" aria-expanded="false" aria-controls="' + id + '"><span class="expand-label">展开</span>' + icon("arrow", "expand-ico") + "</button></td>" +
+      "</tr>" +
+      '<tr class="fund-advice-row" id="' + id + '" hidden>' +
+      '<td colspan="7">' + advicePanel(f) + "</td>" +
+      "</tr>"
     );
   }
 
   function renderHomeFunds() {
-    var grid = document.getElementById("fund-grid");
-    if (grid) grid.innerHTML = M.groups.actual.funds.map(fundEstimateCard).join("");
+    var body = document.getElementById("fund-body");
+    if (body) body.innerHTML = M.groups.actual.funds.map(fundRow).join("");
+    openFund = null;
+  }
+
+  function setFundOpen(code, open) {
+    var btn = document.querySelector('[data-expand="' + code + '"]');
+    var row = document.getElementById("advice-" + code);
+    if (!btn || !row) return;
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    var label = btn.querySelector(".expand-label");
+    if (label) label.textContent = open ? "收起" : "展开";
+    row.hidden = !open;
+    var tr = btn.closest("tr");
+    if (tr) tr.classList.toggle("is-open", open);
+    openFund = open ? code : null;
+  }
+
+  function toggleFund(code) {
+    var isOpen = openFund === code;
+    if (openFund && openFund !== code) setFundOpen(openFund, false);
+    setFundOpen(code, !isOpen);
   }
 
   function qualityCard() {
     var rt = M.meta.realtime;
     return (
-      '<div class="card col-12 card-pad">' +
+      '<div class="card col-12 card-pad quality-card">' +
       '<div class="section-head" style="margin-bottom:10px"><div><h2 style="margin:0;font-size:15px">数据口径说明</h2><div class="hint">asof ' + M.meta.asofDate + " · " + M.meta.timezone + ' · 全部为演示数据</div></div>' + qBadge("estimate", "estimate 盘中估算") + "</div>" +
       '<div class="quality-legend" style="background:var(--surface-2)">' +
       qBadge("official", "official · 官方净值到齐") + qBadge("estimate", "estimate · 盘中估算") + qBadge("partial", "partial · 部分到齐") + qBadge("stale", "stale · 数据延迟") +
       "</div>" +
-      '<div class="realtime-note">' + icon("refresh") +
-      "<div><b>实时估值：进入页面自动刷新一次，也可点击「刷新估值」手动刷新。</b>本次更新 <b data-update-time>" + updateTime() + "</b>（模拟值）；数据源 " + rt.source + "。" + rt.demoNote +
-      "<br><b>定期分析：</b>每日 14:30 生成逐基金建议，见「建议」页；建议只读，执行仅通过 MCP 写入口。" + rt.staleNote + "</div></div>" +
-      '<div class="risk-note">' + icon("warning") + "<span>估值在晚间 21:30 后按官方净值修正，修正前请勿以估算数字对账。AI 影子组与沪深300 基准组均为模拟，不涉及真实资金。</span></div>" +
+      '<div class="realtime-note">' + icon("database") +
+      "<div><b>估值口径：</b>盘中为 estimate 估算，今日预估收益按当前持仓计算，非官方净值；晚间 21:30 后按官方净值修正，修正前请勿以估算数字对账。" + rt.staleNote +
+      "<br><b>刷新：</b>进入页面自动刷新一次，也可点击页头「刷新估值」手动刷新。" + rt.demoNote + "数据源 " + rt.source + "。" +
+      "<br><b>建议：</b>每日 14:30 生成逐基金建议，首页行内展开查看，完整明细见「建议」页；建议只读，执行仅通过 MCP 写入口。" +
+      "</div></div>" +
+      '<div class="risk-note">' + icon("warning") + "<span>估算可能被官方净值修正；AI 影子组与沪深300 基准组均为模拟，不涉及真实资金。" + M.meta.disclaimer + "</span></div>" +
       "</div>"
     );
   }
@@ -355,8 +393,9 @@
     Array.prototype.forEach.call(document.querySelectorAll("[data-update-time]"), function (el) {
       el.textContent = t;
     });
-    renderHomeIndices();
-    renderHomeFunds();
+    Array.prototype.forEach.call(document.querySelectorAll("[data-stale-min]"), function (el) {
+      el.textContent = String(staleDelayMin());
+    });
     setRefreshBusy(false);
   }
 
@@ -369,7 +408,7 @@
       var n = (Number(document.body.getAttribute("data-manual-refresh")) || 0) + 1;
       document.body.setAttribute("data-manual-refresh", String(n));
       var live = document.getElementById("refresh-status");
-      if (live) live.textContent = "估值已更新，本次更新 " + updateTime();
+      if (live) live.textContent = "估值已更新";
     }, M.meta.realtime.manualDelayMs);
   }
 
@@ -378,7 +417,6 @@
     RT.ready = false;
     homeHead();
     renderHomeIndices();
-    fundMeta();
     renderHomeFunds();
     var q = document.getElementById("home-quality");
     if (q) q.innerHTML = qualityCard();
@@ -388,10 +426,23 @@
       applyUpdate();
       document.body.setAttribute("data-auto-refreshed", "1");
       var live = document.getElementById("refresh-status");
-      if (live) live.textContent = "已自动刷新，本次更新 " + updateTime();
+      if (live) live.textContent = "估值已自动刷新";
     }, M.meta.realtime.autoDelayMs);
     document.addEventListener("click", function (e) {
-      if (e.target.closest("[data-refresh]")) manualRefresh();
+      if (e.target.closest("[data-refresh]")) {
+        manualRefresh();
+        return;
+      }
+      var btn = e.target.closest("[data-expand]");
+      if (btn) toggleFund(btn.getAttribute("data-expand"));
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && openFund) {
+        var code = openFund;
+        setFundOpen(code, false);
+        var btn = document.querySelector('[data-expand="' + code + '"]');
+        if (btn) btn.focus();
+      }
     });
   }
 

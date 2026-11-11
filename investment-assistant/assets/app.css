@@ -946,3 +946,181 @@ body.sheet-open { overflow: hidden; }
 }
 
 .refresh-note { margin: 7px 0 0; color: var(--muted-2); font-size: 11px; line-height: 1.5; }
+
+/* ================= v4：首页表格化与行内建议 ================= */
+.table-card {
+  border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+  background: var(--surface); box-shadow: var(--shadow-sm);
+}
+.data-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.data-table th, .data-table td {
+  padding: 10px 14px; border-top: 1px solid var(--border);
+  text-align: left; font-size: 12.5px; vertical-align: middle;
+}
+.data-table thead th {
+  padding-top: 9px; padding-bottom: 9px; border-top: 0;
+  background: var(--surface-2); color: var(--muted);
+  font-size: 11.5px; font-weight: 600; white-space: nowrap;
+}
+.data-table .r { text-align: right; }
+.data-table .tabular { font-variant-numeric: tabular-nums; }
+.data-table .th-sub {
+  display: block; margin-top: 1px; color: var(--muted-2);
+  font-size: 10px; font-weight: 500;
+}
+body.is-refreshing .table-card { opacity: 0.62; transition: opacity 0.2s ease; }
+
+/* 大盘指数表 */
+.index-table thead th:first-child { width: 34%; }
+.index-row:hover { background: #fbfcff; }
+.index-name-cell { font-weight: 650; line-height: 1.35; }
+.index-name-cell .nm { display: block; }
+.index-name-cell .cd {
+  display: block; margin-top: 1px; color: var(--muted-2);
+  font-size: 10.5px; font-weight: 500; font-variant-numeric: tabular-nums;
+}
+.index-value { font-size: 15px; font-weight: 700; letter-spacing: -0.2px; }
+.index-pct { font-weight: 700; }
+.index-points { font-weight: 600; }
+.index-state-cell { color: var(--muted); white-space: nowrap; }
+.index-state-cell .ud-dot { display: inline-block; margin-right: 5px; vertical-align: 1px; }
+
+/* 基金估值表 */
+.fund-table thead th:nth-child(1) { width: 31%; }
+.fund-table thead th:nth-child(2) { width: 12%; }
+.fund-table thead th:nth-child(3) { width: 11%; }
+.fund-table thead th:nth-child(4) { width: 15%; }
+.fund-table thead th:nth-child(5) { width: 9%; }
+.fund-table thead th:nth-child(6) { width: 10%; }
+.fund-row:hover { background: #fbfcff; }
+.fund-row.is-stale { background: rgba(253, 236, 236, 0.42); }
+.fund-row.is-open { background: var(--blue-soft); }
+.fund-name-cell { font-weight: 400; line-height: 1.35; }
+.fund-name-cell .fund-name {
+  display: block; font-size: 13px; font-weight: 650;
+  line-height: 1.35; overflow-wrap: anywhere;
+}
+.fund-sub {
+  display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+  margin-top: 2px; color: var(--muted); font-size: 10.5px;
+}
+.fund-sub .group-tag { padding: 1px 6px; font-size: 10px; }
+.fund-target-mobile, .fund-quality-mobile { display: none; }
+.stale-inline {
+  display: flex; align-items: center; gap: 4px; margin-top: 3px;
+  color: var(--red); font-size: 10px; line-height: 1.4;
+}
+.stale-inline svg { width: 11px; height: 11px; }
+.fund-table tbody td { white-space: nowrap; }
+.fund-table td small { margin-left: 1px; font-size: 10.5px; color: var(--muted); }
+.expand-btn {
+  display: inline-flex; align-items: center; justify-content: flex-end; gap: 4px;
+  min-height: 44px; min-width: 64px; padding: 0 4px;
+  border: 0; background: transparent; color: var(--blue);
+  font-size: 12px; font-weight: 650; cursor: pointer;
+}
+.expand-btn .expand-ico { width: 14px; height: 14px; transition: transform 0.16s ease; }
+.expand-btn[aria-expanded="true"] .expand-ico { transform: rotate(90deg); }
+.fund-advice-row > td {
+  padding: 0; border-top: 0; white-space: normal;
+  background: var(--surface-2);
+}
+.fund-advice-row[hidden] { display: none; }
+.advice-panel { padding: 12px 16px 14px; border-left: 3px solid var(--blue); }
+.advice-panel-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.advice-panel .advice-cell { padding: 8px 10px; }
+.advice-panel .advice-op { display: inline-flex; align-items: center; font-size: 14px; }
+.advice-panel .advice-op .chip { font-size: 12px; }
+.advice-panel .exec-state { display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; line-height: 1.45; }
+.advice-panel .exec-state svg { width: 12px; height: 12px; }
+.advice-panel .advice-reason { margin-top: 8px; }
+.advice-panel .advice-compare { margin-top: 8px; }
+.advice-panel-foot {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  margin-top: 9px; padding-top: 9px; border-top: 1px dashed var(--border);
+  color: var(--muted-2); font-size: 10.5px;
+}
+.advice-panel-foot svg { width: 12px; height: 12px; }
+.advice-panel-foot .text-link { margin-left: auto; font-size: 11.5px; }
+.quality-card .realtime-note { margin-top: 10px; }
+.quality-card .risk-note { margin-top: 10px; }
+
+/* 平板及以下：基金表改为堆叠行 */
+@media (max-width: 900px) {
+  .fund-table thead { display: none; }
+  .fund-table, .fund-table tbody { display: block; width: 100%; }
+  .fund-table tr.fund-row {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px 12px; padding: 12px 14px; border-top: 1px solid var(--border);
+  }
+  .fund-table tr.fund-row:first-child { border-top: 0; }
+  .fund-row > * {
+    display: block; padding: 0 !important; border: 0 !important;
+    text-align: left !important; white-space: normal !important;
+  }
+  .fund-row .fund-name-cell { grid-column: 1 / -1; }
+  .fund-row .fund-target-cell, .fund-row .fund-quality-cell { display: none; }
+  .fund-row .fund-target-mobile, .fund-row .fund-quality-mobile { display: inline-flex; }
+  .fund-row td[data-label]::before {
+    content: attr(data-label); display: block; margin-bottom: 1px;
+    color: var(--muted); font-size: 10px; font-weight: 500; line-height: 1.3;
+  }
+  .fund-row .fund-action-cell { grid-column: 1 / -1; justify-self: end; }
+  .fund-advice-row { display: block; }
+  .fund-advice-row > td { display: block; }
+  .advice-panel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .advice-panel-grid .advice-cell:last-child { grid-column: 1 / -1; }
+}
+
+/* 手机：大盘表也改为堆叠行；基金表收为两列 */
+@media (max-width: 640px) {
+  .index-table thead { display: none; }
+  .index-table, .index-table tbody { display: block; width: 100%; }
+  .index-table tr.index-row {
+    display: grid; grid-template-columns: 1fr auto; gap: 2px 10px;
+    padding: 10px 14px; border-top: 1px solid var(--border);
+  }
+  .index-table tr.index-row:first-child { border-top: 0; }
+  .index-row > * {
+    display: block; padding: 0 !important; border: 0 !important;
+    text-align: left !important;
+  }
+  .index-row .index-name-cell { grid-column: 1; grid-row: 1; }
+  .index-row .index-value { grid-column: 2; grid-row: 1; text-align: right !important; font-size: 14px; }
+  .index-row .index-pct { grid-column: 1; grid-row: 2; font-size: 12.5px; }
+  .index-row .index-points { grid-column: 2; grid-row: 2; text-align: right !important; font-size: 11.5px; }
+  .index-row .index-state-cell { display: none; }
+  .data-table th, .data-table td { padding-left: 14px; padding-right: 14px; }
+}
+
+@media (max-width: 520px) {
+  .fund-table tr.fund-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fund-row .fund-action-cell { grid-column: 2; align-self: end; justify-self: end; }
+  .advice-panel { padding: 10px 12px 12px; border-left: 0; }
+  .advice-panel .advice-compare, .advice-panel .advice-reason { font-size: 11.5px; }
+  .advice-panel-foot .text-link { margin-left: 0; }
+}
+
+/* 桌面：压缩行高，保证 5 只基金在一屏内 */
+@media (min-width: 901px) {
+  .data-table th, .data-table td { padding-top: 8px; padding-bottom: 8px; }
+  .data-table thead th { padding-top: 7px; padding-bottom: 7px; }
+  .index-name-cell .nm { line-height: 1.3; }
+  body[data-page="home"] .section { margin-top: 18px; }
+}
+body[data-page="home"] .content { padding-top: 20px; }
+body[data-page="home"] .page-head { margin-bottom: 12px; }
+body[data-page="home"] .section-head { margin-bottom: 8px; }
+.noscript-snapshot { padding: 14px; }
+.noscript-note { margin: 0 0 8px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.noscript-note b { color: var(--text-2); }
+.noscript-snapshot .data-table { border: 1px solid var(--border); border-radius: 10px; }
+.noscript-snapshot .data-table th, .noscript-snapshot .data-table td {
+  padding: 8px 10px; font-size: 11.5px; white-space: normal;
+}
+@media (max-width: 640px) {
+  .noscript-snapshot .data-table th, .noscript-snapshot .data-table td { padding: 7px 8px; font-size: 11px; }
+}

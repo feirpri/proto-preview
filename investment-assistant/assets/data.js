@@ -321,7 +321,7 @@
   window.MOCK = {
     meta: {
       product: "Musi 投资助手",
-      version: "原型 v3",
+      version: "原型 v4",
       asof: ASOF_TIME,
       asofDate: ASOF,
       realtime: {

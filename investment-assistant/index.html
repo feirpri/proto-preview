@@ -16,8 +16,7 @@
         <div class="page-head">
           <div>
             <h1>首页</h1>
-            <p class="lede">行情与估值看板：大盘指数 + 5 只基金估值。进入页面自动刷新一次，也可手动刷新；操作建议见「建议」页，经济要闻见「要闻」页。全部内容只读。</p>
-            <p class="refresh-note">原型演示：时间为模拟值；生产环境由估值接口返回，打开页面与手动刷新时调用。</p>
+            <p class="lede">行情与估值看板：大盘指数 + 5 只基金估值。进入页面自动刷新一次，也可手动刷新；基金建议在表格行内展开，完整明细见「建议」页。全部内容只读。</p>
           </div>
           <div class="head-side" id="home-head-side"></div>
         </div>
@@ -26,7 +25,7 @@
           <div class="section-head">
             <div>
               <h2>大盘指数</h2>
-              <div class="hint">红涨绿跌：每项显示点位、涨跌幅与涨跌点数</div>
+              <div class="hint">红涨绿跌 · 点位 / 涨跌幅 / 涨跌点数</div>
             </div>
             <div class="updown-legend" aria-label="涨跌颜色图例">
               <span class="ud-item"><span class="ud-swatch up"></span>涨</span>
@@ -34,18 +33,64 @@
               <span class="ud-item"><span class="ud-swatch flat"></span>平</span>
             </div>
           </div>
-          <div class="index-grid" id="index-grid" aria-live="polite"></div>
+          <div class="table-card">
+            <table class="data-table index-table">
+              <caption class="sr-only">大盘指数：点位、涨跌幅、涨跌点数与状态</caption>
+              <thead>
+                <tr>
+                  <th scope="col">指数</th>
+                  <th scope="col" class="r">点位</th>
+                  <th scope="col" class="r">涨跌幅</th>
+                  <th scope="col" class="r">涨跌点数</th>
+                  <th scope="col" class="r">状态</th>
+                </tr>
+              </thead>
+              <tbody id="index-body" aria-live="polite"></tbody>
+            </table>
+          </div>
         </section>
 
         <section class="section" aria-label="基金估值">
           <div class="section-head">
             <div>
               <h2>基金估值</h2>
-              <div class="hint">5 只基金 · 估算净值 / 涨跌幅 / 今日预估收益；stale 基金不冒充实时</div>
+              <div class="hint">5 只基金 · 数值为按当前持仓的盘中估算，非官方净值；点击行末「展开」查看建议</div>
             </div>
-            <div class="fund-live-meta" id="home-fund-meta"></div>
           </div>
-          <div class="fund-grid" id="fund-grid" aria-live="polite"></div>
+          <div class="table-card">
+            <table class="data-table fund-table">
+              <caption class="sr-only">基金估值与今日建议，每行可展开查看建议明细</caption>
+              <thead>
+                <tr>
+                  <th scope="col">基金</th>
+                  <th scope="col" class="r">估算净值</th>
+                  <th scope="col" class="r">估算涨跌幅</th>
+                  <th scope="col" class="r">今日预估收益<small class="th-sub">按当前持仓估算</small></th>
+                  <th scope="col" class="r">目标权重</th>
+                  <th scope="col" class="r">质量</th>
+                  <th scope="col" class="r">建议</th>
+                </tr>
+              </thead>
+              <tbody id="fund-body" aria-live="polite"></tbody>
+            </table>
+          </div>
+          <noscript>
+            <div class="table-card noscript-snapshot">
+              <p class="noscript-note"><b>JavaScript 未启用</b>：以下为静态快照（估算时间 14:32:10）；启用后可自动刷新，并在表格行内展开建议。</p>
+              <p class="noscript-note">大盘：上证指数 3,628.41 +0.42% · 深证成指 11,452.68 +0.65% · 创业板指 2,431.20 +0.86% · 沪深300 4,285.63 +0.31%</p>
+              <table class="data-table">
+                <caption class="sr-only">静态基金估值快照</caption>
+                <thead><tr><th scope="col">基金</th><th scope="col" class="r">估算净值</th><th scope="col" class="r">估算涨跌幅</th><th scope="col" class="r">今日预估收益</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">财通集成电路产业股票C</th><td class="r tabular">1.2945</td><td class="r tabular up">+0.82%</td><td class="r tabular up">+1,189 元</td></tr>
+                  <tr><th scope="row">华夏中证机器人ETF联接C</th><td class="r tabular">1.1390</td><td class="r tabular up">+1.15%</td><td class="r tabular up">+1,599 元</td></tr>
+                  <tr><th scope="row">国联安核心资产混合</th><td class="r tabular">2.0453</td><td class="r tabular up">+0.21%</td><td class="r tabular up">+218 元</td></tr>
+                  <tr><th scope="row">国泰中证全指通信设备ETF联接C（stale）</th><td class="r tabular">0.9923</td><td class="r tabular up">+0.64%</td><td class="r tabular up">+454 元</td></tr>
+                  <tr><th scope="row">永赢高端装备智选混合发起C</th><td class="r tabular">0.9963</td><td class="r tabular down">−0.37%</td><td class="r tabular down">−259 元</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </noscript>
         </section>
 
         <section class="grid grid-12 section" id="home-quality" aria-label="数据口径说明"></section>

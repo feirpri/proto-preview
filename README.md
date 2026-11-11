@@ -40,11 +40,11 @@ proto-preview/
 
 ## 投资助手截图
 
-原型 v3：**7 页 × 桌面 1440px / 移动 390px，共 14 张全页截图**，另有扩展 popup，位于 [`investment-assistant/screenshots/`](./investment-assistant/screenshots)：
+原型 v4：**7 页 × 桌面 1440px / 移动 390px，共 14 张全页截图**，另有扩展 popup，位于 [`investment-assistant/screenshots/`](./investment-assistant/screenshots)：
 
 | 页面 | 桌面 | 移动 |
 |---|---|---|
-| 首页（大盘 + 基金估值） | [home-1440](./investment-assistant/screenshots/home-1440.png) | [home-390](./investment-assistant/screenshots/home-390.png) |
+| 首页（表格化：大盘 + 基金估值 + 行内建议） | [home-1440](./investment-assistant/screenshots/home-1440.png) | [home-390](./investment-assistant/screenshots/home-390.png) |
 | 建议 | [advice-1440](./investment-assistant/screenshots/advice-1440.png) | [advice-390](./investment-assistant/screenshots/advice-390.png) |
 | 要闻 | [news-1440](./investment-assistant/screenshots/news-1440.png) | [news-390](./investment-assistant/screenshots/news-390.png) |
 | 组合 | [portfolio-1440](./investment-assistant/screenshots/portfolio-1440.png) | [portfolio-390](./investment-assistant/screenshots/portfolio-390.png) |
@@ -53,8 +53,8 @@ proto-preview/
 | 设置 | [settings-1440](./investment-assistant/screenshots/settings-1440.png) | [settings-390](./investment-assistant/screenshots/settings-390.png) |
 | 扩展 popup | [popup](./investment-assistant/screenshots/popup.png) | — |
 
-七档宽度（360 / 390 / 414 / 768 / 1024 / 1280 / 1440）审计结果见 [`screenshots/audit.json`](./investment-assistant/screenshots/audit.json)，含 v3 检查项（指数/基金数值完整性、刷新交互、要闻静态约束、7 页导航与「更多」抽屉）；v1 基线见 [`screenshots/audit-before.json`](./investment-assistant/screenshots/audit-before.json)。
+七档宽度（360 / 390 / 414 / 768 / 1024 / 1280 / 1440）审计结果见 [`screenshots/audit.json`](./investment-assistant/screenshots/audit.json)，含 v4 检查项（首页表格化、建议行内展开、单一刷新时间、stale 延迟、刷新保持展开与滚动、7 页导航与「更多」抽屉）；v1 基线见 [`screenshots/audit-before.json`](./investment-assistant/screenshots/audit-before.json)。
 
 ## 投资助手原型说明
 
-见 [`investment-assistant/原型说明.md`](./investment-assistant/原型说明.md)，覆盖 v3 信息架构、首页刷新口径、建议/要闻页、与计划 §2.1 的对应关系及已知简化点。
+见 [`investment-assistant/原型说明.md`](./investment-assistant/原型说明.md)，覆盖 v4 信息架构、首页表格与行内建议、刷新口径、建议/要闻页、与计划 §2.1 的对应关系及已知简化点。

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-11T04:58:12.525Z",
-  "version": "v3",
+  "generatedAt": "2026-11-11T05:55:45.150Z",
+  "version": "v4",
   "widths": [
     360,
     390,
@@ -16,21 +16,11 @@
         "viewportWidth": 360,
         "scrollWidth": 360,
         "overflowX": 0,
-        "clipped": [
-          {
-            "selector": "span#refresh-status.sr-only",
-            "text": "已自动刷新，本次更新 14:32:10",
-            "scrollWidth": 198,
-            "clientWidth": 1,
-            "overflow": "hidden",
-            "textOverflow": "clip",
-            "whiteSpace": "nowrap"
-          }
-        ],
-        "clippedCount": 1,
+        "clipped": [],
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
+        "clippedCount": 0,
+        "overflowersCount": 0,
         "touchSmallCount": 0,
         "checks": {
           "indices": 4,
@@ -40,172 +30,171 @@
               "value": "3,628.41",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             },
             {
               "name": "深证成指",
               "value": "11,452.68",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             },
             {
               "name": "创业板指",
               "value": "2,431.20",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             },
             {
               "name": "沪深300",
               "value": "4,285.63",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             }
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
-              "nav": "估算净值\n1.2945\n盘中估算",
-              "pct": "估算涨跌幅\n+0.82%\n上涨",
-              "pnl": "今日预估收益\n+1,189元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006503",
+              "code": "006503",
+              "nav": "1.2945",
+              "pct": "+0.82%",
+              "pnl": "+1,189元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "144px 144px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "华夏中证机器人ETF联接C",
-              "nav": "估算净值\n1.1390\n盘中估算",
-              "pct": "估算涨跌幅\n+1.15%\n上涨",
-              "pnl": "今日预估收益\n+1,599元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-018345",
+              "code": "018345",
+              "nav": "1.1390",
+              "pct": "+1.15%",
+              "pnl": "+1,599元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "144px 144px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国联安核心资产混合",
-              "nav": "估算净值\n2.0453\n盘中估算",
-              "pct": "估算涨跌幅\n+0.21%\n上涨",
-              "pnl": "今日预估收益\n+218元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006864",
+              "code": "006864",
+              "nav": "2.0453",
+              "pct": "+0.21%",
+              "pnl": "+218元",
+              "target": "22%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "144px 144px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
-              "nav": "估算净值\n0.9923\n最近可用值",
-              "pct": "估算涨跌幅\n+0.64%\n上涨",
-              "pnl": "今日预估收益\n+454元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-007818",
+              "code": "007818",
+              "nav": "0.9923",
+              "pct": "+0.64%",
+              "pnl": "+454元",
+              "target": "8%",
+              "quality": "stale",
               "stale": true,
-              "staleText": "stale · 最近可用 13:58:20 · 延迟 34 分钟（本次未取到新值），不冒充实时。",
-              "time": "最近可用 13:58:20",
-              "cells": 3,
-              "cols": "144px 144px"
+              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "永赢高端装备智选混合发起C",
-              "nav": "估算净值\n0.9963\n盘中估算",
-              "pct": "估算涨跌幅\n−0.37%\n下跌",
-              "pnl": "今日预估收益\n−259元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-015790",
+              "code": "015790",
+              "nav": "0.9963",
+              "pct": "−0.37%",
+              "pnl": "−259元",
+              "target": "10%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "144px 144px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell down",
+                "r tabular fund-pnl-cell down",
+                "r fund-action-cell"
+              ]
             }
           ],
+          "fundRowsInViewport": false,
+          "lastFundBottom": 1493,
           "headerTime": "14:32:10",
-          "fundSectionTime": "本次更新 14:32:10 estimate 估算",
+          "allUpdateTimes": [
+            "14:32:10"
+          ],
+          "singleGlobalTime": true,
           "timeToSecond": true,
           "refreshSize": {
             "w": 99,
             "h": 44
           },
           "refreshVisible": true,
-          "timeVisible": true,
           "staleCount": 1,
-          "hasDecisionSummary": false,
-          "hasPortfolioStats": false,
-          "hasAdviceOnHome": false,
-          "legend": "涨 跌 平",
+          "noAdviceJumpText": true,
+          "noFundRowLinks": true,
+          "indexTable": true,
+          "fundTable": true,
+          "noFormControls": true,
           "upColor": "#dc2626",
           "downColor": "#16a34a",
-          "demoNote": "实时估值：进入页面自动刷新一次，也可点击「刷新估值」手动刷新。本次更新 14:32:10（模拟值）；数据源 腾讯行情 · 估算（演示）。原型演示：时间为模拟值；生产环境由估值接口返回，打开页面与手动刷新时调用。 定期分析：每日 14:30 生成逐基金建议，见「建议」页；建议只读，执行仅通过 MCP 写入口。通信联接估值源延迟，展示最近可用值，不冒充实时。",
-          "indexValueLines": [
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundValueLines": [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundNameLines": [
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundGridCols": 1,
-          "indexGridCols": 2,
-          "numbersSingleLine": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "首页",
-          "title": "首页"
+          "indexStateColHidden": true,
+          "fundTableMode": "stacked",
+          "fundNumberSingleLine": false
         }
       },
       "390": {
         "viewportWidth": 390,
         "scrollWidth": 390,
         "overflowX": 0,
-        "clipped": [
-          {
-            "selector": "span#refresh-status.sr-only",
-            "text": "已自动刷新，本次更新 14:32:10",
-            "scrollWidth": 198,
-            "clientWidth": 1,
-            "overflow": "hidden",
-            "textOverflow": "clip",
-            "whiteSpace": "nowrap"
-          }
-        ],
-        "clippedCount": 1,
+        "clipped": [],
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
+        "clippedCount": 0,
+        "overflowersCount": 0,
         "touchSmallCount": 0,
         "checks": {
           "indices": 4,
@@ -215,172 +204,171 @@
               "value": "3,628.41",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             },
             {
               "name": "深证成指",
               "value": "11,452.68",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             },
             {
               "name": "创业板指",
               "value": "2,431.20",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             },
             {
               "name": "沪深300",
               "value": "4,285.63",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             }
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
-              "nav": "估算净值\n1.2945\n盘中估算",
-              "pct": "估算涨跌幅\n+0.82%\n上涨",
-              "pnl": "今日预估收益\n+1,189元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006503",
+              "code": "006503",
+              "nav": "1.2945",
+              "pct": "+0.82%",
+              "pnl": "+1,189元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "159px 159px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "华夏中证机器人ETF联接C",
-              "nav": "估算净值\n1.1390\n盘中估算",
-              "pct": "估算涨跌幅\n+1.15%\n上涨",
-              "pnl": "今日预估收益\n+1,599元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-018345",
+              "code": "018345",
+              "nav": "1.1390",
+              "pct": "+1.15%",
+              "pnl": "+1,599元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "159px 159px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国联安核心资产混合",
-              "nav": "估算净值\n2.0453\n盘中估算",
-              "pct": "估算涨跌幅\n+0.21%\n上涨",
-              "pnl": "今日预估收益\n+218元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006864",
+              "code": "006864",
+              "nav": "2.0453",
+              "pct": "+0.21%",
+              "pnl": "+218元",
+              "target": "22%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "159px 159px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
-              "nav": "估算净值\n0.9923\n最近可用值",
-              "pct": "估算涨跌幅\n+0.64%\n上涨",
-              "pnl": "今日预估收益\n+454元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-007818",
+              "code": "007818",
+              "nav": "0.9923",
+              "pct": "+0.64%",
+              "pnl": "+454元",
+              "target": "8%",
+              "quality": "stale",
               "stale": true,
-              "staleText": "stale · 最近可用 13:58:20 · 延迟 34 分钟（本次未取到新值），不冒充实时。",
-              "time": "最近可用 13:58:20",
-              "cells": 3,
-              "cols": "159px 159px"
+              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "永赢高端装备智选混合发起C",
-              "nav": "估算净值\n0.9963\n盘中估算",
-              "pct": "估算涨跌幅\n−0.37%\n下跌",
-              "pnl": "今日预估收益\n−259元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-015790",
+              "code": "015790",
+              "nav": "0.9963",
+              "pct": "−0.37%",
+              "pnl": "−259元",
+              "target": "10%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "159px 159px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell down",
+                "r tabular fund-pnl-cell down",
+                "r fund-action-cell"
+              ]
             }
           ],
+          "fundRowsInViewport": false,
+          "lastFundBottom": 1494,
           "headerTime": "14:32:10",
-          "fundSectionTime": "本次更新 14:32:10 estimate 估算",
+          "allUpdateTimes": [
+            "14:32:10"
+          ],
+          "singleGlobalTime": true,
           "timeToSecond": true,
           "refreshSize": {
             "w": 99,
             "h": 44
           },
           "refreshVisible": true,
-          "timeVisible": true,
           "staleCount": 1,
-          "hasDecisionSummary": false,
-          "hasPortfolioStats": false,
-          "hasAdviceOnHome": false,
-          "legend": "涨 跌 平",
+          "noAdviceJumpText": true,
+          "noFundRowLinks": true,
+          "indexTable": true,
+          "fundTable": true,
+          "noFormControls": true,
           "upColor": "#dc2626",
           "downColor": "#16a34a",
-          "demoNote": "实时估值：进入页面自动刷新一次，也可点击「刷新估值」手动刷新。本次更新 14:32:10（模拟值）；数据源 腾讯行情 · 估算（演示）。原型演示：时间为模拟值；生产环境由估值接口返回，打开页面与手动刷新时调用。 定期分析：每日 14:30 生成逐基金建议，见「建议」页；建议只读，执行仅通过 MCP 写入口。通信联接估值源延迟，展示最近可用值，不冒充实时。",
-          "indexValueLines": [
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundValueLines": [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundNameLines": [
-            1,
-            1,
-            1,
-            2,
-            2
-          ],
-          "fundGridCols": 1,
-          "indexGridCols": 2,
-          "numbersSingleLine": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "首页",
-          "title": "首页"
+          "indexStateColHidden": true,
+          "fundTableMode": "stacked",
+          "fundNumberSingleLine": false
         }
       },
       "414": {
         "viewportWidth": 414,
         "scrollWidth": 414,
         "overflowX": 0,
-        "clipped": [
-          {
-            "selector": "span#refresh-status.sr-only",
-            "text": "已自动刷新，本次更新 14:32:10",
-            "scrollWidth": 198,
-            "clientWidth": 1,
-            "overflow": "hidden",
-            "textOverflow": "clip",
-            "whiteSpace": "nowrap"
-          }
-        ],
-        "clippedCount": 1,
+        "clipped": [],
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
+        "clippedCount": 0,
+        "overflowersCount": 0,
         "touchSmallCount": 0,
         "checks": {
           "indices": 4,
@@ -390,172 +378,171 @@
               "value": "3,628.41",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             },
             {
               "name": "深证成指",
               "value": "11,452.68",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             },
             {
               "name": "创业板指",
               "value": "2,431.20",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             },
             {
               "name": "沪深300",
               "value": "4,285.63",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 2
             }
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
-              "nav": "估算净值\n1.2945\n盘中估算",
-              "pct": "估算涨跌幅\n+0.82%\n上涨",
-              "pnl": "今日预估收益\n+1,189元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006503",
+              "code": "006503",
+              "nav": "1.2945",
+              "pct": "+0.82%",
+              "pnl": "+1,189元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "171px 171px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "华夏中证机器人ETF联接C",
-              "nav": "估算净值\n1.1390\n盘中估算",
-              "pct": "估算涨跌幅\n+1.15%\n上涨",
-              "pnl": "今日预估收益\n+1,599元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-018345",
+              "code": "018345",
+              "nav": "1.1390",
+              "pct": "+1.15%",
+              "pnl": "+1,599元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "171px 171px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国联安核心资产混合",
-              "nav": "估算净值\n2.0453\n盘中估算",
-              "pct": "估算涨跌幅\n+0.21%\n上涨",
-              "pnl": "今日预估收益\n+218元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006864",
+              "code": "006864",
+              "nav": "2.0453",
+              "pct": "+0.21%",
+              "pnl": "+218元",
+              "target": "22%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "171px 171px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
-              "nav": "估算净值\n0.9923\n最近可用值",
-              "pct": "估算涨跌幅\n+0.64%\n上涨",
-              "pnl": "今日预估收益\n+454元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-007818",
+              "code": "007818",
+              "nav": "0.9923",
+              "pct": "+0.64%",
+              "pnl": "+454元",
+              "target": "8%",
+              "quality": "stale",
               "stale": true,
-              "staleText": "stale · 最近可用 13:58:20 · 延迟 34 分钟（本次未取到新值），不冒充实时。",
-              "time": "最近可用 13:58:20",
-              "cells": 3,
-              "cols": "171px 171px"
+              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "永赢高端装备智选混合发起C",
-              "nav": "估算净值\n0.9963\n盘中估算",
-              "pct": "估算涨跌幅\n−0.37%\n下跌",
-              "pnl": "今日预估收益\n−259元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-015790",
+              "code": "015790",
+              "nav": "0.9963",
+              "pct": "−0.37%",
+              "pnl": "−259元",
+              "target": "10%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "171px 171px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell down",
+                "r tabular fund-pnl-cell down",
+                "r fund-action-cell"
+              ]
             }
           ],
+          "fundRowsInViewport": false,
+          "lastFundBottom": 1494,
           "headerTime": "14:32:10",
-          "fundSectionTime": "本次更新 14:32:10 estimate 估算",
+          "allUpdateTimes": [
+            "14:32:10"
+          ],
+          "singleGlobalTime": true,
           "timeToSecond": true,
           "refreshSize": {
             "w": 99,
             "h": 44
           },
           "refreshVisible": true,
-          "timeVisible": true,
           "staleCount": 1,
-          "hasDecisionSummary": false,
-          "hasPortfolioStats": false,
-          "hasAdviceOnHome": false,
-          "legend": "涨 跌 平",
+          "noAdviceJumpText": true,
+          "noFundRowLinks": true,
+          "indexTable": true,
+          "fundTable": true,
+          "noFormControls": true,
           "upColor": "#dc2626",
           "downColor": "#16a34a",
-          "demoNote": "实时估值：进入页面自动刷新一次，也可点击「刷新估值」手动刷新。本次更新 14:32:10（模拟值）；数据源 腾讯行情 · 估算（演示）。原型演示：时间为模拟值；生产环境由估值接口返回，打开页面与手动刷新时调用。 定期分析：每日 14:30 生成逐基金建议，见「建议」页；建议只读，执行仅通过 MCP 写入口。通信联接估值源延迟，展示最近可用值，不冒充实时。",
-          "indexValueLines": [
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundValueLines": [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundNameLines": [
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundGridCols": 1,
-          "indexGridCols": 2,
-          "numbersSingleLine": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "首页",
-          "title": "首页"
+          "indexStateColHidden": true,
+          "fundTableMode": "stacked",
+          "fundNumberSingleLine": false
         }
       },
       "768": {
         "viewportWidth": 768,
         "scrollWidth": 768,
         "overflowX": 0,
-        "clipped": [
-          {
-            "selector": "span#refresh-status.sr-only",
-            "text": "已自动刷新，本次更新 14:32:10",
-            "scrollWidth": 198,
-            "clientWidth": 1,
-            "overflow": "hidden",
-            "textOverflow": "clip",
-            "whiteSpace": "nowrap"
-          }
-        ],
-        "clippedCount": 1,
+        "clipped": [],
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
+        "clippedCount": 0,
+        "overflowersCount": 0,
         "touchSmallCount": 0,
         "checks": {
           "indices": 4,
@@ -565,172 +552,171 @@
               "value": "3,628.41",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 4
             },
             {
               "name": "深证成指",
               "value": "11,452.68",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 4
             },
             {
               "name": "创业板指",
               "value": "2,431.20",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 4
             },
             {
               "name": "沪深300",
               "value": "4,285.63",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 4
             }
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
-              "nav": "估算净值\n1.2945\n盘中估算",
-              "pct": "估算涨跌幅\n+0.82%\n上涨",
-              "pnl": "今日预估收益\n+1,189元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006503",
+              "code": "006503",
+              "nav": "1.2945",
+              "pct": "+0.82%",
+              "pnl": "+1,189元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "346px 346px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "华夏中证机器人ETF联接C",
-              "nav": "估算净值\n1.1390\n盘中估算",
-              "pct": "估算涨跌幅\n+1.15%\n上涨",
-              "pnl": "今日预估收益\n+1,599元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-018345",
+              "code": "018345",
+              "nav": "1.1390",
+              "pct": "+1.15%",
+              "pnl": "+1,599元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "346px 346px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国联安核心资产混合",
-              "nav": "估算净值\n2.0453\n盘中估算",
-              "pct": "估算涨跌幅\n+0.21%\n上涨",
-              "pnl": "今日预估收益\n+218元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006864",
+              "code": "006864",
+              "nav": "2.0453",
+              "pct": "+0.21%",
+              "pnl": "+218元",
+              "target": "22%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "346px 346px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
-              "nav": "估算净值\n0.9923\n最近可用值",
-              "pct": "估算涨跌幅\n+0.64%\n上涨",
-              "pnl": "今日预估收益\n+454元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-007818",
+              "code": "007818",
+              "nav": "0.9923",
+              "pct": "+0.64%",
+              "pnl": "+454元",
+              "target": "8%",
+              "quality": "stale",
               "stale": true,
-              "staleText": "stale · 最近可用 13:58:20 · 延迟 34 分钟（本次未取到新值），不冒充实时。",
-              "time": "最近可用 13:58:20",
-              "cells": 3,
-              "cols": "346px 346px"
+              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "永赢高端装备智选混合发起C",
-              "nav": "估算净值\n0.9963\n盘中估算",
-              "pct": "估算涨跌幅\n−0.37%\n下跌",
-              "pnl": "今日预估收益\n−259元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-015790",
+              "code": "015790",
+              "nav": "0.9963",
+              "pct": "−0.37%",
+              "pnl": "−259元",
+              "target": "10%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "346px 346px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell down",
+                "r tabular fund-pnl-cell down",
+                "r fund-action-cell"
+              ]
             }
           ],
+          "fundRowsInViewport": false,
+          "lastFundBottom": 1374,
           "headerTime": "14:32:10",
-          "fundSectionTime": "本次更新 14:32:10 estimate 估算",
+          "allUpdateTimes": [
+            "14:32:10"
+          ],
+          "singleGlobalTime": true,
           "timeToSecond": true,
           "refreshSize": {
             "w": 103,
             "h": 44
           },
           "refreshVisible": true,
-          "timeVisible": true,
           "staleCount": 1,
-          "hasDecisionSummary": false,
-          "hasPortfolioStats": false,
-          "hasAdviceOnHome": false,
-          "legend": "涨 跌 平",
+          "noAdviceJumpText": true,
+          "noFundRowLinks": true,
+          "indexTable": true,
+          "fundTable": true,
+          "noFormControls": true,
           "upColor": "#dc2626",
           "downColor": "#16a34a",
-          "demoNote": "实时估值：进入页面自动刷新一次，也可点击「刷新估值」手动刷新。本次更新 14:32:10（模拟值）；数据源 腾讯行情 · 估算（演示）。原型演示：时间为模拟值；生产环境由估值接口返回，打开页面与手动刷新时调用。 定期分析：每日 14:30 生成逐基金建议，见「建议」页；建议只读，执行仅通过 MCP 写入口。通信联接估值源延迟，展示最近可用值，不冒充实时。",
-          "indexValueLines": [
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundValueLines": [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundNameLines": [
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundGridCols": 1,
-          "indexGridCols": 2,
-          "numbersSingleLine": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "首页",
-          "title": "首页"
+          "indexStateColHidden": false,
+          "fundTableMode": "stacked",
+          "fundNumberSingleLine": false
         }
       },
       "1024": {
         "viewportWidth": 1024,
         "scrollWidth": 1024,
         "overflowX": 0,
-        "clipped": [
-          {
-            "selector": "span#refresh-status.sr-only",
-            "text": "已自动刷新，本次更新 14:32:10",
-            "scrollWidth": 198,
-            "clientWidth": 1,
-            "overflow": "hidden",
-            "textOverflow": "clip",
-            "whiteSpace": "nowrap"
-          }
-        ],
-        "clippedCount": 1,
+        "clipped": [],
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
+        "clippedCount": 0,
+        "overflowersCount": 0,
         "touchSmallCount": 0,
         "checks": {
           "indices": 4,
@@ -740,172 +726,181 @@
               "value": "3,628.41",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             },
             {
               "name": "深证成指",
               "value": "11,452.68",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             },
             {
               "name": "创业板指",
               "value": "2,431.20",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             },
             {
               "name": "沪深300",
               "value": "4,285.63",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             }
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
-              "nav": "估算净值\n1.2945\n盘中估算",
-              "pct": "估算涨跌幅\n+0.82%\n上涨",
-              "pnl": "今日预估收益\n+1,189元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006503",
+              "code": "006503",
+              "nav": "1.2945",
+              "pct": "+0.82%",
+              "pnl": "+1,189元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "358px 358px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "华夏中证机器人ETF联接C",
-              "nav": "估算净值\n1.1390\n盘中估算",
-              "pct": "估算涨跌幅\n+1.15%\n上涨",
-              "pnl": "今日预估收益\n+1,599元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-018345",
+              "code": "018345",
+              "nav": "1.1390",
+              "pct": "+1.15%",
+              "pnl": "+1,599元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "358px 358px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国联安核心资产混合",
-              "nav": "估算净值\n2.0453\n盘中估算",
-              "pct": "估算涨跌幅\n+0.21%\n上涨",
-              "pnl": "今日预估收益\n+218元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006864",
+              "code": "006864",
+              "nav": "2.0453",
+              "pct": "+0.21%",
+              "pnl": "+218元",
+              "target": "22%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "358px 358px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
-              "nav": "估算净值\n0.9923\n最近可用值",
-              "pct": "估算涨跌幅\n+0.64%\n上涨",
-              "pnl": "今日预估收益\n+454元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-007818",
+              "code": "007818",
+              "nav": "0.9923",
+              "pct": "+0.64%",
+              "pnl": "+454元",
+              "target": "8%",
+              "quality": "stale",
               "stale": true,
-              "staleText": "stale · 最近可用 13:58:20 · 延迟 34 分钟（本次未取到新值），不冒充实时。",
-              "time": "最近可用 13:58:20",
-              "cells": 3,
-              "cols": "358px 358px"
+              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "永赢高端装备智选混合发起C",
-              "nav": "估算净值\n0.9963\n盘中估算",
-              "pct": "估算涨跌幅\n−0.37%\n下跌",
-              "pnl": "今日预估收益\n−259元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-015790",
+              "code": "015790",
+              "nav": "0.9963",
+              "pct": "−0.37%",
+              "pnl": "−259元",
+              "target": "10%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "358px 358px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell down",
+                "r tabular fund-pnl-cell down",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             }
           ],
+          "fundRowsInViewport": true,
+          "lastFundBottom": 891,
           "headerTime": "14:32:10",
-          "fundSectionTime": "本次更新 14:32:10 estimate 估算",
+          "allUpdateTimes": [
+            "14:32:10"
+          ],
+          "singleGlobalTime": true,
           "timeToSecond": true,
           "refreshSize": {
             "w": 103,
             "h": 44
           },
           "refreshVisible": true,
-          "timeVisible": true,
           "staleCount": 1,
-          "hasDecisionSummary": false,
-          "hasPortfolioStats": false,
-          "hasAdviceOnHome": false,
-          "legend": "涨 跌 平",
+          "noAdviceJumpText": true,
+          "noFundRowLinks": true,
+          "indexTable": true,
+          "fundTable": true,
+          "noFormControls": true,
           "upColor": "#dc2626",
           "downColor": "#16a34a",
-          "demoNote": "实时估值：进入页面自动刷新一次，也可点击「刷新估值」手动刷新。本次更新 14:32:10（模拟值）；数据源 腾讯行情 · 估算（演示）。原型演示：时间为模拟值；生产环境由估值接口返回，打开页面与手动刷新时调用。 定期分析：每日 14:30 生成逐基金建议，见「建议」页；建议只读，执行仅通过 MCP 写入口。通信联接估值源延迟，展示最近可用值，不冒充实时。",
-          "indexValueLines": [
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundValueLines": [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundNameLines": [
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundGridCols": 1,
-          "indexGridCols": 2,
-          "numbersSingleLine": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "首页",
-          "title": "首页"
+          "indexStateColHidden": false,
+          "fundTableMode": "table",
+          "fundNumberSingleLine": false
         }
       },
       "1280": {
         "viewportWidth": 1280,
         "scrollWidth": 1280,
         "overflowX": 0,
-        "clipped": [
-          {
-            "selector": "span#refresh-status.sr-only",
-            "text": "已自动刷新，本次更新 14:32:10",
-            "scrollWidth": 198,
-            "clientWidth": 1,
-            "overflow": "hidden",
-            "textOverflow": "clip",
-            "whiteSpace": "nowrap"
-          }
-        ],
-        "clippedCount": 1,
+        "clipped": [],
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
+        "clippedCount": 0,
+        "overflowersCount": 0,
         "touchSmallCount": 0,
         "checks": {
           "indices": 4,
@@ -915,172 +910,181 @@
               "value": "3,628.41",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             },
             {
               "name": "深证成指",
               "value": "11,452.68",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             },
             {
               "name": "创业板指",
               "value": "2,431.20",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             },
             {
               "name": "沪深300",
               "value": "4,285.63",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             }
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
-              "nav": "估算净值\n1.2945\n盘中估算",
-              "pct": "估算涨跌幅\n+0.82%\n上涨",
-              "pnl": "今日预估收益\n+1,189元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006503",
+              "code": "006503",
+              "nav": "1.2945",
+              "pct": "+0.82%",
+              "pnl": "+1,189元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "142.328px 142.328px 142.328px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "华夏中证机器人ETF联接C",
-              "nav": "估算净值\n1.1390\n盘中估算",
-              "pct": "估算涨跌幅\n+1.15%\n上涨",
-              "pnl": "今日预估收益\n+1,599元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-018345",
+              "code": "018345",
+              "nav": "1.1390",
+              "pct": "+1.15%",
+              "pnl": "+1,599元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "142.328px 142.328px 142.328px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国联安核心资产混合",
-              "nav": "估算净值\n2.0453\n盘中估算",
-              "pct": "估算涨跌幅\n+0.21%\n上涨",
-              "pnl": "今日预估收益\n+218元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006864",
+              "code": "006864",
+              "nav": "2.0453",
+              "pct": "+0.21%",
+              "pnl": "+218元",
+              "target": "22%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "142.328px 142.328px 142.328px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
-              "nav": "估算净值\n0.9923\n最近可用值",
-              "pct": "估算涨跌幅\n+0.64%\n上涨",
-              "pnl": "今日预估收益\n+454元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-007818",
+              "code": "007818",
+              "nav": "0.9923",
+              "pct": "+0.64%",
+              "pnl": "+454元",
+              "target": "8%",
+              "quality": "stale",
               "stale": true,
-              "staleText": "stale · 最近可用 13:58:20 · 延迟 34 分钟（本次未取到新值），不冒充实时。",
-              "time": "最近可用 13:58:20",
-              "cells": 3,
-              "cols": "142.328px 142.328px 142.328px"
+              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "永赢高端装备智选混合发起C",
-              "nav": "估算净值\n0.9963\n盘中估算",
-              "pct": "估算涨跌幅\n−0.37%\n下跌",
-              "pnl": "今日预估收益\n−259元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-015790",
+              "code": "015790",
+              "nav": "0.9963",
+              "pct": "−0.37%",
+              "pnl": "−259元",
+              "target": "10%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "142.328px 142.328px 142.328px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell down",
+                "r tabular fund-pnl-cell down",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             }
           ],
+          "fundRowsInViewport": true,
+          "lastFundBottom": 891,
           "headerTime": "14:32:10",
-          "fundSectionTime": "本次更新 14:32:10 estimate 估算",
+          "allUpdateTimes": [
+            "14:32:10"
+          ],
+          "singleGlobalTime": true,
           "timeToSecond": true,
           "refreshSize": {
             "w": 103,
             "h": 44
           },
           "refreshVisible": true,
-          "timeVisible": true,
           "staleCount": 1,
-          "hasDecisionSummary": false,
-          "hasPortfolioStats": false,
-          "hasAdviceOnHome": false,
-          "legend": "涨 跌 平",
+          "noAdviceJumpText": true,
+          "noFundRowLinks": true,
+          "indexTable": true,
+          "fundTable": true,
+          "noFormControls": true,
           "upColor": "#dc2626",
           "downColor": "#16a34a",
-          "demoNote": "实时估值：进入页面自动刷新一次，也可点击「刷新估值」手动刷新。本次更新 14:32:10（模拟值）；数据源 腾讯行情 · 估算（演示）。原型演示：时间为模拟值；生产环境由估值接口返回，打开页面与手动刷新时调用。 定期分析：每日 14:30 生成逐基金建议，见「建议」页；建议只读，执行仅通过 MCP 写入口。通信联接估值源延迟，展示最近可用值，不冒充实时。",
-          "indexValueLines": [
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundValueLines": [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundNameLines": [
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundGridCols": 2,
-          "indexGridCols": 4,
-          "numbersSingleLine": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "首页",
-          "title": "首页"
+          "indexStateColHidden": false,
+          "fundTableMode": "table",
+          "fundNumberSingleLine": false
         }
       },
       "1440": {
         "viewportWidth": 1440,
         "scrollWidth": 1440,
         "overflowX": 0,
-        "clipped": [
-          {
-            "selector": "span#refresh-status.sr-only",
-            "text": "已自动刷新，本次更新 14:32:10",
-            "scrollWidth": 198,
-            "clientWidth": 1,
-            "overflow": "hidden",
-            "textOverflow": "clip",
-            "whiteSpace": "nowrap"
-          }
-        ],
-        "clippedCount": 1,
+        "clipped": [],
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
+        "clippedCount": 0,
+        "overflowersCount": 0,
         "touchSmallCount": 0,
         "checks": {
           "indices": 4,
@@ -1090,151 +1094,170 @@
               "value": "3,628.41",
               "pct": "+0.42%",
               "points": "+15.21 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             },
             {
               "name": "深证成指",
               "value": "11,452.68",
               "pct": "+0.65%",
               "points": "+73.96 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             },
             {
               "name": "创业板指",
               "value": "2,431.20",
               "pct": "+0.86%",
               "points": "+20.73 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             },
             {
               "name": "沪深300",
               "value": "4,285.63",
               "pct": "+0.31%",
               "points": "+13.25 点",
+              "state": "上涨",
               "pctColor": "rgb(220, 38, 38)",
-              "valueLines": 1
+              "valueLines": 3
             }
           ],
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
-              "nav": "估算净值\n1.2945\n盘中估算",
-              "pct": "估算涨跌幅\n+0.82%\n上涨",
-              "pnl": "今日预估收益\n+1,189元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006503",
+              "code": "006503",
+              "nav": "1.2945",
+              "pct": "+0.82%",
+              "pnl": "+1,189元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "169px 169px 169px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "华夏中证机器人ETF联接C",
-              "nav": "估算净值\n1.1390\n盘中估算",
-              "pct": "估算涨跌幅\n+1.15%\n上涨",
-              "pnl": "今日预估收益\n+1,599元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-018345",
+              "code": "018345",
+              "nav": "1.1390",
+              "pct": "+1.15%",
+              "pnl": "+1,599元",
+              "target": "16%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "169px 169px 169px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国联安核心资产混合",
-              "nav": "估算净值\n2.0453\n盘中估算",
-              "pct": "估算涨跌幅\n+0.21%\n上涨",
-              "pnl": "今日预估收益\n+218元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-006864",
+              "code": "006864",
+              "nav": "2.0453",
+              "pct": "+0.21%",
+              "pnl": "+218元",
+              "target": "22%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "169px 169px 169px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
-              "nav": "估算净值\n0.9923\n最近可用值",
-              "pct": "估算涨跌幅\n+0.64%\n上涨",
-              "pnl": "今日预估收益\n+454元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-007818",
+              "code": "007818",
+              "nav": "0.9923",
+              "pct": "+0.64%",
+              "pnl": "+454元",
+              "target": "8%",
+              "quality": "stale",
               "stale": true,
-              "staleText": "stale · 最近可用 13:58:20 · 延迟 34 分钟（本次未取到新值），不冒充实时。",
-              "time": "最近可用 13:58:20",
-              "cells": 3,
-              "cols": "169px 169px 169px"
+              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell up",
+                "r tabular fund-pnl-cell up",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             },
             {
               "name": "永赢高端装备智选混合发起C",
-              "nav": "估算净值\n0.9963\n盘中估算",
-              "pct": "估算涨跌幅\n−0.37%\n下跌",
-              "pnl": "今日预估收益\n−259元\n按当前持仓估算，非官方净值",
-              "link": "advice.html#fund-015790",
+              "code": "015790",
+              "nav": "0.9963",
+              "pct": "−0.37%",
+              "pnl": "−259元",
+              "target": "10%",
+              "quality": "estimate",
               "stale": false,
               "staleText": null,
-              "time": "本次更新 14:32:10",
-              "cells": 3,
-              "cols": "169px 169px 169px"
+              "hasJumpLink": false,
+              "cellsVisible": [
+                "fund-name-cell",
+                "r tabular fund-nav-cell",
+                "r tabular fund-pct-cell down",
+                "r tabular fund-pnl-cell down",
+                "r tabular fund-target-cell",
+                "r fund-quality-cell",
+                "r fund-action-cell"
+              ]
             }
           ],
+          "fundRowsInViewport": true,
+          "lastFundBottom": 889,
           "headerTime": "14:32:10",
-          "fundSectionTime": "本次更新 14:32:10 estimate 估算",
+          "allUpdateTimes": [
+            "14:32:10"
+          ],
+          "singleGlobalTime": true,
           "timeToSecond": true,
           "refreshSize": {
             "w": 103,
             "h": 44
           },
           "refreshVisible": true,
-          "timeVisible": true,
           "staleCount": 1,
-          "hasDecisionSummary": false,
-          "hasPortfolioStats": false,
-          "hasAdviceOnHome": false,
-          "legend": "涨 跌 平",
+          "noAdviceJumpText": true,
+          "noFundRowLinks": true,
+          "indexTable": true,
+          "fundTable": true,
+          "noFormControls": true,
           "upColor": "#dc2626",
           "downColor": "#16a34a",
-          "demoNote": "实时估值：进入页面自动刷新一次，也可点击「刷新估值」手动刷新。本次更新 14:32:10（模拟值）；数据源 腾讯行情 · 估算（演示）。原型演示：时间为模拟值；生产环境由估值接口返回，打开页面与手动刷新时调用。 定期分析：每日 14:30 生成逐基金建议，见「建议」页；建议只读，执行仅通过 MCP 写入口。通信联接估值源延迟，展示最近可用值，不冒充实时。",
-          "indexValueLines": [
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundValueLines": [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundNameLines": [
-            1,
-            1,
-            1,
-            1,
-            1
-          ],
-          "fundGridCols": 2,
-          "indexGridCols": 4,
-          "numbersSingleLine": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "首页",
-          "title": "首页"
+          "indexStateColHidden": false,
+          "fundTableMode": "table",
+          "fundNumberSingleLine": false
         }
       }
     },
@@ -1244,266 +1267,77 @@
         "scrollWidth": 360,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "cards": 5,
-          "ids": [
-            "fund-006503",
-            "fund-018345",
-            "fund-006864",
-            "fund-007818",
-            "fund-015790"
-          ],
-          "actions": [
-            "减仓",
-            "减仓",
-            "保持",
-            "保持",
-            "保持"
-          ],
-          "executed": true,
-          "summary": true,
-          "summaryText": "整体决策摘要 14:30 定期分析 震荡市 · 目标权益仓位 72% / 当前估算 77.9% 震荡市，权益仓位 77.9% 高于目标 72.0%。按反抽规则减偏离：财通减 0.8 万、机器人减 0.6 万，其余保持。 市场状态 震荡 executed · applied · 14:31 已应用 5 条建议 · 2 减仓 · 3 保持 目标权益 72% 审计保留 目标权益仓位 72%；减仓后预计权益仓位约 75.8%，现金约 16.4 万。 执行记录（executed · a",
-          "inputs": 0,
-          "tradeButtons": 2,
-          "hasBackHome": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "建议",
-          "title": "建议"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "390": {
         "viewportWidth": 390,
         "scrollWidth": 390,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "cards": 5,
-          "ids": [
-            "fund-006503",
-            "fund-018345",
-            "fund-006864",
-            "fund-007818",
-            "fund-015790"
-          ],
-          "actions": [
-            "减仓",
-            "减仓",
-            "保持",
-            "保持",
-            "保持"
-          ],
-          "executed": true,
-          "summary": true,
-          "summaryText": "整体决策摘要 14:30 定期分析 震荡市 · 目标权益仓位 72% / 当前估算 77.9% 震荡市，权益仓位 77.9% 高于目标 72.0%。按反抽规则减偏离：财通减 0.8 万、机器人减 0.6 万，其余保持。 市场状态 震荡 executed · applied · 14:31 已应用 5 条建议 · 2 减仓 · 3 保持 目标权益 72% 审计保留 目标权益仓位 72%；减仓后预计权益仓位约 75.8%，现金约 16.4 万。 执行记录（executed · a",
-          "inputs": 0,
-          "tradeButtons": 2,
-          "hasBackHome": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "建议",
-          "title": "建议"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "414": {
         "viewportWidth": 414,
         "scrollWidth": 414,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "cards": 5,
-          "ids": [
-            "fund-006503",
-            "fund-018345",
-            "fund-006864",
-            "fund-007818",
-            "fund-015790"
-          ],
-          "actions": [
-            "减仓",
-            "减仓",
-            "保持",
-            "保持",
-            "保持"
-          ],
-          "executed": true,
-          "summary": true,
-          "summaryText": "整体决策摘要 14:30 定期分析 震荡市 · 目标权益仓位 72% / 当前估算 77.9% 震荡市，权益仓位 77.9% 高于目标 72.0%。按反抽规则减偏离：财通减 0.8 万、机器人减 0.6 万，其余保持。 市场状态 震荡 executed · applied · 14:31 已应用 5 条建议 · 2 减仓 · 3 保持 目标权益 72% 审计保留 目标权益仓位 72%；减仓后预计权益仓位约 75.8%，现金约 16.4 万。 执行记录（executed · a",
-          "inputs": 0,
-          "tradeButtons": 2,
-          "hasBackHome": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "建议",
-          "title": "建议"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "768": {
         "viewportWidth": 768,
         "scrollWidth": 768,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "cards": 5,
-          "ids": [
-            "fund-006503",
-            "fund-018345",
-            "fund-006864",
-            "fund-007818",
-            "fund-015790"
-          ],
-          "actions": [
-            "减仓",
-            "减仓",
-            "保持",
-            "保持",
-            "保持"
-          ],
-          "executed": true,
-          "summary": true,
-          "summaryText": "整体决策摘要 14:30 定期分析 震荡市 · 目标权益仓位 72% / 当前估算 77.9% 震荡市，权益仓位 77.9% 高于目标 72.0%。按反抽规则减偏离：财通减 0.8 万、机器人减 0.6 万，其余保持。 市场状态 震荡 executed · applied · 14:31 已应用 5 条建议 · 2 减仓 · 3 保持 目标权益 72% 审计保留 目标权益仓位 72%；减仓后预计权益仓位约 75.8%，现金约 16.4 万。 执行记录（executed · a",
-          "inputs": 0,
-          "tradeButtons": 2,
-          "hasBackHome": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "建议",
-          "title": "建议"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1024": {
         "viewportWidth": 1024,
         "scrollWidth": 1024,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "cards": 5,
-          "ids": [
-            "fund-006503",
-            "fund-018345",
-            "fund-006864",
-            "fund-007818",
-            "fund-015790"
-          ],
-          "actions": [
-            "减仓",
-            "减仓",
-            "保持",
-            "保持",
-            "保持"
-          ],
-          "executed": true,
-          "summary": true,
-          "summaryText": "整体决策摘要 14:30 定期分析 震荡市 · 目标权益仓位 72% / 当前估算 77.9% 震荡市，权益仓位 77.9% 高于目标 72.0%。按反抽规则减偏离：财通减 0.8 万、机器人减 0.6 万，其余保持。 市场状态 震荡 executed · applied · 14:31 已应用 5 条建议 · 2 减仓 · 3 保持 目标权益 72% 审计保留 目标权益仓位 72%；减仓后预计权益仓位约 75.8%，现金约 16.4 万。 执行记录（executed · a",
-          "inputs": 0,
-          "tradeButtons": 2,
-          "hasBackHome": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "建议",
-          "title": "建议"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1280": {
         "viewportWidth": 1280,
         "scrollWidth": 1280,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "cards": 5,
-          "ids": [
-            "fund-006503",
-            "fund-018345",
-            "fund-006864",
-            "fund-007818",
-            "fund-015790"
-          ],
-          "actions": [
-            "减仓",
-            "减仓",
-            "保持",
-            "保持",
-            "保持"
-          ],
-          "executed": true,
-          "summary": true,
-          "summaryText": "整体决策摘要 14:30 定期分析 震荡市 · 目标权益仓位 72% / 当前估算 77.9% 震荡市，权益仓位 77.9% 高于目标 72.0%。按反抽规则减偏离：财通减 0.8 万、机器人减 0.6 万，其余保持。 市场状态 震荡 executed · applied · 14:31 已应用 5 条建议 · 2 减仓 · 3 保持 目标权益 72% 审计保留 目标权益仓位 72%；减仓后预计权益仓位约 75.8%，现金约 16.4 万。 执行记录（executed · a",
-          "inputs": 0,
-          "tradeButtons": 2,
-          "hasBackHome": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "建议",
-          "title": "建议"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1440": {
         "viewportWidth": 1440,
         "scrollWidth": 1440,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "cards": 5,
-          "ids": [
-            "fund-006503",
-            "fund-018345",
-            "fund-006864",
-            "fund-007818",
-            "fund-015790"
-          ],
-          "actions": [
-            "减仓",
-            "减仓",
-            "保持",
-            "保持",
-            "保持"
-          ],
-          "executed": true,
-          "summary": true,
-          "summaryText": "整体决策摘要 14:30 定期分析 震荡市 · 目标权益仓位 72% / 当前估算 77.9% 震荡市，权益仓位 77.9% 高于目标 72.0%。按反抽规则减偏离：财通减 0.8 万、机器人减 0.6 万，其余保持。 市场状态 震荡 executed · applied · 14:31 已应用 5 条建议 · 2 减仓 · 3 保持 目标权益 72% 审计保留 目标权益仓位 72%；减仓后预计权益仓位约 75.8%，现金约 16.4 万。 执行记录（executed · a",
-          "inputs": 0,
-          "tradeButtons": 2,
-          "hasBackHome": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "建议",
-          "title": "建议"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       }
     },
     "news.html": {
@@ -1512,427 +1346,77 @@
         "scrollWidth": 360,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "items": 10,
-          "dates": [
-            "11-10",
-            "11-10",
-            "11-09",
-            "11-09",
-            "11-08",
-            "11-08",
-            "11-07",
-            "11-07",
-            "11-06",
-            "11-06"
-          ],
-          "categories": [
-            "政策",
-            "民生",
-            "行业",
-            "国际",
-            "政策",
-            "民生",
-            "国际",
-            "行业",
-            "政策",
-            "行业"
-          ],
-          "impacts": [
-            "利好",
-            "利好",
-            "利好",
-            "中性",
-            "利好",
-            "中性",
-            "利空",
-            "利好",
-            "中性",
-            "中性"
-          ],
-          "hasDemoBadge": true,
-          "hasCadence": true,
-          "noRefresh": true,
-          "noFilter": true,
-          "noInputs": true,
-          "sortedDesc": "11-10,11-10,11-09,11-09,11-08,11-08,11-07,11-07,11-06,11-06",
-          "sources": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "要闻",
-          "title": "要闻"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "390": {
         "viewportWidth": 390,
         "scrollWidth": 390,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "items": 10,
-          "dates": [
-            "11-10",
-            "11-10",
-            "11-09",
-            "11-09",
-            "11-08",
-            "11-08",
-            "11-07",
-            "11-07",
-            "11-06",
-            "11-06"
-          ],
-          "categories": [
-            "政策",
-            "民生",
-            "行业",
-            "国际",
-            "政策",
-            "民生",
-            "国际",
-            "行业",
-            "政策",
-            "行业"
-          ],
-          "impacts": [
-            "利好",
-            "利好",
-            "利好",
-            "中性",
-            "利好",
-            "中性",
-            "利空",
-            "利好",
-            "中性",
-            "中性"
-          ],
-          "hasDemoBadge": true,
-          "hasCadence": true,
-          "noRefresh": true,
-          "noFilter": true,
-          "noInputs": true,
-          "sortedDesc": "11-10,11-10,11-09,11-09,11-08,11-08,11-07,11-07,11-06,11-06",
-          "sources": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "要闻",
-          "title": "要闻"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "414": {
         "viewportWidth": 414,
         "scrollWidth": 414,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "items": 10,
-          "dates": [
-            "11-10",
-            "11-10",
-            "11-09",
-            "11-09",
-            "11-08",
-            "11-08",
-            "11-07",
-            "11-07",
-            "11-06",
-            "11-06"
-          ],
-          "categories": [
-            "政策",
-            "民生",
-            "行业",
-            "国际",
-            "政策",
-            "民生",
-            "国际",
-            "行业",
-            "政策",
-            "行业"
-          ],
-          "impacts": [
-            "利好",
-            "利好",
-            "利好",
-            "中性",
-            "利好",
-            "中性",
-            "利空",
-            "利好",
-            "中性",
-            "中性"
-          ],
-          "hasDemoBadge": true,
-          "hasCadence": true,
-          "noRefresh": true,
-          "noFilter": true,
-          "noInputs": true,
-          "sortedDesc": "11-10,11-10,11-09,11-09,11-08,11-08,11-07,11-07,11-06,11-06",
-          "sources": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "要闻",
-          "title": "要闻"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "768": {
         "viewportWidth": 768,
         "scrollWidth": 768,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "items": 10,
-          "dates": [
-            "11-10",
-            "11-10",
-            "11-09",
-            "11-09",
-            "11-08",
-            "11-08",
-            "11-07",
-            "11-07",
-            "11-06",
-            "11-06"
-          ],
-          "categories": [
-            "政策",
-            "民生",
-            "行业",
-            "国际",
-            "政策",
-            "民生",
-            "国际",
-            "行业",
-            "政策",
-            "行业"
-          ],
-          "impacts": [
-            "利好",
-            "利好",
-            "利好",
-            "中性",
-            "利好",
-            "中性",
-            "利空",
-            "利好",
-            "中性",
-            "中性"
-          ],
-          "hasDemoBadge": true,
-          "hasCadence": true,
-          "noRefresh": true,
-          "noFilter": true,
-          "noInputs": true,
-          "sortedDesc": "11-10,11-10,11-09,11-09,11-08,11-08,11-07,11-07,11-06,11-06",
-          "sources": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "要闻",
-          "title": "要闻"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1024": {
         "viewportWidth": 1024,
         "scrollWidth": 1024,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "items": 10,
-          "dates": [
-            "11-10",
-            "11-10",
-            "11-09",
-            "11-09",
-            "11-08",
-            "11-08",
-            "11-07",
-            "11-07",
-            "11-06",
-            "11-06"
-          ],
-          "categories": [
-            "政策",
-            "民生",
-            "行业",
-            "国际",
-            "政策",
-            "民生",
-            "国际",
-            "行业",
-            "政策",
-            "行业"
-          ],
-          "impacts": [
-            "利好",
-            "利好",
-            "利好",
-            "中性",
-            "利好",
-            "中性",
-            "利空",
-            "利好",
-            "中性",
-            "中性"
-          ],
-          "hasDemoBadge": true,
-          "hasCadence": true,
-          "noRefresh": true,
-          "noFilter": true,
-          "noInputs": true,
-          "sortedDesc": "11-10,11-10,11-09,11-09,11-08,11-08,11-07,11-07,11-06,11-06",
-          "sources": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "要闻",
-          "title": "要闻"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1280": {
         "viewportWidth": 1280,
         "scrollWidth": 1280,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "items": 10,
-          "dates": [
-            "11-10",
-            "11-10",
-            "11-09",
-            "11-09",
-            "11-08",
-            "11-08",
-            "11-07",
-            "11-07",
-            "11-06",
-            "11-06"
-          ],
-          "categories": [
-            "政策",
-            "民生",
-            "行业",
-            "国际",
-            "政策",
-            "民生",
-            "国际",
-            "行业",
-            "政策",
-            "行业"
-          ],
-          "impacts": [
-            "利好",
-            "利好",
-            "利好",
-            "中性",
-            "利好",
-            "中性",
-            "利空",
-            "利好",
-            "中性",
-            "中性"
-          ],
-          "hasDemoBadge": true,
-          "hasCadence": true,
-          "noRefresh": true,
-          "noFilter": true,
-          "noInputs": true,
-          "sortedDesc": "11-10,11-10,11-09,11-09,11-08,11-08,11-07,11-07,11-06,11-06",
-          "sources": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "要闻",
-          "title": "要闻"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1440": {
         "viewportWidth": 1440,
         "scrollWidth": 1440,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "items": 10,
-          "dates": [
-            "11-10",
-            "11-10",
-            "11-09",
-            "11-09",
-            "11-08",
-            "11-08",
-            "11-07",
-            "11-07",
-            "11-06",
-            "11-06"
-          ],
-          "categories": [
-            "政策",
-            "民生",
-            "行业",
-            "国际",
-            "政策",
-            "民生",
-            "国际",
-            "行业",
-            "政策",
-            "行业"
-          ],
-          "impacts": [
-            "利好",
-            "利好",
-            "利好",
-            "中性",
-            "利好",
-            "中性",
-            "利空",
-            "利好",
-            "中性",
-            "中性"
-          ],
-          "hasDemoBadge": true,
-          "hasCadence": true,
-          "noRefresh": true,
-          "noFilter": true,
-          "noInputs": true,
-          "sortedDesc": "11-10,11-10,11-09,11-09,11-08,11-08,11-07,11-07,11-06,11-06",
-          "sources": true,
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "要闻",
-          "title": "要闻"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       }
     },
     "portfolio.html": {
@@ -1941,119 +1425,77 @@
         "scrollWidth": 360,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "组合",
-          "title": "组合"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "390": {
         "viewportWidth": 390,
         "scrollWidth": 390,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "组合",
-          "title": "组合"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "414": {
         "viewportWidth": 414,
         "scrollWidth": 414,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "组合",
-          "title": "组合"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "768": {
         "viewportWidth": 768,
         "scrollWidth": 768,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "组合",
-          "title": "组合"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1024": {
         "viewportWidth": 1024,
         "scrollWidth": 1024,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "组合",
-          "title": "组合"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1280": {
         "viewportWidth": 1280,
         "scrollWidth": 1280,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "组合",
-          "title": "组合"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1440": {
         "viewportWidth": 1440,
         "scrollWidth": 1440,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "组合",
-          "title": "组合"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       }
     },
     "compare.html": {
@@ -2062,119 +1504,77 @@
         "scrollWidth": 360,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "对比",
-          "title": "对比"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "390": {
         "viewportWidth": 390,
         "scrollWidth": 390,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "对比",
-          "title": "对比"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "414": {
         "viewportWidth": 414,
         "scrollWidth": 414,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "对比",
-          "title": "对比"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "768": {
         "viewportWidth": 768,
         "scrollWidth": 768,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "对比",
-          "title": "对比"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1024": {
         "viewportWidth": 1024,
         "scrollWidth": 1024,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "对比",
-          "title": "对比"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1280": {
         "viewportWidth": 1280,
         "scrollWidth": 1280,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "对比",
-          "title": "对比"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1440": {
         "viewportWidth": 1440,
         "scrollWidth": 1440,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "对比",
-          "title": "对比"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       }
     },
     "history.html": {
@@ -2183,119 +1583,77 @@
         "scrollWidth": 360,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "历史",
-          "title": "历史"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "390": {
         "viewportWidth": 390,
         "scrollWidth": 390,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "历史",
-          "title": "历史"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "414": {
         "viewportWidth": 414,
         "scrollWidth": 414,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "历史",
-          "title": "历史"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "768": {
         "viewportWidth": 768,
         "scrollWidth": 768,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "历史",
-          "title": "历史"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1024": {
         "viewportWidth": 1024,
         "scrollWidth": 1024,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "历史",
-          "title": "历史"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1280": {
         "viewportWidth": 1280,
         "scrollWidth": 1280,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "历史",
-          "title": "历史"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1440": {
         "viewportWidth": 1440,
         "scrollWidth": 1440,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "历史",
-          "title": "历史"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       }
     },
     "settings.html": {
@@ -2304,119 +1662,77 @@
         "scrollWidth": 360,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "设置",
-          "title": "设置"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "390": {
         "viewportWidth": 390,
         "scrollWidth": 390,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "设置",
-          "title": "设置"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "414": {
         "viewportWidth": 414,
         "scrollWidth": 414,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "设置",
-          "title": "设置"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "768": {
         "viewportWidth": 768,
         "scrollWidth": 768,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "设置",
-          "title": "设置"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1024": {
         "viewportWidth": 1024,
         "scrollWidth": 1024,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "设置",
-          "title": "设置"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1280": {
         "viewportWidth": 1280,
         "scrollWidth": 1280,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "设置",
-          "title": "设置"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       },
       "1440": {
         "viewportWidth": 1440,
         "scrollWidth": 1440,
         "overflowX": 0,
         "clipped": [],
-        "clippedCount": 0,
         "overflowers": [],
-        "overflowersCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "checks": {
-          "navLinks": 7,
-          "bottomItems": 5,
-          "activeNav": "设置",
-          "title": "设置"
-        }
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       }
     },
     "popup.html": {
@@ -2424,17 +1740,12 @@
         "viewportWidth": 390,
         "scrollWidth": 390,
         "overflowX": 0,
-        "bodyHeight": 942,
-        "checks": {
-          "indices": 4,
-          "funds": 5,
-          "indexHasPct": true,
-          "fundHasNavPct": true,
-          "ctaHome": true,
-          "ctaAdvice": true,
-          "upColor": "#dc2626",
-          "downColor": "#16a34a"
-        }
+        "clipped": [],
+        "overflowers": [],
+        "touchSmall": [],
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
       }
     }
   },
@@ -2479,35 +1790,118 @@
   "interactions": {
     "autoTime": {
       "time": "14:32:10",
-      "autoRefreshed": "1"
+      "autoRefreshed": "1",
+      "openRows": 0
     },
-    "manual": {
-      "during": {
-        "label": "刷新中…",
-        "disabled": true,
-        "bodyBusy": true
-      },
-      "after": {
-        "time": "14:32:57",
-        "label": "刷新估值",
-        "allTimes": [
-          "14:32:57",
-          "14:32:57",
-          "14:32:57",
-          "14:32:57"
+    "expand": {
+      "first": {
+        "open": "advice-006503",
+        "expanded": [
+          "true",
+          "false",
+          "false",
+          "false",
+          "false"
         ],
-        "status": "估值已更新，本次更新 14:32:57",
-        "manualCount": "1",
-        "stale": "stale · 最近可用 13:58:20 · 延迟 35 分钟（本次未取到新值），不冒充实时。"
+        "labels": [
+          "收起",
+          "展开",
+          "展开",
+          "展开",
+          "展开"
+        ],
+        "panel": "操作减仓金额0.8 万执行状态executed · 14:31 已应用权重 21.4% 高于目标 16.0%，按反抽规则减偏离部分，降低权益仓位。当前估值 1.2945 +0.82% · 实际权重 21.4% · 目标权重 16%只读：执行仅通过 MCP 写入口。完整明细",
+        "noOverflow": true
+      },
+      "second": {
+        "open": [
+          "advice-018345"
+        ],
+        "expanded": [
+          "false",
+          "true",
+          "false",
+          "false",
+          "false"
+        ]
       }
     },
-    "anchors": [
-      "advice.html#fund-006503",
-      "advice.html#fund-018345",
-      "advice.html#fund-006864",
-      "advice.html#fund-007818",
-      "advice.html#fund-015790"
-    ]
+    "keyboard": {
+      "afterEnter": {
+        "open": [
+          "advice-006864"
+        ],
+        "expanded": [
+          "false",
+          "false",
+          "true",
+          "false",
+          "false"
+        ],
+        "focus": "expand-btn"
+      },
+      "afterSpace": {
+        "open": 0,
+        "expanded": [
+          "false",
+          "false",
+          "false",
+          "false",
+          "false"
+        ]
+      }
+    },
+    "manual": {
+      "time": "14:32:57",
+      "allTimes": [
+        "14:32:57"
+      ],
+      "open": [
+        "advice-006503"
+      ],
+      "scrollY": 430,
+      "docHeightBefore": null,
+      "overflowX": 0,
+      "status": "估值已更新",
+      "label": "刷新估值",
+      "small": 0
+    },
+    "mobile": {
+      "expand": {
+        "open": null,
+        "expanded": [
+          "false",
+          "false",
+          "false",
+          "false",
+          "false"
+        ],
+        "labels": [
+          "展开",
+          "展开",
+          "展开",
+          "展开",
+          "展开"
+        ],
+        "panel": null,
+        "noOverflow": true
+      },
+      "manual": {
+        "time": "14:32:57",
+        "allTimes": [
+          "14:32:57"
+        ],
+        "open": [
+          "advice-006503"
+        ],
+        "scrollY": 430,
+        "docHeightBefore": null,
+        "overflowX": 0,
+        "status": "估值已更新",
+        "label": "刷新估值",
+        "small": 0
+      }
+    }
   },
   "summary": {
     "scope": "7 页 × 7 档宽度 + popup 390",
@@ -2527,39 +1921,48 @@
       "overflowers": 0,
       "touchSmall": 0
     },
-    "v3Checks": {
-      "homeIndices": 4,
-      "homeFunds": 5,
-      "fundNumbersSingleLineAtAllWidths": true,
-      "mobileFundGridSingleColumn": true,
-      "desktopFundGridTwoColumns": true,
-      "desktopIndexGridFourColumns": true,
-      "staleCards": 1,
-      "homeHasDecisionSummary": false,
-      "homeHasAdvice": false,
-      "autoRefreshRan": true,
-      "autoRefreshSettledAt": "14:32:10",
-      "manualRefreshBusyLabel": "刷新中…",
-      "manualRefreshChangedTimeTo": "14:32:57",
-      "manualRefreshCount": "1",
-      "adviceCards": 5,
-      "adviceAnchorIds": [
-        "fund-006503",
-        "fund-018345",
-        "fund-006864",
-        "fund-007818",
-        "fund-015790"
+    "v4Checks": {
+      "homeIndices": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
       ],
-      "newsItems": 10,
-      "newsDemoBadge": true,
-      "newsNoRefresh": true,
-      "newsNoFilter": true,
-      "desktopNavItems": 7,
-      "mobileBottomItems": 5,
-      "moreSheetItems": 3,
-      "moreSheetEscapeCloses": true,
-      "popupIndices": 4,
-      "popupFunds": 5
+      "homeFunds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "tablesAtAllWidths": true,
+      "singleGlobalTimeAtAllWidths": true,
+      "timeToSecondAtAllWidths": true,
+      "staleRows": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "noAdviceJumpText": true,
+      "noFundRowLinks": true,
+      "noFormControls": true,
+      "fiveFundsInViewportAt1440": true,
+      "fiveFundsInViewportAt1280": true,
+      "fiveFundsInViewportAt1024": true,
+      "stackedFundTableBelow900": true,
+      "oneRowExpandedAtATime": true,
+      "keyboardToggleWorks": true,
+      "refreshKeepsOpenAndScroll": true,
+      "manualRefreshAdvancesTime": true
     }
   },
   "screenshots": [
