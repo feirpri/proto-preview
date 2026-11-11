@@ -321,15 +321,19 @@
   window.MOCK = {
     meta: {
       product: "Musi 投资助手",
-      version: "原型 v2",
+      version: "原型 v3",
       asof: ASOF_TIME,
       asofDate: ASOF,
       realtime: {
-        trigger: "打开页面触发",
+        trigger: "打开页面自动刷新",
         calcTime: "14:32:10",
+        manualStepSec: 47,
+        autoDelayMs: 420,
+        manualDelayMs: 650,
         source: "腾讯行情 · 估算（演示）",
-        demoNote: "原型演示：打开页面触发；生产环境调用估值接口，不接真实行情。",
-        staleNote: "通信联接估值源延迟，展示最近可用值，不冒充实时。"
+        demoNote: "原型演示：时间为模拟值；生产环境由估值接口返回，打开页面与手动刷新时调用。",
+        staleNote: "通信联接估值源延迟，展示最近可用值，不冒充实时。",
+        staleAsOf: "13:58:20"
       },
       timezone: "Asia/Shanghai",
       quality: "estimate",
@@ -345,8 +349,10 @@
       stateKey: "range",
       stateDesc: "指数位于支撑位与压力位之间，未触发破位或反抽规则。",
       indices: [
-        { code: "000001", name: "上证指数", value: 3628.41, pct: 0.0042, high: 3635.2, low: 3601.7 },
-        { code: "399006", name: "创业板指", value: 2431.2, pct: 0.0086, high: 2444.8, low: 2409.5 }
+        { code: "000001", name: "上证指数", value: 3628.41, pct: 0.0042, change: 15.21, high: 3635.2, low: 3601.7 },
+        { code: "399001", name: "深证成指", value: 11452.68, pct: 0.0065, change: 73.96, high: 11480.3, low: 11370.1 },
+        { code: "399006", name: "创业板指", value: 2431.2, pct: 0.0086, change: 20.73, high: 2444.8, low: 2409.5 },
+        { code: "000300", name: "沪深300", value: 4285.63, pct: 0.0031, change: 13.25, high: 4301.4, low: 4262.8 }
       ],
       levels: {
         sh: { support: 3590, break: 3574, resistance: 3650 },
@@ -361,8 +367,89 @@
       executedAt: "2026-11-10 14:31",
       summary: "震荡市，权益仓位 77.9% 高于目标 72.0%。按反抽规则减偏离：财通减 0.8 万、机器人减 0.6 万，其余保持。",
       targetPlan: "目标权益仓位 72%；减仓后预计权益仓位约 75.8%，现金约 16.4 万。",
+      statusLabel: "applied",
+      auditNote: "执行记录（executed · applied）与改动前后快照均已保留，回滚不物理删除审计。",
+      readonlyNote: "建议只读，执行仅通过 MCP 写入口；页面不提供下单/交易按钮。",
       riskNote: "建议由规则引擎与 AI 生成，仅供参考；不构成投资建议，不保证收益。",
       rows: adviceRows
+    },
+    news: {
+      updatedAt: "2026-11-10 14:30",
+      cadence: "AI 每日 14:30 更新本次要闻",
+      note: "本页展示最近一次更新（截至 2026-11-10 14:30）的昨日/近期内容。本期不提供刷新，后续迭代接入每日更新。",
+      demoBadge: "演示数据 · 非真实新闻",
+      items: [
+        {
+          date: "2026-11-10", time: "11:20", category: "政策",
+          title: "国务院常务会议部署扩大内需与设备更新配套措施",
+          summary: "会议提出延续设备更新与消费品以旧换新支持，强调资金尽快形成实物工作量。",
+          impact: "利好", impactKey: "up", scope: "消费 / 机械 / 家电",
+          source: "演示来源 · 政策通稿（虚构）"
+        },
+        {
+          date: "2026-11-10", time: "09:05", category: "民生",
+          title: "多地公布最低工资标准上调方案",
+          summary: "本轮调整覆盖制造业与服务业密集地区，居民可支配收入预期小幅改善。",
+          impact: "利好", impactKey: "up", scope: "消费 / 零售",
+          source: "演示来源 · 地方人社厅公告（虚构）"
+        },
+        {
+          date: "2026-11-09", time: "16:40", category: "行业",
+          title: "算力基础设施高质量发展行动方案发布",
+          summary: "方案提出提升智能算力供给与网络时延指标，鼓励存量数据中心绿色改造。",
+          impact: "利好", impactKey: "up", scope: "通信 / 算力 / 电力设备",
+          source: "演示来源 · 行业主管部门文件（虚构）"
+        },
+        {
+          date: "2026-11-09", time: "08:30", category: "国际",
+          title: "美联储会议纪要显示对降息路径保持谨慎",
+          summary: "纪要强调通胀回落仍需观察，市场对下一次降息时点的预期小幅后移。",
+          impact: "中性", impactKey: "flat", scope: "全球流动性 / 成长股",
+          source: "演示来源 · 海外央行纪要（虚构）"
+        },
+        {
+          date: "2026-11-08", time: "17:10", category: "政策",
+          title: "财政部提前下达明年专项债额度",
+          summary: "额度向在建项目与重点区域倾斜，要求加快发行使用并形成有效投资。",
+          impact: "利好", impactKey: "up", scope: "基建 / 建材 / 工程机械",
+          source: "演示来源 · 财政部门公告（虚构）"
+        },
+        {
+          date: "2026-11-08", time: "10:15", category: "民生",
+          title: "医保药品目录完成新一轮调整",
+          summary: "新增部分创新药与慢性病用药，平均降价幅度较上一轮收窄。",
+          impact: "中性", impactKey: "flat", scope: "医药 / 创新药",
+          source: "演示来源 · 医保部门公告（虚构）"
+        },
+        {
+          date: "2026-11-07", time: "15:45", category: "国际",
+          title: "国际油价回落至近两月低位",
+          summary: "供给端扰动缓解叠加需求预期走弱，原油期货连续三个交易日下跌。",
+          impact: "利空", impactKey: "down", scope: "石油石化 / 上游资源",
+          source: "演示来源 · 国际商品行情（虚构）"
+        },
+        {
+          date: "2026-11-07", time: "12:00", category: "行业",
+          title: "10 月新能源汽车销量同比保持增长",
+          summary: "插混与出口贡献主要增量，动力电池装机增速略高于整车。",
+          impact: "利好", impactKey: "up", scope: "新能源车 / 锂电",
+          source: "演示来源 · 行业协会数据（虚构）"
+        },
+        {
+          date: "2026-11-06", time: "18:20", category: "政策",
+          title: "央行开展中期借贷便利操作，利率保持不变",
+          summary: "本月 MLF 等量续作，流动性投放节奏平稳，短端资金面维持宽松。",
+          impact: "中性", impactKey: "flat", scope: "银行 / 利率敏感板块",
+          source: "演示来源 · 央行公开市场公告（虚构）"
+        },
+        {
+          date: "2026-11-06", time: "09:40", category: "行业",
+          title: "半导体设备出口数据环比改善",
+          summary: "先进封装与检测设备订单回暖，成熟制程设备价格仍有压力。",
+          impact: "中性", impactKey: "flat", scope: "半导体 / 专用设备",
+          source: "演示来源 · 海关数据摘编（虚构）"
+        }
+      ]
     },
     ranges: RANGES,
     history: [

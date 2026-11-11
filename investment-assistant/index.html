@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f4f6fb">
-  <title>今日 · Musi 投资助手原型</title>
+  <title>首页 · Musi 投资助手原型</title>
   <link rel="stylesheet" href="assets/app.css">
 </head>
-<body data-page="today">
+<body data-page="home">
   <div class="layout">
     <aside class="sidebar" id="sidebar"></aside>
     <div class="main">
@@ -15,33 +15,46 @@
       <main class="content">
         <div class="page-head">
           <div>
-            <h1>今日</h1>
-            <p class="lede">市场状态、持仓/现金总览与逐基金建议；实时估值在打开页面时触发，14:30 生成定期分析。所有内容只读，执行动作仅能通过 MCP 写入口完成。</p>
+            <h1>首页</h1>
+            <p class="lede">行情与估值看板：大盘指数 + 5 只基金估值。进入页面自动刷新一次，也可手动刷新；操作建议见「建议」页，经济要闻见「要闻」页。全部内容只读。</p>
+            <p class="refresh-note">原型演示：时间为模拟值；生产环境由估值接口返回，打开页面与手动刷新时调用。</p>
           </div>
-          <div class="head-side" id="today-head-side"></div>
+          <div class="head-side" id="home-head-side"></div>
         </div>
 
-        <section class="grid grid-12" id="today-stats" aria-label="今日总览"></section>
-
-        <section class="section" id="today-advice" aria-label="今日决策摘要"></section>
-
-        <section class="section">
+        <section class="section" style="margin-top:0" aria-label="大盘指数">
           <div class="section-head">
             <div>
-              <h2>逐基金概览与建议</h2>
-              <div class="hint">每张卡从上到下：① 实时估值（打开页面触发）→ ② 持仓 vs 目标 → ③ 今日建议（14:30 定期分析）；客户端不提供交易按钮。</div>
+              <h2>大盘指数</h2>
+              <div class="hint">红涨绿跌：每项显示点位、涨跌幅与涨跌点数</div>
             </div>
-            <span class="ro-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><rect x="4.5" y="10" width="15" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>只读原型</span>
+            <div class="updown-legend" aria-label="涨跌颜色图例">
+              <span class="ud-item"><span class="ud-swatch up"></span>涨</span>
+              <span class="ud-item"><span class="ud-swatch down"></span>跌</span>
+              <span class="ud-item"><span class="ud-swatch flat"></span>平</span>
+            </div>
           </div>
-          <div class="fund-grid" id="fund-grid"></div>
+          <div class="index-grid" id="index-grid" aria-live="polite"></div>
         </section>
 
-        <section class="grid grid-12 section" id="today-quality" aria-label="数据说明"></section>
+        <section class="section" aria-label="基金估值">
+          <div class="section-head">
+            <div>
+              <h2>基金估值</h2>
+              <div class="hint">5 只基金 · 估算净值 / 涨跌幅 / 今日预估收益；stale 基金不冒充实时</div>
+            </div>
+            <div class="fund-live-meta" id="home-fund-meta"></div>
+          </div>
+          <div class="fund-grid" id="fund-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="grid grid-12 section" id="home-quality" aria-label="数据口径说明"></section>
       </main>
       <footer class="site-foot" id="site-footer"></footer>
     </div>
     <nav class="bottom-nav" id="bottom-nav" aria-label="移动端主导航"></nav>
   </div>
+  <span id="refresh-status" class="sr-only" aria-live="polite"></span>
   <script src="assets/data.js"></script>
   <script src="assets/app.js"></script>
 </body>

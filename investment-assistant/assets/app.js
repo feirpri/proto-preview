@@ -1,4 +1,4 @@
-/* Musi 投资助手 · 静态原型交互与渲染（无构建链，原生 JS） */
+/* Musi 投资助手 · 静态原型交互与渲染（无构建链，原生 JS）· v3 */
 (function () {
   "use strict";
 
@@ -25,7 +25,10 @@
     refresh: '<path d="M20 11a8 8 0 0 0-14.9-4"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.9 4"/><path d="M20 20v-4h-4"/>',
     external: '<path d="M7 17 17 7"/><path d="M9 7h8v8"/>',
     trend: '<path d="m3 16 6-6 4 4 8-8"/><path d="M15 6h6v6"/>',
-    file: '<path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/><path d="M9 12h6"/><path d="M9 16h6"/>'
+    file: '<path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/><path d="M9 12h6"/><path d="M9 16h6"/>',
+    news: '<path d="M4 5h12v14H5a2 2 0 0 1-2-2Z"/><path d="M16 8h3a1 1 0 0 1 1 1v8a2 2 0 0 1-2 2H5"/><path d="M7 9h6"/><path d="M7 12.5h6"/><path d="M7 16h4"/>',
+    bulb: '<path d="M9.5 18h5"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1.2.9 2h5.2c0-.8.3-1.5.9-2A6 6 0 0 0 12 3Z"/>',
+    more: '<circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/>'
   };
 
   function icon(name, cls) {
@@ -33,12 +36,16 @@
   }
 
   var NAV = [
-    { key: "today", href: "index.html", label: "今日", icon: "home" },
-    { key: "portfolio", href: "portfolio.html", label: "组合", icon: "pie" },
-    { key: "compare", href: "compare.html", label: "对比", icon: "chart" },
-    { key: "history", href: "history.html", label: "历史", icon: "clock" },
-    { key: "settings", href: "settings.html", label: "设置", icon: "sliders" }
+    { key: "home", href: "index.html", label: "首页", icon: "home", desc: "大盘与基金估值" },
+    { key: "advice", href: "advice.html", label: "建议", icon: "bulb", desc: "每日操作建议" },
+    { key: "news", href: "news.html", label: "要闻", icon: "news", desc: "经济与民生要闻" },
+    { key: "portfolio", href: "portfolio.html", label: "组合", icon: "pie", desc: "持仓与权重" },
+    { key: "compare", href: "compare.html", label: "对比", icon: "chart", desc: "三组收益曲线" },
+    { key: "history", href: "history.html", label: "历史", icon: "clock", desc: "建议与交易记录" },
+    { key: "settings", href: "settings.html", label: "设置", icon: "sliders", desc: "只读参数展示" }
   ];
+  var MOBILE_KEYS = ["home", "advice", "news", "portfolio"];
+  var MORE_KEYS = ["compare", "history", "settings"];
 
   var QUALITY = {
     official: { cls: "official", label: "official 官方净值" },
@@ -83,8 +90,15 @@
     var s = n > 0 ? "+" : n < 0 ? "−" : "";
     return s + Math.abs(Math.round(n)).toLocaleString("en-US");
   }
+  function signedNum(n, d) {
+    var s = n > 0 ? "+" : n < 0 ? "−" : "";
+    return s + Math.abs(n).toFixed(d == null ? 2 : d);
+  }
   function cls(x) {
     return x > 0.00001 ? "up" : x < -0.00001 ? "down" : "flat";
+  }
+  function direction(x) {
+    return x > 0.00001 ? "上涨" : x < -0.00001 ? "下跌" : "平盘";
   }
   function actionChip(action) {
     var map = { "加仓": "buy", "减仓": "sell", "保持": "hold" };
@@ -93,29 +107,116 @@
   function roChip(text) {
     return '<span class="ro-chip">' + icon("lock") + (text || "只读原型") + "</span>";
   }
+  function nav4(n) {
+    return n.toFixed(4);
+  }
+
+  /* ---------------- 模拟刷新时钟 ---------------- */
+  var RT = { time: M.meta.realtime.calcTime, busy: false, ready: false };
+
+  function secOf(t) {
+    var p = t.split(":").map(Number);
+    return p[0] * 3600 + p[1] * 60 + p[2];
+  }
+  function timeOf(sec) {
+    sec = ((sec % 86400) + 86400) % 86400;
+    var h = Math.floor(sec / 3600);
+    var m = Math.floor((sec % 3600) / 60);
+    var s = sec % 60;
+    return [h, m, s].map(function (v) { return String(v).padStart(2, "0"); }).join(":");
+  }
+  function updateTime() {
+    return RT.time;
+  }
+  function advanceTime() {
+    RT.time = timeOf(secOf(RT.time) + M.meta.realtime.manualStepSec);
+  }
+  function staleDelayMin() {
+    return Math.max(1, Math.round((secOf(RT.time) - secOf(M.meta.realtime.staleAsOf)) / 60));
+  }
+
   function dataChip() {
-    var t = M.meta.asof.slice(11);
-    return '<span class="data-chip"><span class="dot live"></span>数据时间 <b>' + t + "</b>" + qBadge(M.meta.quality, "estimate") + "</span>";
+    var t = document.body.getAttribute("data-page") === "home" ? updateTime() : M.meta.asof.slice(11);
+    return '<span class="data-chip"><span class="dot live"></span>数据时间 <b data-update-time>' + t + "</b>" + qBadge(M.meta.quality, "estimate") + "</span>";
   }
   function miniBrand() {
     return '<div class="brand"><div class="brand-mark">M</div><div><div class="brand-name">Musi 投资助手</div><div class="brand-sub">只读原型 · ' + M.meta.version + "</div></div></div>";
   }
-  function navHTML(active, mobile) {
+
+  function desktopNavHTML(active) {
     return NAV.map(function (n) {
-      return '<a class="' + (mobile ? "" : "nav-item ") + (n.key === active ? "active" : "") + '" href="' + n.href + '"' + (n.key === active ? ' aria-current="page"' : "") + ">" + icon(n.icon) + "<span>" + n.label + "</span></a>";
+      return '<a class="nav-item' + (n.key === active ? " active" : "") + '" href="' + n.href + '"' + (n.key === active ? ' aria-current="page"' : "") + ">" + icon(n.icon) + "<span>" + n.label + "</span></a>";
     }).join("");
   }
 
+  function bottomNavHTML(active) {
+    var items = MOBILE_KEYS.map(function (key) {
+      var n = NAV.filter(function (x) { return x.key === key; })[0];
+      return '<a class="' + (n.key === active ? "active" : "") + '" href="' + n.href + '"' + (n.key === active ? ' aria-current="page"' : "") + ">" + icon(n.icon) + "<span>" + n.label + "</span></a>";
+    }).join("");
+    var moreActive = MOBILE_KEYS.indexOf(active) < 0;
+    return items +
+      '<button class="bottom-more' + (moreActive ? " active" : "") + '" id="nav-more" type="button" aria-expanded="false" aria-controls="more-sheet">' + icon("more") + "<span>更多</span></button>";
+  }
+
+  function moreSheetHTML(active) {
+    var current = NAV.filter(function (n) { return n.key === active; })[0];
+    var rows = MORE_KEYS.map(function (key) {
+      var n = NAV.filter(function (x) { return x.key === key; })[0];
+      return '<a class="sheet-item' + (n.key === active ? " active" : "") + '" href="' + n.href + '"' + (n.key === active ? ' aria-current="page"' : "") + ">" +
+        '<span class="sheet-ic">' + icon(n.icon) + "</span>" +
+        '<span class="sheet-txt"><b>' + n.label + '</b><span>' + n.desc + "</span></span>" +
+        icon("arrow", "sheet-arrow") + "</a>";
+    }).join("");
+    return '<div class="more-sheet" id="more-sheet" hidden>' +
+      '<div class="sheet-backdrop" data-sheet-close></div>' +
+      '<div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">' +
+      '<div class="sheet-head"><h2 id="sheet-title">更多页面</h2><button class="sheet-close" type="button" data-sheet-close aria-label="关闭更多菜单">×</button></div>' +
+      '<nav class="sheet-nav" aria-label="更多页面">' + rows + "</nav>" +
+      '<div class="sheet-hint">当前页：' + (current ? current.label : "首页") + " · 所有页面均可在 2 次点击内到达</div>" +
+      "</div></div>";
+  }
+
+  function initMoreSheet() {
+    var sheet = document.getElementById("more-sheet");
+    var more = document.getElementById("nav-more");
+    if (!sheet || !more) return;
+    var closeTimer = null;
+    function open() {
+      clearTimeout(closeTimer);
+      sheet.hidden = false;
+      requestAnimationFrame(function () { sheet.classList.add("open"); });
+      document.body.classList.add("sheet-open");
+      more.setAttribute("aria-expanded", "true");
+      var close = sheet.querySelector(".sheet-close");
+      if (close) close.focus();
+    }
+    function close() {
+      sheet.classList.remove("open");
+      more.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("sheet-open");
+      closeTimer = setTimeout(function () { sheet.hidden = true; }, 190);
+      more.focus();
+    }
+    more.addEventListener("click", open);
+    sheet.addEventListener("click", function (e) {
+      if (e.target.closest("[data-sheet-close]")) close();
+      if (e.target.closest(".sheet-item")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !sheet.hidden) close();
+    });
+  }
+
   function mountShell(active) {
-    var m = M.meta;
     var side = document.getElementById("sidebar");
     if (side) {
       side.innerHTML =
         miniBrand() +
-        '<nav class="side-nav" aria-label="主导航">' + navHTML(active, false) + "</nav>" +
+        '<nav class="side-nav" aria-label="主导航">' + desktopNavHTML(active) + "</nav>" +
         '<div class="side-foot">' +
-        '<div class="side-data"><b>数据时间</b><br>' + m.asof + '<br>业务时区 ' + m.timezone + "<br><b>最近官方净值</b> " + m.lastOfficial.slice(5) + "</div>" +
-        '<div class="readonly-note">' + icon("lock") + "<span>客户端只读。下单、改仓位、写建议均需通过 MCP 写入口。</span></div>" +
+        '<div class="side-data"><b>数据日期</b> ' + M.meta.asofDate + "<br>业务时区 " + M.meta.timezone + "<br><b>最近官方净值</b> " + M.meta.lastOfficial.slice(5) + "</div>" +
+        '<div class="readonly-note">' + icon("lock") + "<span>客户端只读。除首页手动刷新外无写操作；下单、改仓位、写建议均需通过 MCP 写入口。</span></div>" +
         "</div>";
     }
 
@@ -123,7 +224,7 @@
     if (top) {
       var current = NAV.filter(function (n) { return n.key === active; })[0] || NAV[0];
       top.innerHTML =
-        '<div class="topbar-left"><div class="topbar-brand"><div class="brand-mark">M</div></div><div><div class="topbar-title">' + current.label + '</div><div class="topbar-sub">' + m.asofDate + " 周二 · " + m.session + "</div></div></div>" +
+        '<div class="topbar-left"><div class="topbar-brand"><div class="brand-mark">M</div></div><div><div class="topbar-title">' + current.label + '</div><div class="topbar-sub">' + M.meta.asofDate + " 周二 · " + M.meta.session + "</div></div></div>" +
         '<div class="topbar-right">' + dataChip() + roChip("只读") + "</div>";
     }
 
@@ -134,183 +235,273 @@
         qBadge("official") + qBadge("estimate") + qBadge("partial") + qBadge("stale") +
         '<span class="lg-title" style="margin-left:8px">三组颜色</span>' +
         '<span class="group-tag actual">实盘</span><span class="group-tag ai">AI 影子</span><span class="group-tag bench">沪深300 基准</span></div>' +
-        '<div class="risk-note">' + icon("warning") + "<span>" + m.disclaimer + " 数据时间 " + m.asof + "（" + m.timezone + "）。</span></div>";
+        '<div class="risk-note">' + icon("warning") + "<span>" + M.meta.disclaimer + " 数据日期 " + M.meta.asofDate + "（" + M.meta.timezone + "）。</span></div>";
     }
 
     var bottom = document.getElementById("bottom-nav");
-    if (bottom) bottom.innerHTML = navHTML(active, true);
+    if (bottom) {
+      bottom.innerHTML = bottomNavHTML(active);
+      if (!document.getElementById("more-sheet")) {
+        var wrap = document.createElement("div");
+        wrap.innerHTML = moreSheetHTML(active);
+        document.body.appendChild(wrap.firstChild);
+      }
+      initMoreSheet();
+    }
   }
 
-  /* ---------------- 今日 ---------------- */
-  function todayHead() {
-    var el = document.getElementById("today-head-side");
-    if (el) el.innerHTML = roChip("只读原型 · 演示数据");
+  /* ---------------- 首页：行情与估值 ---------------- */
+  function homeHead() {
+    var el = document.getElementById("home-head-side");
+    if (!el) return;
+    el.innerHTML =
+      '<span class="data-chip live-chip"><span class="dot live"></span>本次更新 <b data-update-time>' + updateTime() + "</b></span>" +
+      qBadge("estimate", "estimate 估算") +
+      '<button class="refresh-btn" type="button" data-refresh aria-label="刷新基金估值"><span class="refresh-ico">' + icon("refresh") + '</span><span data-refresh-label>刷新估值</span></button>' +
+      roChip("只读");
   }
 
-  function marketCard() {
-    var mk = M.market;
-    var sh = mk.indices[0];
-    var cy = mk.indices[1];
-    var lv = mk.levels.sh;
-    var pos = ((sh.value - lv.break) / (lv.resistance - lv.break)) * 100;
-    pos = Math.max(6, Math.min(94, pos));
+  function indexCard(ix) {
+    var c = cls(ix.pct);
     return (
-      '<div class="card stat-card col-3 accent-amber">' +
-      '<div class="k">' + icon("activity") + ' 市场状态 <span class="q estimate">盘中</span></div>' +
-      '<div class="market-line"><span class="market-value">' + mk.state + '</span><span class="market-name">上证 ' + num2(sh.value) + '</span></div>' +
-      '<div class="s ' + cls(sh.pct) + '">' + signedPct(sh.pct) + ' <span class="flat">· 创业板 ' + signedPct(cy.pct) + "</span></div>" +
-      '<div class="level-bar"><div class="level-track"><span class="level-marker" style="left:' + pos + '%"></span></div>' +
-      '<div class="level-labels"><span>破位 <b>' + lv.break + '</b></span><span>支撑 <b>' + lv.support + '</b></span><span>压力 <b>' + lv.resistance + "</b></span></div></div>" +
-      "</div>"
+      '<article class="index-card ' + c + '">' +
+      '<div class="index-head"><span class="index-name">' + ix.name + '</span><span class="index-code">' + ix.code + "</span></div>" +
+      '<div class="index-value tabular">' + num2(ix.value) + "</div>" +
+      '<div class="index-change"><span class="index-pct tabular ' + c + '">' + signedPct(ix.pct) + '</span><span class="index-points tabular ' + c + '">' + signedNum(ix.change) + " 点</span></div>" +
+      '<div class="index-foot"><span class="ud-dot ' + c + '"></span>' + direction(ix.pct) + " · 较昨收</div>" +
+      "</article>"
     );
   }
 
-  function statCards() {
-    var a = M.groups.actual;
-    var over = a.equityRatio - a.targetEquity;
-    return (
-      marketCard() +
-      '<div class="card stat-card col-3 accent-blue">' +
-      '<div class="k">' + icon("wallet") + ' 总资产 ' + groupTag("actual") + "</div>" +
-      '<div class="v">' + num(a.total) + "<small>元</small></div>" +
-      '<div class="s">持仓 ' + wan(a.holdings) + " · 现金 " + wan(a.cash) + "</div>" +
-      '<div class="s">' + wan(a.total) + " = " + wan(a.holdings) + " + " + wan(a.cash) + "</div>" +
-      "</div>" +
-      '<div class="card stat-card col-3 accent-up">' +
-      '<div class="k">' + icon("trend") + ' 今日预估收益 <span class="q estimate">estimate</span></div>' +
-      '<div class="v up">' + signedYuan(a.dayPnl) + "<small>元</small></div>" +
-      '<div class="s up">' + signedPct(a.dayPct) + " · 盘中估算</div>" +
-      '<div class="s">非官方净值，夜间修正为 official / partial</div>' +
-      "</div>" +
-      '<div class="card stat-card col-3">' +
-      '<div class="k">' + icon("pie") + ' 权益仓位 <span class="q estimate">盘中</span></div>' +
-      '<div class="v">' + pct(a.equityRatio, 1) + "<small>目标 " + pct(a.targetEquity, 0) + "</small></div>" +
-      '<div class="s">现金 ' + pct(a.cash / a.total, 1) + ' · 目标 ' + pct(1 - a.targetEquity, 0) + "</div>" +
-      '<div class="s"><span class="chip amber">超配 ' + signedPp(over) + "</span><span>再平衡仅通过 MCP</span></div>" +
-      "</div>"
-    );
+  function renderHomeIndices() {
+    var el = document.getElementById("index-grid");
+    if (el) el.innerHTML = M.market.indices.map(indexCard).join("");
   }
 
-  function decisionSummary() {
-    var ad = M.advice;
-    var a = M.groups.actual;
-    return (
-      '<div class="card decision-summary">' +
-      '<div class="decision-main">' +
-      '<div class="decision-eyebrow">' + icon("spark") + ' 今日决策摘要 <span class="q neutral">整体</span></div>' +
-      '<div class="decision-title">' + ad.state + '市 · 权益仓位 ' + pct(a.equityRatio, 1) + ' <span class="decision-vs">/ 目标 ' + pct(a.targetEquity, 1) + '</span></div>' +
-      '<p class="decision-text">权益仓位高于目标，按反抽规则减偏离、降低权益仓位，其余基金保持；执行后仍高于目标，等待趋势确认。</p>' +
-      '<div class="decision-chips">' +
-      '<span class="chip plain">市场状态 ' + ad.state + "</span>" +
-      '<span class="chip green">executed · ' + ad.executedAt.slice(11) + " 已应用</span>" +
-      '<span class="chip plain">5 条建议 · 2 减仓 · 3 保持</span>' +
-      '<span class="chip plain">目标权益 ' + pct(a.targetEquity, 0) + "</span>" +
-      '<span class="chip plain">审计保留</span>' +
-      "</div>" +
-      '<div class="decision-plan">' + ad.targetPlan + "</div>" +
-      '<div class="decision-note">持仓金额为 14:30 估算快照（执行前）；14:31 已按建议执行，交易明细见历史页。</div>' +
-      "</div></div>"
-    );
+  function fundMeta() {
+    var el = document.getElementById("home-fund-meta");
+    if (!el) return;
+    el.innerHTML = '<span class="live-inline"><span class="dot live"></span>本次更新 <b data-update-time>' + updateTime() + "</b></span>" + qBadge("estimate", "estimate 估算");
   }
 
-  function nav4(n) {
-    return n.toFixed(4);
-  }
-
-  function fundCard(f) {
-    var dev = f.weight - f.target;
+  function fundEstimateCard(f) {
     var stale = f.stale;
-    var fillW = Math.min(100, f.weight * 100);
-    var targetLeft = Math.min(98, f.target * 100);
-    var realtimeLabel = stale
-      ? '<span class="zone-tag warn">' + icon("warning") + "stale · 非实时</span>"
-      : '<span class="zone-tag">打开页面触发</span>';
-    var timeLine = stale
-      ? '<span class="calc-time warn">' + icon("clock") + "最近可用 " + f.estTime + " · 打开页面未取到新值</span>"
-      : '<span class="calc-time">' + icon("clock") + "本次计算 " + f.estTime + " · 打开页面触发</span>";
-    var staleNote = f.estNote
-      ? '<div class="stale-note">' + icon("warning") + "<span>stale · " + f.estNote + "，不冒充实时。</span></div>"
+    var note = stale
+      ? '<div class="stale-note">' + icon("warning") + "<span>stale · 最近可用 " + f.estTime + " · 延迟 " + staleDelayMin() + " 分钟（本次未取到新值），不冒充实时。</span></div>"
       : "";
-    var exec = f.executed
-      ? '<span class="exec-state">' + icon("check") + "executed · " + f.executedAt + " 已应用</span>"
-      : '<span class="exec-state muted">' + icon("lock") + "不执行主动建议</span>";
     return (
-      '<article class="card fund-card' + (stale ? " is-stale" : "") + '">' +
+      '<article class="card fund-card est-card' + (stale ? " is-stale" : "") + '">' +
       '<header class="fund-head">' +
       '<div class="fund-head-main">' +
       '<div class="fund-name">' + f.name + "</div>" +
       '<div class="fund-meta"><span class="fund-code">' + f.code + '</span><span class="fund-sep">·</span><span>目标权重 ' + pct(f.target, 0) + "</span></div>" +
       "</div>" +
-      '<div class="fund-badges">' + groupTag("actual") + qBadge(f.estQuality, stale ? "stale 延迟" : "estimate 估算") + "</div>" +
+      '<div class="fund-badges">' + groupTag("actual") + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</div>" +
       "</header>" +
 
-      '<section class="fund-zone live-zone" aria-label="实时估值">' +
-      '<div class="zone-head"><div class="zone-title"><span class="zone-no">1</span>实时估值</div>' + realtimeLabel + "</div>" +
-      '<div class="live-grid">' +
-      '<div class="live-cell"><span class="cell-label">估算净值</span><b class="cell-value tabular">' + nav4(f.estNav) + '</b><span class="cell-sub ' + cls(f.estPct) + '">' + signedPct(f.estPct) + " 估算涨跌</span></div>" +
-      '<div class="live-cell"><span class="cell-label">今日预估收益</span><b class="cell-value tabular ' + cls(f.estPnl) + '">' + signedYuan(f.estPnl) + '<small>元</small></b><span class="cell-sub">盘中估算，非官方</span></div>' +
+      '<section class="fund-zone" aria-label="基金实时估值">' +
+      '<div class="estimate-grid">' +
+      '<div class="est-cell"><span class="cell-label">估算净值</span><b class="cell-value tabular">' + nav4(f.estNav) + '</b><span class="cell-sub">' + (stale ? "最近可用值" : "盘中估算") + "</span></div>" +
+      '<div class="est-cell"><span class="cell-label">估算涨跌幅</span><b class="cell-value tabular ' + cls(f.estPct) + '">' + signedPct(f.estPct) + '</b><span class="cell-sub">' + direction(f.estPct) + "</span></div>" +
+      '<div class="est-cell is-wide"><span class="cell-label">今日预估收益</span><b class="cell-value tabular ' + cls(f.estPnl) + '">' + signedYuan(f.estPnl) + '<small>元</small></b><span class="cell-sub">按当前持仓估算，非官方净值</span></div>' +
       "</div>" +
-      '<div class="live-meta">' + timeLine + '<span class="live-source">数据源 ' + f.estSource + "</span></div>" +
-      staleNote +
-      "</section>" +
-
-      '<div class="card-divider" role="separator" aria-label="实时估值与持仓对比分割线"></div>' +
-
-      '<section class="fund-zone compare-zone" aria-label="持仓与目标对比">' +
-      '<div class="zone-head"><div class="zone-title"><span class="zone-no">2</span>持仓 vs 目标</div><span class="zone-tag">按总资产 67.9 万</span></div>' +
-      '<div class="compare-grid">' +
-      '<div class="compare-cell"><span class="cell-label">实际持仓</span><b class="cell-value tabular">' + wan(f.amount) + "</b></div>" +
-      '<div class="compare-cell is-target"><span class="cell-label">目标持仓</span><b class="cell-value tabular">' + wan(f.targetAmount) + "</b></div>" +
-      '<div class="compare-cell"><span class="cell-label">实际权重</span><b class="cell-value tabular">' + pct(f.weight, 1) + "</b></div>" +
-      '<div class="compare-cell is-target"><span class="cell-label">目标权重</span><b class="cell-value tabular">' + pct(f.target, 1) + "</b></div>" +
-      '<div class="compare-cell is-wide"><span class="cell-label">偏离</span><b class="cell-value tabular ' + cls(dev) + '">' + signedPp(dev) + "</b></div>" +
+      '<div class="live-meta">' +
+      '<span class="calc-time' + (stale ? " warn" : "") + '">' + icon("clock") + (stale ? "最近可用 " + f.estTime : "本次更新 " + updateTime()) + "</span>" +
+      '<span class="live-source">数据源 ' + f.estSource + "</span>" +
       "</div>" +
-      '<div class="weight-line">' +
-      '<div class="weight-track"><div class="weight-fill' + (stale ? " stale" : "") + '" style="width:' + fillW + '%"></div><div class="weight-target" style="left:' + targetLeft + '%" aria-hidden="true"></div></div>' +
-      '<div class="weight-labels"><span>实际 ' + pct(f.weight, 1) + "</span><span>目标 " + pct(f.target, 1) + "</span></div>" +
-      "</div>" +
-      "</section>" +
-
-      '<div class="card-divider" role="separator" aria-label="持仓对比与今日建议分割线"></div>' +
-
-      '<section class="fund-zone advice-zone" aria-label="今日建议">' +
-      '<div class="zone-head"><div class="zone-title"><span class="zone-no">3</span>今日建议 <span class="zone-tag">14:30 定期分析</span></div>' + exec + "</div>" +
-      '<div class="advice-row">' + actionChip(f.action) +
-      (f.amountWan > 0 ? '<span class="chip plain">' + f.amountWan.toFixed(1) + " 万</span>" : '<span class="chip plain">维持仓位</span>') +
-      '<span class="q neutral">审计保留</span></div>' +
-      '<p class="advice-reason">' + f.reason + "</p>" +
-      '<div class="advice-foot">' + icon("lock") + "只读原型：建议由 14:30 定期分析生成，客户端不提供下单按钮。</div>" +
+      note +
+      '<div class="est-foot"><a class="text-link" href="advice.html#fund-' + f.code + '">查看该基金建议' + icon("arrow") + "</a></div>" +
       "</section>" +
       "</article>"
     );
+  }
+
+  function renderHomeFunds() {
+    var grid = document.getElementById("fund-grid");
+    if (grid) grid.innerHTML = M.groups.actual.funds.map(fundEstimateCard).join("");
   }
 
   function qualityCard() {
     var rt = M.meta.realtime;
     return (
       '<div class="card col-12 card-pad">' +
-      '<div class="section-head" style="margin-bottom:10px"><div><h2 style="margin:0;font-size:15px">数据时间与质量</h2><div class="hint">asof ' + M.meta.asof + " · " + M.meta.timezone + '</div></div><span class="q estimate">estimate 盘中估算</span></div>' +
+      '<div class="section-head" style="margin-bottom:10px"><div><h2 style="margin:0;font-size:15px">数据口径说明</h2><div class="hint">asof ' + M.meta.asofDate + " · " + M.meta.timezone + ' · 全部为演示数据</div></div>' + qBadge("estimate", "estimate 盘中估算") + "</div>" +
       '<div class="quality-legend" style="background:var(--surface-2)">' +
       qBadge("official", "official · 官方净值到齐") + qBadge("estimate", "estimate · 盘中估算") + qBadge("partial", "partial · 部分到齐") + qBadge("stale", "stale · 数据延迟") +
       "</div>" +
       '<div class="realtime-note">' + icon("refresh") +
-      "<div><b>实时估值：" + rt.trigger + "</b>（本次计算 " + rt.calcTime + "）。" + rt.demoNote +
-      "<br><b>定期分析：</b>每日 14:30 生成逐基金建议；14:31 记录执行状态。" + rt.staleNote + "</div></div>" +
-      '<div class="risk-note">' + icon("warning") + "<span>今日快照为盘中估算，晚间 21:30 后按官方净值修正；修正前请勿以估算数字对账。基准组与 AI 影子组均为模拟，不涉及真实资金。</span></div>" +
+      "<div><b>实时估值：进入页面自动刷新一次，也可点击「刷新估值」手动刷新。</b>本次更新 <b data-update-time>" + updateTime() + "</b>（模拟值）；数据源 " + rt.source + "。" + rt.demoNote +
+      "<br><b>定期分析：</b>每日 14:30 生成逐基金建议，见「建议」页；建议只读，执行仅通过 MCP 写入口。" + rt.staleNote + "</div></div>" +
+      '<div class="risk-note">' + icon("warning") + "<span>估值在晚间 21:30 后按官方净值修正，修正前请勿以估算数字对账。AI 影子组与沪深300 基准组均为模拟，不涉及真实资金。</span></div>" +
       "</div>"
     );
   }
 
-  function renderToday() {
-    todayHead();
-    var stats = document.getElementById("today-stats");
-    if (stats) stats.innerHTML = statCards();
-    var adv = document.getElementById("today-advice");
-    if (adv) adv.innerHTML = decisionSummary();
-    var grid = document.getElementById("fund-grid");
-    if (grid) grid.innerHTML = M.groups.actual.funds.map(fundCard).join("");
-    var q = document.getElementById("today-quality");
+  function setRefreshBusy(busy) {
+    RT.busy = busy;
+    document.body.classList.toggle("is-refreshing", busy);
+    var btn = document.querySelector("[data-refresh]");
+    if (btn) {
+      btn.disabled = busy;
+      btn.classList.toggle("is-busy", busy);
+      btn.setAttribute("aria-busy", busy ? "true" : "false");
+    }
+    var label = document.querySelector("[data-refresh-label]");
+    if (label) label.textContent = busy ? "刷新中…" : "刷新估值";
+  }
+
+  function applyUpdate() {
+    var t = updateTime();
+    Array.prototype.forEach.call(document.querySelectorAll("[data-update-time]"), function (el) {
+      el.textContent = t;
+    });
+    renderHomeIndices();
+    renderHomeFunds();
+    setRefreshBusy(false);
+  }
+
+  function manualRefresh() {
+    if (RT.busy) return;
+    setRefreshBusy(true);
+    setTimeout(function () {
+      advanceTime();
+      applyUpdate();
+      var n = (Number(document.body.getAttribute("data-manual-refresh")) || 0) + 1;
+      document.body.setAttribute("data-manual-refresh", String(n));
+      var live = document.getElementById("refresh-status");
+      if (live) live.textContent = "估值已更新，本次更新 " + updateTime();
+    }, M.meta.realtime.manualDelayMs);
+  }
+
+  function renderHome() {
+    RT.time = M.meta.realtime.calcTime;
+    RT.ready = false;
+    homeHead();
+    renderHomeIndices();
+    fundMeta();
+    renderHomeFunds();
+    var q = document.getElementById("home-quality");
     if (q) q.innerHTML = qualityCard();
+    setRefreshBusy(true);
+    setTimeout(function () {
+      RT.ready = true;
+      applyUpdate();
+      document.body.setAttribute("data-auto-refreshed", "1");
+      var live = document.getElementById("refresh-status");
+      if (live) live.textContent = "已自动刷新，本次更新 " + updateTime();
+    }, M.meta.realtime.autoDelayMs);
+    document.addEventListener("click", function (e) {
+      if (e.target.closest("[data-refresh]")) manualRefresh();
+    });
+  }
+
+  /* ---------------- 建议 ---------------- */
+  function adviceHead() {
+    var el = document.getElementById("advice-head-side");
+    if (!el) return;
+    el.innerHTML = '<span class="data-chip"><span class="dot live"></span>建议日期 <b>' + M.advice.date + "</b></span>" + roChip("只读");
+    var ro = document.getElementById("advice-ro");
+    if (ro) ro.innerHTML = icon("lock") + "只读 · 无交易按钮";
+  }
+
+  function adviceSummary() {
+    var ad = M.advice;
+    var a = M.groups.actual;
+    return (
+      '<div class="card decision-summary">' +
+      '<div class="decision-eyebrow">' + icon("spark") + ' 整体决策摘要 <span class="q neutral">14:30 定期分析</span></div>' +
+      '<div class="decision-title">' + ad.state + "市 · 目标权益仓位 " + pct(a.targetEquity, 0) + ' <span class="decision-vs">/ 当前估算 ' + pct(a.equityRatio, 1) + "</span></div>" +
+      '<p class="decision-text">' + ad.summary + "</p>" +
+      '<div class="decision-chips">' +
+      '<span class="chip plain">市场状态 ' + ad.state + "</span>" +
+      '<span class="chip green">executed · ' + ad.statusLabel + " · " + ad.executedAt.slice(11) + " 已应用</span>" +
+      '<span class="chip plain">5 条建议 · 2 减仓 · 3 保持</span>' +
+      '<span class="chip plain">目标权益 ' + pct(a.targetEquity, 0) + "</span>" +
+      '<span class="chip plain">审计保留</span>' +
+      "</div>" +
+      '<div class="decision-plan">' + ad.targetPlan + "</div>" +
+      '<div class="decision-note">' + ad.auditNote + "</div>" +
+      "</div>"
+    );
+  }
+
+  function adviceCard(f) {
+    var cur = M.groups.actual.funds.filter(function (x) { return x.code === f.code; })[0];
+    var dataTime = cur.stale ? cur.estTime + "（stale）" : updateTime();
+    var exec = '<span class="exec-state">' + icon("check") + "executed · " + f.executedAt + " 已应用</span>";
+    return (
+      '<article class="card advice-card" id="fund-' + f.code + '">' +
+      '<header class="advice-card-head">' +
+      '<div class="fund-head-main"><div class="fund-name">' + f.name + '</div><div class="fund-meta"><span class="fund-code">' + f.code + '</span><span class="fund-sep">·</span><span>目标权重 ' + pct(cur.target, 0) + "</span></div></div>" +
+      '<div class="advice-card-tags">' + groupTag("actual") + actionChip(f.action) + "</div>" +
+      "</header>" +
+      '<div class="advice-detail-grid">' +
+      '<div class="advice-cell"><span class="cell-label">操作</span><b class="advice-op">' + f.action + "</b></div>" +
+      '<div class="advice-cell"><span class="cell-label">金额</span><b class="cell-value tabular">' + (f.amountWan > 0 ? f.amountWan.toFixed(1) + " 万" : "0 万") + "</b></div>" +
+      '<div class="advice-cell"><span class="cell-label">执行状态</span>' + exec + "</div>" +
+      "</div>" +
+      '<p class="advice-reason">' + f.reason + "</p>" +
+      '<div class="advice-compare">' + icon("trend") + "<span>当前估值 " + nav4(cur.estNav) + ' <b class="' + cls(cur.estPct) + '">' + signedPct(cur.estPct) + '</b> · 实际权重 ' + pct(cur.weight, 1) + " · 数据时间 " + dataTime + "</span></div>" +
+      '<div class="advice-foot">' + icon("lock") + '<span>只读：执行仅通过 MCP 写入口。</span><a class="text-link" href="index.html">回首页看估值' + icon("arrow") + "</a></div>" +
+      "</article>"
+    );
+  }
+
+  function renderAdvice() {
+    adviceHead();
+    var sum = document.getElementById("advice-summary");
+    if (sum) sum.innerHTML = adviceSummary();
+    var list = document.getElementById("advice-list");
+    if (list) list.innerHTML = M.advice.rows.map(adviceCard).join("");
+    var foot = document.getElementById("advice-foot-note");
+    if (foot) {
+      foot.innerHTML =
+        '<div class="card card-pad"><div class="realtime-note">' + icon("lock") +
+        "<div><b>建议只读，执行仅通过 MCP 写入口；页面无下单/交易按钮，也无输入框。</b>" + M.advice.readonlyNote + " " + M.advice.auditNote +
+        "<br>" + M.advice.riskNote + "</div></div></div>";
+    }
+  }
+
+  /* ---------------- 要闻 ---------------- */
+  function renderNews() {
+    var news = M.news;
+    var el = document.getElementById("news-head-side");
+    if (el) {
+      el.innerHTML = '<span class="demo-chip">' + icon("warning") + '演示数据 · 非真实新闻</span><span class="data-chip">截至 <b>' + news.updatedAt + "</b></span>" + roChip("只读");
+    }
+    var ro = document.getElementById("news-ro");
+    if (ro) ro.innerHTML = icon("lock") + "静态展示 · 本期不刷新";
+    var banner = document.getElementById("news-banner");
+    if (banner) {
+      banner.innerHTML = icon("news") +
+        "<div><b>" + news.cadence + "；" + news.note + "</b>" +
+        "<span>分类：政策 / 民生 / 国际 / 行业 · 按时间倒序 · 本期无刷新按钮、无搜索/筛选交互。</span>" +
+        '<em>以下条目均为构造的演示文本，不代表当日真实资讯，也不构成投资建议。</em></div>';
+    }
+    var meta = document.getElementById("news-meta");
+    if (meta) meta.textContent = "共 " + news.items.length + " 条 · 最近更新 " + news.updatedAt + " · 昨日/近期内容";
+    var list = document.getElementById("news-list");
+    if (list) {
+      list.innerHTML = news.items.map(function (n) {
+        return (
+          '<article class="card news-item">' +
+          '<div class="news-side"><span class="news-date">' + n.date.slice(5) + '</span><span class="news-time">' + n.time + '</span><span class="news-cat">' + n.category + "</span></div>" +
+          '<div class="news-body">' +
+          '<div class="news-top"><span class="news-impact ' + n.impactKey + '">' + n.impact + '</span><span class="news-scope">' + n.scope + "</span></div>" +
+          '<h3 class="news-title">' + n.title + "</h3>" +
+          '<p class="news-summary">' + n.summary + "</p>" +
+          '<div class="news-source">来源：' + n.source + " · " + n.date + " " + n.time + "</div>" +
+          "</div></article>"
+        );
+      }).join("");
+    }
+    var foot = document.getElementById("news-foot-note");
+    if (foot) {
+      foot.innerHTML =
+        '<div class="card card-pad"><div class="realtime-note">' + icon("warning") +
+        "<div><b>本期不提供刷新。</b>" + news.note + "生产环境将由每日 14:30 的 AI 任务写入最近一次结果，客户端只读展示。" +
+        "<br>演示数据 · 非真实新闻：标题、摘要、影响判断与来源均为原型构造，请勿作为投资依据。</div></div></div>";
+    }
   }
 
   /* ---------------- 组合 ---------------- */
@@ -598,10 +789,10 @@
   /* ---------------- 历史 ---------------- */
   function historySummary() {
     return (
-      '<div class="card stat-card col-3 accent-blue"><div class="k">' + icon("file") + " 最近 7 天建议</div><div class=\"v\">5<small>条</small></div><div class=\"s\">2 减仓 · 3 保持</div></div>" +
-      '<div class="card stat-card col-3"><div class="k">' + icon("check") + " 已执行</div><div class=\"v\">4<small>条</small></div><div class=\"s\">applied · 审计保留</div></div>" +
-      '<div class="card stat-card col-3"><div class="k">' + icon("refresh") + " 已回滚</div><div class=\"v\">1<small>条</small></div><div class=\"s\">reverted · 保留审计</div></div>" +
-      '<div class="card stat-card col-3 accent-amber"><div class="k">' + icon("shield") + " 最新官方修正</div><div class=\"v\">5/5<small>到齐</small></div><div class=\"s\">11-07 完整 · 11-06 4/5 partial</div></div>"
+      '<div class="card stat-card col-3 accent-blue"><div class="k">' + icon("file") + ' 最近 7 天建议</div><div class="v">5<small>条</small></div><div class="s">2 减仓 · 3 保持</div></div>' +
+      '<div class="card stat-card col-3"><div class="k">' + icon("check") + ' 已执行</div><div class="v">4<small>条</small></div><div class="s">applied · 审计保留</div></div>' +
+      '<div class="card stat-card col-3"><div class="k">' + icon("refresh") + ' 已回滚</div><div class="v">1<small>条</small></div><div class="s">reverted · 保留审计</div></div>' +
+      '<div class="card stat-card col-3 accent-amber"><div class="k">' + icon("shield") + ' 最新官方修正</div><div class="v">5/5<small>到齐</small></div><div class="s">11-07 完整 · 11-06 4/5 partial</div></div>'
     );
   }
 
@@ -695,38 +886,54 @@
   function renderPopup() {
     var root = document.getElementById("popup-root");
     if (!root) return;
-    var a = M.groups.actual, ai = M.groups.ai, b = M.groups.bench;
-    var sh = M.market.indices[0];
-    var ad = M.advice;
+    var idx = M.market.indices;
+    var sh = idx[0];
+    var funds = M.groups.actual.funds;
     root.innerHTML =
       '<div class="browser-frame">' +
-      '<div class="browser-top"><span class="traffic"></span><div class="browser-tab">投资助手 · 今日</div></div>' +
+      '<div class="browser-top"><span class="traffic"></span><div class="browser-tab">投资助手 · 首页</div></div>' +
       '<div class="browser-toolbar">' +
       '<div class="browser-nav"><span>‹</span><span>›</span><span class="reload">⟳</span></div>' +
-      '<div class="omnibox"><span class="lock-ico">' + icon("lock") + "</span>musi.local/today</div>" +
-      '<div class="ext-wrap"><div class="ext-icon">M</div><span class="ext-badge">0.47%</span></div>' +
+      '<div class="omnibox"><span class="lock-ico">' + icon("lock") + "</span>musi.local/home</div>" +
+      '<div class="ext-wrap"><div class="ext-icon">M</div><span class="ext-badge">' + signedPct(sh.pct) + "</span></div>" +
       "</div>" +
       '<div class="popup-panel">' +
       '<div class="popup-head"><div class="popup-brand"><div class="brand-mark">M</div><div><div class="brand-name">Musi 投资助手</div><div class="brand-sub">' + M.meta.asof + " · " + M.meta.timezone + '</div></div></div><span class="ro-chip">' + icon("lock") + "只读</span></div>" +
-      '<div class="popup-data"><span class="dot live"></span>数据时间 <b>' + M.meta.asof.slice(11) + "</b>" + qBadge("estimate", "estimate") + "</div>" +
-      '<div class="popup-market"><div><div class="popup-k">市场状态</div><div class="popup-market-state">' + M.market.state + '</div></div><div class="popup-market-idx"><div>上证 <b>' + num2(sh.value) + '</b></div><div class="' + cls(sh.pct) + '">' + signedPct(sh.pct) + ' · 创业板 ' + signedPct(M.market.indices[1].pct) + "</div></div></div>" +
-      '<div class="popup-groups">' +
-      [a, ai, b].map(function (g) {
-        return '<div class="popup-group"><div class="pg-label"><span class="dot" style="background:' + g.color + '"></span>' + g.label + '</div><div class="pg-val ' + cls(g.dayPct) + '">' + signedPct(g.dayPct) + '</div><div class="pg-sub">' + signedYuan(g.dayPnl) + " 元</div></div>";
+      '<div class="popup-data"><span class="dot live"></span>本次更新 <b>' + M.meta.realtime.calcTime + "</b>" + qBadge("estimate", "estimate") + "</div>" +
+
+      '<div class="popup-block"><div class="popup-block-head"><span>大盘指数</span><span class="popup-ud"><span class="ud-swatch up"></span>涨 <span class="ud-swatch down"></span>跌</span></div>' +
+      '<div class="popup-index-grid">' +
+      idx.map(function (ix) {
+        return '<div class="popup-index"><div class="pi-name">' + ix.name + '</div><div class="pi-value tabular">' + num2(ix.value) + '</div><div class="pi-pct ' + cls(ix.pct) + '">' + signedPct(ix.pct) + "</div></div>";
       }).join("") +
+      "</div></div>" +
+
+      '<div class="popup-block"><div class="popup-block-head"><span>基金估值摘要</span><span class="popup-ud">净值 / 涨跌%</span></div>' +
+      '<div class="popup-fund-list">' +
+      funds.map(function (f) {
+        return '<a class="popup-fund' + (f.stale ? " is-stale" : "") + '" href="index.html">' +
+          '<span class="pf-name">' + f.short + '<small>' + f.code + "</small></span>" +
+          '<span class="pf-nav tabular">' + nav4(f.estNav) + "</span>" +
+          '<span class="pf-pct tabular ' + cls(f.estPct) + '">' + signedPct(f.estPct) + "</span>" +
+          "</a>";
+      }).join("") +
+      "</div></div>" +
+
+      '<div class="popup-cta-row">' +
+      '<a class="popup-cta" href="index.html">打开首页 ' + icon("arrow") + "</a>" +
+      '<a class="popup-cta secondary" href="advice.html">查看建议 ' + icon("arrow") + "</a>" +
       "</div>" +
-      '<div class="popup-advice"><div class="pa-head"><span class="chip green">executed</span><span class="pa-title">最新建议 · ' + ad.executedAt.slice(11) + "</span></div>" +
-      '<div class="pa-text">' + ad.summary + "</div></div>" +
-      '<a class="popup-cta" href="index.html">查看今日建议 ' + icon("arrow") + "</a>" +
-      '<div class="popup-hint">' + icon("external") + "badge 与 omnibox 仅为示意；扩展 popup 只读。</div>" +
+      '<div class="popup-hint">' + icon("external") + "badge 显示上证涨跌幅、omnibox 支持关键词唤起，均为示意；popup 只读。" + "</div>" +
       '<div class="popup-risk">' + icon("warning") + "演示数据，不构成投资建议或收益承诺。</div>" +
       "</div></div>" +
-      '<div class="popup-caption">Chrome 扩展 popup 示意 · badge 显示今日预估涨跌，omnibox 支持关键词唤起</div>' +
+      '<div class="popup-caption">Chrome 扩展 popup 示意 · 大盘点位 + 涨跌%、基金净值 + 涨跌%，入口指向首页/建议页</div>' +
       "</div>";
   }
 
   var PAGES = {
-    today: renderToday,
+    home: renderHome,
+    advice: renderAdvice,
+    news: renderNews,
     portfolio: renderPortfolio,
     compare: renderCompare,
     history: renderHistory,

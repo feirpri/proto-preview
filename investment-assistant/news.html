@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>要闻 · Musi 投资助手原型</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="news">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h1>要闻</h1>
+            <p class="lede">可能影响经济与民生的政策、新闻与大事件。AI 每日 14:30 更新，本页展示昨日/近期内容；本期为静态展示，不提供刷新或筛选。</p>
+          </div>
+          <div class="head-side" id="news-head-side"></div>
+        </div>
+
+        <div class="demo-banner" id="news-banner"></div>
+
+        <section class="section" style="margin-top:16px">
+          <div class="section-head">
+            <div>
+              <h2>经济与民生要闻</h2>
+              <div class="hint" id="news-meta"></div>
+            </div>
+            <span class="ro-chip" id="news-ro"></span>
+          </div>
+          <div class="news-list" id="news-list"></div>
+        </section>
+
+        <section class="section" id="news-foot-note" aria-label="更新说明"></section>
+      </main>
+      <footer class="site-foot" id="site-footer"></footer>
+    </div>
+    <nav class="bottom-nav" id="bottom-nav" aria-label="移动端主导航"></nav>
+  </div>
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

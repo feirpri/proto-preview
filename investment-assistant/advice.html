@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>建议 · Musi 投资助手原型</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="advice">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h1>建议</h1>
+            <p class="lede">每日 14:30 定期分析的操作建议：整体决策摘要 + 逐基金操作、金额、理由与执行状态。建议只读，执行仅通过 MCP 写入口。</p>
+          </div>
+          <div class="head-side" id="advice-head-side"></div>
+        </div>
+
+        <section class="section" style="margin-top:0" id="advice-summary" aria-label="整体决策摘要"></section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>逐基金建议</h2>
+              <div class="hint">5 只基金 · 操作 / 金额 / 理由 / executed 状态；可对照当前估值与权重</div>
+            </div>
+            <span class="ro-chip" id="advice-ro"></span>
+          </div>
+          <div class="advice-list" id="advice-list"></div>
+        </section>
+
+        <section class="section" id="advice-foot-note" aria-label="执行说明"></section>
+      </main>
+      <footer class="site-foot" id="site-footer"></footer>
+    </div>
+    <nav class="bottom-nav" id="bottom-nav" aria-label="移动端主导航"></nav>
+  </div>
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
