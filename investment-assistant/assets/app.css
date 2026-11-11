@@ -1441,7 +1441,7 @@ body.zoom-open { overflow: hidden; }
 .write-toast.show { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
 .write-toast .wt-text { font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; }
 .wt-undo {
-  flex: none; min-height: 44px; padding: 0 12px;
+  flex: none; min-height: 36px; padding: 0 12px;
   border: 1px solid rgba(255, 255, 255, 0.45); border-radius: 8px;
   background: transparent; color: #fff; font-size: 12px; font-weight: 650; cursor: pointer;
 }

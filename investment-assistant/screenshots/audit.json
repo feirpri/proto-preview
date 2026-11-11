@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T12:22:27.067Z",
+  "generatedAt": "2026-11-11T12:32:17.852Z",
   "version": "v7",
   "widths": [
     360,
@@ -1157,35 +1157,6 @@
         "touchSmallCount": 0,
         "numbers": []
       }
-    }
-  },
-  "gate": {
-    "locked": {
-      "auth": "locked",
-      "onlyGate": true,
-      "hasLayoutContent": false,
-      "layoutDisplay": null,
-      "hasInput": true,
-      "demoTokenShown": true,
-      "tokenStored": null
-    },
-    "wrong": {
-      "error": "Token 无效，请检查后重试。",
-      "hidden": false,
-      "auth": "locked"
-    },
-    "entered": {
-      "auth": "ok",
-      "token": "demo-2026",
-      "layout": "flex",
-      "funds": 5,
-      "logout": true
-    },
-    "loggedOut": {
-      "auth": "locked",
-      "token": null,
-      "gate": true,
-      "hasLayout": false
     }
   },
   "summary": {
