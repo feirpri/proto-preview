@@ -1,4 +1,4 @@
-/* Musi 投资助手 · 静态原型交互与渲染（无构建链，原生 JS）· v4 */
+/* Musi 投资助手 · 静态原型交互与渲染（无构建链，原生 JS）· v6 */
 (function () {
   "use strict";
 
@@ -30,7 +30,8 @@
     file: '<path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/><path d="M9 12h6"/><path d="M9 16h6"/>',
     news: '<path d="M4 5h12v14H5a2 2 0 0 1-2-2Z"/><path d="M16 8h3a1 1 0 0 1 1 1v8a2 2 0 0 1-2 2H5"/><path d="M7 9h6"/><path d="M7 12.5h6"/><path d="M7 16h4"/>',
     bulb: '<path d="M9.5 18h5"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1.2.9 2h5.2c0-.8.3-1.5.9-2A6 6 0 0 0 12 3Z"/>',
-    more: '<circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/>'
+    more: '<circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/>',
+    expand: '<path d="M8 3H3v5"/><path d="M16 3h5v5"/><path d="M8 21H3v-5"/><path d="M16 21h5v-5"/>'
   };
 
   function icon(name, cls) {
@@ -77,6 +78,9 @@
     var v = Math.round((n / 10000) * 10) / 10;
     return (Number.isInteger(v) ? v.toFixed(0) : v.toFixed(1)) + " 万";
   }
+  function wan2(n) {
+    return (n / 10000).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " 万";
+  }
   function pct(x, d) {
     return (x * 100).toFixed(d == null ? 2 : d) + "%";
   }
@@ -91,6 +95,31 @@
   function signedYuan(n) {
     var s = n > 0 ? "+" : n < 0 ? "−" : "";
     return s + Math.abs(Math.round(n)).toLocaleString("en-US");
+  }
+  function money(n) {
+    return "¥" + Math.abs(Math.round(n)).toLocaleString("en-US");
+  }
+  function signedMoney(n) {
+    var s = n > 0 ? "+" : n < 0 ? "−" : "";
+    return s + "¥" + Math.abs(Math.round(n)).toLocaleString("en-US");
+  }
+  function money2(n) {
+    return "¥" + Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function signedMoney2(n) {
+    var s = n > 0 ? "+" : n < 0 ? "−" : "";
+    return s + "¥" + Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function signedYuan2(n) {
+    var s = n > 0 ? "+" : n < 0 ? "−" : "";
+    return s + Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function signedPpUnit(x, d) {
+    var s = x > 0 ? "+" : x < 0 ? "−" : "";
+    return s + Math.abs(x * 100).toFixed(d == null ? 1 : d) + "pp";
+  }
+  function estPnlOf(f) {
+    return f.amount * f.estPct;
   }
   function signedNum(n, d) {
     var s = n > 0 ? "+" : n < 0 ? "−" : "";
@@ -221,7 +250,7 @@
         '<nav class="side-nav" aria-label="主导航">' + desktopNavHTML(active) + "</nav>" +
         '<div class="side-foot">' +
         '<div class="side-data"><b>数据日期</b> ' + M.meta.asofDate + "<br>业务时区 " + M.meta.timezone + "<br><b>最近官方净值</b> " + M.meta.lastOfficial.slice(5) + "</div>" +
-        '<div class="readonly-note">' + icon("lock") + "<span>客户端只读。除首页手动刷新外无写操作；下单、改仓位、写建议均需通过 MCP 写入口。</span></div>" +
+        '<div class="readonly-note">' + icon("lock") + "<span>客户端除首页手动刷新与「演示写入（仅本地）」外只读；真实下单、账本写入仍通过 MCP 写入口。</span></div>" +
         "</div>";
     }
 
@@ -299,24 +328,83 @@
     if (el) el.innerHTML = M.market.indices.map(indexRow).join("");
   }
 
-  /* ---------------- v5：展开状态、分时与多周期趋势图 ---------------- */
+  /* ---------------- v6：展开状态、模拟写入、分时与多周期趋势图 ---------------- */
   var TREND_DEFAULT = "1y";
   var TREND_KEYS = ["1w", "1m", "1y", "ytd", "3y", "5y"];
-  var HOME_STORE = "musi.home.v5";
+  var HOME_STORE = "musi.home.v6";
+  var OLD_HOME_STORE = "musi.home.v5";
   var chartPeriods = {};
+  var savedState = null;
+  var BASE_POSITIONS = {};
+  M.groups.actual.funds.forEach(function (f) {
+    BASE_POSITIONS[f.code] = { amount: f.amount, target: f.target, costNav: f.costNav };
+  });
 
   function readHomeState() {
-    try {
-      var raw = sessionStorage.getItem(HOME_STORE);
-      return raw ? JSON.parse(raw) : null;
-    } catch (e) { return null; }
+    if (savedState) return savedState;
+    var raw = null;
+    try { raw = localStorage.getItem(HOME_STORE); } catch (e) { raw = null; }
+    if (!raw) {
+      try { raw = sessionStorage.getItem(OLD_HOME_STORE); } catch (e) { raw = null; }
+    }
+    var st = null;
+    try { st = raw ? JSON.parse(raw) : null; } catch (e) { st = null; }
+    savedState = st || {};
+    return savedState;
   }
   function writeHomeState() {
-    try {
-      sessionStorage.setItem(HOME_STORE, JSON.stringify({
-        open: openFund, periods: chartPeriods, scrollY: window.scrollY || 0
-      }));
-    } catch (e) { /* sessionStorage 不可用时忽略 */ }
+    var st = readHomeState();
+    st.open = openFund;
+    st.periods = chartPeriods;
+    st.scrollY = window.scrollY || 0;
+    if (!st.positions) st.positions = {};
+    if (!st.audit) st.audit = [];
+    try { localStorage.setItem(HOME_STORE, JSON.stringify(st)); } catch (e) { /* localStorage 不可用时忽略 */ }
+  }
+  function positionsOf() {
+    var st = readHomeState();
+    if (!st.positions) st.positions = {};
+    return st.positions;
+  }
+  function auditOf() {
+    var st = readHomeState();
+    if (!st.audit) st.audit = [];
+    return st.audit;
+  }
+  function applySavedState() {
+    var st = readHomeState();
+    var pos = st.positions || {};
+    Object.keys(pos).forEach(function (code) {
+      var f = fundByCode(code);
+      if (!f) return;
+      var p = pos[code] || {};
+      if (typeof p.amount === "number") f.amount = p.amount;
+      if (typeof p.target === "number") f.target = p.target;
+      if (typeof p.costNav === "number") {
+        f.costNav = p.costNav;
+        if (f.trend) f.trend.costNav = p.costNav;
+      }
+      f.weight = f.amount / M.groups.actual.total;
+    });
+    if (st.periods) {
+      Object.keys(st.periods).forEach(function (k) {
+        if (TREND_KEYS.indexOf(st.periods[k]) >= 0) chartPeriods[k] = st.periods[k];
+      });
+    }
+  }
+  function resetAllPositions() {
+    M.groups.actual.funds.forEach(function (f) {
+      var b = BASE_POSITIONS[f.code];
+      if (!b) return;
+      f.amount = b.amount;
+      f.target = b.target;
+      f.costNav = b.costNav;
+      f.weight = f.amount / M.groups.actual.total;
+      if (f.trend) f.trend.costNav = b.costNav;
+    });
+    savedState = {};
+    try { localStorage.removeItem(HOME_STORE); } catch (e) { /* ignore */ }
+    try { sessionStorage.removeItem(OLD_HOME_STORE); } catch (e) { /* ignore */ }
   }
   function periodOf(code) {
     return chartPeriods[code] || TREND_DEFAULT;
@@ -324,7 +412,13 @@
   function fundByCode(code) {
     return M.groups.actual.funds.filter(function (f) { return f.code === code; })[0];
   }
-  function chartSize() {
+  function chartSize(zoom) {
+    if (zoom) {
+      var narrow = window.innerWidth <= 640;
+      return narrow
+        ? { W: 900, H: 520, fs: 12, pad: { l: 58, r: 82, t: 28, b: 38 }, ticks: 5 }
+        : { W: 1200, H: 560, fs: 13, pad: { l: 70, r: 96, t: 32, b: 42 }, ticks: 6 };
+    }
     var w = window.innerWidth;
     if (w <= 520) return { W: 360, H: 214, fs: 9.5, pad: { l: 34, r: 64, t: 20, b: 24 }, ticks: 4 };
     if (w <= 1100) return { W: 700, H: 232, fs: 10, pad: { l: 44, r: 66, t: 22, b: 26 }, ticks: 4 };
@@ -355,10 +449,10 @@
     return out;
   }
 
-  function trendChartSVG(f, key) {
+  function trendChartSVG(f, key, zoom) {
     var p = f.trend.periods[key];
     if (!p || p.available === false) return "";
-    var g = chartSize();
+    var g = chartSize(zoom);
     var vals = p.values;
     var n = vals.length;
     var est = f.estNav;
@@ -449,11 +543,11 @@
     return g.pad.l + plotW * 0.5 + ((min - 780) / 240) * (plotW * 0.5);
   }
 
-  function intradaySVG(f) {
+  function intradaySVG(f, zoom) {
     var d = f.trend.intraday;
     var pts = d.points;
-    var g = chartSize();
-    var H = window.innerWidth <= 520 ? 192 : 228;
+    var g = chartSize(zoom);
+    var H = zoom ? g.H : (window.innerWidth <= 520 ? 192 : 228);
     var vals = pts.map(function (p) { return p.pct; });
     var lo = Math.min.apply(null, vals.concat([0]));
     var hi = Math.max.apply(null, vals.concat([0]));
@@ -493,11 +587,205 @@
       grid + area + line + todayLine + lastLabel + xLabels + "</svg>";
   }
 
+  /* ---------------- v6：图表放大（内联 SVG，无图表库） ---------------- */
+  var zoomState = { open: false, trigger: null, frame: null, scale: 1, x: 0, y: 0, scrollY: 0, pointers: null, drag: null, pinch: null };
+  var ZOOM_MIN = 1, ZOOM_MAX = 4;
+
+  function zoomBtn(f, kind, label) {
+    return '<button class="zoom-btn" type="button" data-zoom="' + kind + '" data-zoom-fund="' + f.code +
+      '" aria-label="放大查看' + label + '（' + f.name + '）">' + icon("expand") + "<span>放大</span></button>";
+  }
+  function zoomPayload(f, kind) {
+    if (kind === "intraday") {
+      var d = f.trend.intraday;
+      return {
+        title: f.name + " · 当日分时（放大）",
+        sub: "09:30–11:30 / 13:00–15:00 · 估算涨跌幅 · 演示数据",
+        svg: intradaySVG(f, true),
+        legend: '<span><i class="lg-line"></i>估算涨跌幅</span><span><i class="lg-dash today"></i>今日估算</span>',
+        summary: "最后一点 " + d.lastTime.slice(0, 5) + " · " + signedPct(d.lastPct) +
+          "；今日估算以主色虚线标示，估算值为演示数据，可能被官方净值修正。"
+      };
+    }
+    var key = periodOf(f.code);
+    var p = f.trend.periods[key];
+    if (!p || p.available === false) return null;
+    var crosses = crossList(p.values, f.costNav).length;
+    return {
+      title: f.name + " · " + p.label + "净值趋势（放大）",
+      sub: "区间 " + p.start + " → " + p.end + " · 共 " + p.n + " 个交易日 · 演示数据",
+      svg: trendChartSVG(f, key, true),
+      legend: trendLegend(),
+      summary: "起点 " + p.values[0].toFixed(4) + "，终点 " + p.values[p.n - 1].toFixed(4) +
+        "；区间最高 " + Math.max.apply(null, p.values).toFixed(4) + "，最低 " + Math.min.apply(null, p.values).toFixed(4) +
+        "；今日估算 " + f.estNav.toFixed(4) + "，持仓成本 " + f.costNav.toFixed(4) + "；历史交叉 " + crosses + " 处。"
+    };
+  }
+  function ensureZoomModal() {
+    var modal = document.getElementById("chart-modal");
+    if (modal) return modal;
+    modal = document.createElement("div");
+    modal.id = "chart-modal";
+    modal.className = "chart-modal";
+    modal.hidden = true;
+    modal.innerHTML =
+      '<div class="zm-backdrop" data-zm-close></div>' +
+      '<div class="zm-panel" role="dialog" aria-modal="true" aria-labelledby="zm-title" aria-describedby="zm-summary">' +
+      '<div class="zm-head"><div><h3 id="zm-title"></h3><p class="zm-sub" data-zm-sub></p></div>' +
+      '<button class="zm-icon-btn" type="button" data-zm-close aria-label="关闭放大图">×</button></div>' +
+      '<div class="zm-tools">' +
+      '<button class="zm-tool" type="button" data-zm-zoomout aria-label="缩小">−</button>' +
+      '<button class="zm-tool" type="button" data-zm-zoomin aria-label="放大">+</button>' +
+      '<button class="zm-tool wide" type="button" data-zm-reset>重置</button>' +
+      '<span class="zm-scale tabular" data-zm-scale>100%</span>' +
+      '<span class="zm-hint">滚轮 / 双指缩放 · 拖拽平移</span>' +
+      "</div>" +
+      '<div class="zm-stage" data-zm-stage tabindex="0" role="application" aria-label="可缩放的趋势图，滚轮或双指缩放，拖拽平移">' +
+      '<div class="zm-inner" data-zm-inner></div></div>' +
+      '<div class="zm-legend" data-zm-legend></div>' +
+      '<p class="zm-summary" id="zm-summary" data-zm-summary></p>' +
+      '<p class="zm-foot">' + icon("warning") + "<span>" + M.meta.trendDemo + "：放大视图与页面内为同一构造序列，仅用于确认交互；不引入图表库。</span></p>" +
+      "</div>";
+    document.body.appendChild(modal);
+    modal.addEventListener("click", function (e) {
+      if (e.target.closest("[data-zm-close]")) { closeZoom(); return; }
+      if (e.target.closest("[data-zm-zoomin]")) { zoomBy(1.2); return; }
+      if (e.target.closest("[data-zm-zoomout]")) { zoomBy(1 / 1.2); return; }
+      if (e.target.closest("[data-zm-reset]")) { resetZoom(); return; }
+    });
+    var stage = modal.querySelector("[data-zm-stage]");
+    zoomState.pointers = new Map();
+    stage.addEventListener("wheel", function (e) {
+      if (!zoomState.open) return;
+      e.preventDefault();
+      zoomBy(e.deltaY < 0 ? 1.15 : 1 / 1.15, e.clientX, e.clientY);
+    }, { passive: false });
+    stage.addEventListener("pointerdown", function (e) {
+      if (!zoomState.open) return;
+      e.preventDefault();
+      stage.setPointerCapture(e.pointerId);
+      zoomState.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (zoomState.pointers.size === 1) {
+        zoomState.drag = { x: e.clientX, y: e.clientY };
+        stage.classList.add("grabbing");
+      } else if (zoomState.pointers.size === 2) {
+        zoomState.drag = null;
+        var p = Array.from(zoomState.pointers.values());
+        zoomState.pinch = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+      }
+    });
+    stage.addEventListener("pointermove", function (e) {
+      if (!zoomState.open || !zoomState.pointers.has(e.pointerId)) return;
+      zoomState.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      var pts = Array.from(zoomState.pointers.values());
+      if (zoomState.pointers.size === 1 && zoomState.drag) {
+        var dx = e.clientX - zoomState.drag.x;
+        var dy = e.clientY - zoomState.drag.y;
+        zoomState.drag = { x: e.clientX, y: e.clientY };
+        panBy(dx, dy);
+      } else if (zoomState.pointers.size === 2 && zoomState.pinch) {
+        var dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+        var mid = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 };
+        if (dist > 0) zoomBy(dist / zoomState.pinch, mid.x, mid.y);
+        zoomState.pinch = dist;
+      }
+    });
+    function endPointer(e) {
+      zoomState.pointers.delete(e.pointerId);
+      if (zoomState.pointers.size < 2) zoomState.pinch = null;
+      if (zoomState.pointers.size === 1) {
+        var p = Array.from(zoomState.pointers.values())[0];
+        zoomState.drag = { x: p.x, y: p.y };
+      } else if (zoomState.pointers.size === 0) {
+        zoomState.drag = null;
+        stage.classList.remove("grabbing");
+      }
+    }
+    stage.addEventListener("pointerup", endPointer);
+    stage.addEventListener("pointercancel", endPointer);
+    stage.addEventListener("pointerleave", function (e) {
+      if (e.pointerType === "mouse" && e.buttons === 0) return;
+    });
+    return modal;
+  }
+  function applyZoom() {
+    var modal = document.getElementById("chart-modal");
+    if (!modal) return;
+    var inner = modal.querySelector("[data-zm-inner]");
+    var scaleEl = modal.querySelector("[data-zm-scale]");
+    if (inner) inner.style.transform = "translate(" + zoomState.x.toFixed(1) + "px," + zoomState.y.toFixed(1) + "px) scale(" + zoomState.scale.toFixed(3) + ")";
+    if (scaleEl) scaleEl.textContent = Math.round(zoomState.scale * 100) + "%";
+  }
+  function panBy(dx, dy) {
+    zoomState.x += dx;
+    zoomState.y += dy;
+    applyZoom();
+  }
+  function zoomBy(factor, clientX, clientY) {
+    var modal = document.getElementById("chart-modal");
+    if (!modal) return;
+    var stage = modal.querySelector("[data-zm-stage]");
+    var rect = stage.getBoundingClientRect();
+    var cx = (clientX == null ? rect.left + rect.width / 2 : clientX) - rect.left;
+    var cy = (clientY == null ? rect.top + rect.height / 2 : clientY) - rect.top;
+    var next = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, zoomState.scale * factor));
+    var k = next / zoomState.scale;
+    zoomState.x = cx - (cx - zoomState.x) * k;
+    zoomState.y = cy - (cy - zoomState.y) * k;
+    zoomState.scale = next;
+    applyZoom();
+  }
+  function resetZoom() {
+    zoomState.scale = 1;
+    zoomState.x = 0;
+    zoomState.y = 0;
+    applyZoom();
+  }
+  function openZoom(f, kind, trigger) {
+    var payload = zoomPayload(f, kind);
+    if (!payload) return;
+    var modal = ensureZoomModal();
+    modal.querySelector("#zm-title").textContent = payload.title;
+    modal.querySelector("[data-zm-sub]").textContent = payload.sub;
+    modal.querySelector("[data-zm-inner]").innerHTML = payload.svg;
+    modal.querySelector("[data-zm-legend]").innerHTML = payload.legend;
+    modal.querySelector("[data-zm-summary]").textContent = payload.summary;
+    zoomState.open = true;
+    zoomState.trigger = trigger || null;
+    zoomState.scrollY = window.scrollY || 0;
+    resetZoom();
+    modal.hidden = false;
+    requestAnimationFrame(function () { modal.classList.add("open"); });
+    document.body.classList.add("zoom-open");
+    var stage = modal.querySelector("[data-zm-stage]");
+    if (stage) stage.focus();
+  }
+  function closeZoom() {
+    if (!zoomState.open) return;
+    var modal = document.getElementById("chart-modal");
+    zoomState.open = false;
+    if (zoomState.pointers) zoomState.pointers.clear();
+    zoomState.drag = null;
+    zoomState.pinch = null;
+    if (modal) {
+      modal.classList.remove("open");
+      setTimeout(function () { if (!zoomState.open) modal.hidden = true; }, 160);
+    }
+    document.body.classList.remove("zoom-open");
+    var trigger = zoomState.trigger;
+    zoomState.trigger = null;
+    if (trigger && trigger.focus) {
+      try { trigger.focus({ preventScroll: true }); } catch (e) { trigger.focus(); }
+    }
+    var y = zoomState.scrollY;
+    if (typeof y === "number") window.scrollTo(0, y);
+  }
+
   function intradayBlock(f) {
     var d = f.trend.intraday;
     return '<div class="chart-card">' +
       '<div class="chart-head"><div><h4>当日分时</h4><span class="chart-sub">09:30–11:30 / 13:00–15:00 · 估算涨跌幅</span></div>' +
-      '<span class="chart-last">最后一点 <b>' + d.lastTime.slice(0, 5) + '</b> · <b class="' + cls(d.lastPct) + '">' + signedPct(d.lastPct) + "</b></span></div>" +
+      '<div class="chart-head-right"><span class="chart-last">最后一点 <b>' + d.lastTime.slice(0, 5) + '</b> · <b class="' + cls(d.lastPct) + '">' + signedPct(d.lastPct) + "</b></span>" + zoomBtn(f, "intraday", "当日分时") + "</div></div>" +
       '<div class="chart-canvas">' + intradaySVG(f) + "</div>" +
       '<div class="chart-legend"><span><i class="lg-line"></i>估算涨跌幅</span><span><i class="lg-dash today"></i>今日估算</span></div>' +
       '<p class="chart-demo-note">' + icon("warning") + "<span>" + M.meta.trendDemo +
@@ -517,7 +805,7 @@
   function trendBlock(f) {
     return '<div class="chart-card">' +
       '<div class="chart-head"><div><h4>多周期趋势</h4><span class="chart-sub">净值曲线 · 今日估算与持仓成本为水平虚线</span></div>' +
-      trendSeg(f) + "</div>" +
+      '<div class="chart-head-right">' + trendSeg(f) + zoomBtn(f, "period", "多周期趋势") + "</div></div>" +
       '<div class="chart-body" data-chart-body="' + f.code + '">' + trendBody(f, periodOf(f.code)) + "</div>" +
       "</div>";
   }
@@ -531,11 +819,289 @@
     return '<div class="fund-facts">' +
       fundFact("当前持仓市值", wan(f.amount)) +
       fundFact("当前权重", pct(f.weight, 1)) +
-      fundFact("目标权重", pct(f.target, 0)) +
-      fundFact("偏离", signedPp(dev), Math.abs(dev) >= 0.02 ? "warn" : "") +
+      fundFact("组合目标权重", pct(f.target, 1)) +
+      fundFact("当前偏离", signedPp(dev), Math.abs(dev) >= 0.02 ? "warn" : "") +
       fundFact("持仓成本净值", f.costNav.toFixed(4)) +
       fundFact("估算净值", f.estNav.toFixed(4)) +
       "</div>";
+  }
+
+  /* ---------------- v6：调整后目标值 + 网页端模拟写入 ---------------- */
+  function round2(n) { return Math.round(n * 100) / 100; }
+  function nowClock() {
+    var d = new Date();
+    return [d.getHours(), d.getMinutes(), d.getSeconds()].map(function (v) {
+      return String(v).padStart(2, "0");
+    }).join(":");
+  }
+  function defaultTargetAmount(f) {
+    var saved = positionsOf()[f.code];
+    if (saved && typeof saved.amount === "number") return f.amount;
+    if (f.action === "减仓" && f.amountWan > 0) return Math.max(0, f.amount - f.amountWan * 10000);
+    return f.amount;
+  }
+  function adjustMetrics(f, targetAmount) {
+    var total = M.groups.actual.total;
+    targetAmount = round2(targetAmount);
+    var targetWeight = targetAmount / total;
+    return {
+      targetAmount: targetAmount,
+      targetWeight: targetWeight,
+      delta: round2(targetAmount - f.amount),
+      deviation: targetWeight - f.weight
+    };
+  }
+  function validateAdjust(f, m) {
+    var min = M.meta.writeMinAmount || 1000;
+    if (!isFinite(m.targetWeight) || !isFinite(m.targetAmount)) return "请输入有效数字。";
+    if (m.targetWeight < 0 || m.targetAmount < 0) return "目标权重与目标市值不能为负。";
+    if (m.targetWeight > 1.0000001) return "目标权重不能超过 100%。";
+    if (Math.abs(m.delta) > 0.5 && Math.abs(m.delta) < min) return "最小变动单位为 ¥" + min.toLocaleString("en-US") + "。";
+    var usedByOthers = 0;
+    M.groups.actual.funds.forEach(function (x) {
+      if (x.code === f.code) return;
+      var base = BASE_POSITIONS[x.code];
+      if (base) usedByOthers += x.amount - base.amount;
+    });
+    var cash = M.groups.actual.cash - usedByOthers;
+    if (m.delta > cash + 0.5) return "超出 mock 可用现金 ¥" + Math.round(cash).toLocaleString("en-US") + "。";
+    if (m.delta < 0 && -m.delta > f.amount + 0.5) return "减仓金额不能超过当前持仓市值 ¥" + Math.round(f.amount).toLocaleString("en-US") + "。";
+    var sum = 0;
+    M.groups.actual.funds.forEach(function (x) {
+      sum += x.code === f.code ? m.targetWeight : x.weight;
+    });
+    if (sum > 1.0004) return "调整后 5 只基金总权重为 " + pct(sum, 1) + "，不能超过 100%。";
+    return "";
+  }
+  function paTarget(label, value, key, clsName) {
+    return '<div class="pa-target"><span>' + label + '</span><b class="tabular ' + (clsName || "") + '" data-pa-' + key + '>' + value + "</b></div>";
+  }
+  function paStatusText(f, m) {
+    if (Math.abs(m.delta) < 0.5) return "保持（目标 = 当前）";
+    return "待保存（演示）";
+  }
+  function positionAdjustBlock(f) {
+    var tAmount = defaultTargetAmount(f);
+    var m = adjustMetrics(f, tAmount);
+    var err = validateAdjust(f, m);
+    var entries = auditOf().filter(function (a) { return a.code === f.code; }).slice(-3).reverse();
+    var auditHTML = entries.length
+      ? entries.map(function (a) {
+        return '<li><span class="pa-audit-time">' + a.time + '</span><span>' + a.name + '</span><span class="tabular">' +
+          money2(a.fromAmount) + " → " + money2(a.toAmount) + '</span><span class="pa-audit-src">来源 ' + (a.source || "网页") + "</span></li>";
+      }).join("")
+      : '<li class="pa-audit-empty">暂无本地调整记录。</li>';
+    return '<div class="position-adjust" data-pa="' + f.code + '">' +
+      '<div class="pa-head"><div class="pa-title"><b>仓位调整</b><span class="pa-demo-chip">' + icon("warning") + M.meta.writeDemo + "</span></div>" +
+      '<span class="pa-status tabular" data-pa-status tabindex="-1">' + paStatusText(f, m) + "</span></div>" +
+      '<div class="pa-targets">' +
+      paTarget("当前权重 → 目标权重", pct(f.weight, 1) + " → " + pct(m.targetWeight, 1), "weight") +
+      paTarget("当前持仓市值 → 调整后目标市值", wan2(f.amount) + " → " + wan2(m.targetAmount), "amount") +
+      paTarget("调整金额", signedMoney2(m.delta), "delta", Math.abs(m.delta) < 0.5 ? "" : cls(m.delta)) +
+      paTarget("偏离（目标 − 当前）", signedPpUnit(m.deviation), "dev", Math.abs(m.deviation) >= 0.02 ? "warn" : "") +
+      paTarget("执行状态", paStatusText(f, m), "exec") +
+      "</div>" +
+      '<form class="pa-form" data-pa-form="' + f.code + '" novalidate>' +
+      '<div class="pa-fields">' +
+      '<label class="pa-field"><span>目标权重</span><span class="pa-inputwrap"><input type="number" name="weight" inputmode="decimal" min="0" max="100" step="0.1" value="' + (m.targetWeight * 100).toFixed(2) + '" aria-label="目标权重百分比"><i>%</i></span></label>' +
+      '<label class="pa-field"><span>调整金额</span><span class="pa-inputwrap"><input type="number" name="amount" inputmode="numeric" step="100" value="' + m.delta + '" aria-label="调整金额元"><i>元</i></span></label>' +
+      '<button class="pa-save" type="submit">保存调整（演示）</button>' +
+      '<button class="pa-reset" type="button" data-pa-reset="' + f.code + '">恢复此基金</button>' +
+      "</div>" +
+      '<p class="pa-error" data-pa-error role="alert"' + (err ? "" : " hidden") + ">" + err + "</p>" +
+      "</form>" +
+      '<p class="pa-note">计算口径：目标市值 = 目标权重 × 总资产 ¥' + M.groups.actual.total.toLocaleString("en-US") +
+      "，按估算净值折算、两位小数；最小变动 ¥" + (M.meta.writeMinAmount || 1000).toLocaleString("en-US") +
+      "，不超过 mock 可用现金 ¥" + M.groups.actual.cash.toLocaleString("en-US") + " 或当前持仓份额，5 只基金合计权重 ≤100%。" +
+      "「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。</p>" +
+      '<div class="pa-audit"><b>本地审计（最近 3 条）</b><ul>' + auditHTML + "</ul></div>" +
+      "</div>";
+  }
+
+  function readAdjustForm(form) {
+    var wEl = form.querySelector('[name="weight"]');
+    var aEl = form.querySelector('[name="amount"]');
+    return {
+      weightEl: wEl, amountEl: aEl,
+      weightPct: parseFloat(wEl.value),
+      amountDelta: parseFloat(aEl.value)
+    };
+  }
+  function metricsFromForm(f, changed) {
+    var form = document.querySelector('[data-pa-form="' + f.code + '"]');
+    if (!form) return null;
+    var vals = readAdjustForm(form);
+    var m;
+    if (changed === "amount") {
+      if (!isFinite(vals.amountDelta)) return { invalid: "请输入有效的调整金额。", vals: vals };
+      m = adjustMetrics(f, f.amount + vals.amountDelta);
+    } else {
+      if (!isFinite(vals.weightPct)) return { invalid: "请输入有效的目标权重。", vals: vals };
+      m = adjustMetrics(f, (vals.weightPct / 100) * M.groups.actual.total);
+    }
+    m.vals = vals;
+    return m;
+  }
+  function syncAdjustPreview(f, changed) {
+    var form = document.querySelector('[data-pa-form="' + f.code + '"]');
+    if (!form) return null;
+    var m = metricsFromForm(f, changed);
+    var errEl = form.querySelector("[data-pa-error]");
+    var saveBtn = form.querySelector(".pa-save");
+    if (!m || m.invalid) {
+      if (errEl) { errEl.textContent = (m && m.invalid) || ""; errEl.hidden = false; }
+      if (saveBtn) saveBtn.disabled = true;
+      return null;
+    }
+    var vals = m.vals;
+    if (changed === "weight" && isFinite(vals.weightPct)) {
+      vals.amountEl.value = String(Math.round(m.delta * 100) / 100);
+    } else if (changed === "amount" && isFinite(vals.amountDelta)) {
+      vals.weightEl.value = (m.targetWeight * 100).toFixed(2);
+    }
+    var err = validateAdjust(f, m);
+    if (errEl) { errEl.textContent = err; errEl.hidden = !err; }
+    if (saveBtn) saveBtn.disabled = !!err;
+    var wrap = document.querySelector('[data-pa="' + f.code + '"]');
+    if (wrap) {
+      var w = wrap.querySelector("[data-pa-weight]");
+      var a = wrap.querySelector("[data-pa-amount]");
+      var d = wrap.querySelector("[data-pa-delta]");
+      var dv = wrap.querySelector("[data-pa-dev]");
+      var ex = wrap.querySelector("[data-pa-exec]");
+      if (w) w.textContent = pct(f.weight, 1) + " → " + pct(m.targetWeight, 1);
+      if (a) a.textContent = wan2(f.amount) + " → " + wan2(m.targetAmount);
+      if (d) { d.textContent = signedMoney2(m.delta); d.className = "tabular " + cls(m.delta); }
+      if (dv) { dv.textContent = signedPpUnit(m.deviation); dv.className = "tabular " + (Math.abs(m.deviation) >= 0.02 ? "warn" : ""); }
+      if (ex) ex.textContent = paStatusText(f, m);
+    }
+    return m;
+  }
+  function updateFundRow(f) {
+    var tr = document.querySelector('.fund-row[data-fund="' + f.code + '"]');
+    if (!tr) return;
+    var amount = tr.querySelector(".fund-amount-cell");
+    var weight = tr.querySelector(".fund-weight-cell");
+    var pnl = tr.querySelector(".fund-pnl-cell");
+    var wm = tr.querySelector(".fund-weight-mobile");
+    var tm = tr.querySelector(".fund-target-mobile");
+    var pnlValue = estPnlOf(f);
+    if (amount) amount.textContent = wan(f.amount);
+    if (weight) weight.textContent = pct(f.weight, 1);
+    if (pnl) {
+      pnl.textContent = signedMoney(pnlValue);
+      pnl.className = "r tabular fund-pnl-cell " + cls(pnlValue);
+    }
+    if (wm) wm.textContent = "权重 " + pct(f.weight, 1);
+    if (tm) tm.textContent = "目标 " + pct(f.target, 1);
+  }
+  function rerenderAdviceRow(f) {
+    var row = document.getElementById("advice-" + f.code);
+    if (!row) return;
+    row.innerHTML = '<td colspan="6">' + advicePanel(f) + "</td>";
+    var status = row.querySelector("[data-pa-status]");
+    if (status) status.focus();
+  }
+  function saveAdjust(f) {
+    var m = syncAdjustPreview(f, "weight");
+    if (!m) return;
+    var err = validateAdjust(f, m);
+    if (err) return;
+    var prev = { amount: f.amount, weight: f.weight, target: f.target, costNav: f.costNav };
+    var newCost = f.costNav;
+    if (m.delta > 0.5) {
+      newCost = Math.round(((f.amount * f.costNav + m.delta * f.estNav) / m.targetAmount) * 10000) / 10000;
+    }
+    f.amount = m.targetAmount;
+    f.weight = m.targetWeight;
+    f.target = m.targetWeight;
+    f.costNav = newCost;
+    if (f.trend) f.trend.costNav = newCost;
+    var entry = {
+      time: nowClock(), code: f.code, name: f.name,
+      fromAmount: round2(prev.amount), toAmount: round2(f.amount),
+      fromWeight: prev.weight, toWeight: f.weight,
+      source: "网页", action: "调整"
+    };
+    auditOf().push(entry);
+    positionsOf()[f.code] = { amount: f.amount, target: f.target, costNav: f.costNav };
+    writeHomeState();
+    updateFundRow(f);
+    rerenderAdviceRow(f);
+    renderHomeAudit();
+    showWriteToast("已保存演示调整 · " + f.name + " " + money(entry.fromAmount) + " → " + money(entry.toAmount), f, entry, prev);
+  }
+  function restoreFund(f, prev) {
+    f.amount = prev.amount;
+    f.weight = prev.weight;
+    f.target = prev.target;
+    f.costNav = prev.costNav;
+    if (f.trend) f.trend.costNav = prev.costNav;
+    var pos = positionsOf();
+    var base = BASE_POSITIONS[f.code];
+    if (base && Math.abs(prev.amount - base.amount) < 0.01 && Math.abs(prev.target - base.target) < 0.000001 && Math.abs(prev.costNav - base.costNav) < 0.000001) {
+      delete pos[f.code];
+    } else {
+      pos[f.code] = { amount: prev.amount, target: prev.target, costNav: prev.costNav };
+    }
+    writeHomeState();
+    updateFundRow(f);
+    rerenderAdviceRow(f);
+    renderHomeAudit();
+  }
+  function undoLastAdjust(f, entry, prev) {
+    var audit = auditOf();
+    for (var i = audit.length - 1; i >= 0; i--) {
+      if (audit[i].code === f.code && audit[i].time === entry.time && audit[i].toAmount === entry.toAmount) {
+        audit.splice(i, 1);
+        break;
+      }
+    }
+    restoreFund(f, prev);
+    showWriteToast("已撤销刚才的演示调整 · " + f.name, null, null, null);
+  }
+  function auditRowHTML(a) {
+    return '<li class="audit-row"><span class="audit-time">' + a.time + '</span><span class="audit-name">' + a.name + '</span>' +
+      '<span class="audit-range tabular">' + money2(a.fromAmount) + " → " + money2(a.toAmount) + "</span>" +
+      '<span class="audit-src">来源 ' + (a.source || "网页") + "</span></li>";
+  }
+  function renderHomeAudit() {
+    var el = document.getElementById("home-audit-body");
+    if (!el) return;
+    var audit = auditOf().slice().reverse();
+    var count = audit.length;
+    var rows = count
+      ? audit.map(auditRowHTML).join("")
+      : '<li class="audit-empty">暂无本地调整记录。演示写入保存在本机 localStorage，可随时恢复演示初始值。</li>';
+    el.innerHTML = '<div class="audit-summary"><b>已记录 ' + count + ' 条本地调整</b><span>来源均为「网页」· 仅保存在本机，不影响实盘</span>' +
+      '<button class="audit-reset" type="button" data-write-reset>' + icon("refresh") + '恢复演示初始值</button></div>' +
+      '<ul class="audit-list">' + rows + "</ul>";
+  }
+  function showWriteToast(msg, f, entry, prev) {
+    var host = document.getElementById("write-toast");
+    if (!host) {
+      host = document.createElement("div");
+      host.id = "write-toast";
+      host.className = "write-toast";
+      host.setAttribute("role", "status");
+      host.setAttribute("aria-live", "polite");
+      document.body.appendChild(host);
+    }
+    host.innerHTML = '<span class="wt-text">' + msg + "</span>";
+    if (f && entry && prev) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "wt-undo";
+      btn.textContent = "撤销";
+      btn.addEventListener("click", function () {
+        undoLastAdjust(f, entry, prev);
+        host.classList.remove("show");
+      });
+      host.appendChild(btn);
+    }
+    host.classList.add("show");
+    clearTimeout(showWriteToast._t);
+    showWriteToast._t = setTimeout(function () { host.classList.remove("show"); }, 6000);
   }
 
   function advicePanel(f) {
@@ -550,12 +1116,13 @@
       '<div class="advice-cell"><span class="cell-label">执行状态</span>' + exec + "</div>" +
       "</div>" +
       fundFacts(f) +
+      positionAdjustBlock(f) +
       '<p class="advice-reason">' + f.reason + "</p>" +
       '<div class="advice-compare">' + icon("trend") + "<span>估算涨跌幅 <b class=\"" + cls(f.estPct) + "\">" + signedPct(f.estPct) +
-      "</b> · 今日预估收益 <b class=\"" + cls(f.estPnl) + "\">" + signedYuan(f.estPnl) + " 元</b> · 数据 " +
+      "</b> · 今日预估收益 <b class=\"" + cls(estPnlOf(f)) + "\">" + signedMoney(estPnlOf(f)) + "</b> · 数据 " +
       (f.stale ? f.estTime + "（stale）" : updateTime()) + "</span></div>" +
       '<div class="chart-stack">' + intradayBlock(f) + trendBlock(f) + "</div>" +
-      '<div class="advice-panel-foot">' + icon("lock") + "<span>只读：执行仅通过 MCP 写入口。</span>" +
+      '<div class="advice-panel-foot">' + icon("lock") + "<span>仓位调整仅演示写入本地；真实执行仍仅通过 MCP 写入口。</span>" +
       '<a class="text-link" href="advice.html#fund-' + f.code + '">完整明细' + icon("arrow") + "</a></div>" +
       "</div>"
     );
@@ -576,7 +1143,7 @@
       '<span class="fund-name">' + f.name + "</span>" +
       '<span class="fund-sub"><span class="fund-code">' + f.code + '</span><span class="fund-sep">·</span>' + groupTag("actual") +
       '<span class="fund-weight-mobile">权重 ' + pct(f.weight, 1) + '</span>' +
-      '<span class="fund-target-mobile">目标 ' + pct(f.target, 0) + '</span><span class="fund-quality-mobile">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</span></span>" +
+      '<span class="fund-target-mobile">目标 ' + pct(f.target, 1) + '</span><span class="fund-quality-mobile">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</span></span>" +
       "</span>" +
       "</button>" +
       staleLine +
@@ -584,7 +1151,7 @@
       '<td class="r tabular fund-amount-cell" data-label="当前持仓市值">' + wan(f.amount) + "</td>" +
       '<td class="r tabular fund-weight-cell" data-label="当前权重">' + pct(f.weight, 1) + "</td>" +
       '<td class="r tabular fund-pct-cell ' + cls(f.estPct) + '" data-label="估算涨跌幅">' + signedPct(f.estPct) + "</td>" +
-      '<td class="r tabular fund-pnl-cell ' + cls(f.estPnl) + '" data-label="今日预估收益">' + signedYuan(f.estPnl) + "<small>元</small></td>" +
+      '<td class="r tabular fund-pnl-cell ' + cls(estPnlOf(f)) + '" data-label="今日预估收益">' + signedMoney(estPnlOf(f)) + "</td>" +
       '<td class="r fund-quality-cell">' + qBadge(f.estQuality, stale ? "stale" : "estimate") + "</td>" +
       "</tr>" +
       '<tr class="fund-advice-row" id="' + id + '" hidden>' +
@@ -594,15 +1161,11 @@
   }
 
   function renderHomeFunds() {
+    applySavedState();
     var body = document.getElementById("fund-body");
     if (body) body.innerHTML = M.groups.actual.funds.map(fundRow).join("");
     openFund = null;
     var saved = readHomeState();
-    if (saved && saved.periods) {
-      Object.keys(saved.periods).forEach(function (k) {
-        if (TREND_KEYS.indexOf(saved.periods[k]) >= 0) chartPeriods[k] = saved.periods[k];
-      });
-    }
     if (saved && saved.open && document.getElementById("advice-" + saved.open)) {
       setFundOpen(saved.open, true);
       refreshChart(saved.open);
@@ -610,6 +1173,13 @@
         setTimeout(function () { window.scrollTo(0, saved.scrollY); }, 40);
       }
     }
+  }
+  function rerenderAllFunds() {
+    var body = document.getElementById("fund-body");
+    if (body) body.innerHTML = M.groups.actual.funds.map(fundRow).join("");
+    openFund = null;
+    savedState = {};
+    try { localStorage.removeItem(HOME_STORE); } catch (e) { /* ignore */ }
   }
 
   function setFundOpen(code, open) {
@@ -654,7 +1224,8 @@
       "<br><b>估值与 PE：</b>指数 PE-TTM 与近 10 年历史分位数为构造的演示值，生产环境接口与授权待数据调研任务确认。" +
       "<br><b>趋势图：</b>当日分时与近一周/一月/一年/今年/三年/五年净值为演示序列，今日估算与持仓成本以虚线标示；生产可用性与历史覆盖待确认，不代表已接入稳定接口。" +
       "<br><b>刷新：</b>进入页面自动刷新一次，也可点击页头「刷新估值」手动刷新；刷新后保留展开行、图表周期与滚动位置。" + rt.demoNote + "数据源 " + rt.source + "。" +
-      "<br><b>建议：</b>每日 14:30 生成逐基金建议，首页点击基金名称展开，完整明细见「建议」页；建议只读，执行仅通过 MCP 写入口。" +
+      "<br><b>建议：</b>每日 14:30 生成逐基金建议，首页点击基金名称展开，完整明细见「建议」页；建议只读，真实执行仅通过 MCP 写入口。" +
+      "<br><b>演示写入：</b>" + M.meta.writeDemo + "。调整后目标值按估算净值折算并保留两位小数；网页端输入会校验非负、可用现金/份额、总权重 ≤100% 与最小变动单位。" + M.meta.writeNote +
       "</div></div>" +
       '<div class="risk-note">' + icon("warning") + "<span>估算可能被官方净值修正；AI 影子组与沪深300 基准组均为模拟，不涉及真实资金。" + M.meta.disclaimer + "</span></div>" +
       "</div>"
@@ -704,6 +1275,7 @@
     homeHead();
     renderHomeIndices();
     renderHomeFunds();
+    renderHomeAudit();
     var q = document.getElementById("home-quality");
     if (q) q.innerHTML = qualityCard();
     setRefreshBusy(true);
@@ -719,6 +1291,39 @@
         manualRefresh();
         return;
       }
+      var zoomTrigger = e.target.closest("[data-zoom]");
+      if (zoomTrigger) {
+        var zf = fundByCode(zoomTrigger.getAttribute("data-zoom-fund"));
+        if (zf) openZoom(zf, zoomTrigger.getAttribute("data-zoom"), zoomTrigger);
+        return;
+      }
+      var paReset = e.target.closest("[data-pa-reset]");
+      if (paReset) {
+        var prFund = fundByCode(paReset.getAttribute("data-pa-reset"));
+        if (prFund) {
+          var base = BASE_POSITIONS[prFund.code];
+          var pos = positionsOf();
+          delete pos[prFund.code];
+          writeHomeState();
+          prFund.amount = base.amount;
+          prFund.weight = base.amount / M.groups.actual.total;
+          prFund.target = base.target;
+          prFund.costNav = base.costNav;
+          if (prFund.trend) prFund.trend.costNav = base.costNav;
+          updateFundRow(prFund);
+          rerenderAdviceRow(prFund);
+          renderHomeAudit();
+          showWriteToast("已恢复该基金的演示初始值 · " + prFund.name, null, null, null);
+        }
+        return;
+      }
+      if (e.target.closest("[data-write-reset]")) {
+        resetAllPositions();
+        rerenderAllFunds();
+        renderHomeAudit();
+        showWriteToast("已恢复全部演示初始值 · 本地调整记录已清空", null, null, null);
+        return;
+      }
       var seg = e.target.closest("[data-period]");
       if (seg) {
         var segCode = seg.getAttribute("data-period-fund");
@@ -730,7 +1335,26 @@
       var btn = e.target.closest("[data-expand]");
       if (btn) toggleFund(btn.getAttribute("data-expand"));
     });
+    document.addEventListener("input", function (e) {
+      var inp = e.target.closest(".pa-form input");
+      if (!inp) return;
+      var form = inp.closest(".pa-form");
+      var f = fundByCode(form.getAttribute("data-pa-form"));
+      if (f) syncAdjustPreview(f, inp.name);
+    });
+    document.addEventListener("submit", function (e) {
+      var form = e.target.closest(".pa-form");
+      if (!form) return;
+      e.preventDefault();
+      var f = fundByCode(form.getAttribute("data-pa-form"));
+      if (f) saveAdjust(f);
+    });
     document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && zoomState.open) {
+        e.preventDefault();
+        closeZoom();
+        return;
+      }
       if (e.key === "Escape" && openFund) {
         var code = openFund;
         setFundOpen(code, false);

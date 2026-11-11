@@ -13,7 +13,7 @@
 proto-preview/
 ├── index.html                    # 项目索引（新增项目时加一张卡片）
 ├── investment-assistant/         # 投资助手 · 7 页 PWA + 扩展 popup
-│   ├── index.html                # 首页（大盘指数 PE/分位 + 基金持仓 + 行内趋势图）
+│   ├── index.html                # 首页（大盘指数 PE/分位 + 基金持仓 + 调整后目标值 + 可放大趋势图）
 │   ├── advice.html               # 建议（每日操作建议）
 │   ├── news.html                 # 要闻（经济与民生要闻，演示数据）
 │   ├── portfolio.html            # 组合
@@ -40,11 +40,11 @@ proto-preview/
 
 ## 投资助手截图
 
-原型 v5：**7 页 × 桌面 1440px / 移动 390px，共 14 张全页截图**，另有扩展 popup，位于 [`investment-assistant/screenshots/`](./investment-assistant/screenshots)：
+原型 v6：**7 页 × 桌面 1440px / 移动 390px，共 14 张全页截图**，另有扩展 popup 与 6 张 v6 状态截图（调整后目标值 / 放大视图 / 写入态），位于 [`investment-assistant/screenshots/`](./investment-assistant/screenshots)：
 
 | 页面 | 桌面 | 移动 |
 |---|---|---|
-| 首页（持仓优先 + PE/分位 + 行内趋势图，含展开态） | [home-1440](./investment-assistant/screenshots/home-1440.png) | [home-390](./investment-assistant/screenshots/home-390.png) |
+| 首页（数值单行 + 持仓表 + 可放大趋势图入口） | [home-1440](./investment-assistant/screenshots/home-1440.png) | [home-390](./investment-assistant/screenshots/home-390.png) |
 | 建议 | [advice-1440](./investment-assistant/screenshots/advice-1440.png) | [advice-390](./investment-assistant/screenshots/advice-390.png) |
 | 要闻 | [news-1440](./investment-assistant/screenshots/news-1440.png) | [news-390](./investment-assistant/screenshots/news-390.png) |
 | 组合 | [portfolio-1440](./investment-assistant/screenshots/portfolio-1440.png) | [portfolio-390](./investment-assistant/screenshots/portfolio-390.png) |
@@ -53,8 +53,16 @@ proto-preview/
 | 设置 | [settings-1440](./investment-assistant/screenshots/settings-1440.png) | [settings-390](./investment-assistant/screenshots/settings-390.png) |
 | 扩展 popup | [popup](./investment-assistant/screenshots/popup.png) | — |
 
-七档宽度（360 / 390 / 414 / 768 / 1024 / 1280 / 1440）审计结果见 [`screenshots/audit.json`](./investment-assistant/screenshots/audit.json)，含 v5 检查项（持仓优先列、名称展开控件、指数 PE/分位、展开态分时/多周期趋势图、刷新与重载保持展开/周期/滚动、7 页导航与「更多」抽屉）；v1 基线见 [`screenshots/audit-before.json`](./investment-assistant/screenshots/audit-before.json)。
+v6 状态截图：
+
+| 状态 | 桌面 | 移动 |
+|---|---|---|
+| 调整后目标值（展开区） | [v6-adjust-1440](./investment-assistant/screenshots/v6-adjust-1440.png) | [v6-adjust-390](./investment-assistant/screenshots/v6-adjust-390.png) |
+| 图表放大视图 | [v6-zoom-1440](./investment-assistant/screenshots/v6-zoom-1440.png) | [v6-zoom-390](./investment-assistant/screenshots/v6-zoom-390.png) |
+| 网页端模拟写入态（含本地审计） | [v6-write-1440](./investment-assistant/screenshots/v6-write-1440.png) | [v6-write-390](./investment-assistant/screenshots/v6-write-390.png) |
+
+七档宽度（360 / 390 / 414 / 768 / 1024 / 1280 / 1440）审计结果见 [`screenshots/audit.json`](./investment-assistant/screenshots/audit.json)，含 v6 检查项（涨跌幅/预估收益单行与等宽右对齐、极端值不溢出、5 只基金一屏、调整后目标权重/市值/金额/偏离/状态、每图放大与缩放/平移/重置/Esc/焦点返回、网页端调整校验/撤销/localStorage 持久化/恢复初始值、`015790` 成立以来）；v1 基线见 [`screenshots/audit-before.json`](./investment-assistant/screenshots/audit-before.json)。
 
 ## 投资助手原型说明
 
-见 [`investment-assistant/原型说明.md`](./investment-assistant/原型说明.md)，覆盖 v5 信息架构、持仓优先表格、名称展开、指数估值、行内分时/多周期趋势图、刷新与持久化口径、建议/要闻页及已知简化点。
+见 [`investment-assistant/原型说明.md`](./investment-assistant/原型说明.md)，覆盖 v6 信息架构、数值单行、调整后目标值、图表放大、网页端模拟写入与本地审计、持仓优先表格、名称展开、指数估值、刷新与持久化口径、建议/要闻页及已知简化点。

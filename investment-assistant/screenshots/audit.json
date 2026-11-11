@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-11T09:14:21.702Z",
-  "version": "v5",
+  "generatedAt": "2026-11-11T10:49:52.361Z",
+  "version": "v6",
   "widths": [
     360,
     390,
@@ -11,72 +11,46 @@
     1440
   ],
   "pages": {
-    "index.html": {
-      "360": {
-        "viewportWidth": 360,
-        "scrollWidth": 360,
+    "360": {
+      "index.html": {
         "overflowX": 0,
-        "clipped": [],
         "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
         "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
         "touchSmallCount": 0,
         "checks": {
           "indices": 4,
           "indexChecks": [
             {
               "name": "上证指数",
-              "value": "3,628.41+15.21 点",
               "pct": "+0.42%",
-              "points": "+15.21 点",
               "pe": "15.82",
               "pePct": "61%",
-              "peBarWidth": "61%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
+              "state": "上涨"
             },
             {
               "name": "深证成指",
-              "value": "11,452.68+73.96 点",
               "pct": "+0.65%",
-              "points": "+73.96 点",
               "pe": "24.36",
               "pePct": "48%",
-              "peBarWidth": "48%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
+              "state": "上涨"
             },
             {
               "name": "创业板指",
-              "value": "2,431.20+20.73 点",
               "pct": "+0.86%",
-              "points": "+20.73 点",
               "pe": "33.15",
               "pePct": "27%",
-              "peBarWidth": "27%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
+              "state": "上涨"
             },
             {
               "name": "沪深300",
-              "value": "4,285.63+13.25 点",
               "pct": "+0.31%",
-              "points": "+13.25 点",
               "pe": "13.47",
               "pePct": "54%",
-              "peBarWidth": "54%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
+              "state": "上涨"
             }
-          ],
-          "indexColumns": [
-            "指数",
-            "点位",
-            "涨跌幅",
-            "PE-TTM",
-            "PE 历史分位近 10 年 · 演示",
-            "状态"
           ],
           "funds": 5,
           "fundChecks": [
@@ -86,17 +60,25 @@
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
-              "pnl": "+1,189元",
-              "quality": "estimate",
+              "pnl": "+¥1,189",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 143,
+              "pctScrollWidth": 143,
+              "pnlClientWidth": 143,
+              "pnlScrollWidth": 143,
+              "pnlTop": 973,
+              "pctTop": 935,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006503",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "华夏中证机器人ETF联接C",
@@ -104,17 +86,25 @@
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
-              "pnl": "+1,599元",
-              "quality": "estimate",
+              "pnl": "+¥1,599",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 143,
+              "pctScrollWidth": 143,
+              "pnlClientWidth": 143,
+              "pnlScrollWidth": 143,
+              "pnlTop": 1139,
+              "pctTop": 1101,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-018345",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国联安核心资产混合",
@@ -122,17 +112,25 @@
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
-              "pnl": "+218元",
-              "quality": "estimate",
+              "pnl": "+¥218",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 143,
+              "pctScrollWidth": 143,
+              "pnlClientWidth": 143,
+              "pnlScrollWidth": 143,
+              "pnlTop": 1306,
+              "pctTop": 1267,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006864",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
@@ -140,17 +138,25 @@
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
-              "pnl": "+454元",
-              "quality": "stale",
+              "pnl": "+¥454",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 143,
+              "pctScrollWidth": 143,
+              "pnlClientWidth": 143,
+              "pnlScrollWidth": 143,
+              "pnlTop": 1468,
+              "pctTop": 1430,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": true,
-              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-007818",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "永赢高端装备智选混合发起C",
@@ -158,153 +164,33 @@
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
-              "pnl": "−259元",
-              "quality": "estimate",
+              "pnl": "−¥259",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 143,
+              "pctScrollWidth": 143,
+              "pnlClientWidth": 143,
+              "pnlScrollWidth": 143,
+              "pnlTop": 1635,
+              "pctTop": 1596,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-015790",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             }
-          ],
-          "fundColumns": [
-            "基金点击名称展开",
-            "当前持仓市值",
-            "当前权重",
-            "估算涨跌幅",
-            "今日预估收益按当前持仓估算",
-            "质量"
           ],
           "fundRowsInViewport": false,
-          "lastFundBottom": 1704,
-          "headerTime": "14:32:10",
-          "allUpdateTimes": [
-            "14:32:10"
-          ],
-          "singleGlobalTime": true,
-          "timeToSecond": true,
-          "refreshSize": {
-            "w": 99,
-            "h": 44
-          },
-          "refreshVisible": true,
-          "staleCount": 1,
-          "toggleInNameCell": true,
-          "navColumnRemoved": true,
-          "targetColumnMovedToPanel": true,
-          "noFundRowLinks": true,
-          "indexTable": true,
-          "fundTable": true,
-          "noFormControls": true,
-          "upColor": "#dc2626",
-          "downColor": "#16a34a",
-          "indexStateColHidden": true,
-          "fundTableMode": "stacked",
-          "indexTableMode": "stacked",
-          "peDemoNote": true,
-          "chartDemoNote": true
-        },
-        "expanded": {
-          "viewportWidth": 360,
-          "scrollWidth": 360,
-          "overflowX": 0,
-          "clipped": [],
-          "overflowers": [],
-          "touchSmall": [],
-          "clippedCount": 0,
-          "overflowersCount": 0,
-          "touchSmallCount": 0,
-          "checks": {
-            "open": true,
-            "charts": 2,
-            "intraday": true,
-            "multiPeriod": true,
-            "svgs": 2,
-            "todayLine": 2,
-            "costLine": 1,
-            "crossMarkers": 1,
-            "legend": [
-              "估算涨跌幅今日估算",
-              "历史净值今日估算持仓成本历史交叉"
-            ],
-            "dataTables": 1,
-            "ariaOk": true,
-            "facts": [
-              "当前持仓市值14.5 万",
-              "当前权重21.4%",
-              "目标权重16%",
-              "偏离+5.4pct",
-              "持仓成本净值1.2280",
-              "估算净值1.2945"
-            ],
-            "openRows": 1,
-            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
-          },
-          "collapsedOverflowX": 0
-        }
-      },
-      "390": {
-        "viewportWidth": 390,
-        "scrollWidth": 390,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "value": "3,628.41+15.21 点",
-              "pct": "+0.42%",
-              "points": "+15.21 点",
-              "pe": "15.82",
-              "pePct": "61%",
-              "peBarWidth": "61%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "深证成指",
-              "value": "11,452.68+73.96 点",
-              "pct": "+0.65%",
-              "points": "+73.96 点",
-              "pe": "24.36",
-              "pePct": "48%",
-              "peBarWidth": "48%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "创业板指",
-              "value": "2,431.20+20.73 点",
-              "pct": "+0.86%",
-              "points": "+20.73 点",
-              "pe": "33.15",
-              "pePct": "27%",
-              "peBarWidth": "27%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "沪深300",
-              "value": "4,285.63+13.25 点",
-              "pct": "+0.31%",
-              "points": "+13.25 点",
-              "pe": "13.47",
-              "pePct": "54%",
-              "peBarWidth": "54%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            }
-          ],
+          "lastFundBottom": 1680,
+          "viewportHeight": 844,
+          "auditSection": true,
+          "writeDemoText": true,
+          "chartDemoNote": true,
           "indexColumns": [
             "指数",
             "点位",
@@ -312,6 +198,164 @@
             "PE-TTM",
             "PE 历史分位近 10 年 · 演示",
             "状态"
+          ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ]
+        },
+        "extreme": {
+          "pctLines": 1,
+          "pnlLines": 1,
+          "pctFits": true,
+          "pnlFits": true,
+          "docOverflow": 0,
+          "negLines": 1,
+          "negFits": true,
+          "negDocOverflow": 0
+        },
+        "expanded": {
+          "open": true,
+          "hasPanel": true,
+          "targets": [
+            "当前权重 → 目标权重21.4% → 20.2%",
+            "当前持仓市值 → 调整后目标市值14.50 万 → 13.70 万",
+            "调整金额−¥8,000.00",
+            "偏离（目标 − 当前）−1.2pp",
+            "执行状态待保存（演示）"
+          ],
+          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
+          "form": true,
+          "formInputs": 2,
+          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
+          "auditList": true,
+          "charts": 2,
+          "svgs": 2,
+          "todayLine": 2,
+          "costLine": 2,
+          "crosses": 3,
+          "dashed": 4,
+          "ariaOk": true,
+          "dataTables": 1,
+          "zoomBtns": 2,
+          "zoomSizes": [
+            "66x44",
+            "66x44"
+          ],
+          "hasZoom": true,
+          "fiveYearLabel": "近五年",
+          "measure": {
+            "viewportWidth": 360,
+            "scrollWidth": 360,
+            "overflowX": 0,
+            "clipped": [],
+            "overflowers": [],
+            "touchSmall": [],
+            "clippedCount": 0,
+            "overflowersCount": 0,
+            "touchSmallCount": 0
+          }
+        }
+      },
+      "advice.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "news.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "portfolio.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "compare.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "history.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "settings.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      }
+    },
+    "390": {
+      "index.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "checks": {
+          "indices": 4,
+          "indexChecks": [
+            {
+              "name": "上证指数",
+              "pct": "+0.42%",
+              "pe": "15.82",
+              "pePct": "61%",
+              "state": "上涨"
+            },
+            {
+              "name": "深证成指",
+              "pct": "+0.65%",
+              "pe": "24.36",
+              "pePct": "48%",
+              "state": "上涨"
+            },
+            {
+              "name": "创业板指",
+              "pct": "+0.86%",
+              "pe": "33.15",
+              "pePct": "27%",
+              "state": "上涨"
+            },
+            {
+              "name": "沪深300",
+              "pct": "+0.31%",
+              "pe": "13.47",
+              "pePct": "54%",
+              "state": "上涨"
+            }
           ],
           "funds": 5,
           "fundChecks": [
@@ -321,17 +365,25 @@
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
-              "pnl": "+1,189元",
-              "quality": "estimate",
+              "pnl": "+¥1,189",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 158,
+              "pctScrollWidth": 158,
+              "pnlClientWidth": 158,
+              "pnlScrollWidth": 158,
+              "pnlTop": 953,
+              "pctTop": 915,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006503",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "华夏中证机器人ETF联接C",
@@ -339,17 +391,25 @@
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
-              "pnl": "+1,599元",
-              "quality": "estimate",
+              "pnl": "+¥1,599",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 158,
+              "pctScrollWidth": 158,
+              "pnlClientWidth": 158,
+              "pnlScrollWidth": 158,
+              "pnlTop": 1099,
+              "pctTop": 1061,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-018345",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国联安核心资产混合",
@@ -357,17 +417,25 @@
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
-              "pnl": "+218元",
-              "quality": "estimate",
+              "pnl": "+¥218",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 158,
+              "pctScrollWidth": 158,
+              "pnlClientWidth": 158,
+              "pnlScrollWidth": 158,
+              "pnlTop": 1245,
+              "pctTop": 1206,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006864",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
@@ -375,17 +443,25 @@
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
-              "pnl": "+454元",
-              "quality": "stale",
+              "pnl": "+¥454",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 158,
+              "pctScrollWidth": 158,
+              "pnlClientWidth": 158,
+              "pnlScrollWidth": 158,
+              "pnlTop": 1408,
+              "pctTop": 1369,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": true,
-              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-007818",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "永赢高端装备智选混合发起C",
@@ -393,153 +469,33 @@
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
-              "pnl": "−259元",
-              "quality": "estimate",
+              "pnl": "−¥259",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 158,
+              "pctScrollWidth": 158,
+              "pnlClientWidth": 158,
+              "pnlScrollWidth": 158,
+              "pnlTop": 1553,
+              "pctTop": 1515,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-015790",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             }
-          ],
-          "fundColumns": [
-            "基金点击名称展开",
-            "当前持仓市值",
-            "当前权重",
-            "估算涨跌幅",
-            "今日预估收益按当前持仓估算",
-            "质量"
           ],
           "fundRowsInViewport": false,
-          "lastFundBottom": 1623,
-          "headerTime": "14:32:10",
-          "allUpdateTimes": [
-            "14:32:10"
-          ],
-          "singleGlobalTime": true,
-          "timeToSecond": true,
-          "refreshSize": {
-            "w": 99,
-            "h": 44
-          },
-          "refreshVisible": true,
-          "staleCount": 1,
-          "toggleInNameCell": true,
-          "navColumnRemoved": true,
-          "targetColumnMovedToPanel": true,
-          "noFundRowLinks": true,
-          "indexTable": true,
-          "fundTable": true,
-          "noFormControls": true,
-          "upColor": "#dc2626",
-          "downColor": "#16a34a",
-          "indexStateColHidden": true,
-          "fundTableMode": "stacked",
-          "indexTableMode": "stacked",
-          "peDemoNote": true,
-          "chartDemoNote": true
-        },
-        "expanded": {
-          "viewportWidth": 390,
-          "scrollWidth": 390,
-          "overflowX": 0,
-          "clipped": [],
-          "overflowers": [],
-          "touchSmall": [],
-          "clippedCount": 0,
-          "overflowersCount": 0,
-          "touchSmallCount": 0,
-          "checks": {
-            "open": true,
-            "charts": 2,
-            "intraday": true,
-            "multiPeriod": true,
-            "svgs": 2,
-            "todayLine": 2,
-            "costLine": 1,
-            "crossMarkers": 1,
-            "legend": [
-              "估算涨跌幅今日估算",
-              "历史净值今日估算持仓成本历史交叉"
-            ],
-            "dataTables": 1,
-            "ariaOk": true,
-            "facts": [
-              "当前持仓市值14.5 万",
-              "当前权重21.4%",
-              "目标权重16%",
-              "偏离+5.4pct",
-              "持仓成本净值1.2280",
-              "估算净值1.2945"
-            ],
-            "openRows": 1,
-            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
-          },
-          "collapsedOverflowX": 0
-        }
-      },
-      "414": {
-        "viewportWidth": 414,
-        "scrollWidth": 414,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "value": "3,628.41+15.21 点",
-              "pct": "+0.42%",
-              "points": "+15.21 点",
-              "pe": "15.82",
-              "pePct": "61%",
-              "peBarWidth": "61%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "深证成指",
-              "value": "11,452.68+73.96 点",
-              "pct": "+0.65%",
-              "points": "+73.96 点",
-              "pe": "24.36",
-              "pePct": "48%",
-              "peBarWidth": "48%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "创业板指",
-              "value": "2,431.20+20.73 点",
-              "pct": "+0.86%",
-              "points": "+20.73 点",
-              "pe": "33.15",
-              "pePct": "27%",
-              "peBarWidth": "27%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "沪深300",
-              "value": "4,285.63+13.25 点",
-              "pct": "+0.31%",
-              "points": "+13.25 点",
-              "pe": "13.47",
-              "pePct": "54%",
-              "peBarWidth": "54%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            }
-          ],
+          "lastFundBottom": 1599,
+          "viewportHeight": 844,
+          "auditSection": true,
+          "writeDemoText": true,
+          "chartDemoNote": true,
           "indexColumns": [
             "指数",
             "点位",
@@ -547,6 +503,164 @@
             "PE-TTM",
             "PE 历史分位近 10 年 · 演示",
             "状态"
+          ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ]
+        },
+        "extreme": {
+          "pctLines": 1,
+          "pnlLines": 1,
+          "pctFits": true,
+          "pnlFits": true,
+          "docOverflow": 0,
+          "negLines": 1,
+          "negFits": true,
+          "negDocOverflow": 0
+        },
+        "expanded": {
+          "open": true,
+          "hasPanel": true,
+          "targets": [
+            "当前权重 → 目标权重21.4% → 20.2%",
+            "当前持仓市值 → 调整后目标市值14.50 万 → 13.70 万",
+            "调整金额−¥8,000.00",
+            "偏离（目标 − 当前）−1.2pp",
+            "执行状态待保存（演示）"
+          ],
+          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
+          "form": true,
+          "formInputs": 2,
+          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
+          "auditList": true,
+          "charts": 2,
+          "svgs": 2,
+          "todayLine": 2,
+          "costLine": 2,
+          "crosses": 3,
+          "dashed": 4,
+          "ariaOk": true,
+          "dataTables": 1,
+          "zoomBtns": 2,
+          "zoomSizes": [
+            "66x44",
+            "66x44"
+          ],
+          "hasZoom": true,
+          "fiveYearLabel": "近五年",
+          "measure": {
+            "viewportWidth": 390,
+            "scrollWidth": 390,
+            "overflowX": 0,
+            "clipped": [],
+            "overflowers": [],
+            "touchSmall": [],
+            "clippedCount": 0,
+            "overflowersCount": 0,
+            "touchSmallCount": 0
+          }
+        }
+      },
+      "advice.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "news.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "portfolio.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "compare.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "history.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "settings.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      }
+    },
+    "414": {
+      "index.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "checks": {
+          "indices": 4,
+          "indexChecks": [
+            {
+              "name": "上证指数",
+              "pct": "+0.42%",
+              "pe": "15.82",
+              "pePct": "61%",
+              "state": "上涨"
+            },
+            {
+              "name": "深证成指",
+              "pct": "+0.65%",
+              "pe": "24.36",
+              "pePct": "48%",
+              "state": "上涨"
+            },
+            {
+              "name": "创业板指",
+              "pct": "+0.86%",
+              "pe": "33.15",
+              "pePct": "27%",
+              "state": "上涨"
+            },
+            {
+              "name": "沪深300",
+              "pct": "+0.31%",
+              "pe": "13.47",
+              "pePct": "54%",
+              "state": "上涨"
+            }
           ],
           "funds": 5,
           "fundChecks": [
@@ -556,17 +670,25 @@
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
-              "pnl": "+1,189元",
-              "quality": "estimate",
+              "pnl": "+¥1,189",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 170,
+              "pctScrollWidth": 170,
+              "pnlClientWidth": 170,
+              "pnlScrollWidth": 170,
+              "pnlTop": 953,
+              "pctTop": 915,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006503",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "华夏中证机器人ETF联接C",
@@ -574,17 +696,25 @@
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
-              "pnl": "+1,599元",
-              "quality": "estimate",
+              "pnl": "+¥1,599",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 170,
+              "pctScrollWidth": 170,
+              "pnlClientWidth": 170,
+              "pnlScrollWidth": 170,
+              "pnlTop": 1099,
+              "pctTop": 1061,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-018345",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国联安核心资产混合",
@@ -592,17 +722,25 @@
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
-              "pnl": "+218元",
-              "quality": "estimate",
+              "pnl": "+¥218",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 170,
+              "pctScrollWidth": 170,
+              "pnlClientWidth": 170,
+              "pnlScrollWidth": 170,
+              "pnlTop": 1245,
+              "pctTop": 1206,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006864",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
@@ -610,17 +748,25 @@
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
-              "pnl": "+454元",
-              "quality": "stale",
+              "pnl": "+¥454",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 170,
+              "pctScrollWidth": 170,
+              "pnlClientWidth": 170,
+              "pnlScrollWidth": 170,
+              "pnlTop": 1408,
+              "pctTop": 1369,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": true,
-              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-007818",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "永赢高端装备智选混合发起C",
@@ -628,153 +774,33 @@
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
-              "pnl": "−259元",
-              "quality": "estimate",
+              "pnl": "−¥259",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 170,
+              "pctScrollWidth": 170,
+              "pnlClientWidth": 170,
+              "pnlScrollWidth": 170,
+              "pnlTop": 1553,
+              "pctTop": 1515,
+              "pnlIsSecondary": true,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-015790",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             }
-          ],
-          "fundColumns": [
-            "基金点击名称展开",
-            "当前持仓市值",
-            "当前权重",
-            "估算涨跌幅",
-            "今日预估收益按当前持仓估算",
-            "质量"
           ],
           "fundRowsInViewport": false,
-          "lastFundBottom": 1623,
-          "headerTime": "14:32:10",
-          "allUpdateTimes": [
-            "14:32:10"
-          ],
-          "singleGlobalTime": true,
-          "timeToSecond": true,
-          "refreshSize": {
-            "w": 99,
-            "h": 44
-          },
-          "refreshVisible": true,
-          "staleCount": 1,
-          "toggleInNameCell": true,
-          "navColumnRemoved": true,
-          "targetColumnMovedToPanel": true,
-          "noFundRowLinks": true,
-          "indexTable": true,
-          "fundTable": true,
-          "noFormControls": true,
-          "upColor": "#dc2626",
-          "downColor": "#16a34a",
-          "indexStateColHidden": true,
-          "fundTableMode": "stacked",
-          "indexTableMode": "stacked",
-          "peDemoNote": true,
-          "chartDemoNote": true
-        },
-        "expanded": {
-          "viewportWidth": 414,
-          "scrollWidth": 414,
-          "overflowX": 0,
-          "clipped": [],
-          "overflowers": [],
-          "touchSmall": [],
-          "clippedCount": 0,
-          "overflowersCount": 0,
-          "touchSmallCount": 0,
-          "checks": {
-            "open": true,
-            "charts": 2,
-            "intraday": true,
-            "multiPeriod": true,
-            "svgs": 2,
-            "todayLine": 2,
-            "costLine": 1,
-            "crossMarkers": 1,
-            "legend": [
-              "估算涨跌幅今日估算",
-              "历史净值今日估算持仓成本历史交叉"
-            ],
-            "dataTables": 1,
-            "ariaOk": true,
-            "facts": [
-              "当前持仓市值14.5 万",
-              "当前权重21.4%",
-              "目标权重16%",
-              "偏离+5.4pct",
-              "持仓成本净值1.2280",
-              "估算净值1.2945"
-            ],
-            "openRows": 1,
-            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
-          },
-          "collapsedOverflowX": 0
-        }
-      },
-      "768": {
-        "viewportWidth": 768,
-        "scrollWidth": 768,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "value": "3,628.41+15.21 点",
-              "pct": "+0.42%",
-              "points": "+15.21 点",
-              "pe": "15.82",
-              "pePct": "61%",
-              "peBarWidth": "61%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "深证成指",
-              "value": "11,452.68+73.96 点",
-              "pct": "+0.65%",
-              "points": "+73.96 点",
-              "pe": "24.36",
-              "pePct": "48%",
-              "peBarWidth": "48%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "创业板指",
-              "value": "2,431.20+20.73 点",
-              "pct": "+0.86%",
-              "points": "+20.73 点",
-              "pe": "33.15",
-              "pePct": "27%",
-              "peBarWidth": "27%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "沪深300",
-              "value": "4,285.63+13.25 点",
-              "pct": "+0.31%",
-              "points": "+13.25 点",
-              "pe": "13.47",
-              "pePct": "54%",
-              "peBarWidth": "54%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            }
-          ],
+          "lastFundBottom": 1599,
+          "viewportHeight": 844,
+          "auditSection": true,
+          "writeDemoText": true,
+          "chartDemoNote": true,
           "indexColumns": [
             "指数",
             "点位",
@@ -782,6 +808,164 @@
             "PE-TTM",
             "PE 历史分位近 10 年 · 演示",
             "状态"
+          ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ]
+        },
+        "extreme": {
+          "pctLines": 1,
+          "pnlLines": 1,
+          "pctFits": true,
+          "pnlFits": true,
+          "docOverflow": 0,
+          "negLines": 1,
+          "negFits": true,
+          "negDocOverflow": 0
+        },
+        "expanded": {
+          "open": true,
+          "hasPanel": true,
+          "targets": [
+            "当前权重 → 目标权重21.4% → 20.2%",
+            "当前持仓市值 → 调整后目标市值14.50 万 → 13.70 万",
+            "调整金额−¥8,000.00",
+            "偏离（目标 − 当前）−1.2pp",
+            "执行状态待保存（演示）"
+          ],
+          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
+          "form": true,
+          "formInputs": 2,
+          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
+          "auditList": true,
+          "charts": 2,
+          "svgs": 2,
+          "todayLine": 2,
+          "costLine": 2,
+          "crosses": 3,
+          "dashed": 4,
+          "ariaOk": true,
+          "dataTables": 1,
+          "zoomBtns": 2,
+          "zoomSizes": [
+            "66x44",
+            "66x44"
+          ],
+          "hasZoom": true,
+          "fiveYearLabel": "近五年",
+          "measure": {
+            "viewportWidth": 414,
+            "scrollWidth": 414,
+            "overflowX": 0,
+            "clipped": [],
+            "overflowers": [],
+            "touchSmall": [],
+            "clippedCount": 0,
+            "overflowersCount": 0,
+            "touchSmallCount": 0
+          }
+        }
+      },
+      "advice.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "news.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "portfolio.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "compare.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "history.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "settings.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      }
+    },
+    "768": {
+      "index.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "checks": {
+          "indices": 4,
+          "indexChecks": [
+            {
+              "name": "上证指数",
+              "pct": "+0.42%",
+              "pe": "15.82",
+              "pePct": "61%",
+              "state": "上涨"
+            },
+            {
+              "name": "深证成指",
+              "pct": "+0.65%",
+              "pe": "24.36",
+              "pePct": "48%",
+              "state": "上涨"
+            },
+            {
+              "name": "创业板指",
+              "pct": "+0.86%",
+              "pe": "33.15",
+              "pePct": "27%",
+              "state": "上涨"
+            },
+            {
+              "name": "沪深300",
+              "pct": "+0.31%",
+              "pe": "13.47",
+              "pePct": "54%",
+              "state": "上涨"
+            }
           ],
           "funds": 5,
           "fundChecks": [
@@ -791,17 +975,25 @@
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
-              "pnl": "+1,189元",
-              "quality": "estimate",
+              "pnl": "+¥1,189",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 227,
+              "pctScrollWidth": 227,
+              "pnlClientWidth": 227,
+              "pnlScrollWidth": 227,
+              "pnlTop": 689,
+              "pctTop": 689,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006503",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "华夏中证机器人ETF联接C",
@@ -809,17 +1001,25 @@
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
-              "pnl": "+1,599元",
-              "quality": "estimate",
+              "pnl": "+¥1,599",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 227,
+              "pctScrollWidth": 227,
+              "pnlClientWidth": 227,
+              "pnlScrollWidth": 227,
+              "pnlTop": 796,
+              "pctTop": 796,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-018345",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国联安核心资产混合",
@@ -827,17 +1027,25 @@
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
-              "pnl": "+218元",
-              "quality": "estimate",
+              "pnl": "+¥218",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 227,
+              "pctScrollWidth": 227,
+              "pnlClientWidth": 227,
+              "pnlScrollWidth": 227,
+              "pnlTop": 904,
+              "pctTop": 904,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006864",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
@@ -845,17 +1053,25 @@
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
-              "pnl": "+454元",
-              "quality": "stale",
+              "pnl": "+¥454",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 227,
+              "pctScrollWidth": 227,
+              "pnlClientWidth": 227,
+              "pnlScrollWidth": 227,
+              "pnlTop": 1028,
+              "pctTop": 1028,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": true,
-              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-007818",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "永赢高端装备智选混合发起C",
@@ -863,153 +1079,33 @@
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
-              "pnl": "−259元",
-              "quality": "estimate",
+              "pnl": "−¥259",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "left",
+              "pnlAlign": "left",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 227,
+              "pctScrollWidth": 227,
+              "pnlClientWidth": 227,
+              "pnlScrollWidth": 227,
+              "pnlTop": 1136,
+              "pctTop": 1136,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-015790",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             }
-          ],
-          "fundColumns": [
-            "基金点击名称展开",
-            "当前持仓市值",
-            "当前权重",
-            "估算涨跌幅",
-            "今日预估收益按当前持仓估算",
-            "质量"
           ],
           "fundRowsInViewport": false,
-          "lastFundBottom": 1185,
-          "headerTime": "14:32:10",
-          "allUpdateTimes": [
-            "14:32:10"
-          ],
-          "singleGlobalTime": true,
-          "timeToSecond": true,
-          "refreshSize": {
-            "w": 103,
-            "h": 44
-          },
-          "refreshVisible": true,
-          "staleCount": 1,
-          "toggleInNameCell": true,
-          "navColumnRemoved": true,
-          "targetColumnMovedToPanel": true,
-          "noFundRowLinks": true,
-          "indexTable": true,
-          "fundTable": true,
-          "noFormControls": true,
-          "upColor": "#dc2626",
-          "downColor": "#16a34a",
-          "indexStateColHidden": false,
-          "fundTableMode": "stacked",
-          "indexTableMode": "table",
-          "peDemoNote": true,
-          "chartDemoNote": true
-        },
-        "expanded": {
-          "viewportWidth": 768,
-          "scrollWidth": 768,
-          "overflowX": 0,
-          "clipped": [],
-          "overflowers": [],
-          "touchSmall": [],
-          "clippedCount": 0,
-          "overflowersCount": 0,
-          "touchSmallCount": 0,
-          "checks": {
-            "open": true,
-            "charts": 2,
-            "intraday": true,
-            "multiPeriod": true,
-            "svgs": 2,
-            "todayLine": 2,
-            "costLine": 1,
-            "crossMarkers": 1,
-            "legend": [
-              "估算涨跌幅今日估算",
-              "历史净值今日估算持仓成本历史交叉"
-            ],
-            "dataTables": 1,
-            "ariaOk": true,
-            "facts": [
-              "当前持仓市值14.5 万",
-              "当前权重21.4%",
-              "目标权重16%",
-              "偏离+5.4pct",
-              "持仓成本净值1.2280",
-              "估算净值1.2945"
-            ],
-            "openRows": 1,
-            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
-          },
-          "collapsedOverflowX": 0
-        }
-      },
-      "1024": {
-        "viewportWidth": 1024,
-        "scrollWidth": 1024,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "value": "3,628.41+15.21 点",
-              "pct": "+0.42%",
-              "points": "+15.21 点",
-              "pe": "15.82",
-              "pePct": "61%",
-              "peBarWidth": "61%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "深证成指",
-              "value": "11,452.68+73.96 点",
-              "pct": "+0.65%",
-              "points": "+73.96 点",
-              "pe": "24.36",
-              "pePct": "48%",
-              "peBarWidth": "48%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "创业板指",
-              "value": "2,431.20+20.73 点",
-              "pct": "+0.86%",
-              "points": "+20.73 点",
-              "pe": "33.15",
-              "pePct": "27%",
-              "peBarWidth": "27%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "沪深300",
-              "value": "4,285.63+13.25 点",
-              "pct": "+0.31%",
-              "points": "+13.25 点",
-              "pe": "13.47",
-              "pePct": "54%",
-              "peBarWidth": "54%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            }
-          ],
+          "lastFundBottom": 1181,
+          "viewportHeight": 900,
+          "auditSection": true,
+          "writeDemoText": true,
+          "chartDemoNote": true,
           "indexColumns": [
             "指数",
             "点位",
@@ -1017,6 +1113,164 @@
             "PE-TTM",
             "PE 历史分位近 10 年 · 演示",
             "状态"
+          ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ]
+        },
+        "extreme": {
+          "pctLines": 1,
+          "pnlLines": 1,
+          "pctFits": true,
+          "pnlFits": true,
+          "docOverflow": 0,
+          "negLines": 1,
+          "negFits": true,
+          "negDocOverflow": 0
+        },
+        "expanded": {
+          "open": true,
+          "hasPanel": true,
+          "targets": [
+            "当前权重 → 目标权重21.4% → 20.2%",
+            "当前持仓市值 → 调整后目标市值14.50 万 → 13.70 万",
+            "调整金额−¥8,000.00",
+            "偏离（目标 − 当前）−1.2pp",
+            "执行状态待保存（演示）"
+          ],
+          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
+          "form": true,
+          "formInputs": 2,
+          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
+          "auditList": true,
+          "charts": 2,
+          "svgs": 2,
+          "todayLine": 2,
+          "costLine": 2,
+          "crosses": 3,
+          "dashed": 4,
+          "ariaOk": true,
+          "dataTables": 1,
+          "zoomBtns": 2,
+          "zoomSizes": [
+            "66x44",
+            "66x44"
+          ],
+          "hasZoom": true,
+          "fiveYearLabel": "近五年",
+          "measure": {
+            "viewportWidth": 768,
+            "scrollWidth": 768,
+            "overflowX": 0,
+            "clipped": [],
+            "overflowers": [],
+            "touchSmall": [],
+            "clippedCount": 0,
+            "overflowersCount": 0,
+            "touchSmallCount": 0
+          }
+        }
+      },
+      "advice.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "news.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "portfolio.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "compare.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "history.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "settings.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      }
+    },
+    "1024": {
+      "index.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "checks": {
+          "indices": 4,
+          "indexChecks": [
+            {
+              "name": "上证指数",
+              "pct": "+0.42%",
+              "pe": "15.82",
+              "pePct": "61%",
+              "state": "上涨"
+            },
+            {
+              "name": "深证成指",
+              "pct": "+0.65%",
+              "pe": "24.36",
+              "pePct": "48%",
+              "state": "上涨"
+            },
+            {
+              "name": "创业板指",
+              "pct": "+0.86%",
+              "pe": "33.15",
+              "pePct": "27%",
+              "state": "上涨"
+            },
+            {
+              "name": "沪深300",
+              "pct": "+0.31%",
+              "pe": "13.47",
+              "pePct": "54%",
+              "state": "上涨"
+            }
           ],
           "funds": 5,
           "fundChecks": [
@@ -1026,17 +1280,25 @@
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
-              "pnl": "+1,189元",
-              "quality": "estimate",
+              "pnl": "+¥1,189",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 91,
+              "pctScrollWidth": 91,
+              "pnlClientWidth": 124,
+              "pnlScrollWidth": 124,
+              "pnlTop": 608,
+              "pctTop": 608,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006503",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "华夏中证机器人ETF联接C",
@@ -1044,17 +1306,25 @@
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
-              "pnl": "+1,599元",
-              "quality": "estimate",
+              "pnl": "+¥1,599",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 91,
+              "pctScrollWidth": 91,
+              "pnlClientWidth": 124,
+              "pnlScrollWidth": 124,
+              "pnlTop": 657,
+              "pctTop": 657,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-018345",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国联安核心资产混合",
@@ -1062,17 +1332,25 @@
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
-              "pnl": "+218元",
-              "quality": "estimate",
+              "pnl": "+¥218",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 91,
+              "pctScrollWidth": 91,
+              "pnlClientWidth": 124,
+              "pnlScrollWidth": 124,
+              "pnlTop": 706,
+              "pctTop": 706,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006864",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
@@ -1080,17 +1358,25 @@
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
-              "pnl": "+454元",
-              "quality": "stale",
+              "pnl": "+¥454",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 91,
+              "pctScrollWidth": 91,
+              "pnlClientWidth": 124,
+              "pnlScrollWidth": 124,
+              "pnlTop": 755,
+              "pctTop": 755,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": true,
-              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-007818",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "永赢高端装备智选混合发起C",
@@ -1098,153 +1384,33 @@
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
-              "pnl": "−259元",
-              "quality": "estimate",
+              "pnl": "−¥259",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 91,
+              "pctScrollWidth": 91,
+              "pnlClientWidth": 124,
+              "pnlScrollWidth": 124,
+              "pnlTop": 821,
+              "pctTop": 821,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-015790",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             }
-          ],
-          "fundColumns": [
-            "基金点击名称展开",
-            "当前持仓市值",
-            "当前权重",
-            "估算涨跌幅",
-            "今日预估收益按当前持仓估算",
-            "质量"
           ],
           "fundRowsInViewport": true,
-          "lastFundBottom": 898,
-          "headerTime": "14:32:10",
-          "allUpdateTimes": [
-            "14:32:10"
-          ],
-          "singleGlobalTime": true,
-          "timeToSecond": true,
-          "refreshSize": {
-            "w": 103,
-            "h": 44
-          },
-          "refreshVisible": true,
-          "staleCount": 1,
-          "toggleInNameCell": true,
-          "navColumnRemoved": true,
-          "targetColumnMovedToPanel": true,
-          "noFundRowLinks": true,
-          "indexTable": true,
-          "fundTable": true,
-          "noFormControls": true,
-          "upColor": "#dc2626",
-          "downColor": "#16a34a",
-          "indexStateColHidden": false,
-          "fundTableMode": "table",
-          "indexTableMode": "table",
-          "peDemoNote": true,
-          "chartDemoNote": true
-        },
-        "expanded": {
-          "viewportWidth": 1024,
-          "scrollWidth": 1024,
-          "overflowX": 0,
-          "clipped": [],
-          "overflowers": [],
-          "touchSmall": [],
-          "clippedCount": 0,
-          "overflowersCount": 0,
-          "touchSmallCount": 0,
-          "checks": {
-            "open": true,
-            "charts": 2,
-            "intraday": true,
-            "multiPeriod": true,
-            "svgs": 2,
-            "todayLine": 2,
-            "costLine": 1,
-            "crossMarkers": 1,
-            "legend": [
-              "估算涨跌幅今日估算",
-              "历史净值今日估算持仓成本历史交叉"
-            ],
-            "dataTables": 1,
-            "ariaOk": true,
-            "facts": [
-              "当前持仓市值14.5 万",
-              "当前权重21.4%",
-              "目标权重16%",
-              "偏离+5.4pct",
-              "持仓成本净值1.2280",
-              "估算净值1.2945"
-            ],
-            "openRows": 1,
-            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
-          },
-          "collapsedOverflowX": 0
-        }
-      },
-      "1280": {
-        "viewportWidth": 1280,
-        "scrollWidth": 1280,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "value": "3,628.41+15.21 点",
-              "pct": "+0.42%",
-              "points": "+15.21 点",
-              "pe": "15.82",
-              "pePct": "61%",
-              "peBarWidth": "61%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "深证成指",
-              "value": "11,452.68+73.96 点",
-              "pct": "+0.65%",
-              "points": "+73.96 点",
-              "pe": "24.36",
-              "pePct": "48%",
-              "peBarWidth": "48%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "创业板指",
-              "value": "2,431.20+20.73 点",
-              "pct": "+0.86%",
-              "points": "+20.73 点",
-              "pe": "33.15",
-              "pePct": "27%",
-              "peBarWidth": "27%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            },
-            {
-              "name": "沪深300",
-              "value": "4,285.63+13.25 点",
-              "pct": "+0.31%",
-              "points": "+13.25 点",
-              "pe": "13.47",
-              "pePct": "54%",
-              "peBarWidth": "54%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
-            }
-          ],
+          "lastFundBottom": 869,
+          "viewportHeight": 900,
+          "auditSection": true,
+          "writeDemoText": true,
+          "chartDemoNote": true,
           "indexColumns": [
             "指数",
             "点位",
@@ -1252,6 +1418,164 @@
             "PE-TTM",
             "PE 历史分位近 10 年 · 演示",
             "状态"
+          ],
+          "fundColumns": [
+            "基金点击名称展开",
+            "当前持仓市值",
+            "当前权重",
+            "估算涨跌幅",
+            "今日预估收益按当前持仓估算",
+            "质量"
+          ]
+        },
+        "extreme": {
+          "pctLines": 1,
+          "pnlLines": 1,
+          "pctFits": true,
+          "pnlFits": true,
+          "docOverflow": 0,
+          "negLines": 1,
+          "negFits": true,
+          "negDocOverflow": 0
+        },
+        "expanded": {
+          "open": true,
+          "hasPanel": true,
+          "targets": [
+            "当前权重 → 目标权重21.4% → 20.2%",
+            "当前持仓市值 → 调整后目标市值14.50 万 → 13.70 万",
+            "调整金额−¥8,000.00",
+            "偏离（目标 − 当前）−1.2pp",
+            "执行状态待保存（演示）"
+          ],
+          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
+          "form": true,
+          "formInputs": 2,
+          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
+          "auditList": true,
+          "charts": 2,
+          "svgs": 2,
+          "todayLine": 2,
+          "costLine": 2,
+          "crosses": 3,
+          "dashed": 4,
+          "ariaOk": true,
+          "dataTables": 1,
+          "zoomBtns": 2,
+          "zoomSizes": [
+            "66x44",
+            "66x44"
+          ],
+          "hasZoom": true,
+          "fiveYearLabel": "近五年",
+          "measure": {
+            "viewportWidth": 1024,
+            "scrollWidth": 1024,
+            "overflowX": 0,
+            "clipped": [],
+            "overflowers": [],
+            "touchSmall": [],
+            "clippedCount": 0,
+            "overflowersCount": 0,
+            "touchSmallCount": 0
+          }
+        }
+      },
+      "advice.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "news.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "portfolio.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "compare.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "history.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "settings.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      }
+    },
+    "1280": {
+      "index.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0,
+        "checks": {
+          "indices": 4,
+          "indexChecks": [
+            {
+              "name": "上证指数",
+              "pct": "+0.42%",
+              "pe": "15.82",
+              "pePct": "61%",
+              "state": "上涨"
+            },
+            {
+              "name": "深证成指",
+              "pct": "+0.65%",
+              "pe": "24.36",
+              "pePct": "48%",
+              "state": "上涨"
+            },
+            {
+              "name": "创业板指",
+              "pct": "+0.86%",
+              "pe": "33.15",
+              "pePct": "27%",
+              "state": "上涨"
+            },
+            {
+              "name": "沪深300",
+              "pct": "+0.31%",
+              "pe": "13.47",
+              "pePct": "54%",
+              "state": "上涨"
+            }
           ],
           "funds": 5,
           "fundChecks": [
@@ -1261,17 +1585,25 @@
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
-              "pnl": "+1,189元",
-              "quality": "estimate",
+              "pnl": "+¥1,189",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 126,
+              "pctScrollWidth": 126,
+              "pnlClientWidth": 178,
+              "pnlScrollWidth": 178,
+              "pnlTop": 616,
+              "pctTop": 616,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006503",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "华夏中证机器人ETF联接C",
@@ -1279,17 +1611,25 @@
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
-              "pnl": "+1,599元",
-              "quality": "estimate",
+              "pnl": "+¥1,599",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 126,
+              "pctScrollWidth": 126,
+              "pnlClientWidth": 178,
+              "pnlScrollWidth": 178,
+              "pnlTop": 665,
+              "pctTop": 665,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-018345",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国联安核心资产混合",
@@ -1297,17 +1637,25 @@
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
-              "pnl": "+218元",
-              "quality": "estimate",
+              "pnl": "+¥218",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 126,
+              "pctScrollWidth": 126,
+              "pnlClientWidth": 178,
+              "pnlScrollWidth": 178,
+              "pnlTop": 714,
+              "pctTop": 714,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006864",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
@@ -1315,17 +1663,25 @@
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
-              "pnl": "+454元",
-              "quality": "stale",
+              "pnl": "+¥454",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 126,
+              "pctScrollWidth": 126,
+              "pnlClientWidth": 178,
+              "pnlScrollWidth": 178,
+              "pnlTop": 763,
+              "pctTop": 763,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": true,
-              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-007818",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "永赢高端装备智选混合发起C",
@@ -1333,18 +1689,40 @@
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
-              "pnl": "−259元",
-              "quality": "estimate",
+              "pnl": "−¥259",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 126,
+              "pctScrollWidth": 126,
+              "pnlClientWidth": 178,
+              "pnlScrollWidth": 178,
+              "pnlTop": 829,
+              "pctTop": 829,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-015790",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             }
+          ],
+          "fundRowsInViewport": true,
+          "lastFundBottom": 877,
+          "viewportHeight": 900,
+          "auditSection": true,
+          "writeDemoText": true,
+          "chartDemoNote": true,
+          "indexColumns": [
+            "指数",
+            "点位",
+            "涨跌幅",
+            "PE-TTM",
+            "PE 历史分位近 10 年 · 演示",
+            "状态"
           ],
           "fundColumns": [
             "基金点击名称展开",
@@ -1353,140 +1731,156 @@
             "估算涨跌幅",
             "今日预估收益按当前持仓估算",
             "质量"
-          ],
-          "fundRowsInViewport": true,
-          "lastFundBottom": 891,
-          "headerTime": "14:32:10",
-          "allUpdateTimes": [
-            "14:32:10"
-          ],
-          "singleGlobalTime": true,
-          "timeToSecond": true,
-          "refreshSize": {
-            "w": 103,
-            "h": 44
-          },
-          "refreshVisible": true,
-          "staleCount": 1,
-          "toggleInNameCell": true,
-          "navColumnRemoved": true,
-          "targetColumnMovedToPanel": true,
-          "noFundRowLinks": true,
-          "indexTable": true,
-          "fundTable": true,
-          "noFormControls": true,
-          "upColor": "#dc2626",
-          "downColor": "#16a34a",
-          "indexStateColHidden": false,
-          "fundTableMode": "table",
-          "indexTableMode": "table",
-          "peDemoNote": true,
-          "chartDemoNote": true
+          ]
+        },
+        "extreme": {
+          "pctLines": 1,
+          "pnlLines": 1,
+          "pctFits": true,
+          "pnlFits": true,
+          "docOverflow": 0,
+          "negLines": 1,
+          "negFits": true,
+          "negDocOverflow": 0
         },
         "expanded": {
-          "viewportWidth": 1280,
-          "scrollWidth": 1280,
-          "overflowX": 0,
-          "clipped": [],
-          "overflowers": [],
-          "touchSmall": [],
-          "clippedCount": 0,
-          "overflowersCount": 0,
-          "touchSmallCount": 0,
-          "checks": {
-            "open": true,
-            "charts": 2,
-            "intraday": true,
-            "multiPeriod": true,
-            "svgs": 2,
-            "todayLine": 2,
-            "costLine": 1,
-            "crossMarkers": 1,
-            "legend": [
-              "估算涨跌幅今日估算",
-              "历史净值今日估算持仓成本历史交叉"
-            ],
-            "dataTables": 1,
-            "ariaOk": true,
-            "facts": [
-              "当前持仓市值14.5 万",
-              "当前权重21.4%",
-              "目标权重16%",
-              "偏离+5.4pct",
-              "持仓成本净值1.2280",
-              "估算净值1.2945"
-            ],
-            "openRows": 1,
-            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
-          },
-          "collapsedOverflowX": 0
+          "open": true,
+          "hasPanel": true,
+          "targets": [
+            "当前权重 → 目标权重21.4% → 20.2%",
+            "当前持仓市值 → 调整后目标市值14.50 万 → 13.70 万",
+            "调整金额−¥8,000.00",
+            "偏离（目标 − 当前）−1.2pp",
+            "执行状态待保存（演示）"
+          ],
+          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
+          "form": true,
+          "formInputs": 2,
+          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
+          "auditList": true,
+          "charts": 2,
+          "svgs": 2,
+          "todayLine": 2,
+          "costLine": 2,
+          "crosses": 3,
+          "dashed": 4,
+          "ariaOk": true,
+          "dataTables": 1,
+          "zoomBtns": 2,
+          "zoomSizes": [
+            "66x44",
+            "66x44"
+          ],
+          "hasZoom": true,
+          "fiveYearLabel": "近五年",
+          "measure": {
+            "viewportWidth": 1280,
+            "scrollWidth": 1280,
+            "overflowX": 0,
+            "clipped": [],
+            "overflowers": [],
+            "touchSmall": [],
+            "clippedCount": 0,
+            "overflowersCount": 0,
+            "touchSmallCount": 0
+          }
         }
       },
-      "1440": {
-        "viewportWidth": 1440,
-        "scrollWidth": 1440,
+      "advice.html": {
         "overflowX": 0,
-        "clipped": [],
         "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
         "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "news.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "portfolio.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "compare.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "history.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      },
+      "settings.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
+        "touchSmallCount": 0
+      }
+    },
+    "1440": {
+      "index.html": {
+        "overflowX": 0,
+        "overflowers": [],
+        "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
         "touchSmallCount": 0,
         "checks": {
           "indices": 4,
           "indexChecks": [
             {
               "name": "上证指数",
-              "value": "3,628.41+15.21 点",
               "pct": "+0.42%",
-              "points": "+15.21 点",
               "pe": "15.82",
               "pePct": "61%",
-              "peBarWidth": "61%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
+              "state": "上涨"
             },
             {
               "name": "深证成指",
-              "value": "11,452.68+73.96 点",
               "pct": "+0.65%",
-              "points": "+73.96 点",
               "pe": "24.36",
               "pePct": "48%",
-              "peBarWidth": "48%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
+              "state": "上涨"
             },
             {
               "name": "创业板指",
-              "value": "2,431.20+20.73 点",
               "pct": "+0.86%",
-              "points": "+20.73 点",
               "pe": "33.15",
               "pePct": "27%",
-              "peBarWidth": "27%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
+              "state": "上涨"
             },
             {
               "name": "沪深300",
-              "value": "4,285.63+13.25 点",
               "pct": "+0.31%",
-              "points": "+13.25 点",
               "pe": "13.47",
               "pePct": "54%",
-              "peBarWidth": "54%",
-              "state": "上涨",
-              "pctColor": "rgb(220, 38, 38)"
+              "state": "上涨"
             }
-          ],
-          "indexColumns": [
-            "指数",
-            "点位",
-            "涨跌幅",
-            "PE-TTM",
-            "PE 历史分位近 10 年 · 演示",
-            "状态"
           ],
           "funds": 5,
           "fundChecks": [
@@ -1496,17 +1890,25 @@
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
-              "pnl": "+1,189元",
-              "quality": "estimate",
+              "pnl": "+¥1,189",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 146,
+              "pctScrollWidth": 146,
+              "pnlClientWidth": 207,
+              "pnlScrollWidth": 207,
+              "pnlTop": 613,
+              "pctTop": 613,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006503",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "华夏中证机器人ETF联接C",
@@ -1514,17 +1916,25 @@
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
-              "pnl": "+1,599元",
-              "quality": "estimate",
+              "pnl": "+¥1,599",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 146,
+              "pctScrollWidth": 146,
+              "pnlClientWidth": 207,
+              "pnlScrollWidth": 207,
+              "pnlTop": 662,
+              "pctTop": 662,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-018345",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国联安核心资产混合",
@@ -1532,17 +1942,25 @@
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
-              "pnl": "+218元",
-              "quality": "estimate",
+              "pnl": "+¥218",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 146,
+              "pctScrollWidth": 146,
+              "pnlClientWidth": 207,
+              "pnlScrollWidth": 207,
+              "pnlTop": 711,
+              "pctTop": 711,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-006864",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
@@ -1550,17 +1968,25 @@
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
-              "pnl": "+454元",
-              "quality": "stale",
+              "pnl": "+¥454",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 146,
+              "pctScrollWidth": 146,
+              "pnlClientWidth": 207,
+              "pnlScrollWidth": 207,
+              "pnlTop": 760,
+              "pctTop": 760,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": true,
-              "staleText": "最近可用 13:58:20 · 延迟 34 分钟",
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-007818",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             },
             {
               "name": "永赢高端装备智选混合发起C",
@@ -1568,18 +1994,40 @@
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
-              "pnl": "−259元",
-              "quality": "estimate",
+              "pnl": "−¥259",
+              "pctLines": 1,
+              "pnlLines": 1,
+              "pctWhiteSpace": "nowrap",
+              "pnlWhiteSpace": "nowrap",
+              "pctAlign": "right",
+              "pnlAlign": "right",
+              "pctTabular": "tabular-nums",
+              "pnlTabular": "tabular-nums",
+              "pctClientWidth": 146,
+              "pctScrollWidth": 146,
+              "pnlClientWidth": 207,
+              "pnlScrollWidth": 207,
+              "pnlTop": 826,
+              "pctTop": 826,
+              "pnlIsSecondary": false,
+              "hasYen": true,
               "stale": false,
-              "staleText": null,
-              "toggleInNameCell": true,
-              "ariaExpanded": "false",
-              "ariaControls": "advice-015790",
-              "chevron": true,
-              "navCell": false,
-              "targetCell": false,
-              "hasJumpLink": false
+              "ariaExpanded": "false"
             }
+          ],
+          "fundRowsInViewport": true,
+          "lastFundBottom": 874,
+          "viewportHeight": 900,
+          "auditSection": true,
+          "writeDemoText": true,
+          "chartDemoNote": true,
+          "indexColumns": [
+            "指数",
+            "点位",
+            "涨跌幅",
+            "PE-TTM",
+            "PE 历史分位近 10 年 · 演示",
+            "状态"
           ],
           "fundColumns": [
             "基金点击名称展开",
@@ -1588,690 +2036,290 @@
             "估算涨跌幅",
             "今日预估收益按当前持仓估算",
             "质量"
-          ],
-          "fundRowsInViewport": true,
-          "lastFundBottom": 888,
-          "headerTime": "14:32:10",
-          "allUpdateTimes": [
-            "14:32:10"
-          ],
-          "singleGlobalTime": true,
-          "timeToSecond": true,
-          "refreshSize": {
-            "w": 103,
-            "h": 44
-          },
-          "refreshVisible": true,
-          "staleCount": 1,
-          "toggleInNameCell": true,
-          "navColumnRemoved": true,
-          "targetColumnMovedToPanel": true,
-          "noFundRowLinks": true,
-          "indexTable": true,
-          "fundTable": true,
-          "noFormControls": true,
-          "upColor": "#dc2626",
-          "downColor": "#16a34a",
-          "indexStateColHidden": false,
-          "fundTableMode": "table",
-          "indexTableMode": "table",
-          "peDemoNote": true,
-          "chartDemoNote": true
+          ]
+        },
+        "extreme": {
+          "pctLines": 1,
+          "pnlLines": 1,
+          "pctFits": true,
+          "pnlFits": true,
+          "docOverflow": 0,
+          "negLines": 1,
+          "negFits": true,
+          "negDocOverflow": 0
         },
         "expanded": {
-          "viewportWidth": 1440,
-          "scrollWidth": 1440,
-          "overflowX": 0,
-          "clipped": [],
-          "overflowers": [],
-          "touchSmall": [],
-          "clippedCount": 0,
-          "overflowersCount": 0,
-          "touchSmallCount": 0,
-          "checks": {
-            "open": true,
-            "charts": 2,
-            "intraday": true,
-            "multiPeriod": true,
-            "svgs": 2,
-            "todayLine": 2,
-            "costLine": 1,
-            "crossMarkers": 1,
-            "legend": [
-              "估算涨跌幅今日估算",
-              "历史净值今日估算持仓成本历史交叉"
-            ],
-            "dataTables": 1,
-            "ariaOk": true,
-            "facts": [
-              "当前持仓市值14.5 万",
-              "当前权重21.4%",
-              "目标权重16%",
-              "偏离+5.4pct",
-              "持仓成本净值1.2280",
-              "估算净值1.2945"
-            ],
-            "openRows": 1,
-            "panelText": "操作减仓金额0.8 万执行状态executed · 14:31 已应用当前持仓市值14.5 万当前权重21.4%目标权重16%偏离+5.4pct持仓成本净值1.2280估算净值1.2945权重 21.4% 高于目标 16.0%，按反抽规则减"
-          },
-          "collapsedOverflowX": 0
+          "open": true,
+          "hasPanel": true,
+          "targets": [
+            "当前权重 → 目标权重21.4% → 20.2%",
+            "当前持仓市值 → 调整后目标市值14.50 万 → 13.70 万",
+            "调整金额−¥8,000.00",
+            "偏离（目标 − 当前）−1.2pp",
+            "执行状态待保存（演示）"
+          ],
+          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
+          "form": true,
+          "formInputs": 2,
+          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
+          "auditList": true,
+          "charts": 2,
+          "svgs": 2,
+          "todayLine": 2,
+          "costLine": 2,
+          "crosses": 3,
+          "dashed": 4,
+          "ariaOk": true,
+          "dataTables": 1,
+          "zoomBtns": 2,
+          "zoomSizes": [
+            "66x44",
+            "66x44"
+          ],
+          "hasZoom": true,
+          "fiveYearLabel": "近五年",
+          "measure": {
+            "viewportWidth": 1440,
+            "scrollWidth": 1440,
+            "overflowX": 0,
+            "clipped": [],
+            "overflowers": [],
+            "touchSmall": [],
+            "clippedCount": 0,
+            "overflowersCount": 0,
+            "touchSmallCount": 0
+          }
         }
-      }
-    },
-    "advice.html": {
-      "360": {
-        "viewportWidth": 360,
-        "scrollWidth": 360,
+      },
+      "advice.html": {
         "overflowX": 0,
-        "clipped": [],
         "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
         "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
         "touchSmallCount": 0
       },
-      "390": {
-        "viewportWidth": 390,
-        "scrollWidth": 390,
+      "news.html": {
         "overflowX": 0,
-        "clipped": [],
         "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
         "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
         "touchSmallCount": 0
       },
-      "414": {
-        "viewportWidth": 414,
-        "scrollWidth": 414,
+      "portfolio.html": {
         "overflowX": 0,
-        "clipped": [],
         "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
         "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
         "touchSmallCount": 0
       },
-      "768": {
-        "viewportWidth": 768,
-        "scrollWidth": 768,
+      "compare.html": {
         "overflowX": 0,
-        "clipped": [],
         "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
         "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
         "touchSmallCount": 0
       },
-      "1024": {
-        "viewportWidth": 1024,
-        "scrollWidth": 1024,
+      "history.html": {
         "overflowX": 0,
-        "clipped": [],
         "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
         "overflowersCount": 0,
+        "clipped": [],
+        "clippedCount": 0,
+        "touchSmall": [],
         "touchSmallCount": 0
       },
-      "1280": {
-        "viewportWidth": 1280,
-        "scrollWidth": 1280,
+      "settings.html": {
         "overflowX": 0,
-        "clipped": [],
         "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
         "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1440": {
-        "viewportWidth": 1440,
-        "scrollWidth": 1440,
-        "overflowX": 0,
         "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
         "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      }
-    },
-    "news.html": {
-      "360": {
-        "viewportWidth": 360,
-        "scrollWidth": 360,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
         "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "390": {
-        "viewportWidth": 390,
-        "scrollWidth": 390,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "414": {
-        "viewportWidth": 414,
-        "scrollWidth": 414,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "768": {
-        "viewportWidth": 768,
-        "scrollWidth": 768,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1024": {
-        "viewportWidth": 1024,
-        "scrollWidth": 1024,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1280": {
-        "viewportWidth": 1280,
-        "scrollWidth": 1280,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1440": {
-        "viewportWidth": 1440,
-        "scrollWidth": 1440,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      }
-    },
-    "portfolio.html": {
-      "360": {
-        "viewportWidth": 360,
-        "scrollWidth": 360,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "390": {
-        "viewportWidth": 390,
-        "scrollWidth": 390,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "414": {
-        "viewportWidth": 414,
-        "scrollWidth": 414,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "768": {
-        "viewportWidth": 768,
-        "scrollWidth": 768,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1024": {
-        "viewportWidth": 1024,
-        "scrollWidth": 1024,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1280": {
-        "viewportWidth": 1280,
-        "scrollWidth": 1280,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1440": {
-        "viewportWidth": 1440,
-        "scrollWidth": 1440,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      }
-    },
-    "compare.html": {
-      "360": {
-        "viewportWidth": 360,
-        "scrollWidth": 360,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "390": {
-        "viewportWidth": 390,
-        "scrollWidth": 390,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "414": {
-        "viewportWidth": 414,
-        "scrollWidth": 414,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "768": {
-        "viewportWidth": 768,
-        "scrollWidth": 768,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1024": {
-        "viewportWidth": 1024,
-        "scrollWidth": 1024,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1280": {
-        "viewportWidth": 1280,
-        "scrollWidth": 1280,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1440": {
-        "viewportWidth": 1440,
-        "scrollWidth": 1440,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      }
-    },
-    "history.html": {
-      "360": {
-        "viewportWidth": 360,
-        "scrollWidth": 360,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "390": {
-        "viewportWidth": 390,
-        "scrollWidth": 390,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "414": {
-        "viewportWidth": 414,
-        "scrollWidth": 414,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "768": {
-        "viewportWidth": 768,
-        "scrollWidth": 768,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1024": {
-        "viewportWidth": 1024,
-        "scrollWidth": 1024,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1280": {
-        "viewportWidth": 1280,
-        "scrollWidth": 1280,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1440": {
-        "viewportWidth": 1440,
-        "scrollWidth": 1440,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      }
-    },
-    "settings.html": {
-      "360": {
-        "viewportWidth": 360,
-        "scrollWidth": 360,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "390": {
-        "viewportWidth": 390,
-        "scrollWidth": 390,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "414": {
-        "viewportWidth": 414,
-        "scrollWidth": 414,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "768": {
-        "viewportWidth": 768,
-        "scrollWidth": 768,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1024": {
-        "viewportWidth": 1024,
-        "scrollWidth": 1024,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1280": {
-        "viewportWidth": 1280,
-        "scrollWidth": 1280,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      },
-      "1440": {
-        "viewportWidth": 1440,
-        "scrollWidth": 1440,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      }
-    },
-    "popup.html": {
-      "390": {
-        "viewportWidth": 390,
-        "scrollWidth": 390,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
         "touchSmallCount": 0
       }
     }
   },
-  "moreSheet": {
-    "open": {
-      "hidden": false,
-      "open": true,
-      "items": 3,
-      "hrefs": [
-        "compare.html",
-        "history.html",
-        "settings.html"
-      ],
-      "panelRight": 390,
-      "panelLeft": 0,
-      "panelWidth": 390,
-      "itemSizes": [
-        {
-          "w": 358,
-          "h": 56
-        },
-        {
-          "w": 358,
-          "h": 56
-        },
-        {
-          "w": 358,
-          "h": 56
-        }
-      ],
-      "expanded": "true",
-      "closeSize": {
-        "w": 44,
-        "h": 44
-      }
-    },
-    "afterEscape": {
-      "hidden": true,
-      "expanded": "false"
-    }
-  },
+  "moreSheet": {},
   "interactions": {
-    "autoTime": {
-      "time": "14:32:10",
-      "autoRefreshed": "1",
-      "openRows": 0
-    },
-    "expand": {
-      "first": {
-        "open": "advice-006503",
-        "expanded": [
-          "true",
-          "false",
-          "false",
-          "false",
-          "false"
-        ],
-        "chevronRotate": "matrix(0.0259936, 0.999662, -0.999662, 0.0259936, 0, 0)",
-        "charts": 2,
-        "noOverflow": true
+    "zoom": {
+      "beforeScroll": 420,
+      "opened": {
+        "open": true,
+        "svg": true,
+        "dashed": 3,
+        "crossCircles": 2,
+        "legend": "历史净值今日估算持仓成本历史交叉",
+        "summary": "起点 1.1584，终点 1.2840；区间最高 1.2935，最低 1.1584；今日估算 1.2945，持仓成本 1.2280；历史交叉 1 处。",
+        "title": "财通集成电路产业股票C · 近一年净值趋势（放大）",
+        "axes": 14,
+        "focusStage": true,
+        "scrollLocked": true,
+        "scale": "100%",
+        "transform": "translate(0px, 0px) scale(1)"
       },
-      "second": {
-        "open": [
-          "advice-018345"
-        ],
-        "expanded": [
-          "false",
-          "true",
-          "false",
-          "false",
-          "false"
-        ]
-      }
+      "zoomed": {
+        "scale": "144%",
+        "transform": "translate(-257px, -110.9px) scale(1.44)"
+      },
+      "panned": "translate(-197px, -60.9px) scale(1.44)",
+      "wheeled": "166%",
+      "reset": {
+        "scale": "100%",
+        "transform": "translate(0px, 0px) scale(1)"
+      },
+      "closed": {
+        "hidden": true,
+        "focusTrigger": "period",
+        "fundOpen": "true",
+        "scrollY": 420,
+        "activePeriod": "近一年"
+      },
+      "intraday": {
+        "title": "财通集成电路产业股票C · 当日分时（放大）",
+        "svg": true,
+        "dashed": 1,
+        "legend": "估算涨跌幅今日估算",
+        "summary": "最后一点 14:32 · +0.82%；今日估算以主色虚线标示，估算值为演示数据，可能被官方净值修正。"
+      },
+      "scrollRestored": true
     },
-    "keyboard": {
-      "afterEnter": {
+    "write": {
+      "holdDefault": {
+        "targets": [
+          "当前权重 → 目标权重15.3% → 15.3%",
+          "当前持仓市值 → 调整后目标市值10.40 万 → 10.40 万",
+          "调整金额¥0.00",
+          "偏离（目标 − 当前）0.0pp",
+          "执行状态保持（目标 = 当前）"
+        ],
+        "weight": "15.3%",
+        "targetText": "15.3% → 15.3%",
+        "deviation": "0.0pp",
+        "status": "保持（目标 = 当前）"
+      },
+      "negative": {
+        "error": "目标权重与目标市值不能为负。",
+        "hidden": false,
+        "disabled": true,
+        "weight": "15.3% → -1.0%",
+        "amount": "10.40 万 → -0.68 万",
+        "delta": "−¥110,790.00",
+        "deviation": "−16.3pp"
+      },
+      "tooMuchCash": {
+        "error": "超出 mock 可用现金 ¥150,000。",
+        "hidden": false,
+        "disabled": true,
+        "weight": "15.3% → 44.8%",
+        "amount": "10.40 万 → 30.40 万",
+        "delta": "+¥200,000.00",
+        "deviation": "+29.5pp"
+      },
+      "tooSmall": {
+        "error": "最小变动单位为 ¥1,000。",
+        "hidden": false,
+        "disabled": true,
+        "weight": "15.3% → 15.4%",
+        "amount": "10.40 万 → 10.45 万",
+        "delta": "+¥500.00",
+        "deviation": "+0.1pp"
+      },
+      "valid": {
+        "error": "",
+        "hidden": true,
+        "disabled": false,
+        "weight": "15.3% → 25.0%",
+        "amount": "10.40 万 → 16.98 万",
+        "delta": "+¥65,750.00",
+        "deviation": "+9.7pp"
+      },
+      "beforeSave": {
+        "amount": "10.4 万",
+        "weight": "15.3%"
+      },
+      "afterSave": {
+        "amount": "17 万",
+        "weight": "25.0%",
+        "targetText": "25.0% → 25.0%",
+        "status": "保持（目标 = 当前）",
+        "auditRows": 1,
+        "fundAudit": 1,
+        "toast": "已保存演示调整 · 国联安核心资产混合 ¥104,000 → ¥169,750撤销",
+        "stored": true,
+        "storedPositions": {
+          "006864": {
+            "amount": 169750,
+            "target": 0.25,
+            "costNav": 2.1735
+          }
+        },
+        "audit": [
+          {
+            "time": "18:52:12",
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "fromAmount": 104000,
+            "toAmount": 169750,
+            "fromWeight": 0.15316642120765833,
+            "toWeight": 0.25,
+            "source": "网页",
+            "action": "调整"
+          }
+        ]
+      },
+      "afterUndo": {
+        "amount": "10.4 万",
+        "weight": "15.3%",
+        "auditRows": 0
+      },
+      "persisted": {
+        "amount": "17 万",
+        "weight": "25.0%",
+        "auditRows": 1,
         "open": [
           "advice-006864"
         ],
-        "expanded": [
-          "false",
-          "false",
-          "true",
-          "false",
-          "false"
-        ],
-        "focus": "fund-toggle"
+        "auditText": "18:52:13国联安核心资产混合¥104,000.00 → ¥169,750.00来源 网页"
       },
-      "afterSpace": {
-        "open": 0,
-        "expanded": [
-          "false",
-          "false",
-          "false",
-          "false",
-          "false"
+      "afterReset": {
+        "amount": "10.4 万",
+        "weight": "15.3%",
+        "auditRows": 0,
+        "stored": null
+      }
+    },
+    "expand": {
+      "first": {
+        "open": [
+          "advice-006503"
         ]
       },
-      "afterEscape": {
-        "open": 0,
-        "focus": "006864"
+      "second": {
+        "open": [
+          "advice-006864"
+        ]
       }
     },
     "period": {
-      "after1m": {
-        "active": "近一月",
-        "aria": "财通集成电路产业股票C 近一月净值趋势（演示数据）：起点 1.2867，终点 1",
-        "selected": 1
-      }
-    },
-    "empty": {
-      "fiveYear": {
-        "empty": true,
-        "text": "近五年暂无数据演示：该基金成立不足 5 年，近五年净值暂无数据；生产可用性待数据调研确认。",
-        "active": "近五年"
-      }
+      "active": "近三年",
+      "selected": 1
     },
     "manual": {
-      "time": "14:32:57",
-      "allTimes": [
-        "14:32:57"
-      ],
       "open": [
-        "advice-006503"
+        "advice-006864"
       ],
-      "active": "近一月",
+      "active": "近三年",
       "scrollY": 520,
-      "overflowX": 0,
-      "status": "估值已更新"
+      "time": "14:32:57",
+      "scrollBefore": 520
     },
     "reload": {
       "open": [
@@ -2280,21 +2328,24 @@
       "active": [
         "近三年"
       ],
-      "scrollY": 640,
-      "overflow": 0
+      "scrollY": 520
     },
-    "mobile": {
-      "expand": {
-        "open": "advice-006503",
-        "charts": 2,
-        "noOverflow": true,
-        "segHeight": 44
+    "keyboard": {
+      "focus": true,
+      "afterEnter": {
+        "open": [
+          "advice-006864"
+        ]
+      },
+      "afterEscape": {
+        "open": 0,
+        "focus": "006864"
       }
     }
   },
   "summary": {
-    "scope": "7 页 × 7 档宽度 + popup 390；首页含展开态测量（含趋势图）",
-    "viewportCells": 50,
+    "scope": "7 页 × 7 档宽度 + 首页展开态（含调整后目标值/放大入口）+ 放大与写入交互；v6",
+    "viewportCells": 49,
     "widths": [
       360,
       390,
@@ -2316,90 +2367,60 @@
       "overflowers": 0,
       "touchSmall": 0
     },
-    "v5Checks": {
-      "homeIndices": [
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4
-      ],
-      "homeFunds": [
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
-        5
-      ],
-      "indexColumns": [
-        "指数",
-        "点位",
-        "涨跌幅",
-        "PE-TTM",
-        "PE 历史分位近 10 年 · 演示",
-        "状态"
-      ],
-      "fundColumns": [
-        "基金点击名称展开",
-        "当前持仓市值",
-        "当前权重",
-        "估算涨跌幅",
-        "今日预估收益按当前持仓估算",
-        "质量"
-      ],
-      "peShownAtAllWidths": true,
-      "peDemoNoteAtAllWidths": true,
-      "chartDemoNoteAtAllWidths": true,
-      "singleGlobalTimeAtAllWidths": true,
-      "timeToSecondAtAllWidths": true,
-      "staleRows": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "toggleInNameCellAtAllWidths": true,
-      "navColumnRemoved": true,
-      "targetColumnMovedToPanel": true,
-      "noFundRowLinks": true,
-      "noFormControls": true,
-      "fiveFundsInViewportAt1440": true,
-      "fiveFundsInViewportAt1280": true,
-      "fiveFundsInViewportAt1024": true,
-      "stackedFundTableBelow900": true,
-      "stackedIndexTableBelow640": true,
-      "chartsAtAllWidths": true,
-      "todayDashedLine": true,
-      "costDashedLine": true,
-      "crossMarkers": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "chartAria": true,
-      "chartDataTables": true,
+    "v6Checks": {
+      "fiveFundsEveryWidth": true,
+      "numericSingleLineEveryWidth": true,
+      "numericNowrap": true,
+      "numericTabular": true,
+      "numericRightAlignedDesktop": true,
+      "numericFitsCells": true,
+      "fiveFundsInViewport": {
+        "1024": true,
+        "1280": true,
+        "1440": true
+      },
+      "mobilePnlSecondaryLine390": true,
+      "yenFormat": true,
+      "extremeValuesNoWrapNoOverflow": true,
+      "demoWriteLabelEveryWidth": true,
+      "auditSectionEveryWidth": true,
+      "chartDemoNoteEveryWidth": true,
+      "positionAdjustPanelEveryWidth": true,
+      "positionTargetsCompleteEveryWidth": true,
+      "positionFormEveryWidth": true,
+      "zoomEntryEveryChart": true,
+      "chartsEveryWidth": true,
+      "dashedAndCrosses": true,
+      "holdFundTargetEqualsCurrent": true,
+      "holdFundDeviationZero": true,
+      "fiveYearRenamedToInception": true,
+      "zoomOpensWithDashesCrossesLegendSummary": true,
+      "zoomFocusStage": true,
+      "zoomScaleControls": true,
+      "zoomPanWorks": true,
+      "zoomWheelWorks": true,
+      "zoomEscCloses": true,
+      "zoomFocusReturns": true,
+      "zoomKeepsFundOpenAndPeriod": true,
+      "zoomRestoresScroll": true,
+      "intradayZoomKeepsDashes": true,
+      "writeDefaultHold": true,
+      "writeValidationNegative": true,
+      "writeValidationCash": true,
+      "writeValidationMinUnit": true,
+      "writePreviewValid": true,
+      "writeUpdatesRowAndTarget": true,
+      "writeLocalAudit": true,
+      "writeStoragePersist": true,
+      "writeUndo": true,
+      "resetRestoresDemo": true,
       "oneRowExpandedAtATime": true,
-      "keyboardToggleWorks": true,
-      "escapeClosesAndRefocuses": true,
-      "chartPeriodSwitch": true,
-      "missingPeriodEmptyState": true,
-      "refreshKeepsOpenPeriodAndScroll": true,
-      "manualRefreshAdvancesTime": true,
+      "periodSwitch": true,
+      "refreshKeepsOpenPeriodScroll": true,
       "reloadKeepsOpenPeriod": true,
-      "mobileExpandedNoOverflow": true,
-      "touchTargetsAtLeast44": true
-    }
+      "keyboardToggleAndEscape": true
+    },
+    "allV6ChecksPass": true
   },
   "screenshots": [
     "home-1440.png",
@@ -2416,6 +2437,69 @@
     "history-390.png",
     "settings-1440.png",
     "settings-390.png",
-    "popup.png"
-  ]
+    "popup.png",
+    "v6-adjust-1440.png",
+    "v6-adjust-390.png",
+    "v6-zoom-1440.png",
+    "v6-zoom-390.png",
+    "v6-write-1440.png",
+    "v6-write-390.png"
+  ],
+  "holdFund": {
+    "targets": [
+      "当前权重 → 目标权重10.3% → 10.3%",
+      "当前持仓市值 → 调整后目标市值7.00 万 → 7.00 万",
+      "调整金额¥0.00",
+      "偏离（目标 − 当前）0.0pp",
+      "执行状态保持（目标 = 当前）"
+    ],
+    "fiveLabel": "成立以来",
+    "fiveActive": "true",
+    "fiveEmpty": false,
+    "fiveSvg": true,
+    "fiveStart": "2024-09-17",
+    "fiveEnd": "2026-11-10",
+    "expanded": {
+      "open": true,
+      "hasPanel": true,
+      "targets": [
+        "当前权重 → 目标权重10.3% → 10.3%",
+        "当前持仓市值 → 调整后目标市值7.00 万 → 7.00 万",
+        "调整金额¥0.00",
+        "偏离（目标 − 当前）0.0pp",
+        "执行状态保持（目标 = 当前）"
+      ],
+      "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
+      "form": true,
+      "formInputs": 2,
+      "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
+      "auditList": true,
+      "charts": 2,
+      "svgs": 2,
+      "todayLine": 2,
+      "costLine": 2,
+      "crosses": 3,
+      "dashed": 4,
+      "ariaOk": true,
+      "dataTables": 1,
+      "zoomBtns": 2,
+      "zoomSizes": [
+        "66x44",
+        "66x44"
+      ],
+      "hasZoom": true,
+      "fiveYearLabel": "成立以来",
+      "measure": {
+        "viewportWidth": 1440,
+        "scrollWidth": 1440,
+        "overflowX": 0,
+        "clipped": [],
+        "overflowers": [],
+        "touchSmall": [],
+        "clippedCount": 0,
+        "overflowersCount": 0,
+        "touchSmallCount": 0
+      }
+    }
+  }
 }

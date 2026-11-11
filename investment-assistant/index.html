@@ -16,7 +16,7 @@
         <div class="page-head">
           <div>
             <h1>首页</h1>
-            <p class="lede">行情与持仓看板：大盘指数（含 PE 与历史分位）+ 5 只基金当前持仓市值/权重。点击基金名称展开建议、分时与多周期趋势图（图表为演示数据 · 生产接入待确认）。进入页面自动刷新一次，全部内容只读。</p>
+            <p class="lede">行情与持仓看板：大盘指数 + 5 只基金。点击基金名称展开建议、调整后目标值与趋势图（可放大）；演示写入仅保存在本地、不影响实盘。</p>
           </div>
           <div class="head-side" id="home-head-side"></div>
         </div>
@@ -56,7 +56,7 @@
           <div class="section-head">
             <div>
               <h2>基金持仓</h2>
-              <div class="hint">5 只基金 · 以当前持仓市值与当前权重为主；点击基金名称展开建议、分时与多周期趋势图</div>
+              <div class="hint">5 只基金 · 点击名称展开建议、调整后目标值、趋势图（可放大）与演示写入</div>
             </div>
           </div>
           <div class="table-card">
@@ -92,6 +92,16 @@
               </table>
             </div>
           </noscript>
+        </section>
+
+        <section class="section" id="home-audit-wrap" aria-label="演示写入与本地审计">
+          <div class="section-head">
+            <div>
+              <h2>演示写入与本地审计</h2>
+              <div class="hint">网页端调整目标权重/金额后在此记录审计；状态写入 localStorage，刷新保持，可恢复演示初始值</div>
+            </div>
+          </div>
+          <div class="card audit-card" id="home-audit-body"></div>
         </section>
 
         <section class="grid grid-12 section" id="home-quality" aria-label="数据口径说明"></section>

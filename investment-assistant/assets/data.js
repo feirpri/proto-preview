@@ -405,8 +405,17 @@
       };
     });
     if (idx === 4) {
-      periods["5y"].available = false;
-      periods["5y"].note = "演示：该基金成立不足 5 年，近五年净值暂无数据；生产可用性待数据调研确认。";
+      /* v6：该基金成立不足 5 年，五年档改为「成立以来」，展示可得区间而非空态 */
+      var fromInception = Math.max(0, TREND_N - 561);
+      var inceptionValues = values.slice(fromInception);
+      var inceptionDates = TREND_DATES.slice(fromInception);
+      periods["5y"] = {
+        key: "5y", label: "成立以来",
+        available: true,
+        dates: inceptionDates, values: inceptionValues, n: inceptionValues.length,
+        start: inceptionDates[0], end: inceptionDates[inceptionDates.length - 1],
+        note: "演示：该基金成立不足 5 年，展示成立以来可得区间；生产可用性待数据调研确认。"
+      };
     }
     return {
       costNav: costNav,
@@ -438,7 +447,7 @@
   window.MOCK = {
     meta: {
       product: "Musi 投资助手",
-      version: "原型 v5",
+      version: "原型 v6",
       asof: ASOF_TIME,
       asofDate: ASOF,
       realtime: {
@@ -461,6 +470,9 @@
       seedBaseline: "2026-11-05 收盘",
       disclaimer: "本原型所有数字均为演示数据，仅用于界面确认，不构成投资建议，也不代表任何收益承诺。",
       trendDemo: "演示数据 · 生产接入待确认",
+      writeDemo: "演示写入 · 仅保存在本地，不影响实盘",
+      writeNote: "网页端调整仅写入浏览器 localStorage，用于确认交互；不写入真实账本、不调用交易接口、不产生下单。刷新后保留，可随时恢复演示初始值。",
+      writeMinAmount: 1000,
       peNote: "PE-TTM 与历史分位数为演示值；分位窗口近 10 年；生产数据接口待调研确认。"
     },
     market: {
