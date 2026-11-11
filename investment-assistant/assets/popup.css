@@ -232,3 +232,11 @@
 .popup-cta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 11px; }
 .popup-cta-row .popup-cta { margin-top: 0; }
 .popup-cta.secondary { background: var(--surface); color: var(--blue); border: 1px solid #bfd3fb; box-shadow: none; }
+
+.popup-head-actions { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.popup-logout {
+  min-height: 44px; padding: 0 10px; border-radius: 9px;
+  border: 1px solid #e5eaf2; background: #fff; color: #334155;
+  font-family: inherit; font-size: 11px; font-weight: 650; cursor: pointer;
+}
+.popup-logout:hover { background: #f1f5f9; }

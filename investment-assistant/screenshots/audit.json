@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-11T10:49:52.361Z",
-  "version": "v6",
+  "generatedAt": "2026-11-11T11:49:16.831Z",
+  "version": "v7",
   "widths": [
     360,
     390,
@@ -20,43 +20,14 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "pct": "+0.42%",
-              "pe": "15.82",
-              "pePct": "61%",
-              "state": "上涨"
-            },
-            {
-              "name": "深证成指",
-              "pct": "+0.65%",
-              "pe": "24.36",
-              "pePct": "48%",
-              "state": "上涨"
-            },
-            {
-              "name": "创业板指",
-              "pct": "+0.86%",
-              "pe": "33.15",
-              "pePct": "27%",
-              "state": "上涨"
-            },
-            {
-              "name": "沪深300",
-              "pct": "+0.31%",
-              "pe": "13.47",
-              "pePct": "54%",
-              "state": "上涨"
-            }
-          ],
+        "home": {
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
+              "shares": "112,928.34891",
+              "navText": "净值 1.2840",
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
@@ -69,20 +40,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 143,
-              "pctScrollWidth": 143,
-              "pnlClientWidth": 143,
-              "pnlScrollWidth": 143,
-              "pnlTop": 973,
-              "pctTop": 935,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
+              "shares": "123,445.825933",
+              "navText": "净值 1.1260",
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
@@ -95,20 +62,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 143,
-              "pctScrollWidth": 143,
-              "pnlClientWidth": 143,
-              "pnlScrollWidth": 143,
-              "pnlTop": 1139,
-              "pctTop": 1101,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
+              "shares": "50,955.414013",
+              "navText": "净值 2.0410",
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
@@ -121,20 +84,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 143,
-              "pctScrollWidth": 143,
-              "pnlClientWidth": 143,
-              "pnlScrollWidth": 143,
-              "pnlTop": 1306,
-              "pctTop": 1267,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
+              "shares": "72,008.11359",
+              "navText": "净值 0.9860",
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
@@ -147,20 +106,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 143,
-              "pctScrollWidth": 143,
-              "pnlClientWidth": 143,
-              "pnlScrollWidth": 143,
-              "pnlTop": 1468,
-              "pctTop": 1430,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": true,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
+              "shares": "70,000.00",
+              "navText": "净值 1.0000",
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
@@ -173,50 +128,40 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 143,
-              "pctScrollWidth": 143,
-              "pnlClientWidth": 143,
-              "pnlScrollWidth": 143,
-              "pnlTop": 1635,
-              "pctTop": 1596,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             }
           ],
-          "fundRowsInViewport": false,
-          "lastFundBottom": 1680,
-          "viewportHeight": 844,
-          "auditSection": true,
-          "writeDemoText": true,
-          "chartDemoNote": true,
-          "indexColumns": [
-            "指数",
-            "点位",
-            "涨跌幅",
-            "PE-TTM",
-            "PE 历史分位近 10 年 · 演示",
-            "状态"
+          "toolbar": true,
+          "toolbarStats": [
+            "持仓市值 52.90 万",
+            "现金 ¥150,000.00",
+            "总资产 67.90 万",
+            "总权重 77.9%",
+            "基金数 5 只"
           ],
-          "fundColumns": [
+          "ops": [
+            "申购 / 加仓",
+            "赎回 / 减仓",
+            "清仓",
+            "新增基金",
+            "现金调整",
+            "总额校正"
+          ],
+          "banner": "演示写入 · 仅保存在本地，不影响实盘\n原型模拟门禁 · 真实 token 由服务端生成",
+          "writeDemo": true,
+          "gateNote": true,
+          "columns": [
             "基金点击名称展开",
+            "份额 / 净值",
             "当前持仓市值",
             "当前权重",
             "估算涨跌幅",
             "今日预估收益按当前持仓估算",
-            "质量"
+            "操作"
           ]
-        },
-        "extreme": {
-          "pctLines": 1,
-          "pnlLines": 1,
-          "pctFits": true,
-          "pnlFits": true,
-          "docOverflow": 0,
-          "negLines": 1,
-          "negFits": true,
-          "negDocOverflow": 0
         },
         "expanded": {
           "open": true,
@@ -228,37 +173,30 @@
             "偏离（目标 − 当前）−1.2pp",
             "执行状态待保存（演示）"
           ],
-          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
           "form": true,
           "formInputs": 2,
-          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
-          "auditList": true,
           "charts": 2,
           "svgs": 2,
-          "todayLine": 2,
-          "costLine": 2,
-          "crosses": 3,
-          "dashed": 4,
-          "ariaOk": true,
-          "dataTables": 1,
-          "zoomBtns": 2,
+          "zoomBtns": [
+            {},
+            {}
+          ],
           "zoomSizes": [
             "66x44",
             "66x44"
           ],
-          "hasZoom": true,
-          "fiveYearLabel": "近五年",
-          "measure": {
-            "viewportWidth": 360,
-            "scrollWidth": 360,
-            "overflowX": 0,
-            "clipped": [],
-            "overflowers": [],
-            "touchSmall": [],
-            "clippedCount": 0,
-            "overflowersCount": 0,
-            "touchSmallCount": 0
-          }
+          "dashed": 4,
+          "circles": 3,
+          "facts": [
+            "持有份额 112,928.34891",
+            "当前净值 1.2840",
+            "当前持仓市值 14.5 万",
+            "当前权重 21.4%",
+            "组合目标权重 16.0%",
+            "当前偏离 +5.4pct",
+            "持仓成本净值 1.2280"
+          ],
+          "fiveLabel": "近五年"
         }
       },
       "advice.html": {
@@ -325,43 +263,14 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "pct": "+0.42%",
-              "pe": "15.82",
-              "pePct": "61%",
-              "state": "上涨"
-            },
-            {
-              "name": "深证成指",
-              "pct": "+0.65%",
-              "pe": "24.36",
-              "pePct": "48%",
-              "state": "上涨"
-            },
-            {
-              "name": "创业板指",
-              "pct": "+0.86%",
-              "pe": "33.15",
-              "pePct": "27%",
-              "state": "上涨"
-            },
-            {
-              "name": "沪深300",
-              "pct": "+0.31%",
-              "pe": "13.47",
-              "pePct": "54%",
-              "state": "上涨"
-            }
-          ],
+        "home": {
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
+              "shares": "112,928.34891",
+              "navText": "净值 1.2840",
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
@@ -374,20 +283,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 158,
-              "pctScrollWidth": 158,
-              "pnlClientWidth": 158,
-              "pnlScrollWidth": 158,
-              "pnlTop": 953,
-              "pctTop": 915,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
+              "shares": "123,445.825933",
+              "navText": "净值 1.1260",
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
@@ -400,20 +305,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 158,
-              "pctScrollWidth": 158,
-              "pnlClientWidth": 158,
-              "pnlScrollWidth": 158,
-              "pnlTop": 1099,
-              "pctTop": 1061,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
+              "shares": "50,955.414013",
+              "navText": "净值 2.0410",
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
@@ -426,20 +327,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 158,
-              "pctScrollWidth": 158,
-              "pnlClientWidth": 158,
-              "pnlScrollWidth": 158,
-              "pnlTop": 1245,
-              "pctTop": 1206,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
+              "shares": "72,008.11359",
+              "navText": "净值 0.9860",
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
@@ -452,20 +349,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 158,
-              "pctScrollWidth": 158,
-              "pnlClientWidth": 158,
-              "pnlScrollWidth": 158,
-              "pnlTop": 1408,
-              "pctTop": 1369,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": true,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
+              "shares": "70,000.00",
+              "navText": "净值 1.0000",
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
@@ -478,50 +371,40 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 158,
-              "pctScrollWidth": 158,
-              "pnlClientWidth": 158,
-              "pnlScrollWidth": 158,
-              "pnlTop": 1553,
-              "pctTop": 1515,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             }
           ],
-          "fundRowsInViewport": false,
-          "lastFundBottom": 1599,
-          "viewportHeight": 844,
-          "auditSection": true,
-          "writeDemoText": true,
-          "chartDemoNote": true,
-          "indexColumns": [
-            "指数",
-            "点位",
-            "涨跌幅",
-            "PE-TTM",
-            "PE 历史分位近 10 年 · 演示",
-            "状态"
+          "toolbar": true,
+          "toolbarStats": [
+            "持仓市值 52.90 万",
+            "现金 ¥150,000.00",
+            "总资产 67.90 万",
+            "总权重 77.9%",
+            "基金数 5 只"
           ],
-          "fundColumns": [
+          "ops": [
+            "申购 / 加仓",
+            "赎回 / 减仓",
+            "清仓",
+            "新增基金",
+            "现金调整",
+            "总额校正"
+          ],
+          "banner": "演示写入 · 仅保存在本地，不影响实盘\n原型模拟门禁 · 真实 token 由服务端生成",
+          "writeDemo": true,
+          "gateNote": true,
+          "columns": [
             "基金点击名称展开",
+            "份额 / 净值",
             "当前持仓市值",
             "当前权重",
             "估算涨跌幅",
             "今日预估收益按当前持仓估算",
-            "质量"
+            "操作"
           ]
-        },
-        "extreme": {
-          "pctLines": 1,
-          "pnlLines": 1,
-          "pctFits": true,
-          "pnlFits": true,
-          "docOverflow": 0,
-          "negLines": 1,
-          "negFits": true,
-          "negDocOverflow": 0
         },
         "expanded": {
           "open": true,
@@ -533,37 +416,30 @@
             "偏离（目标 − 当前）−1.2pp",
             "执行状态待保存（演示）"
           ],
-          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
           "form": true,
           "formInputs": 2,
-          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
-          "auditList": true,
           "charts": 2,
           "svgs": 2,
-          "todayLine": 2,
-          "costLine": 2,
-          "crosses": 3,
-          "dashed": 4,
-          "ariaOk": true,
-          "dataTables": 1,
-          "zoomBtns": 2,
+          "zoomBtns": [
+            {},
+            {}
+          ],
           "zoomSizes": [
             "66x44",
             "66x44"
           ],
-          "hasZoom": true,
-          "fiveYearLabel": "近五年",
-          "measure": {
-            "viewportWidth": 390,
-            "scrollWidth": 390,
-            "overflowX": 0,
-            "clipped": [],
-            "overflowers": [],
-            "touchSmall": [],
-            "clippedCount": 0,
-            "overflowersCount": 0,
-            "touchSmallCount": 0
-          }
+          "dashed": 4,
+          "circles": 3,
+          "facts": [
+            "持有份额 112,928.34891",
+            "当前净值 1.2840",
+            "当前持仓市值 14.5 万",
+            "当前权重 21.4%",
+            "组合目标权重 16.0%",
+            "当前偏离 +5.4pct",
+            "持仓成本净值 1.2280"
+          ],
+          "fiveLabel": "近五年"
         }
       },
       "advice.html": {
@@ -630,43 +506,14 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "pct": "+0.42%",
-              "pe": "15.82",
-              "pePct": "61%",
-              "state": "上涨"
-            },
-            {
-              "name": "深证成指",
-              "pct": "+0.65%",
-              "pe": "24.36",
-              "pePct": "48%",
-              "state": "上涨"
-            },
-            {
-              "name": "创业板指",
-              "pct": "+0.86%",
-              "pe": "33.15",
-              "pePct": "27%",
-              "state": "上涨"
-            },
-            {
-              "name": "沪深300",
-              "pct": "+0.31%",
-              "pe": "13.47",
-              "pePct": "54%",
-              "state": "上涨"
-            }
-          ],
+        "home": {
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
+              "shares": "112,928.34891",
+              "navText": "净值 1.2840",
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
@@ -679,20 +526,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 170,
-              "pctScrollWidth": 170,
-              "pnlClientWidth": 170,
-              "pnlScrollWidth": 170,
-              "pnlTop": 953,
-              "pctTop": 915,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
+              "shares": "123,445.825933",
+              "navText": "净值 1.1260",
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
@@ -705,20 +548,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 170,
-              "pctScrollWidth": 170,
-              "pnlClientWidth": 170,
-              "pnlScrollWidth": 170,
-              "pnlTop": 1099,
-              "pctTop": 1061,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
+              "shares": "50,955.414013",
+              "navText": "净值 2.0410",
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
@@ -731,20 +570,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 170,
-              "pctScrollWidth": 170,
-              "pnlClientWidth": 170,
-              "pnlScrollWidth": 170,
-              "pnlTop": 1245,
-              "pctTop": 1206,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
+              "shares": "72,008.11359",
+              "navText": "净值 0.9860",
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
@@ -757,20 +592,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 170,
-              "pctScrollWidth": 170,
-              "pnlClientWidth": 170,
-              "pnlScrollWidth": 170,
-              "pnlTop": 1408,
-              "pctTop": 1369,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": true,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
+              "shares": "70,000.00",
+              "navText": "净值 1.0000",
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
@@ -783,50 +614,40 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 170,
-              "pctScrollWidth": 170,
-              "pnlClientWidth": 170,
-              "pnlScrollWidth": 170,
-              "pnlTop": 1553,
-              "pctTop": 1515,
-              "pnlIsSecondary": true,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             }
           ],
-          "fundRowsInViewport": false,
-          "lastFundBottom": 1599,
-          "viewportHeight": 844,
-          "auditSection": true,
-          "writeDemoText": true,
-          "chartDemoNote": true,
-          "indexColumns": [
-            "指数",
-            "点位",
-            "涨跌幅",
-            "PE-TTM",
-            "PE 历史分位近 10 年 · 演示",
-            "状态"
+          "toolbar": true,
+          "toolbarStats": [
+            "持仓市值 52.90 万",
+            "现金 ¥150,000.00",
+            "总资产 67.90 万",
+            "总权重 77.9%",
+            "基金数 5 只"
           ],
-          "fundColumns": [
+          "ops": [
+            "申购 / 加仓",
+            "赎回 / 减仓",
+            "清仓",
+            "新增基金",
+            "现金调整",
+            "总额校正"
+          ],
+          "banner": "演示写入 · 仅保存在本地，不影响实盘\n原型模拟门禁 · 真实 token 由服务端生成",
+          "writeDemo": true,
+          "gateNote": true,
+          "columns": [
             "基金点击名称展开",
+            "份额 / 净值",
             "当前持仓市值",
             "当前权重",
             "估算涨跌幅",
             "今日预估收益按当前持仓估算",
-            "质量"
+            "操作"
           ]
-        },
-        "extreme": {
-          "pctLines": 1,
-          "pnlLines": 1,
-          "pctFits": true,
-          "pnlFits": true,
-          "docOverflow": 0,
-          "negLines": 1,
-          "negFits": true,
-          "negDocOverflow": 0
         },
         "expanded": {
           "open": true,
@@ -838,37 +659,30 @@
             "偏离（目标 − 当前）−1.2pp",
             "执行状态待保存（演示）"
           ],
-          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
           "form": true,
           "formInputs": 2,
-          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
-          "auditList": true,
           "charts": 2,
           "svgs": 2,
-          "todayLine": 2,
-          "costLine": 2,
-          "crosses": 3,
-          "dashed": 4,
-          "ariaOk": true,
-          "dataTables": 1,
-          "zoomBtns": 2,
+          "zoomBtns": [
+            {},
+            {}
+          ],
           "zoomSizes": [
             "66x44",
             "66x44"
           ],
-          "hasZoom": true,
-          "fiveYearLabel": "近五年",
-          "measure": {
-            "viewportWidth": 414,
-            "scrollWidth": 414,
-            "overflowX": 0,
-            "clipped": [],
-            "overflowers": [],
-            "touchSmall": [],
-            "clippedCount": 0,
-            "overflowersCount": 0,
-            "touchSmallCount": 0
-          }
+          "dashed": 4,
+          "circles": 3,
+          "facts": [
+            "持有份额 112,928.34891",
+            "当前净值 1.2840",
+            "当前持仓市值 14.5 万",
+            "当前权重 21.4%",
+            "组合目标权重 16.0%",
+            "当前偏离 +5.4pct",
+            "持仓成本净值 1.2280"
+          ],
+          "fiveLabel": "近五年"
         }
       },
       "advice.html": {
@@ -935,43 +749,14 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "pct": "+0.42%",
-              "pe": "15.82",
-              "pePct": "61%",
-              "state": "上涨"
-            },
-            {
-              "name": "深证成指",
-              "pct": "+0.65%",
-              "pe": "24.36",
-              "pePct": "48%",
-              "state": "上涨"
-            },
-            {
-              "name": "创业板指",
-              "pct": "+0.86%",
-              "pe": "33.15",
-              "pePct": "27%",
-              "state": "上涨"
-            },
-            {
-              "name": "沪深300",
-              "pct": "+0.31%",
-              "pe": "13.47",
-              "pePct": "54%",
-              "state": "上涨"
-            }
-          ],
+        "home": {
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
+              "shares": "112,928.34891",
+              "navText": "净值 1.2840",
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
@@ -984,20 +769,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 227,
-              "pctScrollWidth": 227,
-              "pnlClientWidth": 227,
-              "pnlScrollWidth": 227,
-              "pnlTop": 689,
-              "pctTop": 689,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
+              "shares": "123,445.825933",
+              "navText": "净值 1.1260",
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
@@ -1010,20 +791,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 227,
-              "pctScrollWidth": 227,
-              "pnlClientWidth": 227,
-              "pnlScrollWidth": 227,
-              "pnlTop": 796,
-              "pctTop": 796,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
+              "shares": "50,955.414013",
+              "navText": "净值 2.0410",
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
@@ -1036,20 +813,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 227,
-              "pctScrollWidth": 227,
-              "pnlClientWidth": 227,
-              "pnlScrollWidth": 227,
-              "pnlTop": 904,
-              "pctTop": 904,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
+              "shares": "72,008.11359",
+              "navText": "净值 0.9860",
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
@@ -1062,20 +835,16 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 227,
-              "pctScrollWidth": 227,
-              "pnlClientWidth": 227,
-              "pnlScrollWidth": 227,
-              "pnlTop": 1028,
-              "pctTop": 1028,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": true,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
+              "shares": "70,000.00",
+              "navText": "净值 1.0000",
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
@@ -1088,50 +857,40 @@
               "pnlAlign": "left",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 227,
-              "pctScrollWidth": 227,
-              "pnlClientWidth": 227,
-              "pnlScrollWidth": 227,
-              "pnlTop": 1136,
-              "pctTop": 1136,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             }
           ],
-          "fundRowsInViewport": false,
-          "lastFundBottom": 1181,
-          "viewportHeight": 900,
-          "auditSection": true,
-          "writeDemoText": true,
-          "chartDemoNote": true,
-          "indexColumns": [
-            "指数",
-            "点位",
-            "涨跌幅",
-            "PE-TTM",
-            "PE 历史分位近 10 年 · 演示",
-            "状态"
+          "toolbar": true,
+          "toolbarStats": [
+            "持仓市值 52.90 万",
+            "现金 ¥150,000.00",
+            "总资产 67.90 万",
+            "总权重 77.9%",
+            "基金数 5 只"
           ],
-          "fundColumns": [
+          "ops": [
+            "申购 / 加仓",
+            "赎回 / 减仓",
+            "清仓",
+            "新增基金",
+            "现金调整",
+            "总额校正"
+          ],
+          "banner": "演示写入 · 仅保存在本地，不影响实盘\n原型模拟门禁 · 真实 token 由服务端生成",
+          "writeDemo": true,
+          "gateNote": true,
+          "columns": [
             "基金点击名称展开",
+            "份额 / 净值",
             "当前持仓市值",
             "当前权重",
             "估算涨跌幅",
             "今日预估收益按当前持仓估算",
-            "质量"
+            "操作"
           ]
-        },
-        "extreme": {
-          "pctLines": 1,
-          "pnlLines": 1,
-          "pctFits": true,
-          "pnlFits": true,
-          "docOverflow": 0,
-          "negLines": 1,
-          "negFits": true,
-          "negDocOverflow": 0
         },
         "expanded": {
           "open": true,
@@ -1143,37 +902,30 @@
             "偏离（目标 − 当前）−1.2pp",
             "执行状态待保存（演示）"
           ],
-          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
           "form": true,
           "formInputs": 2,
-          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
-          "auditList": true,
           "charts": 2,
           "svgs": 2,
-          "todayLine": 2,
-          "costLine": 2,
-          "crosses": 3,
-          "dashed": 4,
-          "ariaOk": true,
-          "dataTables": 1,
-          "zoomBtns": 2,
+          "zoomBtns": [
+            {},
+            {}
+          ],
           "zoomSizes": [
             "66x44",
             "66x44"
           ],
-          "hasZoom": true,
-          "fiveYearLabel": "近五年",
-          "measure": {
-            "viewportWidth": 768,
-            "scrollWidth": 768,
-            "overflowX": 0,
-            "clipped": [],
-            "overflowers": [],
-            "touchSmall": [],
-            "clippedCount": 0,
-            "overflowersCount": 0,
-            "touchSmallCount": 0
-          }
+          "dashed": 4,
+          "circles": 3,
+          "facts": [
+            "持有份额 112,928.34891",
+            "当前净值 1.2840",
+            "当前持仓市值 14.5 万",
+            "当前权重 21.4%",
+            "组合目标权重 16.0%",
+            "当前偏离 +5.4pct",
+            "持仓成本净值 1.2280"
+          ],
+          "fiveLabel": "近五年"
         }
       },
       "advice.html": {
@@ -1240,43 +992,14 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "pct": "+0.42%",
-              "pe": "15.82",
-              "pePct": "61%",
-              "state": "上涨"
-            },
-            {
-              "name": "深证成指",
-              "pct": "+0.65%",
-              "pe": "24.36",
-              "pePct": "48%",
-              "state": "上涨"
-            },
-            {
-              "name": "创业板指",
-              "pct": "+0.86%",
-              "pe": "33.15",
-              "pePct": "27%",
-              "state": "上涨"
-            },
-            {
-              "name": "沪深300",
-              "pct": "+0.31%",
-              "pe": "13.47",
-              "pePct": "54%",
-              "state": "上涨"
-            }
-          ],
+        "home": {
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
+              "shares": "112,928.34891",
+              "navText": "净值 1.2840",
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
@@ -1289,20 +1012,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 91,
-              "pctScrollWidth": 91,
-              "pnlClientWidth": 124,
-              "pnlScrollWidth": 124,
-              "pnlTop": 608,
-              "pctTop": 608,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
+              "shares": "123,445.825933",
+              "navText": "净值 1.1260",
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
@@ -1315,20 +1034,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 91,
-              "pctScrollWidth": 91,
-              "pnlClientWidth": 124,
-              "pnlScrollWidth": 124,
-              "pnlTop": 657,
-              "pctTop": 657,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
+              "shares": "50,955.414013",
+              "navText": "净值 2.0410",
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
@@ -1341,20 +1056,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 91,
-              "pctScrollWidth": 91,
-              "pnlClientWidth": 124,
-              "pnlScrollWidth": 124,
-              "pnlTop": 706,
-              "pctTop": 706,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
+              "shares": "72,008.11359",
+              "navText": "净值 0.9860",
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
@@ -1367,20 +1078,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 91,
-              "pctScrollWidth": 91,
-              "pnlClientWidth": 124,
-              "pnlScrollWidth": 124,
-              "pnlTop": 755,
-              "pctTop": 755,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": true,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
+              "shares": "70,000.00",
+              "navText": "净值 1.0000",
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
@@ -1393,50 +1100,40 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 91,
-              "pctScrollWidth": 91,
-              "pnlClientWidth": 124,
-              "pnlScrollWidth": 124,
-              "pnlTop": 821,
-              "pctTop": 821,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             }
           ],
-          "fundRowsInViewport": true,
-          "lastFundBottom": 869,
-          "viewportHeight": 900,
-          "auditSection": true,
-          "writeDemoText": true,
-          "chartDemoNote": true,
-          "indexColumns": [
-            "指数",
-            "点位",
-            "涨跌幅",
-            "PE-TTM",
-            "PE 历史分位近 10 年 · 演示",
-            "状态"
+          "toolbar": true,
+          "toolbarStats": [
+            "持仓市值 52.90 万",
+            "现金 ¥150,000.00",
+            "总资产 67.90 万",
+            "总权重 77.9%",
+            "基金数 5 只"
           ],
-          "fundColumns": [
+          "ops": [
+            "申购 / 加仓",
+            "赎回 / 减仓",
+            "清仓",
+            "新增基金",
+            "现金调整",
+            "总额校正"
+          ],
+          "banner": "演示写入 · 仅保存在本地，不影响实盘\n原型模拟门禁 · 真实 token 由服务端生成",
+          "writeDemo": true,
+          "gateNote": true,
+          "columns": [
             "基金点击名称展开",
+            "份额 / 净值",
             "当前持仓市值",
             "当前权重",
             "估算涨跌幅",
             "今日预估收益按当前持仓估算",
-            "质量"
+            "操作"
           ]
-        },
-        "extreme": {
-          "pctLines": 1,
-          "pnlLines": 1,
-          "pctFits": true,
-          "pnlFits": true,
-          "docOverflow": 0,
-          "negLines": 1,
-          "negFits": true,
-          "negDocOverflow": 0
         },
         "expanded": {
           "open": true,
@@ -1448,37 +1145,30 @@
             "偏离（目标 − 当前）−1.2pp",
             "执行状态待保存（演示）"
           ],
-          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
           "form": true,
           "formInputs": 2,
-          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
-          "auditList": true,
           "charts": 2,
           "svgs": 2,
-          "todayLine": 2,
-          "costLine": 2,
-          "crosses": 3,
-          "dashed": 4,
-          "ariaOk": true,
-          "dataTables": 1,
-          "zoomBtns": 2,
+          "zoomBtns": [
+            {},
+            {}
+          ],
           "zoomSizes": [
             "66x44",
             "66x44"
           ],
-          "hasZoom": true,
-          "fiveYearLabel": "近五年",
-          "measure": {
-            "viewportWidth": 1024,
-            "scrollWidth": 1024,
-            "overflowX": 0,
-            "clipped": [],
-            "overflowers": [],
-            "touchSmall": [],
-            "clippedCount": 0,
-            "overflowersCount": 0,
-            "touchSmallCount": 0
-          }
+          "dashed": 4,
+          "circles": 3,
+          "facts": [
+            "持有份额 112,928.34891",
+            "当前净值 1.2840",
+            "当前持仓市值 14.5 万",
+            "当前权重 21.4%",
+            "组合目标权重 16.0%",
+            "当前偏离 +5.4pct",
+            "持仓成本净值 1.2280"
+          ],
+          "fiveLabel": "近五年"
         }
       },
       "advice.html": {
@@ -1545,43 +1235,14 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "pct": "+0.42%",
-              "pe": "15.82",
-              "pePct": "61%",
-              "state": "上涨"
-            },
-            {
-              "name": "深证成指",
-              "pct": "+0.65%",
-              "pe": "24.36",
-              "pePct": "48%",
-              "state": "上涨"
-            },
-            {
-              "name": "创业板指",
-              "pct": "+0.86%",
-              "pe": "33.15",
-              "pePct": "27%",
-              "state": "上涨"
-            },
-            {
-              "name": "沪深300",
-              "pct": "+0.31%",
-              "pe": "13.47",
-              "pePct": "54%",
-              "state": "上涨"
-            }
-          ],
+        "home": {
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
+              "shares": "112,928.34891",
+              "navText": "净值 1.2840",
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
@@ -1594,20 +1255,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 126,
-              "pctScrollWidth": 126,
-              "pnlClientWidth": 178,
-              "pnlScrollWidth": 178,
-              "pnlTop": 616,
-              "pctTop": 616,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
+              "shares": "123,445.825933",
+              "navText": "净值 1.1260",
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
@@ -1620,20 +1277,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 126,
-              "pctScrollWidth": 126,
-              "pnlClientWidth": 178,
-              "pnlScrollWidth": 178,
-              "pnlTop": 665,
-              "pctTop": 665,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
+              "shares": "50,955.414013",
+              "navText": "净值 2.0410",
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
@@ -1646,20 +1299,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 126,
-              "pctScrollWidth": 126,
-              "pnlClientWidth": 178,
-              "pnlScrollWidth": 178,
-              "pnlTop": 714,
-              "pctTop": 714,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
+              "shares": "72,008.11359",
+              "navText": "净值 0.9860",
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
@@ -1672,20 +1321,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 126,
-              "pctScrollWidth": 126,
-              "pnlClientWidth": 178,
-              "pnlScrollWidth": 178,
-              "pnlTop": 763,
-              "pctTop": 763,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": true,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
+              "shares": "70,000.00",
+              "navText": "净值 1.0000",
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
@@ -1698,50 +1343,40 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 126,
-              "pctScrollWidth": 126,
-              "pnlClientWidth": 178,
-              "pnlScrollWidth": 178,
-              "pnlTop": 829,
-              "pctTop": 829,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             }
           ],
-          "fundRowsInViewport": true,
-          "lastFundBottom": 877,
-          "viewportHeight": 900,
-          "auditSection": true,
-          "writeDemoText": true,
-          "chartDemoNote": true,
-          "indexColumns": [
-            "指数",
-            "点位",
-            "涨跌幅",
-            "PE-TTM",
-            "PE 历史分位近 10 年 · 演示",
-            "状态"
+          "toolbar": true,
+          "toolbarStats": [
+            "持仓市值 52.90 万",
+            "现金 ¥150,000.00",
+            "总资产 67.90 万",
+            "总权重 77.9%",
+            "基金数 5 只"
           ],
-          "fundColumns": [
+          "ops": [
+            "申购 / 加仓",
+            "赎回 / 减仓",
+            "清仓",
+            "新增基金",
+            "现金调整",
+            "总额校正"
+          ],
+          "banner": "演示写入 · 仅保存在本地，不影响实盘\n原型模拟门禁 · 真实 token 由服务端生成",
+          "writeDemo": true,
+          "gateNote": true,
+          "columns": [
             "基金点击名称展开",
+            "份额 / 净值",
             "当前持仓市值",
             "当前权重",
             "估算涨跌幅",
             "今日预估收益按当前持仓估算",
-            "质量"
+            "操作"
           ]
-        },
-        "extreme": {
-          "pctLines": 1,
-          "pnlLines": 1,
-          "pctFits": true,
-          "pnlFits": true,
-          "docOverflow": 0,
-          "negLines": 1,
-          "negFits": true,
-          "negDocOverflow": 0
         },
         "expanded": {
           "open": true,
@@ -1753,37 +1388,30 @@
             "偏离（目标 − 当前）−1.2pp",
             "执行状态待保存（演示）"
           ],
-          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
           "form": true,
           "formInputs": 2,
-          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
-          "auditList": true,
           "charts": 2,
           "svgs": 2,
-          "todayLine": 2,
-          "costLine": 2,
-          "crosses": 3,
-          "dashed": 4,
-          "ariaOk": true,
-          "dataTables": 1,
-          "zoomBtns": 2,
+          "zoomBtns": [
+            {},
+            {}
+          ],
           "zoomSizes": [
             "66x44",
             "66x44"
           ],
-          "hasZoom": true,
-          "fiveYearLabel": "近五年",
-          "measure": {
-            "viewportWidth": 1280,
-            "scrollWidth": 1280,
-            "overflowX": 0,
-            "clipped": [],
-            "overflowers": [],
-            "touchSmall": [],
-            "clippedCount": 0,
-            "overflowersCount": 0,
-            "touchSmallCount": 0
-          }
+          "dashed": 4,
+          "circles": 3,
+          "facts": [
+            "持有份额 112,928.34891",
+            "当前净值 1.2840",
+            "当前持仓市值 14.5 万",
+            "当前权重 21.4%",
+            "组合目标权重 16.0%",
+            "当前偏离 +5.4pct",
+            "持仓成本净值 1.2280"
+          ],
+          "fiveLabel": "近五年"
         }
       },
       "advice.html": {
@@ -1850,43 +1478,14 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "checks": {
-          "indices": 4,
-          "indexChecks": [
-            {
-              "name": "上证指数",
-              "pct": "+0.42%",
-              "pe": "15.82",
-              "pePct": "61%",
-              "state": "上涨"
-            },
-            {
-              "name": "深证成指",
-              "pct": "+0.65%",
-              "pe": "24.36",
-              "pePct": "48%",
-              "state": "上涨"
-            },
-            {
-              "name": "创业板指",
-              "pct": "+0.86%",
-              "pe": "33.15",
-              "pePct": "27%",
-              "state": "上涨"
-            },
-            {
-              "name": "沪深300",
-              "pct": "+0.31%",
-              "pe": "13.47",
-              "pePct": "54%",
-              "state": "上涨"
-            }
-          ],
+        "home": {
           "funds": 5,
           "fundChecks": [
             {
               "name": "财通集成电路产业股票C",
               "code": "006503",
+              "shares": "112,928.34891",
+              "navText": "净值 1.2840",
               "amount": "14.5 万",
               "weight": "21.4%",
               "pct": "+0.82%",
@@ -1899,20 +1498,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 146,
-              "pctScrollWidth": 146,
-              "pnlClientWidth": 207,
-              "pnlScrollWidth": 207,
-              "pnlTop": 613,
-              "pctTop": 613,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "华夏中证机器人ETF联接C",
               "code": "018345",
+              "shares": "123,445.825933",
+              "navText": "净值 1.1260",
               "amount": "13.9 万",
               "weight": "20.5%",
               "pct": "+1.15%",
@@ -1925,20 +1520,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 146,
-              "pctScrollWidth": 146,
-              "pnlClientWidth": 207,
-              "pnlScrollWidth": 207,
-              "pnlTop": 662,
-              "pctTop": 662,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国联安核心资产混合",
               "code": "006864",
+              "shares": "50,955.414013",
+              "navText": "净值 2.0410",
               "amount": "10.4 万",
               "weight": "15.3%",
               "pct": "+0.21%",
@@ -1951,20 +1542,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 146,
-              "pctScrollWidth": 146,
-              "pnlClientWidth": 207,
-              "pnlScrollWidth": 207,
-              "pnlTop": 711,
-              "pctTop": 711,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "国泰中证全指通信设备ETF联接C",
               "code": "007818",
+              "shares": "72,008.11359",
+              "navText": "净值 0.9860",
               "amount": "7.1 万",
               "weight": "10.5%",
               "pct": "+0.64%",
@@ -1977,20 +1564,16 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 146,
-              "pctScrollWidth": 146,
-              "pnlClientWidth": 207,
-              "pnlScrollWidth": 207,
-              "pnlTop": 760,
-              "pctTop": 760,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": true,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             },
             {
               "name": "永赢高端装备智选混合发起C",
               "code": "015790",
+              "shares": "70,000.00",
+              "navText": "净值 1.0000",
               "amount": "7 万",
               "weight": "10.3%",
               "pct": "−0.37%",
@@ -2003,50 +1586,40 @@
               "pnlAlign": "right",
               "pctTabular": "tabular-nums",
               "pnlTabular": "tabular-nums",
-              "pctClientWidth": 146,
-              "pctScrollWidth": 146,
-              "pnlClientWidth": 207,
-              "pnlScrollWidth": 207,
-              "pnlTop": 826,
-              "pctTop": 826,
-              "pnlIsSecondary": false,
-              "hasYen": true,
-              "stale": false,
-              "ariaExpanded": "false"
+              "pctFits": true,
+              "pnlFits": true,
+              "edit": true,
+              "del": true
             }
           ],
-          "fundRowsInViewport": true,
-          "lastFundBottom": 874,
-          "viewportHeight": 900,
-          "auditSection": true,
-          "writeDemoText": true,
-          "chartDemoNote": true,
-          "indexColumns": [
-            "指数",
-            "点位",
-            "涨跌幅",
-            "PE-TTM",
-            "PE 历史分位近 10 年 · 演示",
-            "状态"
+          "toolbar": true,
+          "toolbarStats": [
+            "持仓市值 52.90 万",
+            "现金 ¥150,000.00",
+            "总资产 67.90 万",
+            "总权重 77.9%",
+            "基金数 5 只"
           ],
-          "fundColumns": [
+          "ops": [
+            "申购 / 加仓",
+            "赎回 / 减仓",
+            "清仓",
+            "新增基金",
+            "现金调整",
+            "总额校正"
+          ],
+          "banner": "演示写入 · 仅保存在本地，不影响实盘\n原型模拟门禁 · 真实 token 由服务端生成",
+          "writeDemo": true,
+          "gateNote": true,
+          "columns": [
             "基金点击名称展开",
+            "份额 / 净值",
             "当前持仓市值",
             "当前权重",
             "估算涨跌幅",
             "今日预估收益按当前持仓估算",
-            "质量"
+            "操作"
           ]
-        },
-        "extreme": {
-          "pctLines": 1,
-          "pnlLines": 1,
-          "pctFits": true,
-          "pnlFits": true,
-          "docOverflow": 0,
-          "negLines": 1,
-          "negFits": true,
-          "negDocOverflow": 0
         },
         "expanded": {
           "open": true,
@@ -2058,37 +1631,30 @@
             "偏离（目标 − 当前）−1.2pp",
             "执行状态待保存（演示）"
           ],
-          "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
           "form": true,
           "formInputs": 2,
-          "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
-          "auditList": true,
           "charts": 2,
           "svgs": 2,
-          "todayLine": 2,
-          "costLine": 2,
-          "crosses": 3,
-          "dashed": 4,
-          "ariaOk": true,
-          "dataTables": 1,
-          "zoomBtns": 2,
+          "zoomBtns": [
+            {},
+            {}
+          ],
           "zoomSizes": [
             "66x44",
             "66x44"
           ],
-          "hasZoom": true,
-          "fiveYearLabel": "近五年",
-          "measure": {
-            "viewportWidth": 1440,
-            "scrollWidth": 1440,
-            "overflowX": 0,
-            "clipped": [],
-            "overflowers": [],
-            "touchSmall": [],
-            "clippedCount": 0,
-            "overflowersCount": 0,
-            "touchSmallCount": 0
-          }
+          "dashed": 4,
+          "circles": 3,
+          "facts": [
+            "持有份额 112,928.34891",
+            "当前净值 1.2840",
+            "当前持仓市值 14.5 万",
+            "当前权重 21.4%",
+            "组合目标权重 16.0%",
+            "当前偏离 +5.4pct",
+            "持仓成本净值 1.2280"
+          ],
+          "fiveLabel": "近五年"
         }
       },
       "advice.html": {
@@ -2147,204 +1713,994 @@
       }
     }
   },
-  "moreSheet": {},
   "interactions": {
-    "zoom": {
-      "beforeScroll": 420,
-      "opened": {
-        "open": true,
-        "svg": true,
-        "dashed": 3,
-        "crossCircles": 2,
-        "legend": "历史净值今日估算持仓成本历史交叉",
-        "summary": "起点 1.1584，终点 1.2840；区间最高 1.2935，最低 1.1584；今日估算 1.2945，持仓成本 1.2280；历史交叉 1 处。",
-        "title": "财通集成电路产业股票C · 近一年净值趋势（放大）",
-        "axes": 14,
-        "focusStage": true,
-        "scrollLocked": true,
-        "scale": "100%",
-        "transform": "translate(0px, 0px) scale(1)"
-      },
-      "zoomed": {
-        "scale": "144%",
-        "transform": "translate(-257px, -110.9px) scale(1.44)"
-      },
-      "panned": "translate(-197px, -60.9px) scale(1.44)",
-      "wheeled": "166%",
-      "reset": {
-        "scale": "100%",
-        "transform": "translate(0px, 0px) scale(1)"
-      },
-      "closed": {
-        "hidden": true,
-        "focusTrigger": "period",
-        "fundOpen": "true",
-        "scrollY": 420,
-        "activePeriod": "近一年"
-      },
-      "intraday": {
-        "title": "财通集成电路产业股票C · 当日分时（放大）",
-        "svg": true,
-        "dashed": 1,
-        "legend": "估算涨跌幅今日估算",
-        "summary": "最后一点 14:32 · +0.82%；今日估算以主色虚线标示，估算值为演示数据，可能被官方净值修正。"
-      },
-      "scrollRestored": true
-    },
-    "write": {
-      "holdDefault": {
-        "targets": [
-          "当前权重 → 目标权重15.3% → 15.3%",
-          "当前持仓市值 → 调整后目标市值10.40 万 → 10.40 万",
-          "调整金额¥0.00",
-          "偏离（目标 − 当前）0.0pp",
-          "执行状态保持（目标 = 当前）"
+    "v7ops": {
+      "initial": {
+        "cash": 150000,
+        "total": 679000,
+        "holdings": 529000,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 112928.34891,
+            "nav": 1.284,
+            "amount": 145000.00000044,
+            "weight": 0.21354933726132547,
+            "cost": 1.228
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.2047128129610574,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.1531664212084433,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10456553755484534,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70000,
+            "nav": 1,
+            "amount": 70000,
+            "weight": 0.10309278350515463,
+            "cost": 0.9398
+          }
         ],
-        "weight": "15.3%",
-        "targetText": "15.3% → 15.3%",
-        "deviation": "0.0pp",
-        "status": "保持（目标 = 当前）"
+        "auditRows": 0,
+        "auditText": "已记录 0 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n暂无本地写入记录。演示写入保存在本机 localStorage，可随时恢复演示初始值。"
       },
-      "negative": {
-        "error": "目标权重与目标市值不能为负。",
-        "hidden": false,
-        "disabled": true,
-        "weight": "15.3% → -1.0%",
-        "amount": "10.40 万 → -0.68 万",
-        "delta": "−¥110,790.00",
-        "deviation": "−16.3pp"
+      "linkShares": {
+        "shares": "100",
+        "amount": "128.40"
       },
-      "tooMuchCash": {
-        "error": "超出 mock 可用现金 ¥150,000。",
-        "hidden": false,
-        "disabled": true,
-        "weight": "15.3% → 44.8%",
-        "amount": "10.40 万 → 30.40 万",
-        "delta": "+¥200,000.00",
-        "deviation": "+29.5pp"
+      "linkAmount": {
+        "shares": "3894.080997",
+        "amount": "5000"
       },
-      "tooSmall": {
-        "error": "最小变动单位为 ¥1,000。",
-        "hidden": false,
-        "disabled": true,
-        "weight": "15.3% → 15.4%",
-        "amount": "10.40 万 → 10.45 万",
-        "delta": "+¥500.00",
-        "deviation": "+0.1pp"
-      },
-      "valid": {
-        "error": "",
-        "hidden": true,
+      "buyPreview": {
+        "err": "",
+        "errorHidden": true,
         "disabled": false,
-        "weight": "15.3% → 25.0%",
-        "amount": "10.40 万 → 16.98 万",
-        "delta": "+¥65,750.00",
-        "deviation": "+9.7pp"
+        "text": "操作前 → 操作后\n申购/加仓 · 财通集成电路产业股票C · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金份额\t112,928.34891\t116,822.429907\n单位成本\t1.2280\t1.2299\n持仓市值\t¥145,000.00\t¥150,000.00\n权重\t21.35%\t22.09%\n现金\t¥150,000.00\t¥145,000.00\n总资产\t¥679,000.00\t¥679,000.00\n总权重\t77.91%\t78.65%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥679,000.00 · 现金 ¥145,000.00 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 7
       },
-      "beforeSave": {
+      "afterBuy": {
+        "cash": 145000,
+        "total": 679000,
+        "holdings": 534000,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 116822.429907,
+            "nav": 1.284,
+            "amount": 150000.000000588,
+            "weight": 0.22091310751191165,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.2047128129610574,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.1531664212084433,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10456553755484534,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70000,
+            "nav": 1,
+            "amount": 70000,
+            "weight": 0.10309278350515463,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 1,
+        "auditText": "已记录 1 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页\n撤销上一笔"
+      },
+      "sellPreview": {
+        "err": "",
+        "errorHidden": true,
+        "disabled": false,
+        "text": "操作前 → 操作后\n赎回/减仓 · 财通集成电路产业股票C · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金份额\t116,822.429907\t114,485.981309\n单位成本\t1.2299\t1.2299\n持仓市值\t¥150,000.00\t¥147,000.00\n权重\t22.09%\t21.65%\n现金\t¥145,000.00\t¥148,000.00\n总资产\t¥679,000.00\t¥679,000.00\n总权重\t78.65%\t78.20%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥679,000.00 · 现金 ¥148,000.00 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 7
+      },
+      "afterSell": {
+        "cash": 148000,
+        "total": 679000,
+        "holdings": 531000,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 114485.981309,
+            "nav": 1.284,
+            "amount": 147000.000000756,
+            "weight": 0.21649484536193814,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.2047128129610574,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.1531664212084433,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10456553755484534,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70000,
+            "nav": 1,
+            "amount": 70000,
+            "weight": 0.10309278350515463,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 2,
+        "auditText": "已记录 2 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n撤销上一笔\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "cashPreview": {
+        "err": "",
+        "errorHidden": true,
+        "disabled": false,
+        "text": "操作前 → 操作后\n现金调整 · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n现金\t¥148,000.00\t¥200,000.00\n总资产\t¥679,000.00\t¥731,000.00\n总权重\t78.20%\t72.64%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥731,000.00 · 现金 ¥200,000.00 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 3
+      },
+      "afterCash": {
+        "cash": 200000,
+        "total": 731000,
+        "holdings": 531000,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 114485.981309,
+            "nav": 1.284,
+            "amount": 147000.000000756,
+            "weight": 0.20109439124590425,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.19015047879693295,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.14227086183383447,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.09712722298186045,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70000,
+            "nav": 1,
+            "amount": 70000,
+            "weight": 0.09575923392612859,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 3,
+        "auditText": "已记录 3 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n现金调整\n组合\n来源 网页\n撤销上一笔\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "totalPreview": {
+        "err": "",
+        "errorHidden": true,
+        "disabled": false,
+        "text": "操作前 → 操作后\n总额校正 · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n现金\t¥200,000.00\t¥169,000.00\n总资产\t¥731,000.00\t¥700,000.00\n总权重\t72.64%\t75.86%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥700,000.00 · 现金 ¥169,000.00 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 3
+      },
+      "afterTotal": {
+        "cash": 169000,
+        "total": 700000,
+        "holdings": 531000,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 114485.981309,
+            "nav": 1.284,
+            "amount": 147000.000000756,
+            "weight": 0.21000000000108,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.19857142857222568,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.14857142857219,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10142857142819998,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70000,
+            "nav": 1,
+            "amount": 70000,
+            "weight": 0.1,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 4,
+        "auditText": "已记录 4 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n总额校正\n组合\n来源 网页\n撤销上一笔\n2026-11-11 19:51\n现金调整\n组合\n来源 网页\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "histPreview": {
+        "err": "",
+        "errorHidden": true,
+        "disabled": false,
+        "text": "操作前 → 操作后\n申购/加仓 · 永赢高端装备智选混合发起C · 生效 2026-11-09 10:00\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金份额\t70,000.00\t70,050.00\n单位成本\t0.9398\t0.9398\n持仓市值\t¥70,000.00\t¥70,050.00\n权重\t10.31%\t10.32%\n现金\t¥150,000.00\t¥149,950.00\n总资产\t¥679,000.00\t¥679,000.00\n总权重\t77.91%\t77.92%\n\n生效时间早于 4 条历史操作，保存后将重算后续 4 条；相关收益与图表会随之变化。\n\n保存后当前组合：总资产 ¥700,000.00 · 现金 ¥168,950.00 · 5 只基金。",
+        "recalc": "生效时间早于 4 条历史操作，保存后将重算后续 4 条；相关收益与图表会随之变化。",
+        "diffRows": 7
+      },
+      "afterHist": {
+        "cash": 168950,
+        "total": 700000,
+        "holdings": 531050,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 114485.981309,
+            "nav": 1.284,
+            "amount": 147000.000000756,
+            "weight": 0.21000000000108,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.19857142857222568,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.14857142857219,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10142857142819998,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70050,
+            "nav": 1,
+            "amount": 70050,
+            "weight": 0.10007142857142858,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 5,
+        "auditText": "已记录 5 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-09 10:00\n申购/加仓\n015790\n来源 网页\n撤销上一笔\n2026-11-11 19:51\n总额校正\n组合\n来源 网页\n2026-11-11 19:51\n现金调整\n组合\n来源 网页\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "duplicate": {
+        "err": "基金代码 006503 已存在，不能重复。",
+        "errorHidden": false,
+        "disabled": true,
+        "text": "操作前 → 操作后\n新增基金 · 重复代码 · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金代码\t006503\t已存在，不能重复\n现金\t¥168,950.00\t¥168,949.00\n总资产\t¥700,000.00\t¥553,000.00\n总权重\t75.86%\t69.45%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥553,000.00 · 现金 ¥168,949.00 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 4
+      },
+      "addPreview": {
+        "err": "",
+        "errorHidden": true,
+        "disabled": false,
+        "text": "操作前 → 操作后\n新增基金 · 测试新基金 · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金份额\t0.00\t1,000.00\n单位成本\t0.0000\t1.9000\n持仓市值\t¥0.00\t¥2,000.00\n权重\t0.00%\t0.29%\n现金\t¥168,950.00\t¥166,950.00\n总资产\t¥700,000.00\t¥700,000.00\n总权重\t75.86%\t76.15%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥700,000.00 · 现金 ¥166,950.00 · 6 只基金。",
+        "recalc": "",
+        "diffRows": 7
+      },
+      "afterAdd": {
+        "cash": 166950,
+        "total": 700000,
+        "holdings": 533050,
+        "count": 6,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 114485.981309,
+            "nav": 1.284,
+            "amount": 147000.000000756,
+            "weight": 0.21000000000108,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.19857142857222568,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.14857142857219,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10142857142819998,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70050,
+            "nav": 1,
+            "amount": 70050,
+            "weight": 0.10007142857142858,
+            "cost": 0.9398
+          },
+          {
+            "code": "999999",
+            "name": "测试新基金",
+            "shares": 1000,
+            "nav": 2,
+            "amount": 2000,
+            "weight": 0.002857142857142857,
+            "cost": 1.9
+          }
+        ],
+        "auditRows": 6,
+        "auditText": "已记录 6 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n新增基金\n测试新基金\n来源 网页\n撤销上一笔\n2026-11-09 10:00\n申购/加仓\n015790\n来源 网页\n2026-11-11 19:51\n总额校正\n组合\n来源 网页\n2026-11-11 19:51\n现金调整\n组合\n来源 网页\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "editPreview": {
+        "err": "",
+        "errorHidden": true,
+        "disabled": false,
+        "text": "操作前 → 操作后\n编辑基金 · 测试新基金 · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金份额\t1,000.00\t1,200.00\n单位成本\t1.9000\t1.9000\n持仓市值\t¥2,000.00\t¥2,520.00\n权重\t0.29%\t0.36%\n现金\t¥166,950.00\t¥166,950.00\n总资产\t¥700,000.00\t¥700,520.00\n总权重\t76.15%\t76.17%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥700,520.00 · 现金 ¥166,950.00 · 6 只基金。",
+        "recalc": "",
+        "diffRows": 7
+      },
+      "afterEdit": {
+        "cash": 166950,
+        "total": 700520,
+        "holdings": 533570,
+        "count": 6,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 114485.981309,
+            "nav": 1.284,
+            "amount": 147000.000000756,
+            "weight": 0.20984411580077086,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.1984240278658111,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.1484611431515631,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10135328041988806,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70050,
+            "nav": 1,
+            "amount": 70050,
+            "weight": 0.09999714497801633,
+            "cost": 0.9398
+          },
+          {
+            "code": "999999",
+            "name": "测试新基金",
+            "shares": 1200,
+            "nav": 2.1,
+            "amount": 2520,
+            "weight": 0.0035973276994232858,
+            "cost": 1.9
+          }
+        ],
+        "auditRows": 7,
+        "auditText": "已记录 7 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n编辑基金\n测试新基金\n来源 网页\n撤销上一笔\n2026-11-11 19:51\n新增基金\n测试新基金\n来源 网页\n2026-11-09 10:00\n申购/加仓\n015790\n来源 网页\n2026-11-11 19:51\n总额校正\n组合\n来源 网页\n2026-11-11 19:51\n现金调整\n组合\n来源 网页\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "deletePreview": {
+        "err": "",
+        "errorHidden": true,
+        "disabled": false,
+        "text": "操作前 → 操作后\n删除基金 · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金份额\t1,200.00\t0.00\n单位成本\t1.9000\t0.0000\n持仓市值\t¥2,520.00\t¥0.00\n权重\t0.36%\t0.00%\n现金\t¥166,950.00\t¥166,950.00\n总资产\t¥700,520.00\t¥698,000.00\n总权重\t76.17%\t76.08%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥698,000.00 · 现金 ¥166,950.00 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 7
+      },
+      "afterDelete": {
+        "cash": 166950,
+        "total": 698000,
+        "holdings": 531050,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 114485.981309,
+            "nav": 1.284,
+            "amount": 147000.000000756,
+            "weight": 0.21060171919879084,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.1991404011469312,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.1489971346712507,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10171919770736387,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70050,
+            "nav": 1,
+            "amount": 70050,
+            "weight": 0.10035816618911175,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 8,
+        "auditText": "已记录 8 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n删除基金\n999999\n来源 网页\n撤销上一笔\n2026-11-11 19:51\n编辑基金\n测试新基金\n来源 网页\n2026-11-11 19:51\n新增基金\n测试新基金\n来源 网页\n2026-11-09 10:00\n申购/加仓\n015790\n来源 网页\n2026-11-11 19:51\n总额校正\n组合\n来源 网页\n2026-11-11 19:51\n现金调整\n组合\n来源 网页\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "clearPreview": {
+        "err": "",
+        "errorHidden": true,
+        "disabled": false,
+        "text": "操作前 → 操作后\n清仓 · 财通集成电路产业股票C · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金份额\t114,485.981309\t0.00\n单位成本\t1.2299\t1.2299\n持仓市值\t¥147,000.00\t¥0.00\n权重\t21.06%\t0.00%\n现金\t¥166,950.00\t¥313,950.00\n总资产\t¥698,000.00\t¥698,000.00\n总权重\t76.08%\t55.02%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥698,000.00 · 现金 ¥313,950.00 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 7
+      },
+      "afterClear": {
+        "cash": 313950,
+        "total": 698000,
+        "holdings": 384050,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 0,
+            "nav": 1.284,
+            "amount": 0,
+            "weight": 0,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.1991404011469312,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.1489971346712507,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10171919770736387,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70050,
+            "nav": 1,
+            "amount": 70050,
+            "weight": 0.10035816618911175,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 9,
+        "auditText": "已记录 9 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n清仓\n006503\n来源 网页\n撤销上一笔\n2026-11-11 19:51\n删除基金\n999999\n来源 网页\n2026-11-11 19:51\n编辑基金\n测试新基金\n来源 网页\n2026-11-11 19:51\n新增基金\n测试新基金\n来源 网页\n2026-11-09 10:00\n申购/加仓\n015790\n来源 网页\n2026-11-11 19:51\n总额校正\n组合\n来源 网页\n2026-11-11 19:51\n现金调整\n组合\n来源 网页\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "valSell": {
+        "err": "赎回份额不能超过当前持有 123,445.825933 份。",
+        "errorHidden": false,
+        "disabled": true,
+        "text": "操作前 → 操作后\n赎回/减仓 · 华夏中证机器人ETF联接C · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金份额\t123,445.825933\t0.00\n单位成本\t1.1707\t1.1707\n持仓市值\t¥139,000.00\t¥0.00\n权重\t19.91%\t0.00%\n现金\t¥313,950.00\t¥112,913,948.87\n总资产\t¥698,000.00\t¥113,158,998.87\n总权重\t55.02%\t0.22%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥113,158,998.87 · 现金 ¥112,913,948.87 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 7
+      },
+      "valCash": {
+        "err": "现金不能为负。 操作后总权重为 100.0%，不能超过 100%。",
+        "errorHidden": false,
+        "disabled": true,
+        "text": "操作前 → 操作后\n现金调整 · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n现金\t¥313,950.00\t−¥1.00\n总资产\t¥698,000.00\t¥384,049.00\n总权重\t55.02%\t100.00%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥384,049.00 · 现金 −¥1.00 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 3
+      },
+      "valTotal": {
+        "err": "总资产不能低于当前持仓市值 ¥384,050.00（现金不能为负）。 操作后总权重为 38405.0%，不能超过 100%。",
+        "errorHidden": false,
+        "disabled": true,
+        "text": "操作前 → 操作后\n总额校正 · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n现金\t¥313,950.00\t−¥383,050.00\n总资产\t¥698,000.00\t¥1,000.00\n总权重\t55.02%\t38405.00%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥1,000.00 · 现金 −¥383,050.00 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 3
+      },
+      "valDecimals": {
+        "err": "份额最多 6 位小数。",
+        "errorHidden": false,
+        "disabled": true,
+        "text": "操作前 → 操作后\n申购/加仓 · 财通集成电路产业股票C · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金份额\t0.00\t0.123457\n单位成本\t1.2299\t1.2840\n持仓市值\t¥0.00\t¥0.16\n权重\t0.00%\t0.00%\n现金\t¥313,950.00\t¥313,949.84\n总资产\t¥698,000.00\t¥698,000.00\n总权重\t55.02%\t55.02%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥698,000.00 · 现金 ¥313,949.84 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 7
+      },
+      "valAmountDecimals": {
+        "err": "金额最多 2 位小数。",
+        "errorHidden": false,
+        "disabled": true,
+        "text": "操作前 → 操作后\n申购/加仓 · 财通集成电路产业股票C · 生效 2026-11-11 19:51\n受影响行操作前与操作后对照\n项目\t操作前\t操作后\n基金份额\t0.00\t77.977414\n单位成本\t1.2299\t1.2840\n持仓市值\t¥0.00\t¥100.12\n权重\t0.00%\t0.01%\n现金\t¥313,950.00\t¥313,849.88\n总资产\t¥698,000.00\t¥698,000.00\n总权重\t55.02%\t55.04%\n\n将写入本地审计，可撤销上一笔或恢复演示初始值。\n\n保存后当前组合：总资产 ¥698,000.00 · 现金 ¥313,849.88 · 5 只基金。",
+        "recalc": "",
+        "diffRows": 7
+      },
+      "beforeReload": {
+        "cash": 313950,
+        "total": 698000,
+        "holdings": 384050,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 0,
+            "nav": 1.284,
+            "amount": 0,
+            "weight": 0,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.1991404011469312,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.1489971346712507,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10171919770736387,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70050,
+            "nav": 1,
+            "amount": 70050,
+            "weight": 0.10035816618911175,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 9,
+        "auditText": "已记录 9 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n清仓\n006503\n来源 网页\n撤销上一笔\n2026-11-11 19:51\n删除基金\n999999\n来源 网页\n2026-11-11 19:51\n编辑基金\n测试新基金\n来源 网页\n2026-11-11 19:51\n新增基金\n测试新基金\n来源 网页\n2026-11-09 10:00\n申购/加仓\n015790\n来源 网页\n2026-11-11 19:51\n总额校正\n组合\n来源 网页\n2026-11-11 19:51\n现金调整\n组合\n来源 网页\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "afterReload": {
+        "cash": 313950,
+        "total": 698000,
+        "holdings": 384050,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 0,
+            "nav": 1.284,
+            "amount": 0,
+            "weight": 0,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.1991404011469312,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.1489971346712507,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10171919770736387,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70050,
+            "nav": 1,
+            "amount": 70050,
+            "weight": 0.10035816618911175,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 9,
+        "auditText": "已记录 9 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n清仓\n006503\n来源 网页\n撤销上一笔\n2026-11-11 19:51\n删除基金\n999999\n来源 网页\n2026-11-11 19:51\n编辑基金\n测试新基金\n来源 网页\n2026-11-11 19:51\n新增基金\n测试新基金\n来源 网页\n2026-11-09 10:00\n申购/加仓\n015790\n来源 网页\n2026-11-11 19:51\n总额校正\n组合\n来源 网页\n2026-11-11 19:51\n现金调整\n组合\n来源 网页\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "afterUndo": {
+        "cash": 166950,
+        "total": 698000,
+        "holdings": 531050,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 114485.981309,
+            "nav": 1.284,
+            "amount": 147000.000000756,
+            "weight": 0.21060171919879084,
+            "cost": 1.2299
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.1991404011469312,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.1489971346712507,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10171919770736387,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70050,
+            "nav": 1,
+            "amount": 70050,
+            "weight": 0.10035816618911175,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 8,
+        "auditText": "已记录 8 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n2026-11-11 19:51\n删除基金\n999999\n来源 网页\n撤销上一笔\n2026-11-11 19:51\n编辑基金\n测试新基金\n来源 网页\n2026-11-11 19:51\n新增基金\n测试新基金\n来源 网页\n2026-11-09 10:00\n申购/加仓\n015790\n来源 网页\n2026-11-11 19:51\n总额校正\n组合\n来源 网页\n2026-11-11 19:51\n现金调整\n组合\n来源 网页\n2026-11-11 19:51\n赎回/减仓\n006503\n来源 网页\n2026-11-11 19:51\n申购/加仓\n006503\n来源 网页"
+      },
+      "afterReset": {
+        "cash": 150000,
+        "total": 679000,
+        "holdings": 529000,
+        "count": 5,
+        "funds": [
+          {
+            "code": "006503",
+            "name": "财通集成电路产业股票C",
+            "shares": 112928.34891,
+            "nav": 1.284,
+            "amount": 145000.00000044,
+            "weight": 0.21354933726132547,
+            "cost": 1.228
+          },
+          {
+            "code": "018345",
+            "name": "华夏中证机器人ETF联接C",
+            "shares": 123445.825933,
+            "nav": 1.126,
+            "amount": 139000.00000055798,
+            "weight": 0.2047128129610574,
+            "cost": 1.1707
+          },
+          {
+            "code": "006864",
+            "name": "国联安核心资产混合",
+            "shares": 50955.414013,
+            "nav": 2.041,
+            "amount": 104000.000000533,
+            "weight": 0.1531664212084433,
+            "cost": 2.2546
+          },
+          {
+            "code": "007818",
+            "name": "国泰中证全指通信设备ETF联接C",
+            "shares": 72008.11359,
+            "nav": 0.986,
+            "amount": 70999.99999973999,
+            "weight": 0.10456553755484534,
+            "cost": 0.9723
+          },
+          {
+            "code": "015790",
+            "name": "永赢高端装备智选混合发起C",
+            "shares": 70000,
+            "nav": 1,
+            "amount": 70000,
+            "weight": 0.10309278350515463,
+            "cost": 0.9398
+          }
+        ],
+        "auditRows": 0,
+        "auditText": "已记录 0 条本地写入\n来源均为「网页」· 时间 / 类型 / 基金 / 前→后 · 仅保存在本机，不影响实盘\n恢复演示初始值\n暂无本地写入记录。演示写入保存在本机 localStorage，可随时恢复演示初始值。"
+      },
+      "errors": []
+    },
+    "v6": {
+      "before": {
         "amount": "10.4 万",
         "weight": "15.3%"
+      },
+      "valid": {
+        "err": "",
+        "hidden": true,
+        "disabled": false
       },
       "afterSave": {
         "amount": "17 万",
         "weight": "25.0%",
-        "targetText": "25.0% → 25.0%",
-        "status": "保持（目标 = 当前）",
         "auditRows": 1,
-        "fundAudit": 1,
-        "toast": "已保存演示调整 · 国联安核心资产混合 ¥104,000 → ¥169,750撤销",
-        "stored": true,
-        "storedPositions": {
-          "006864": {
-            "amount": 169750,
-            "target": 0.25,
-            "costNav": 2.1735
-          }
-        },
-        "audit": [
-          {
-            "time": "18:52:12",
-            "code": "006864",
-            "name": "国联安核心资产混合",
-            "fromAmount": 104000,
-            "toAmount": 169750,
-            "fromWeight": 0.15316642120765833,
-            "toWeight": 0.25,
-            "source": "网页",
-            "action": "调整"
-          }
-        ]
+        "toast": "已保存演示调整 · 国联安核心资产混合 ¥679,000 → ¥679,000撤销"
       },
       "afterUndo": {
         "amount": "10.4 万",
-        "weight": "15.3%",
         "auditRows": 0
       },
-      "persisted": {
-        "amount": "17 万",
-        "weight": "25.0%",
-        "auditRows": 1,
-        "open": [
-          "advice-006864"
-        ],
-        "auditText": "18:52:13国联安核心资产混合¥104,000.00 → ¥169,750.00来源 网页"
+      "zoomOpen": {
+        "open": true,
+        "dashed": 3,
+        "circles": 2,
+        "title": "国联安核心资产混合 · 近一年净值趋势（放大）"
       },
-      "afterReset": {
-        "amount": "10.4 万",
-        "weight": "15.3%",
-        "auditRows": 0,
-        "stored": null
-      }
-    },
-    "expand": {
-      "first": {
-        "open": [
-          "advice-006503"
-        ]
+      "zoomClose": {
+        "hidden": true,
+        "focus": "period"
       },
-      "second": {
-        "open": [
-          "advice-006864"
-        ]
-      }
-    },
-    "period": {
-      "active": "近三年",
-      "selected": 1
-    },
-    "manual": {
-      "open": [
-        "advice-006864"
-      ],
-      "active": "近三年",
-      "scrollY": 520,
-      "time": "14:32:57",
-      "scrollBefore": 520
-    },
-    "reload": {
-      "open": [
-        "advice-006864"
-      ],
-      "active": [
-        "近三年"
-      ],
-      "scrollY": 520
-    },
-    "keyboard": {
-      "focus": true,
-      "afterEnter": {
-        "open": [
-          "advice-006864"
-        ]
-      },
-      "afterEscape": {
-        "open": 0,
-        "focus": "006864"
+      "inception": {
+        "label": "成立以来",
+        "empty": false,
+        "svg": true
       }
     }
   },
+  "gate": {
+    "locked": {
+      "auth": "locked",
+      "onlyGate": true,
+      "hasLayoutContent": false,
+      "layoutDisplay": null,
+      "hasInput": true,
+      "demoTokenShown": true,
+      "tokenStored": null
+    },
+    "wrong": {
+      "error": "Token 无效，请检查后重试。",
+      "hidden": false,
+      "auth": "locked"
+    },
+    "entered": {
+      "auth": "ok",
+      "token": "demo-2026",
+      "layout": "flex",
+      "funds": 5,
+      "logout": true
+    },
+    "loggedOut": {
+      "auth": "locked",
+      "token": null,
+      "gate": true,
+      "hasLayout": false
+    }
+  },
   "summary": {
-    "scope": "7 页 × 7 档宽度 + 首页展开态（含调整后目标值/放大入口）+ 放大与写入交互；v6",
+    "scope": "v7：Token 门禁 + 全量实盘编辑 + 份额/时间/前后对照；7 页 × 7 档宽度 + 交互与截图",
     "viewportCells": 49,
     "widths": [
       360,
@@ -2361,11 +2717,37 @@
       "overflowers": 0,
       "touchSmall": 0
     },
-    "expandedViolations": {
-      "overflow": 0,
-      "clipped": 0,
-      "overflowers": 0,
-      "touchSmall": 0
+    "v7Checks": {
+      "gateOnlyTokenPage": true,
+      "gateWrongRejected": true,
+      "gateTokenWritesLocalStorage": true,
+      "gateLogoutClears": true,
+      "demoBannersAllPages": true,
+      "fullEditingToolbar": true,
+      "rowEditDeleteEveryWidth": true,
+      "sharesAndNavShown": true,
+      "shareAmountBidirectional": true,
+      "buyUpdatesCashAndShares": true,
+      "sellByAmountWorks": true,
+      "cashAdjustWorks": true,
+      "totalAdjustWorks": true,
+      "historicalRecalcNotice": true,
+      "diffBeforeAfterShown": true,
+      "addFundWorks": true,
+      "duplicateCodeRejected": true,
+      "editFundWorks": true,
+      "deleteFundWorks": true,
+      "clearFundWorks": true,
+      "validationSellOverHolding": true,
+      "validationNegativeCash": true,
+      "validationTotalBelowHoldings": true,
+      "validationShareDecimals": true,
+      "validationAmountDecimals": true,
+      "localAuditWithSource": true,
+      "persistenceReload": true,
+      "undoLastWorks": true,
+      "resetRestoresDemo": true,
+      "noPageErrors": true
     },
     "v6Checks": {
       "fiveFundsEveryWidth": true,
@@ -2374,53 +2756,19 @@
       "numericTabular": true,
       "numericRightAlignedDesktop": true,
       "numericFitsCells": true,
-      "fiveFundsInViewport": {
-        "1024": true,
-        "1280": true,
-        "1440": true
-      },
-      "mobilePnlSecondaryLine390": true,
-      "yenFormat": true,
-      "extremeValuesNoWrapNoOverflow": true,
-      "demoWriteLabelEveryWidth": true,
-      "auditSectionEveryWidth": true,
-      "chartDemoNoteEveryWidth": true,
-      "positionAdjustPanelEveryWidth": true,
-      "positionTargetsCompleteEveryWidth": true,
-      "positionFormEveryWidth": true,
-      "zoomEntryEveryChart": true,
+      "positionTargetsComplete": true,
+      "positionForm": true,
       "chartsEveryWidth": true,
+      "zoomEntryEveryChart": true,
       "dashedAndCrosses": true,
-      "holdFundTargetEqualsCurrent": true,
-      "holdFundDeviationZero": true,
-      "fiveYearRenamedToInception": true,
-      "zoomOpensWithDashesCrossesLegendSummary": true,
-      "zoomFocusStage": true,
-      "zoomScaleControls": true,
-      "zoomPanWorks": true,
-      "zoomWheelWorks": true,
-      "zoomEscCloses": true,
-      "zoomFocusReturns": true,
-      "zoomKeepsFundOpenAndPeriod": true,
-      "zoomRestoresScroll": true,
-      "intradayZoomKeepsDashes": true,
-      "writeDefaultHold": true,
-      "writeValidationNegative": true,
-      "writeValidationCash": true,
-      "writeValidationMinUnit": true,
-      "writePreviewValid": true,
-      "writeUpdatesRowAndTarget": true,
-      "writeLocalAudit": true,
-      "writeStoragePersist": true,
-      "writeUndo": true,
-      "resetRestoresDemo": true,
-      "oneRowExpandedAtATime": true,
-      "periodSwitch": true,
-      "refreshKeepsOpenPeriodScroll": true,
-      "reloadKeepsOpenPeriod": true,
-      "keyboardToggleAndEscape": true
+      "shareFacts": true,
+      "targetAdjustSaveUndo": true,
+      "zoomOpensCloses": true,
+      "inceptionFiveYear": true,
+      "sevenPagesNav": true
     },
-    "allV6ChecksPass": true
+    "allChecksPass": true,
+    "screenshots": 31
   },
   "screenshots": [
     "home-1440.png",
@@ -2438,68 +2786,21 @@
     "settings-1440.png",
     "settings-390.png",
     "popup.png",
+    "v7-gate-1440.png",
+    "v7-gate-390.png",
+    "v7-edit-1440.png",
+    "v7-edit-390.png",
+    "v7-shares-1440.png",
+    "v7-shares-390.png",
+    "v7-diff-1440.png",
+    "v7-diff-390.png",
+    "v7-history-1440.png",
+    "v7-history-390.png",
     "v6-adjust-1440.png",
     "v6-adjust-390.png",
     "v6-zoom-1440.png",
     "v6-zoom-390.png",
     "v6-write-1440.png",
     "v6-write-390.png"
-  ],
-  "holdFund": {
-    "targets": [
-      "当前权重 → 目标权重10.3% → 10.3%",
-      "当前持仓市值 → 调整后目标市值7.00 万 → 7.00 万",
-      "调整金额¥0.00",
-      "偏离（目标 − 当前）0.0pp",
-      "执行状态保持（目标 = 当前）"
-    ],
-    "fiveLabel": "成立以来",
-    "fiveActive": "true",
-    "fiveEmpty": false,
-    "fiveSvg": true,
-    "fiveStart": "2024-09-17",
-    "fiveEnd": "2026-11-10",
-    "expanded": {
-      "open": true,
-      "hasPanel": true,
-      "targets": [
-        "当前权重 → 目标权重10.3% → 10.3%",
-        "当前持仓市值 → 调整后目标市值7.00 万 → 7.00 万",
-        "调整金额¥0.00",
-        "偏离（目标 − 当前）0.0pp",
-        "执行状态保持（目标 = 当前）"
-      ],
-      "demoChip": "演示写入 · 仅保存在本地，不影响实盘",
-      "form": true,
-      "formInputs": 2,
-      "note": "计算口径：目标市值 = 目标权重 × 总资产 ¥679,000，按估算净值折算、两位小数；最小变动 ¥1,000，不超过 mock 可用现金 ¥150,000 或当前持仓份额，5 只基金合计权重 ≤100%。「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。",
-      "auditList": true,
-      "charts": 2,
-      "svgs": 2,
-      "todayLine": 2,
-      "costLine": 2,
-      "crosses": 3,
-      "dashed": 4,
-      "ariaOk": true,
-      "dataTables": 1,
-      "zoomBtns": 2,
-      "zoomSizes": [
-        "66x44",
-        "66x44"
-      ],
-      "hasZoom": true,
-      "fiveYearLabel": "成立以来",
-      "measure": {
-        "viewportWidth": 1440,
-        "scrollWidth": 1440,
-        "overflowX": 0,
-        "clipped": [],
-        "overflowers": [],
-        "touchSmall": [],
-        "clippedCount": 0,
-        "overflowersCount": 0,
-        "touchSmallCount": 0
-      }
-    }
-  }
+  ]
 }
