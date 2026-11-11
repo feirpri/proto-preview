@@ -447,7 +447,7 @@
   window.MOCK = {
     meta: {
       product: "Musi 投资助手",
-      version: "原型 v7",
+      version: "原型 v8",
       asof: ASOF_TIME,
       asofDate: ASOF,
       realtime: {
@@ -475,7 +475,7 @@
       writeMinAmount: 1000,
       authDemoToken: "demo-2026",
       authNote: "原型模拟门禁：真实 token 由服务端生成；此处为固定演示 token，仅用于本地交互展示，不构成真实安全边界。",
-      fullEditNote: "实盘数据全量编辑（演示）：新增/编辑/删除基金、份额操作、现金调整与总额校正；份额优先且可由金额反算；每笔可选生效时间，早于历史记录时按时间重算后续操作。",
+      fullEditNote: "金额编辑（演示）：单行基金列表 + 金额修改/新增/删除；每笔可选生效时间，历史时间只提示更晚记录，不重算后续。",
       shareDecimals: 6,
       amountDecimals: 2,
       peNote: "PE-TTM 与历史分位数为演示值；分位窗口近 10 年；生产数据接口待调研确认。"

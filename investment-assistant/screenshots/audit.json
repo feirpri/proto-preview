@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-11T12:32:17.852Z",
-  "version": "v7",
+  "generatedAt": "2026-11-11T12:51:45.082Z",
+  "version": "v8",
   "widths": [
     360,
     390,
@@ -10,53 +10,6 @@
     1280,
     1440
   ],
-  "gate": {
-    "visible": true,
-    "layoutDisplay": "none",
-    "infoRendered": false,
-    "demoTokenShown": "演示 token\ndemo-2026",
-    "wrongError": "Token 无效或已过期，请重试。",
-    "storedAfterValid": "demo-2026",
-    "gateGoneAfterValid": true,
-    "layoutVisibleAfterValid": "flex"
-  },
-  "v7Checks": {
-    "tradeFormOpened": true,
-    "amountFromShares": "1284.00",
-    "sharesFromAmount": "1000.000000",
-    "diffShown": true,
-    "diffText": "操作前 / 操作后对照\n受影响行与账户\n项目\t操作前\t操作后\n份额\t112,928.34891\t113,928.34891\n单位成本\t1.2280\t1.2285\n持仓市值\t¥145,000.00\t¥146,284.00\n当前权重\t21.35%\t21.54%\n目标权重\t16.00%\t16.00%\n现金\t¥150,000.00\t¥148,716.00\n总资产\t¥679,000.00\t¥679,000.00\n重算后最终\n现金 ¥148,716.00 · 总资产 ¥679,000.0",
-    "savedOps": 1,
-    "auditRows": 1,
-    "cashAfterBuy": 148716,
-    "opsTimesAtPreview": "[\"2026-11-01T09:30\"]",
-    "laterCount": 1,
-    "candidateTime": "2025-01-02T09:30",
-    "recomputeWarning": "生效时间早于 1 条历史记录，将按时间顺序重算后续 1 条；相关份额、成本、现金、总额与权重会随之变化。",
-    "sellOverError": "赎回/减仓份额不能超过持有份额 113,928.34891。",
-    "dupError": "基金代码已存在，不能重复。",
-    "addPreviewShares": true,
-    "fundsAfterAdd": 6,
-    "editedShares": 2000,
-    "fundsAfterDelete": 5,
-    "cashPreview": true,
-    "cashAfterAdjust": 149716,
-    "totalAfterCorrect": 700000,
-    "opsAfterUndo": 5,
-    "opsAfterReset": 0,
-    "cashAfterReset": 150000,
-    "totalAfterReset": 679000
-  },
-  "v6Regression": {
-    "navItems": 7,
-    "zoomButtons": 10,
-    "numbersSingleLine": true,
-    "adjustForm": true,
-    "perFiveLabel": "成立以来",
-    "zoomModal": true,
-    "zoomClosed": true,
-    "chartCount": 5
-  },
   "pages": {
     "360": {
       "index.html": {
@@ -67,89 +20,85 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "numbers": [
-          {
-            "text": "+0.82%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 143,
-            "cw": 143
-          },
-          {
-            "text": "+¥1,189",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 143,
-            "cw": 143
-          },
-          {
-            "text": "+1.15%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 143,
-            "cw": 143
-          },
-          {
-            "text": "+¥1,599",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 143,
-            "cw": 143
-          },
-          {
-            "text": "+0.21%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 143,
-            "cw": 143
-          },
-          {
-            "text": "+¥218",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 143,
-            "cw": 143
-          },
-          {
-            "text": "+0.64%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 143,
-            "cw": 143
-          },
-          {
-            "text": "+¥454",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 143,
-            "cw": 143
-          },
-          {
-            "text": "−0.37%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 143,
-            "cw": 143
-          },
-          {
-            "text": "−¥259",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 143,
-            "cw": 143
-          }
-        ],
-        "fundRows": 5,
-        "ledgerRows": 5,
-        "summary": "现金 ¥150,000 持仓 ¥529,000 总资产 ¥679,000 基金 5 只",
-        "demoBanner": true,
-        "demoChip": true,
-        "pctSource": {
-          "code": "006503",
-          "shares": 112928.34891,
-          "amount": 145000
-        },
-        "numbersSingleLine": true
+        "home": {
+          "count": 5,
+          "rows": [
+            {
+              "name": "财通集成电路产业股票C",
+              "code": "006503",
+              "amount": "¥145,000",
+              "change": "+¥1,189/+0.82%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 财通集成电路产业股票C",
+              "detailLabel": "查看 财通集成电路产业股票C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "code": "018345",
+              "amount": "¥139,000",
+              "change": "+¥1,599/+1.15%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 华夏中证机器人ETF联接C",
+              "detailLabel": "查看 华夏中证机器人ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国联安核心资产混合",
+              "code": "006864",
+              "amount": "¥104,000",
+              "change": "+¥218/+0.21%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国联安核心资产混合",
+              "detailLabel": "查看 国联安核心资产混合 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "code": "007818",
+              "amount": "¥71,000",
+              "change": "+¥454/+0.64%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国泰中证全指通信设备ETF联接C",
+              "detailLabel": "查看 国泰中证全指通信设备ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "code": "015790",
+              "amount": "¥70,000",
+              "change": "−¥259/−0.37%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 永赢高端装备智选混合发起C",
+              "detailLabel": "查看 永赢高端装备智选混合发起C 详情",
+              "forbidden": false,
+              "cells": 4
+            }
+          ],
+          "fundTables": 1,
+          "headers": [
+            "基金",
+            "当前持仓",
+            "今日涨跌",
+            "操作"
+          ],
+          "oldFundSection": false,
+          "oldLedger": false,
+          "totalShown": false,
+          "recentCollapsed": true,
+          "addBtn": true,
+          "demoNote": true,
+          "gateNote": true
+        }
       },
       "advice.html": {
         "overflowX": 0,
@@ -158,8 +107,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "news.html": {
         "overflowX": 0,
@@ -168,8 +116,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "portfolio.html": {
         "overflowX": 0,
@@ -178,8 +125,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "compare.html": {
         "overflowX": 0,
@@ -188,8 +134,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "history.html": {
         "overflowX": 0,
@@ -198,8 +143,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "settings.html": {
         "overflowX": 0,
@@ -208,8 +152,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       }
     },
     "390": {
@@ -221,89 +164,85 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "numbers": [
-          {
-            "text": "+0.82%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 158,
-            "cw": 158
-          },
-          {
-            "text": "+¥1,189",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 158,
-            "cw": 158
-          },
-          {
-            "text": "+1.15%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 158,
-            "cw": 158
-          },
-          {
-            "text": "+¥1,599",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 158,
-            "cw": 158
-          },
-          {
-            "text": "+0.21%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 158,
-            "cw": 158
-          },
-          {
-            "text": "+¥218",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 158,
-            "cw": 158
-          },
-          {
-            "text": "+0.64%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 158,
-            "cw": 158
-          },
-          {
-            "text": "+¥454",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 158,
-            "cw": 158
-          },
-          {
-            "text": "−0.37%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 158,
-            "cw": 158
-          },
-          {
-            "text": "−¥259",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 158,
-            "cw": 158
-          }
-        ],
-        "fundRows": 5,
-        "ledgerRows": 5,
-        "summary": "现金 ¥150,000 持仓 ¥529,000 总资产 ¥679,000 基金 5 只",
-        "demoBanner": true,
-        "demoChip": true,
-        "pctSource": {
-          "code": "006503",
-          "shares": 112928.34891,
-          "amount": 145000
-        },
-        "numbersSingleLine": true
+        "home": {
+          "count": 5,
+          "rows": [
+            {
+              "name": "财通集成电路产业股票C",
+              "code": "006503",
+              "amount": "¥145,000",
+              "change": "+¥1,189/+0.82%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 财通集成电路产业股票C",
+              "detailLabel": "查看 财通集成电路产业股票C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "code": "018345",
+              "amount": "¥139,000",
+              "change": "+¥1,599/+1.15%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 华夏中证机器人ETF联接C",
+              "detailLabel": "查看 华夏中证机器人ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国联安核心资产混合",
+              "code": "006864",
+              "amount": "¥104,000",
+              "change": "+¥218/+0.21%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国联安核心资产混合",
+              "detailLabel": "查看 国联安核心资产混合 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "code": "007818",
+              "amount": "¥71,000",
+              "change": "+¥454/+0.64%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国泰中证全指通信设备ETF联接C",
+              "detailLabel": "查看 国泰中证全指通信设备ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "code": "015790",
+              "amount": "¥70,000",
+              "change": "−¥259/−0.37%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 永赢高端装备智选混合发起C",
+              "detailLabel": "查看 永赢高端装备智选混合发起C 详情",
+              "forbidden": false,
+              "cells": 4
+            }
+          ],
+          "fundTables": 1,
+          "headers": [
+            "基金",
+            "当前持仓",
+            "今日涨跌",
+            "操作"
+          ],
+          "oldFundSection": false,
+          "oldLedger": false,
+          "totalShown": false,
+          "recentCollapsed": true,
+          "addBtn": true,
+          "demoNote": true,
+          "gateNote": true
+        }
       },
       "advice.html": {
         "overflowX": 0,
@@ -312,8 +251,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "news.html": {
         "overflowX": 0,
@@ -322,8 +260,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "portfolio.html": {
         "overflowX": 0,
@@ -332,8 +269,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "compare.html": {
         "overflowX": 0,
@@ -342,8 +278,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "history.html": {
         "overflowX": 0,
@@ -352,8 +287,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "settings.html": {
         "overflowX": 0,
@@ -362,8 +296,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       }
     },
     "414": {
@@ -375,89 +308,85 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "numbers": [
-          {
-            "text": "+0.82%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 170,
-            "cw": 170
-          },
-          {
-            "text": "+¥1,189",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 170,
-            "cw": 170
-          },
-          {
-            "text": "+1.15%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 170,
-            "cw": 170
-          },
-          {
-            "text": "+¥1,599",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 170,
-            "cw": 170
-          },
-          {
-            "text": "+0.21%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 170,
-            "cw": 170
-          },
-          {
-            "text": "+¥218",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 170,
-            "cw": 170
-          },
-          {
-            "text": "+0.64%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 170,
-            "cw": 170
-          },
-          {
-            "text": "+¥454",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 170,
-            "cw": 170
-          },
-          {
-            "text": "−0.37%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 170,
-            "cw": 170
-          },
-          {
-            "text": "−¥259",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 170,
-            "cw": 170
-          }
-        ],
-        "fundRows": 5,
-        "ledgerRows": 5,
-        "summary": "现金 ¥150,000 持仓 ¥529,000 总资产 ¥679,000 基金 5 只",
-        "demoBanner": true,
-        "demoChip": true,
-        "pctSource": {
-          "code": "006503",
-          "shares": 112928.34891,
-          "amount": 145000
-        },
-        "numbersSingleLine": true
+        "home": {
+          "count": 5,
+          "rows": [
+            {
+              "name": "财通集成电路产业股票C",
+              "code": "006503",
+              "amount": "¥145,000",
+              "change": "+¥1,189/+0.82%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 财通集成电路产业股票C",
+              "detailLabel": "查看 财通集成电路产业股票C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "code": "018345",
+              "amount": "¥139,000",
+              "change": "+¥1,599/+1.15%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 华夏中证机器人ETF联接C",
+              "detailLabel": "查看 华夏中证机器人ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国联安核心资产混合",
+              "code": "006864",
+              "amount": "¥104,000",
+              "change": "+¥218/+0.21%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国联安核心资产混合",
+              "detailLabel": "查看 国联安核心资产混合 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "code": "007818",
+              "amount": "¥71,000",
+              "change": "+¥454/+0.64%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国泰中证全指通信设备ETF联接C",
+              "detailLabel": "查看 国泰中证全指通信设备ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "code": "015790",
+              "amount": "¥70,000",
+              "change": "−¥259/−0.37%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 永赢高端装备智选混合发起C",
+              "detailLabel": "查看 永赢高端装备智选混合发起C 详情",
+              "forbidden": false,
+              "cells": 4
+            }
+          ],
+          "fundTables": 1,
+          "headers": [
+            "基金",
+            "当前持仓",
+            "今日涨跌",
+            "操作"
+          ],
+          "oldFundSection": false,
+          "oldLedger": false,
+          "totalShown": false,
+          "recentCollapsed": true,
+          "addBtn": true,
+          "demoNote": true,
+          "gateNote": true
+        }
       },
       "advice.html": {
         "overflowX": 0,
@@ -466,8 +395,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "news.html": {
         "overflowX": 0,
@@ -476,8 +404,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "portfolio.html": {
         "overflowX": 0,
@@ -486,8 +413,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "compare.html": {
         "overflowX": 0,
@@ -496,8 +422,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "history.html": {
         "overflowX": 0,
@@ -506,8 +431,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "settings.html": {
         "overflowX": 0,
@@ -516,8 +440,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       }
     },
     "768": {
@@ -529,89 +452,85 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "numbers": [
-          {
-            "text": "+0.82%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 227,
-            "cw": 227
-          },
-          {
-            "text": "+¥1,189",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 227,
-            "cw": 227
-          },
-          {
-            "text": "+1.15%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 227,
-            "cw": 227
-          },
-          {
-            "text": "+¥1,599",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 227,
-            "cw": 227
-          },
-          {
-            "text": "+0.21%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 227,
-            "cw": 227
-          },
-          {
-            "text": "+¥218",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 227,
-            "cw": 227
-          },
-          {
-            "text": "+0.64%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 227,
-            "cw": 227
-          },
-          {
-            "text": "+¥454",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 227,
-            "cw": 227
-          },
-          {
-            "text": "−0.37%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 227,
-            "cw": 227
-          },
-          {
-            "text": "−¥259",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 227,
-            "cw": 227
-          }
-        ],
-        "fundRows": 5,
-        "ledgerRows": 5,
-        "summary": "现金 ¥150,000 持仓 ¥529,000 总资产 ¥679,000 基金 5 只",
-        "demoBanner": true,
-        "demoChip": true,
-        "pctSource": {
-          "code": "006503",
-          "shares": 112928.34891,
-          "amount": 145000
-        },
-        "numbersSingleLine": true
+        "home": {
+          "count": 5,
+          "rows": [
+            {
+              "name": "财通集成电路产业股票C",
+              "code": "006503",
+              "amount": "¥145,000",
+              "change": "+¥1,189/+0.82%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 财通集成电路产业股票C",
+              "detailLabel": "查看 财通集成电路产业股票C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "code": "018345",
+              "amount": "¥139,000",
+              "change": "+¥1,599/+1.15%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 华夏中证机器人ETF联接C",
+              "detailLabel": "查看 华夏中证机器人ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国联安核心资产混合",
+              "code": "006864",
+              "amount": "¥104,000",
+              "change": "+¥218/+0.21%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国联安核心资产混合",
+              "detailLabel": "查看 国联安核心资产混合 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "code": "007818",
+              "amount": "¥71,000",
+              "change": "+¥454/+0.64%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国泰中证全指通信设备ETF联接C",
+              "detailLabel": "查看 国泰中证全指通信设备ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "code": "015790",
+              "amount": "¥70,000",
+              "change": "−¥259/−0.37%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 永赢高端装备智选混合发起C",
+              "detailLabel": "查看 永赢高端装备智选混合发起C 详情",
+              "forbidden": false,
+              "cells": 4
+            }
+          ],
+          "fundTables": 1,
+          "headers": [
+            "基金",
+            "当前持仓",
+            "今日涨跌",
+            "操作"
+          ],
+          "oldFundSection": false,
+          "oldLedger": false,
+          "totalShown": false,
+          "recentCollapsed": true,
+          "addBtn": true,
+          "demoNote": true,
+          "gateNote": true
+        }
       },
       "advice.html": {
         "overflowX": 0,
@@ -620,8 +539,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "news.html": {
         "overflowX": 0,
@@ -630,8 +548,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "portfolio.html": {
         "overflowX": 0,
@@ -640,8 +557,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "compare.html": {
         "overflowX": 0,
@@ -650,8 +566,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "history.html": {
         "overflowX": 0,
@@ -660,8 +575,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "settings.html": {
         "overflowX": 0,
@@ -670,8 +584,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       }
     },
     "1024": {
@@ -679,115 +592,89 @@
         "overflowX": 0,
         "overflowers": [],
         "overflowersCount": 0,
-        "clipped": [
-          {
-            "tag": "TD",
-            "cls": "r tabular",
-            "sw": 97,
-            "cw": 89,
-            "text": "112,928.34891"
-          },
-          {
-            "tag": "TD",
-            "cls": "r tabular",
-            "sw": 104,
-            "cw": 89,
-            "text": "123,445.825933"
-          },
-          {
-            "tag": "TD",
-            "cls": "r tabular",
-            "sw": 97,
-            "cw": 89,
-            "text": "50,955.414013"
-          }
-        ],
-        "clippedCount": 3,
+        "clipped": [],
+        "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "numbers": [
-          {
-            "text": "+0.82%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 89,
-            "cw": 89
-          },
-          {
-            "text": "+¥1,189",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 121,
-            "cw": 121
-          },
-          {
-            "text": "+1.15%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 89,
-            "cw": 89
-          },
-          {
-            "text": "+¥1,599",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 121,
-            "cw": 121
-          },
-          {
-            "text": "+0.21%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 89,
-            "cw": 89
-          },
-          {
-            "text": "+¥218",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 121,
-            "cw": 121
-          },
-          {
-            "text": "+0.64%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 89,
-            "cw": 89
-          },
-          {
-            "text": "+¥454",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 121,
-            "cw": 121
-          },
-          {
-            "text": "−0.37%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 89,
-            "cw": 89
-          },
-          {
-            "text": "−¥259",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 121,
-            "cw": 121
-          }
-        ],
-        "fundRows": 5,
-        "ledgerRows": 5,
-        "summary": "现金 ¥150,000 持仓 ¥529,000 总资产 ¥679,000 基金 5 只",
-        "demoBanner": true,
-        "demoChip": true,
-        "pctSource": {
-          "code": "006503",
-          "shares": 112928.34891,
-          "amount": 145000
-        },
-        "numbersSingleLine": true
+        "home": {
+          "count": 5,
+          "rows": [
+            {
+              "name": "财通集成电路产业股票C",
+              "code": "006503",
+              "amount": "¥145,000",
+              "change": "+¥1,189 / +0.82%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 财通集成电路产业股票C",
+              "detailLabel": "查看 财通集成电路产业股票C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "code": "018345",
+              "amount": "¥139,000",
+              "change": "+¥1,599 / +1.15%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 华夏中证机器人ETF联接C",
+              "detailLabel": "查看 华夏中证机器人ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国联安核心资产混合",
+              "code": "006864",
+              "amount": "¥104,000",
+              "change": "+¥218 / +0.21%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国联安核心资产混合",
+              "detailLabel": "查看 国联安核心资产混合 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "code": "007818",
+              "amount": "¥71,000",
+              "change": "+¥454 / +0.64%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国泰中证全指通信设备ETF联接C",
+              "detailLabel": "查看 国泰中证全指通信设备ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "code": "015790",
+              "amount": "¥70,000",
+              "change": "−¥259 / −0.37%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 永赢高端装备智选混合发起C",
+              "detailLabel": "查看 永赢高端装备智选混合发起C 详情",
+              "forbidden": false,
+              "cells": 4
+            }
+          ],
+          "fundTables": 1,
+          "headers": [
+            "基金",
+            "当前持仓",
+            "今日涨跌",
+            "操作"
+          ],
+          "oldFundSection": false,
+          "oldLedger": false,
+          "totalShown": false,
+          "recentCollapsed": true,
+          "addBtn": true,
+          "demoNote": true,
+          "gateNote": true
+        }
       },
       "advice.html": {
         "overflowX": 0,
@@ -796,8 +683,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "news.html": {
         "overflowX": 0,
@@ -806,8 +692,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "portfolio.html": {
         "overflowX": 0,
@@ -816,8 +701,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "compare.html": {
         "overflowX": 0,
@@ -826,8 +710,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "history.html": {
         "overflowX": 0,
@@ -836,8 +719,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "settings.html": {
         "overflowX": 0,
@@ -846,8 +728,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       }
     },
     "1280": {
@@ -859,89 +740,85 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "numbers": [
-          {
-            "text": "+0.82%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 124,
-            "cw": 124
-          },
-          {
-            "text": "+¥1,189",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 175,
-            "cw": 175
-          },
-          {
-            "text": "+1.15%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 124,
-            "cw": 124
-          },
-          {
-            "text": "+¥1,599",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 175,
-            "cw": 175
-          },
-          {
-            "text": "+0.21%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 124,
-            "cw": 124
-          },
-          {
-            "text": "+¥218",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 175,
-            "cw": 175
-          },
-          {
-            "text": "+0.64%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 124,
-            "cw": 124
-          },
-          {
-            "text": "+¥454",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 175,
-            "cw": 175
-          },
-          {
-            "text": "−0.37%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 124,
-            "cw": 124
-          },
-          {
-            "text": "−¥259",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 175,
-            "cw": 175
-          }
-        ],
-        "fundRows": 5,
-        "ledgerRows": 5,
-        "summary": "现金 ¥150,000 持仓 ¥529,000 总资产 ¥679,000 基金 5 只",
-        "demoBanner": true,
-        "demoChip": true,
-        "pctSource": {
-          "code": "006503",
-          "shares": 112928.34891,
-          "amount": 145000
-        },
-        "numbersSingleLine": true
+        "home": {
+          "count": 5,
+          "rows": [
+            {
+              "name": "财通集成电路产业股票C",
+              "code": "006503",
+              "amount": "¥145,000",
+              "change": "+¥1,189 / +0.82%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 财通集成电路产业股票C",
+              "detailLabel": "查看 财通集成电路产业股票C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "code": "018345",
+              "amount": "¥139,000",
+              "change": "+¥1,599 / +1.15%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 华夏中证机器人ETF联接C",
+              "detailLabel": "查看 华夏中证机器人ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国联安核心资产混合",
+              "code": "006864",
+              "amount": "¥104,000",
+              "change": "+¥218 / +0.21%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国联安核心资产混合",
+              "detailLabel": "查看 国联安核心资产混合 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "code": "007818",
+              "amount": "¥71,000",
+              "change": "+¥454 / +0.64%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国泰中证全指通信设备ETF联接C",
+              "detailLabel": "查看 国泰中证全指通信设备ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "code": "015790",
+              "amount": "¥70,000",
+              "change": "−¥259 / −0.37%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 永赢高端装备智选混合发起C",
+              "detailLabel": "查看 永赢高端装备智选混合发起C 详情",
+              "forbidden": false,
+              "cells": 4
+            }
+          ],
+          "fundTables": 1,
+          "headers": [
+            "基金",
+            "当前持仓",
+            "今日涨跌",
+            "操作"
+          ],
+          "oldFundSection": false,
+          "oldLedger": false,
+          "totalShown": false,
+          "recentCollapsed": true,
+          "addBtn": true,
+          "demoNote": true,
+          "gateNote": true
+        }
       },
       "advice.html": {
         "overflowX": 0,
@@ -950,8 +827,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "news.html": {
         "overflowX": 0,
@@ -960,8 +836,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "portfolio.html": {
         "overflowX": 0,
@@ -970,8 +845,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "compare.html": {
         "overflowX": 0,
@@ -980,8 +854,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "history.html": {
         "overflowX": 0,
@@ -990,8 +863,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "settings.html": {
         "overflowX": 0,
@@ -1000,8 +872,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       }
     },
     "1440": {
@@ -1013,89 +884,85 @@
         "clippedCount": 0,
         "touchSmall": [],
         "touchSmallCount": 0,
-        "numbers": [
-          {
-            "text": "+0.82%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 144,
-            "cw": 144
-          },
-          {
-            "text": "+¥1,189",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 205,
-            "cw": 205
-          },
-          {
-            "text": "+1.15%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 144,
-            "cw": 144
-          },
-          {
-            "text": "+¥1,599",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 205,
-            "cw": 205
-          },
-          {
-            "text": "+0.21%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 144,
-            "cw": 144
-          },
-          {
-            "text": "+¥218",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 205,
-            "cw": 205
-          },
-          {
-            "text": "+0.64%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 144,
-            "cw": 144
-          },
-          {
-            "text": "+¥454",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 205,
-            "cw": 205
-          },
-          {
-            "text": "−0.37%",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 144,
-            "cw": 144
-          },
-          {
-            "text": "−¥259",
-            "whiteSpace": "nowrap",
-            "lines": 1,
-            "sw": 205,
-            "cw": 205
-          }
-        ],
-        "fundRows": 5,
-        "ledgerRows": 5,
-        "summary": "现金 ¥150,000 持仓 ¥529,000 总资产 ¥679,000 基金 5 只",
-        "demoBanner": true,
-        "demoChip": true,
-        "pctSource": {
-          "code": "006503",
-          "shares": 112928.34891,
-          "amount": 145000
-        },
-        "numbersSingleLine": true
+        "home": {
+          "count": 5,
+          "rows": [
+            {
+              "name": "财通集成电路产业股票C",
+              "code": "006503",
+              "amount": "¥145,000",
+              "change": "+¥1,189 / +0.82%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 财通集成电路产业股票C",
+              "detailLabel": "查看 财通集成电路产业股票C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "华夏中证机器人ETF联接C",
+              "code": "018345",
+              "amount": "¥139,000",
+              "change": "+¥1,599 / +1.15%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 华夏中证机器人ETF联接C",
+              "detailLabel": "查看 华夏中证机器人ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国联安核心资产混合",
+              "code": "006864",
+              "amount": "¥104,000",
+              "change": "+¥218 / +0.21%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国联安核心资产混合",
+              "detailLabel": "查看 国联安核心资产混合 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "国泰中证全指通信设备ETF联接C",
+              "code": "007818",
+              "amount": "¥71,000",
+              "change": "+¥454 / +0.64%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 国泰中证全指通信设备ETF联接C",
+              "detailLabel": "查看 国泰中证全指通信设备ETF联接C 详情",
+              "forbidden": false,
+              "cells": 4
+            },
+            {
+              "name": "永赢高端装备智选混合发起C",
+              "code": "015790",
+              "amount": "¥70,000",
+              "change": "−¥259 / −0.37%",
+              "editW": 44,
+              "editH": 44,
+              "editLabel": "编辑 永赢高端装备智选混合发起C",
+              "detailLabel": "查看 永赢高端装备智选混合发起C 详情",
+              "forbidden": false,
+              "cells": 4
+            }
+          ],
+          "fundTables": 1,
+          "headers": [
+            "基金",
+            "当前持仓",
+            "今日涨跌",
+            "操作"
+          ],
+          "oldFundSection": false,
+          "oldLedger": false,
+          "totalShown": false,
+          "recentCollapsed": true,
+          "addBtn": true,
+          "demoNote": true,
+          "gateNote": true
+        }
       },
       "advice.html": {
         "overflowX": 0,
@@ -1104,8 +971,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "news.html": {
         "overflowX": 0,
@@ -1114,8 +980,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "portfolio.html": {
         "overflowX": 0,
@@ -1124,8 +989,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "compare.html": {
         "overflowX": 0,
@@ -1134,8 +998,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "history.html": {
         "overflowX": 0,
@@ -1144,8 +1007,7 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       },
       "settings.html": {
         "overflowX": 0,
@@ -1154,28 +1016,539 @@
         "clipped": [],
         "clippedCount": 0,
         "touchSmall": [],
-        "touchSmallCount": 0,
-        "numbers": []
+        "touchSmallCount": 0
       }
     }
   },
-  "summary": {
-    "widthPageFailures": 0,
-    "checks": {
-      "widthsNoOverflow": true,
-      "gateBlocksInfo": true,
-      "gateRejectsWrongToken": true,
-      "gateStoresToken": true,
-      "sharesAmountBidirectional": true,
-      "confirmDiffShown": true,
-      "historicalRecomputeWarning": true,
-      "duplicateCodeRejected": true,
-      "oversellRejected": true,
-      "addEditDeleteWorks": true,
-      "cashAndTotalWork": true,
-      "undoAndRestoreWork": true,
-      "v6NoRegression": true
+  "interactions": {
+    "initial": {
+      "rows": 5,
+      "amounts": [
+        {
+          "code": "006503",
+          "amount": "¥145,000"
+        },
+        {
+          "code": "018345",
+          "amount": "¥139,000"
+        },
+        {
+          "code": "006864",
+          "amount": "¥104,000"
+        },
+        {
+          "code": "007818",
+          "amount": "¥71,000"
+        },
+        {
+          "code": "015790",
+          "amount": "¥70,000"
+        }
+      ],
+      "ops": [],
+      "auditRows": 0,
+      "toast": ""
     },
-    "passed": true
-  }
+    "editFields": {
+      "title": "编辑 · 财通集成电路产业股票C",
+      "fields": [
+        "current",
+        "amount",
+        "time"
+      ],
+      "deleteVisible": true,
+      "hasSharesOrNav": false
+    },
+    "initialSummary": "操作 保持 持仓金额 ¥145,000.00 → ¥145,000.00 变动 ¥0.00 生效时间 2026-11-11 20:53",
+    "editSummary": "操作 加仓 持仓金额 ¥145,000.00 → ¥200,000.00 变动 +¥55,000.00 生效时间 2026-11-11 20:53",
+    "afterSave": {
+      "rows": 5,
+      "amounts": [
+        {
+          "code": "006503",
+          "amount": "¥200,000"
+        },
+        {
+          "code": "018345",
+          "amount": "¥139,000"
+        },
+        {
+          "code": "006864",
+          "amount": "¥104,000"
+        },
+        {
+          "code": "007818",
+          "amount": "¥71,000"
+        },
+        {
+          "code": "015790",
+          "amount": "¥70,000"
+        }
+      ],
+      "ops": [
+        {
+          "id": "op-mwc4eiji-mdpj6",
+          "seq": 1794401634654,
+          "time": "2026-11-11T20:53",
+          "type": "set_amount",
+          "code": "006503",
+          "name": "财通集成电路产业股票C",
+          "amount": 200000
+        }
+      ],
+      "auditRows": 1,
+      "toast": "已保存金额 · 财通集成电路产业股票C · ¥200,000.00\n撤销"
+    },
+    "afterUndo": {
+      "rows": 5,
+      "amounts": [
+        {
+          "code": "006503",
+          "amount": "¥145,000"
+        },
+        {
+          "code": "018345",
+          "amount": "¥139,000"
+        },
+        {
+          "code": "006864",
+          "amount": "¥104,000"
+        },
+        {
+          "code": "007818",
+          "amount": "¥71,000"
+        },
+        {
+          "code": "015790",
+          "amount": "¥70,000"
+        }
+      ],
+      "ops": [],
+      "auditRows": 0,
+      "toast": "已撤销上一笔演示写入"
+    },
+    "decimals": {
+      "err": "金额最多 2 位小数。",
+      "hidden": false,
+      "disabled": true
+    },
+    "negative": {
+      "err": "持仓金额不能为负。",
+      "disabled": true
+    },
+    "laterWarning": {
+      "text": "该基金有 1 条更晚记录；保存后当前持仓仍以最新记录为准，不重算历史。",
+      "hidden": false
+    },
+    "afterEarlier": {
+      "rows": 5,
+      "amounts": [
+        {
+          "code": "006503",
+          "amount": "¥145,000"
+        },
+        {
+          "code": "018345",
+          "amount": "¥300,000"
+        },
+        {
+          "code": "006864",
+          "amount": "¥104,000"
+        },
+        {
+          "code": "007818",
+          "amount": "¥71,000"
+        },
+        {
+          "code": "015790",
+          "amount": "¥70,000"
+        }
+      ],
+      "ops": [
+        {
+          "id": "op-mwc4ek7m-buwi0",
+          "seq": 1794401636818,
+          "time": "2026-12-01T09:30",
+          "type": "set_amount",
+          "code": "018345",
+          "name": "华夏中证机器人ETF联接C",
+          "amount": 300000
+        },
+        {
+          "id": "op-mwc4ekz1-3lnq2",
+          "seq": 1794401637805,
+          "time": "2026-11-01T09:30",
+          "type": "set_amount",
+          "code": "018345",
+          "name": "华夏中证机器人ETF联接C",
+          "amount": 120000
+        }
+      ],
+      "auditRows": 2,
+      "toast": "已保存金额 · 华夏中证机器人ETF联接C · ¥120,000.00\n撤销"
+    },
+    "addFields": {
+      "title": "添加基金",
+      "fields": [
+        "code",
+        "name",
+        "amount",
+        "time"
+      ],
+      "hasSharesOrNav": false
+    },
+    "addDuplicate": {
+      "err": "基金代码已存在，不能重复。",
+      "disabled": true
+    },
+    "afterAdd": {
+      "rows": 6,
+      "amounts": [
+        {
+          "code": "006503",
+          "amount": "¥145,000"
+        },
+        {
+          "code": "018345",
+          "amount": "¥300,000"
+        },
+        {
+          "code": "006864",
+          "amount": "¥104,000"
+        },
+        {
+          "code": "007818",
+          "amount": "¥71,000"
+        },
+        {
+          "code": "015790",
+          "amount": "¥70,000"
+        },
+        {
+          "code": "999999",
+          "amount": "¥50,000"
+        }
+      ],
+      "ops": [
+        {
+          "id": "op-mwc4ek7m-buwi0",
+          "seq": 1794401636818,
+          "time": "2026-12-01T09:30",
+          "type": "set_amount",
+          "code": "018345",
+          "name": "华夏中证机器人ETF联接C",
+          "amount": 300000
+        },
+        {
+          "id": "op-mwc4ekz1-3lnq2",
+          "seq": 1794401637805,
+          "time": "2026-11-01T09:30",
+          "type": "set_amount",
+          "code": "018345",
+          "name": "华夏中证机器人ETF联接C",
+          "amount": 120000
+        },
+        {
+          "id": "op-mwc4elyr-o2nz4",
+          "seq": 1794401639091,
+          "time": "2026-11-11T20:53",
+          "type": "add_fund",
+          "code": "999999",
+          "name": "测试基金",
+          "amount": 50000,
+          "fields": {
+            "code": "999999",
+            "name": "测试基金",
+            "amount": 50000
+          }
+        }
+      ],
+      "auditRows": 3,
+      "toast": "已添加基金 · 测试基金 · ¥50,000\n撤销"
+    },
+    "deleteConfirm": {
+      "title": "删除 · 测试基金",
+      "text": "确认删除该基金记录？ 删除后「我的基金」不再显示该基金；不影响其他基金与实盘。此操作仅写入本机 localStorage，可在「最近操作」中撤销。 测试基金 999999 ¥50,",
+      "backVisible": true,
+      "saveText": "确认删除（演示）"
+    },
+    "deleteBack": {
+      "title": "编辑 · 测试基金",
+      "hasAmount": true
+    },
+    "afterDelete": {
+      "rows": 5,
+      "amounts": [
+        {
+          "code": "006503",
+          "amount": "¥145,000"
+        },
+        {
+          "code": "018345",
+          "amount": "¥300,000"
+        },
+        {
+          "code": "006864",
+          "amount": "¥104,000"
+        },
+        {
+          "code": "007818",
+          "amount": "¥71,000"
+        },
+        {
+          "code": "015790",
+          "amount": "¥70,000"
+        }
+      ],
+      "ops": [
+        {
+          "id": "op-mwc4ek7m-buwi0",
+          "seq": 1794401636818,
+          "time": "2026-12-01T09:30",
+          "type": "set_amount",
+          "code": "018345",
+          "name": "华夏中证机器人ETF联接C",
+          "amount": 300000
+        },
+        {
+          "id": "op-mwc4ekz1-3lnq2",
+          "seq": 1794401637805,
+          "time": "2026-11-01T09:30",
+          "type": "set_amount",
+          "code": "018345",
+          "name": "华夏中证机器人ETF联接C",
+          "amount": 120000
+        },
+        {
+          "id": "op-mwc4elyr-o2nz4",
+          "seq": 1794401639091,
+          "time": "2026-11-11T20:53",
+          "type": "add_fund",
+          "code": "999999",
+          "name": "测试基金",
+          "amount": 50000,
+          "fields": {
+            "code": "999999",
+            "name": "测试基金",
+            "amount": 50000
+          }
+        },
+        {
+          "id": "op-mwc4en02-601oi",
+          "seq": 1794401640434,
+          "time": "2026-11-11T20:54",
+          "type": "delete_fund",
+          "code": "999999",
+          "name": "测试基金"
+        }
+      ],
+      "auditRows": 4,
+      "toast": "已删除基金 · 测试基金\n撤销"
+    },
+    "detail": {
+      "open": true,
+      "charts": 2,
+      "zoomBtns": 2,
+      "hasTargetEdit": false,
+      "advice": true
+    },
+    "zoom": {
+      "open": true,
+      "title": "财通集成电路产业股票C · 当日分时（放大）"
+    },
+    "zoomClosed": true,
+    "detailClosed": true,
+    "fiveYearLabel": "成立以来",
+    "afterReset": {
+      "rows": 5,
+      "amounts": [
+        {
+          "code": "006503",
+          "amount": "¥145,000"
+        },
+        {
+          "code": "018345",
+          "amount": "¥139,000"
+        },
+        {
+          "code": "006864",
+          "amount": "¥104,000"
+        },
+        {
+          "code": "007818",
+          "amount": "¥71,000"
+        },
+        {
+          "code": "015790",
+          "amount": "¥70,000"
+        }
+      ],
+      "ops": [],
+      "auditRows": 0,
+      "toast": "已恢复全部演示初始值 · 本地操作记录已清空"
+    }
+  },
+  "home": {
+    "count": 5,
+    "rows": [
+      {
+        "name": "财通集成电路产业股票C",
+        "code": "006503",
+        "amount": "¥145,000",
+        "change": "+¥1,189 / +0.82%",
+        "editW": 44,
+        "editH": 44,
+        "editLabel": "编辑 财通集成电路产业股票C",
+        "detailLabel": "查看 财通集成电路产业股票C 详情",
+        "forbidden": false,
+        "cells": 4
+      },
+      {
+        "name": "华夏中证机器人ETF联接C",
+        "code": "018345",
+        "amount": "¥139,000",
+        "change": "+¥1,599 / +1.15%",
+        "editW": 44,
+        "editH": 44,
+        "editLabel": "编辑 华夏中证机器人ETF联接C",
+        "detailLabel": "查看 华夏中证机器人ETF联接C 详情",
+        "forbidden": false,
+        "cells": 4
+      },
+      {
+        "name": "国联安核心资产混合",
+        "code": "006864",
+        "amount": "¥104,000",
+        "change": "+¥218 / +0.21%",
+        "editW": 44,
+        "editH": 44,
+        "editLabel": "编辑 国联安核心资产混合",
+        "detailLabel": "查看 国联安核心资产混合 详情",
+        "forbidden": false,
+        "cells": 4
+      },
+      {
+        "name": "国泰中证全指通信设备ETF联接C",
+        "code": "007818",
+        "amount": "¥71,000",
+        "change": "+¥454 / +0.64%",
+        "editW": 44,
+        "editH": 44,
+        "editLabel": "编辑 国泰中证全指通信设备ETF联接C",
+        "detailLabel": "查看 国泰中证全指通信设备ETF联接C 详情",
+        "forbidden": false,
+        "cells": 4
+      },
+      {
+        "name": "永赢高端装备智选混合发起C",
+        "code": "015790",
+        "amount": "¥70,000",
+        "change": "−¥259 / −0.37%",
+        "editW": 44,
+        "editH": 44,
+        "editLabel": "编辑 永赢高端装备智选混合发起C",
+        "detailLabel": "查看 永赢高端装备智选混合发起C 详情",
+        "forbidden": false,
+        "cells": 4
+      }
+    ],
+    "fundTables": 1,
+    "headers": [
+      "基金",
+      "当前持仓",
+      "今日涨跌",
+      "操作"
+    ],
+    "oldFundSection": false,
+    "oldLedger": false,
+    "totalShown": false,
+    "recentCollapsed": true,
+    "addBtn": true,
+    "demoNote": true,
+    "gateNote": true
+  },
+  "gate": {
+    "locked": {
+      "gate": true,
+      "layoutDisplay": "none",
+      "infoRendered": false,
+      "demoTokenShown": true,
+      "hasInput": true
+    },
+    "wrong": {
+      "error": "Token 无效或已过期，请重试。",
+      "hidden": false
+    },
+    "entered": {
+      "token": "demo-2026",
+      "gate": false,
+      "layout": "flex",
+      "rows": 5
+    },
+    "loggedOut": {
+      "token": null,
+      "gate": true,
+      "layout": "none"
+    }
+  },
+  "detail": {},
+  "summary": {
+    "widths": {
+      "360": {
+        "overflow": 0,
+        "clipped": 0,
+        "touchSmall": 0
+      },
+      "390": {
+        "overflow": 0,
+        "clipped": 0,
+        "touchSmall": 0
+      },
+      "414": {
+        "overflow": 0,
+        "clipped": 0,
+        "touchSmall": 0
+      },
+      "768": {
+        "overflow": 0,
+        "clipped": 0,
+        "touchSmall": 0
+      },
+      "1024": {
+        "overflow": 0,
+        "clipped": 0,
+        "touchSmall": 0
+      },
+      "1280": {
+        "overflow": 0,
+        "clipped": 0,
+        "touchSmall": 0
+      },
+      "1440": {
+        "overflow": 0,
+        "clipped": 0,
+        "touchSmall": 0
+      }
+    },
+    "totalOverflow": 0,
+    "totalClipped": 0,
+    "totalTouchSmall": 0,
+    "pageErrors": []
+  },
+  "screenshots": [
+    "screenshots/home-1440.png",
+    "screenshots/home-390.png",
+    "screenshots/v8-gate-1440.png",
+    "screenshots/v8-gate-390.png",
+    "screenshots/v8-edit-1440.png",
+    "screenshots/v8-add-1440.png",
+    "screenshots/v8-delete-1440.png",
+    "screenshots/v8-detail-1440.png",
+    "screenshots/v8-zoom-1440.png",
+    "screenshots/v8-edit-390.png",
+    "screenshots/v8-add-390.png",
+    "screenshots/v8-delete-390.png",
+    "screenshots/v8-detail-390.png",
+    "screenshots/v8-zoom-390.png"
+  ]
 }

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f4f6fb">
   <title>首页 · Musi 投资助手原型</title>
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/app.css">
 </head>
 <body data-page="home">
@@ -16,7 +17,7 @@
         <div class="page-head">
           <div>
             <h1>首页</h1>
-            <p class="lede">行情与持仓看板：大盘指数 + 基金持仓。点击基金名称展开建议、调整后目标值与趋势图（可放大）；下方可全量编辑实盘数据（份额/时间/前后对照）。演示写入仅保存在本地、不影响实盘。</p>
+            <p class="lede">大盘指数 + 我的基金。每只基金一行，只展示当前持仓金额与今日涨跌；点基金名称看建议与趋势图，点行尾编辑图标修改金额。演示写入仅保存在本地、不影响实盘。</p>
           </div>
           <div class="head-side" id="home-head-side"></div>
         </div>
@@ -52,86 +53,48 @@
           <p class="table-note">PE-TTM 与历史分位数均为演示值（分位窗口近 10 年），生产环境是否有稳定可商用/可个人使用的接口待数据调研确认；不构成投资建议。</p>
         </section>
 
-        <section class="section" aria-label="基金持仓">
+        <section class="section" id="my-funds" aria-label="我的基金">
           <div class="section-head">
             <div>
-              <h2>基金持仓</h2>
-              <div class="hint">5 只基金 · 点击名称展开建议、调整后目标值、趋势图（可放大）与演示写入</div>
+              <h2>我的基金</h2>
+              <div class="hint">一行一只基金 · 当前持仓与今日涨跌 · 点名称看详情，点行尾图标改金额</div>
+            </div>
+            <div class="mf-head-actions">
+              <span class="demo-write-chip">演示写入 · 仅保存在本地，不影响实盘</span>
+              <button class="mf-add-btn" type="button" data-fund-add>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                <span>添加基金</span>
+              </button>
             </div>
           </div>
           <div class="table-card">
-            <table class="data-table fund-table">
-              <caption class="sr-only">基金当前持仓市值、权重、估算涨跌幅与今日预估收益；点击基金名称可展开建议与趋势图（演示数据）</caption>
+            <table class="data-table myfunds-table">
+              <caption class="sr-only">我的基金：基金名称与代码、当前持仓金额、今日涨跌金额与幅度、编辑入口；演示数据，写入仅保存在本机</caption>
               <thead>
                 <tr>
-                  <th scope="col">基金<small class="th-sub">点击名称展开</small></th>
-                  <th scope="col" class="r">当前持仓市值</th>
-                  <th scope="col" class="r">当前权重</th>
-                  <th scope="col" class="r">估算涨跌幅</th>
-                  <th scope="col" class="r">今日预估收益<small class="th-sub">按当前持仓估算</small></th>
-                  <th scope="col" class="r">质量</th>
+                  <th scope="col">基金</th>
+                  <th scope="col" class="r">当前持仓</th>
+                  <th scope="col" class="r">今日涨跌</th>
+                  <th scope="col" class="mf-actions-head"><span class="sr-only">操作</span></th>
                 </tr>
               </thead>
               <tbody id="fund-body" aria-live="polite"></tbody>
             </table>
           </div>
-          <noscript>
-            <div class="table-card noscript-snapshot">
-              <p class="noscript-note"><b>JavaScript 未启用</b>：以下为静态快照（估算时间 14:32:10）；启用后可自动刷新、点击基金名称展开建议与趋势图。</p>
-              <p class="noscript-note">大盘：上证指数 3,628.41 +0.42%（PE-TTM 15.82 · 分位 61%）· 深证成指 11,452.68 +0.65%（24.36 · 48%）· 创业板指 2,431.20 +0.86%（33.15 · 27%）· 沪深300 4,285.63 +0.31%（13.47 · 54%）</p>
-              <table class="data-table">
-                <caption class="sr-only">静态基金持仓快照</caption>
-                <thead><tr><th scope="col">基金</th><th scope="col" class="r">当前持仓市值</th><th scope="col" class="r">当前权重</th><th scope="col" class="r">估算涨跌幅</th><th scope="col" class="r">今日预估收益</th></tr></thead>
-                <tbody>
-                  <tr><th scope="row">财通集成电路产业股票C</th><td class="r tabular">14.5 万</td><td class="r tabular">21.4%</td><td class="r tabular up">+0.82%</td><td class="r tabular up">+1,189 元</td></tr>
-                  <tr><th scope="row">华夏中证机器人ETF联接C</th><td class="r tabular">13.9 万</td><td class="r tabular">20.5%</td><td class="r tabular up">+1.15%</td><td class="r tabular up">+1,599 元</td></tr>
-                  <tr><th scope="row">国联安核心资产混合</th><td class="r tabular">10.4 万</td><td class="r tabular">15.3%</td><td class="r tabular up">+0.21%</td><td class="r tabular up">+218 元</td></tr>
-                  <tr><th scope="row">国泰中证全指通信设备ETF联接C（stale）</th><td class="r tabular">7.1 万</td><td class="r tabular">10.5%</td><td class="r tabular up">+0.64%</td><td class="r tabular up">+454 元</td></tr>
-                  <tr><th scope="row">永赢高端装备智选混合发起C</th><td class="r tabular">7.0 万</td><td class="r tabular">10.3%</td><td class="r tabular down">−0.37%</td><td class="r tabular down">−259 元</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </noscript>
+          <p class="table-note">当前持仓金额取该基金最新一条记录；今日涨跌为演示估算。各基金金额之和由系统内部计算，不在首页展示、不可编辑。</p>
         </section>
 
-        <section class="section" id="ledger-section" aria-label="实盘数据编辑">
-          <div class="section-head">
-            <div>
-              <h2>实盘数据编辑（演示）</h2>
-              <div class="hint">新增 / 编辑 / 删除基金 · 份额操作（购入、赎回、清仓、加仓、减仓） · 现金调整 · 总额校正 · 生效时间可回溯</div>
-            </div>
-            <span class="demo-write-chip">演示写入 · 仅保存在本地，不影响实盘</span>
-          </div>
-          <div class="ledger-toolbar" id="ledger-toolbar"></div>
-          <div class="table-card">
-            <table class="data-table ledger-table">
-              <caption class="sr-only">实盘数据编辑：份额、单位成本、当前净值、持仓市值、当前权重、目标权重；可编辑或删除基金（演示写入）</caption>
-              <thead>
-                <tr>
-                  <th scope="col">基金 / 代码</th>
-                  <th scope="col" class="r">份额</th>
-                  <th scope="col" class="r">单位成本</th>
-                  <th scope="col" class="r">当前净值</th>
-                  <th scope="col" class="r">持仓市值</th>
-                  <th scope="col" class="r">当前权重</th>
-                  <th scope="col" class="r">目标权重</th>
-                  <th scope="col" class="r">操作</th>
-                </tr>
-              </thead>
-              <tbody id="ledger-body" aria-live="polite"></tbody>
-            </table>
-          </div>
-          <p class="table-note">新增 / 编辑 / 删除为数据校正，不自动改变现金；份额操作按「金额 = 份额 × 当前净值」并同步现金。每笔操作可选生效时间；若早于历史记录，将按时间顺序重算后续并提示条数。所有写入仅保存在本机 <code>localStorage</code>，不写真实账本、不产生下单。</p>
-        </section>
-
-        <section class="section" id="home-audit-wrap" aria-label="演示写入与本地审计">
-          <div class="section-head">
-            <div>
-              <h2>演示写入与本地审计</h2>
-              <div class="hint">新增/编辑/删除、份额操作、现金与总额校正均记录本地审计（时间、类型、基金、前→后、来源=网页）；写入 localStorage，刷新保持，可恢复演示初始值</div>
-            </div>
-          </div>
-          <div class="card audit-card" id="home-audit-body"></div>
+        <section class="section" aria-label="最近操作">
+          <details class="recent-ops" id="recent-ops">
+            <summary>
+              <span class="ro-summary-main">
+                <span class="ro-title">最近操作</span>
+                <span class="hint">默认折叠 · 本地审计 · 撤销上一笔 / 恢复演示初始值</span>
+              </span>
+              <span class="ro-summary-side" aria-hidden="true">展开 / 收起</span>
+            </summary>
+            <div class="card audit-card" id="home-audit-body"></div>
+          </details>
         </section>
 
         <section class="grid grid-12 section" id="home-quality" aria-label="数据口径说明"></section>
@@ -141,6 +104,7 @@
     <nav class="bottom-nav" id="bottom-nav" aria-label="移动端主导航"></nav>
   </div>
   <span id="refresh-status" class="sr-only" aria-live="polite"></span>
+  <noscript><p class="table-note">本原型需要启用 JavaScript 才能渲染行情与基金列表。</p></noscript>
   <script src="assets/data.js"></script>
   <script src="assets/app.js"></script>
 </body>

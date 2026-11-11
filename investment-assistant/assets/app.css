@@ -1708,3 +1708,191 @@ body.lm-open { overflow: hidden; }
   .lt-actions { width: 100%; }
   .ledger-btn { flex: 1 1 auto; }
 }
+
+/* ================= v8：单行基金列表 + 金额编辑 ================= */
+.mf-head-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.mf-add-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 44px; padding: 0 14px; border-radius: 10px;
+  border: 1px solid var(--blue); background: var(--blue); color: #fff;
+  font-size: 12.5px; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.mf-add-btn svg { width: 15px; height: 15px; }
+.mf-add-btn:hover { background: #1d4ed8; border-color: #1d4ed8; }
+.mf-add-btn:focus-visible { outline: 2px solid #1d4ed8; outline-offset: 2px; }
+
+.myfunds-table { table-layout: fixed; }
+.myfunds-table thead th:nth-child(1) { width: auto; }
+.myfunds-table thead th:nth-child(2) { width: 24%; }
+.myfunds-table thead th:nth-child(3) { width: 27%; }
+.myfunds-table thead th:nth-child(4) { width: 60px; }
+.mf-row:hover { background: #fbfcff; }
+.mf-row > th, .mf-row > td { padding-top: 8px; padding-bottom: 8px; }
+.mf-name-cell { font-weight: 400; line-height: 1.35; }
+.mf-name-btn {
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1px;
+  width: 100%; min-height: 44px; padding: 0; margin: 0; border: 0;
+  background: transparent; color: inherit; text-align: left; cursor: pointer;
+}
+.mf-name-btn:hover .mf-name { color: #1d4ed8; }
+.mf-name-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
+.mf-name { display: block; max-width: 100%; font-size: 13.5px; font-weight: 650; line-height: 1.35; overflow-wrap: anywhere; }
+.mf-code { display: block; color: var(--muted-2); font-size: 10.5px; font-variant-numeric: tabular-nums; }
+.mf-amount { font-size: 14px; font-weight: 700; letter-spacing: -0.2px; }
+.mf-change { display: flex; align-items: baseline; justify-content: flex-end; gap: 5px; white-space: nowrap; }
+.mf-change b { font-size: 13.5px; font-weight: 700; }
+.mf-change .mf-pct { font-size: 12px; font-weight: 650; }
+.mf-slash { color: var(--muted-2); font-style: normal; font-size: 11px; }
+.mf-actions { width: 60px; text-align: right; padding-left: 4px !important; padding-right: 8px !important; }
+.mf-edit {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; margin: 0; padding: 0;
+  border: 1px solid var(--border-strong); border-radius: 10px;
+  background: var(--surface-2); color: var(--text-2); cursor: pointer;
+}
+.mf-edit svg { width: 17px; height: 17px; }
+.mf-edit:hover { border-color: #bfd3fb; background: var(--blue-soft); color: #1d4ed8; }
+.mf-edit:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.mf-actions-head { padding-left: 4px !important; padding-right: 8px !important; }
+
+/* 最近操作（默认折叠） */
+.recent-ops { border: 0; }
+.recent-ops > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  min-height: 48px; padding: 0 2px; cursor: pointer; list-style: none;
+  color: var(--text-2);
+}
+.recent-ops > summary::-webkit-details-marker { display: none; }
+.recent-ops > summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 8px; }
+.ro-summary-main { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.ro-title { font-size: 15px; font-weight: 700; letter-spacing: -0.1px; }
+.ro-summary-side { color: var(--blue); font-size: 11.5px; font-weight: 650; white-space: nowrap; }
+.recent-ops[open] > summary { margin-bottom: 8px; }
+.recent-ops .audit-card { margin-top: 0; }
+.audit-actions { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+.audit-actions .audit-reset { margin-left: 0; }
+.audit-reset:disabled { opacity: 0.5; cursor: not-allowed; }
+.audit-cols {
+  display: grid; grid-template-columns: auto 120px minmax(120px, 1fr) auto auto;
+  gap: 8px; padding: 4px 8px; color: var(--muted-2); font-size: 10px;
+}
+.audit-row-v8 { grid-template-columns: auto 120px minmax(120px, 1fr) auto auto; }
+.audit-type { color: var(--text-2); font-weight: 600; white-space: nowrap; }
+
+/* 金额编辑弹层 */
+.fm-panel { width: min(720px, 100%); }
+.fm-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fm-summary {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;
+  margin-top: 12px; padding: 10px 12px; border-radius: 10px;
+  background: var(--surface-2); border: 1px solid var(--border);
+}
+.fm-sum-item { min-width: 0; }
+.fm-sum-item span { display: block; color: var(--muted); font-size: 10px; line-height: 1.35; }
+.fm-sum-item b { display: block; margin-top: 2px; font-size: 12.5px; font-weight: 700; overflow-wrap: anywhere; }
+.fm-sum-empty { grid-column: 1 / -1; color: var(--muted-2); font-size: 11.5px; }
+.fm-later {
+  display: flex; align-items: flex-start; gap: 6px; margin-top: 8px;
+  padding: 8px 10px; border: 1px solid #f0d39a; border-radius: 9px;
+  background: #fff9ec; color: #92400e; font-size: 10.5px; line-height: 1.5;
+}
+.fm-later svg { width: 13px; height: 13px; flex: none; margin-top: 1px; }
+.fm-danger {
+  display: inline-flex; align-items: center; gap: 5px;
+  min-height: 44px; padding: 0 13px; border-radius: 9px;
+  border: 1px solid #f3c4c4; background: var(--red-soft); color: #b91c1c;
+  font-size: 12px; font-weight: 700; cursor: pointer;
+}
+.fm-danger svg { width: 14px; height: 14px; }
+.fm-danger:hover { background: #fbdcdc; }
+.fm-danger:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.lm-save.danger { background: var(--red); border-color: var(--red); }
+.lm-save.danger:hover { background: #b91c1c; }
+.fm-confirm {
+  display: grid; justify-items: center; text-align: center; gap: 8px;
+  padding: 18px 14px 14px; border: 1px solid #f3c4c4; border-radius: 12px;
+  background: var(--red-soft);
+}
+.fm-confirm-icon {
+  display: grid; place-items: center; width: 44px; height: 44px;
+  border-radius: 50%; background: #fff; color: var(--red);
+}
+.fm-confirm-icon svg { width: 20px; height: 20px; }
+.fm-confirm b { color: #991b1b; font-size: 15px; }
+.fm-confirm p { margin: 0; max-width: 46ch; color: #b45353; font-size: 11.5px; line-height: 1.55; }
+.fm-confirm-target {
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; justify-content: center;
+  margin-top: 2px; padding: 8px 12px; width: 100%;
+  border-radius: 8px; background: #fff; color: var(--text-2); font-size: 11.5px;
+}
+.fm-confirm-target span { font-weight: 650; }
+.fm-confirm-target code { color: var(--muted); font-size: 10.5px; }
+.fm-confirm-target b { margin-left: auto; font-size: 13px; color: var(--text); }
+
+/* 基金详情弹层 */
+body.fd-open { overflow: hidden; }
+.detail-modal { z-index: 70; }
+.detail-panel { width: min(1020px, 100%); }
+.fd-hero {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px;
+  background: linear-gradient(150deg, #f8fbff, #fff);
+}
+.fd-kicker { color: var(--muted-2); font-size: 10.5px; font-variant-numeric: tabular-nums; }
+.fd-name { margin: 2px 0 8px; font-size: 18px; line-height: 1.35; overflow-wrap: anywhere; }
+.fd-metrics { display: flex; align-items: baseline; gap: 12px 24px; flex-wrap: wrap; }
+.fd-metric span { display: block; color: var(--muted); font-size: 10.5px; }
+.fd-metric b { display: block; margin-top: 1px; font-size: 17px; font-weight: 750; letter-spacing: -0.2px; }
+.fd-advice {
+  margin-top: 10px; padding: 10px 12px; border: 1px solid var(--border);
+  border-left: 3px solid var(--blue); border-radius: 10px; background: var(--surface);
+}
+.fd-advice-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.fd-advice-head b { font-size: 12px; }
+.fd-advice-head span { color: var(--muted); font-size: 10.5px; }
+.fd-advice p { margin: 4px 0 0; color: var(--text-2); font-size: 12px; line-height: 1.6; }
+.fd-note {
+  display: flex; align-items: flex-start; gap: 6px; margin: 10px 0 0;
+  color: var(--muted-2); font-size: 10.5px; line-height: 1.55;
+}
+.fd-note svg { width: 12px; height: 12px; flex: none; margin-top: 1px; color: #b45309; }
+
+@media (max-width: 900px) {
+  .myfunds-table thead { display: none; }
+  .myfunds-table, .myfunds-table tbody { display: block; width: 100%; }
+  .myfunds-table tr.mf-row {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto 48px;
+    grid-template-areas: "name amount edit" "change change edit";
+    gap: 2px 10px; padding: 10px 12px; border-top: 1px solid var(--border);
+  }
+  .myfunds-table tr.mf-row:first-child { border-top: 0; }
+  .mf-row > * { display: block; padding: 0 !important; border: 0 !important; text-align: left !important; white-space: normal !important; }
+  .mf-name-cell { grid-area: name; min-width: 0; }
+  .mf-amount { grid-area: amount; text-align: right !important; align-self: center; }
+  .mf-change { grid-area: change; justify-content: flex-end; align-self: center; }
+  .mf-actions { grid-area: edit; align-self: center; justify-self: end; width: 44px; }
+  .fm-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fm-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .audit-cols { display: none; }
+  .audit-row-v8 { grid-template-columns: auto auto 1fr; }
+  .audit-row-v8 .audit-range { grid-column: 1 / -1; }
+  .audit-row-v8 .audit-src { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .mf-head-actions { width: 100%; justify-content: space-between; }
+  .myfunds-table tr.mf-row { grid-template-columns: minmax(0, 1fr) auto 44px; padding: 9px 11px; }
+  .mf-name { font-size: 12.5px; }
+  .mf-amount { font-size: 13px; }
+  .mf-change b { font-size: 12.5px; }
+  .mf-change .mf-pct { font-size: 11px; }
+  .fm-grid-3 { grid-template-columns: 1fr; }
+  .fm-panel, .detail-panel { padding: 14px; }
+  .fd-hero { flex-direction: column; }
+  .fd-name { font-size: 16px; }
+  .fd-metrics { gap: 8px 18px; }
+  .fd-metric b { font-size: 15px; }
+}
+@media (max-width: 420px) {
+  .recent-ops > summary { align-items: flex-start; padding: 6px 2px; }
+  .ro-summary-main { flex-direction: column; gap: 1px; }
+}
