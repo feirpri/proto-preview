@@ -259,7 +259,15 @@
       var current = NAV.filter(function (n) { return n.key === active; })[0] || NAV[0];
       top.innerHTML =
         '<div class="topbar-left"><div class="topbar-brand"><div class="brand-mark">M</div></div><div><div class="topbar-title">' + current.label + '</div><div class="topbar-sub">' + M.meta.asofDate + " 周二 · " + M.meta.session + "</div></div></div>" +
-        '<div class="topbar-right">' + dataChip() + roChip("只读") + "</div>";
+        '<div class="topbar-right">' + dataChip() + roChip("只读") +
+        '<button class="logout-btn" type="button" data-logout aria-label="退出并清除本地 token">' + icon("lock") + "<span>退出</span></button></div>";
+    }
+
+    var content = document.querySelector(".content");
+    if (content && !content.querySelector(".demo-write-banner")) {
+      content.insertAdjacentHTML("afterbegin",
+        '<div class="demo-write-banner" role="note">' + icon("warning") +
+        "<span><b>演示写入</b> · 仅保存在本地，不影响实盘；Token 门禁为原型模拟，真实 token 由服务端生成。</span></div>");
     }
 
     var foot = document.getElementById("site-footer");
@@ -328,25 +336,282 @@
     if (el) el.innerHTML = M.market.indices.map(indexRow).join("");
   }
 
-  /* ---------------- v6：展开状态、模拟写入、分时与多周期趋势图 ---------------- */
+  /* ---------------- v7：全站 token 门禁 + 本地实盘账本（份额/时间/前后对照） ---------------- */
+  var AUTH_KEY = "musi.auth.token";
+  var DEMO_TOKEN = M.meta.authDemoToken || "demo-2026";
+  var HOME_STORE = "musi.v7.ui";
+  var OPS_STORE = "musi.v7.ops";
   var TREND_DEFAULT = "1y";
   var TREND_KEYS = ["1w", "1m", "1y", "ytd", "3y", "5y"];
-  var HOME_STORE = "musi.home.v6";
-  var OLD_HOME_STORE = "musi.home.v5";
   var chartPeriods = {};
   var savedState = null;
   var BASE_POSITIONS = {};
-  M.groups.actual.funds.forEach(function (f) {
-    BASE_POSITIONS[f.code] = { amount: f.amount, target: f.target, costNav: f.costNav };
-  });
+  var BASE_FUNDS = null;
+  var BASE_CASH = 0;
+  var PORT = null;
+  var TREND_CACHE = {};
+
+  function readToken() {
+    try { return localStorage.getItem(AUTH_KEY) || ""; } catch (e) { return ""; }
+  }
+  function tokenValid() { return readToken() === DEMO_TOKEN; }
+  function saveToken(v) { try { localStorage.setItem(AUTH_KEY, v); } catch (e) { /* ignore */ } }
+  function clearToken() { try { localStorage.removeItem(AUTH_KEY); } catch (e) { /* ignore */ } }
+
+  function round2(n) { return Math.round(n * 100) / 100; }
+  function round4(n) { return Math.round(n * 10000) / 10000; }
+  function round6(n) { return Math.round(n * 1000000) / 1000000; }
+  function toNum(v) { var n = parseFloat(v); return isFinite(n) ? n : NaN; }
+  function pad2(n) { return String(n).padStart(2, "0"); }
+  function localDateTimeValue(d) {
+    return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()) + "T" + pad2(d.getHours()) + ":" + pad2(d.getMinutes());
+  }
+  function nowDateTimeValue() { return localDateTimeValue(new Date()); }
+  function fmtShares(n) {
+    if (n == null || !isFinite(n)) return "—";
+    return Number(n).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 6 });
+  }
+  function fmtDateTime(t) { return t ? String(t).replace("T", " ") : "—"; }
+  function uid() { return "op-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 7); }
+
+  function cloneBaseFund(f) {
+    var shares = f.nav > 0 ? round6(f.amount / f.nav) : 0;
+    return {
+      code: f.code, name: f.name, short: f.short,
+      shares: shares, nav: f.nav, costNav: f.costNav, target: f.target,
+      estNav: f.estNav, estPct: f.estPct, estTime: f.estTime, estSource: f.estSource,
+      estQuality: f.estQuality, stale: f.stale, quality: f.quality,
+      dayPct: f.dayPct, action: f.action, amountWan: f.amountWan,
+      reason: f.reason, executed: f.executed, executedAt: f.executedAt,
+      trend: f.trend, isBase: true
+    };
+  }
+  function captureBase() {
+    BASE_CASH = M.groups.actual.cash;
+    BASE_FUNDS = M.groups.actual.funds.map(cloneBaseFund);
+    BASE_FUNDS.forEach(function (f) {
+      BASE_POSITIONS[f.code] = { amount: round2(f.shares * f.nav), target: f.target, costNav: f.costNav, shares: f.shares, nav: f.nav };
+    });
+  }
+  captureBase();
+
+  function baseState() {
+    return {
+      cash: BASE_CASH,
+      funds: BASE_FUNDS.map(function (b) {
+        return {
+          code: b.code, name: b.name, short: b.short,
+          shares: b.shares, nav: b.nav, costNav: b.costNav, target: b.target,
+          estNav: b.estNav, estPct: b.estPct, estTime: b.estTime, estSource: b.estSource,
+          estQuality: b.estQuality, stale: b.stale, quality: b.quality,
+          dayPct: b.dayPct, action: b.action, amountWan: b.amountWan,
+          reason: b.reason, executed: b.executed, executedAt: b.executedAt,
+          trend: b.trend, isBase: true
+        };
+      })
+    };
+  }
+  function findFund(state, code) {
+    for (var i = 0; i < state.funds.length; i++) {
+      if (state.funds[i].code === code) return state.funds[i];
+    }
+    return null;
+  }
+  function holdingsOf(funds) {
+    return funds.reduce(function (s, f) { return s + (isFinite(f.shares) ? f.shares : 0) * (isFinite(f.nav) ? f.nav : 0); }, 0);
+  }
+  function portfolioTotal(state) { return round2(holdingsOf(state.funds) + state.cash); }
+  function makeTrend(f, idx) {
+    if (f.trend) return f.trend;
+    if (TREND_CACHE[f.code]) return TREND_CACHE[f.code];
+    if (M.helpers && M.helpers.buildTrend) {
+      TREND_CACHE[f.code] = M.helpers.buildTrend(f, 400 + idx);
+      return TREND_CACHE[f.code];
+    }
+    return null;
+  }
+  function makeFund(fields, idx) {
+    var name = String(fields.name || "").trim();
+    var nav = toNum(fields.nav);
+    var f = {
+      code: String(fields.code || "").trim(),
+      name: name,
+      short: fields.short || name.slice(0, 4),
+      shares: round6(toNum(fields.shares)),
+      nav: nav,
+      costNav: toNum(fields.costNav),
+      target: toNum(fields.target),
+      estNav: nav, estPct: 0,
+      estTime: M.meta.realtime.calcTime,
+      estSource: "手工录入 · 演示", estQuality: "estimate",
+      stale: false, quality: "estimate", dayPct: 0,
+      action: "保持", amountWan: 0,
+      reason: "演示：通过「实盘数据编辑」新增的基金行。",
+      executed: false, executedAt: null,
+      isBase: false
+    };
+    f.trend = makeTrend(f, idx || 0);
+    return f;
+  }
+  function applyOp(state, op) {
+    var f = op.code ? findFund(state, op.code) : null;
+    var shares, price, diff;
+    switch (op.type) {
+      case "buy":
+      case "add":
+        if (!f) return;
+        shares = toNum(op.shares);
+        if (!(shares > 0)) return;
+        price = isFinite(toNum(op.price)) ? toNum(op.price) : f.nav;
+        f.costNav = round4((f.shares * f.costNav + shares * price) / (f.shares + shares));
+        f.shares = round6(f.shares + shares);
+        state.cash = round2(state.cash - shares * price);
+        break;
+      case "sell":
+      case "reduce":
+        if (!f) return;
+        shares = Math.min(toNum(op.shares) || 0, f.shares);
+        if (!(shares > 0)) return;
+        price = isFinite(toNum(op.price)) ? toNum(op.price) : f.nav;
+        f.shares = round6(f.shares - shares);
+        if (f.shares < 0.0000005) f.shares = 0;
+        state.cash = round2(state.cash + shares * price);
+        break;
+      case "clear":
+        if (!f) return;
+        state.cash = round2(state.cash + f.shares * f.nav);
+        f.shares = 0;
+        break;
+      case "set_position":
+        if (!f) return;
+        shares = Math.max(0, round6(toNum(op.shares)));
+        if (!isFinite(shares)) return;
+        price = isFinite(toNum(op.price)) ? toNum(op.price) : f.nav;
+        diff = shares - f.shares;
+        if (diff > 0) f.costNav = round4((f.shares * f.costNav + diff * price) / shares);
+        state.cash = round2(state.cash - diff * price);
+        f.shares = shares;
+        if (isFinite(toNum(op.target))) f.target = toNum(op.target);
+        break;
+      case "add_fund":
+        if (findFund(state, op.code)) return;
+        state.funds.push(makeFund(op.fields || {}, state.funds.length));
+        break;
+      case "edit_fund":
+        if (!f) return;
+        var fld = op.fields || {};
+        if (fld.name != null && String(fld.name).trim()) f.name = String(fld.name).trim();
+        if (isFinite(toNum(fld.shares))) f.shares = round6(toNum(fld.shares));
+        if (isFinite(toNum(fld.nav)) && toNum(fld.nav) > 0) f.nav = toNum(fld.nav);
+        if (isFinite(toNum(fld.costNav))) f.costNav = toNum(fld.costNav);
+        if (isFinite(toNum(fld.target))) f.target = toNum(fld.target);
+        break;
+      case "delete_fund":
+        state.funds = state.funds.filter(function (x) { return x.code !== op.code; });
+        break;
+      case "cash":
+        state.cash = round2(state.cash + (toNum(op.delta) || 0));
+        break;
+      case "total":
+        state.cash = round2((toNum(op.targetTotal) || 0) - holdingsOf(state.funds));
+        break;
+    }
+  }
+  function opSnapshot(state, op) {
+    var f = op.code ? findFund(state, op.code) : null;
+    var total = portfolioTotal(state);
+    var amount = f ? round2(f.shares * f.nav) : null;
+    return {
+      shares: f ? f.shares : null,
+      costNav: f ? f.costNav : null,
+      amount: amount,
+      weight: f && total > 0 ? amount / total : null,
+      target: f ? f.target : null,
+      cash: state.cash,
+      holdings: round2(holdingsOf(state.funds)),
+      total: total
+    };
+  }
+  function opTypeText(type) {
+    var map = {
+      buy: "购入 / 申购", add: "加仓", sell: "赎回", reduce: "减仓",
+      clear: "清仓", set_position: "目标仓位调整", add_fund: "新增基金",
+      edit_fund: "编辑基金", delete_fund: "删除基金", cash: "现金调整", total: "总额校正"
+    };
+    return map[type] || type;
+  }
+  function opLabel(op) {
+    return opTypeText(op.type) + (op.name ? " · " + op.name : "");
+  }
+  function loadOps() {
+    try {
+      var raw = localStorage.getItem(OPS_STORE);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) { return []; }
+  }
+  function saveOps(ops) {
+    try { localStorage.setItem(OPS_STORE, JSON.stringify(ops)); } catch (e) { /* ignore */ }
+  }
+  function sortOps(ops) {
+    return ops.slice().sort(function (a, b) {
+      var ta = a.time || "", tb = b.time || "";
+      if (ta !== tb) return ta < tb ? -1 : 1;
+      return (a.seq || 0) - (b.seq || 0);
+    });
+  }
+  function replay(ops) {
+    var state = baseState();
+    var rows = [];
+    sortOps(ops).forEach(function (op) {
+      var before = opSnapshot(state, op);
+      applyOp(state, op);
+      var after = opSnapshot(state, op);
+      rows.push({ id: op.id, op: op, before: before, after: after, label: opLabel(op), type: op.type, time: op.time, code: op.code, name: op.name });
+    });
+    state.total = portfolioTotal(state);
+    state.holdings = round2(holdingsOf(state.funds));
+    return { state: state, audit: rows };
+  }
+  function applyPortfolio() {
+    var rep = replay(loadOps());
+    PORT = rep;
+    var st = rep.state;
+    var total = portfolioTotal(st);
+    st.funds.forEach(function (f, i) {
+      if (!f.trend) f.trend = makeTrend(f, i);
+      f.amount = round2(f.shares * f.nav);
+      f.weight = total > 0 ? f.amount / total : 0;
+      f.targetAmount = round2(f.target * total);
+      f.deviation = f.weight - f.target;
+      f.estPct = isFinite(f.estPct) ? f.estPct : 0;
+      f.estNav = isFinite(f.estNav) ? f.estNav : f.nav;
+      f.estTime = f.estTime || M.meta.realtime.calcTime;
+      f.estSource = f.estSource || "手工录入 · 演示";
+      f.estQuality = f.estQuality || "estimate";
+      f.dayPnl = round2(f.amount * f.estPct);
+      if (f.trend) f.trend.costNav = f.costNav;
+    });
+    st.total = total;
+    st.holdings = round2(holdingsOf(st.funds));
+    M.groups.actual.funds = st.funds;
+    M.groups.actual.cash = st.cash;
+    M.groups.actual.holdings = st.holdings;
+    M.groups.actual.total = total;
+    M.groups.actual.equityRatio = total > 0 ? st.holdings / total : 0;
+    M.groups.actual.dayPnl = round2(st.funds.reduce(function (s, f) { return s + f.dayPnl; }, 0));
+    M.groups.actual.dayPct = total > 0 ? M.groups.actual.dayPnl / total : 0;
+    M.groups.actual.note = "真实持仓，可在首页「实盘数据编辑」中演示写入";
+  }
+  function auditOf() { return PORT ? PORT.audit.slice() : []; }
+  function auditOfFund(code) {
+    return auditOf().filter(function (a) { return a.code === code; });
+  }
 
   function readHomeState() {
     if (savedState) return savedState;
     var raw = null;
     try { raw = localStorage.getItem(HOME_STORE); } catch (e) { raw = null; }
-    if (!raw) {
-      try { raw = sessionStorage.getItem(OLD_HOME_STORE); } catch (e) { raw = null; }
-    }
     var st = null;
     try { st = raw ? JSON.parse(raw) : null; } catch (e) { st = null; }
     savedState = st || {};
@@ -357,35 +622,11 @@
     st.open = openFund;
     st.periods = chartPeriods;
     st.scrollY = window.scrollY || 0;
-    if (!st.positions) st.positions = {};
-    if (!st.audit) st.audit = [];
     try { localStorage.setItem(HOME_STORE, JSON.stringify(st)); } catch (e) { /* localStorage 不可用时忽略 */ }
   }
-  function positionsOf() {
-    var st = readHomeState();
-    if (!st.positions) st.positions = {};
-    return st.positions;
-  }
-  function auditOf() {
-    var st = readHomeState();
-    if (!st.audit) st.audit = [];
-    return st.audit;
-  }
   function applySavedState() {
+    applyPortfolio();
     var st = readHomeState();
-    var pos = st.positions || {};
-    Object.keys(pos).forEach(function (code) {
-      var f = fundByCode(code);
-      if (!f) return;
-      var p = pos[code] || {};
-      if (typeof p.amount === "number") f.amount = p.amount;
-      if (typeof p.target === "number") f.target = p.target;
-      if (typeof p.costNav === "number") {
-        f.costNav = p.costNav;
-        if (f.trend) f.trend.costNav = p.costNav;
-      }
-      f.weight = f.amount / M.groups.actual.total;
-    });
     if (st.periods) {
       Object.keys(st.periods).forEach(function (k) {
         if (TREND_KEYS.indexOf(st.periods[k]) >= 0) chartPeriods[k] = st.periods[k];
@@ -393,18 +634,10 @@
     }
   }
   function resetAllPositions() {
-    M.groups.actual.funds.forEach(function (f) {
-      var b = BASE_POSITIONS[f.code];
-      if (!b) return;
-      f.amount = b.amount;
-      f.target = b.target;
-      f.costNav = b.costNav;
-      f.weight = f.amount / M.groups.actual.total;
-      if (f.trend) f.trend.costNav = b.costNav;
-    });
+    saveOps([]);
     savedState = {};
+    applyPortfolio();
     try { localStorage.removeItem(HOME_STORE); } catch (e) { /* ignore */ }
-    try { sessionStorage.removeItem(OLD_HOME_STORE); } catch (e) { /* ignore */ }
   }
   function periodOf(code) {
     return chartPeriods[code] || TREND_DEFAULT;
@@ -826,8 +1059,7 @@
       "</div>";
   }
 
-  /* ---------------- v6：调整后目标值 + 网页端模拟写入 ---------------- */
-  function round2(n) { return Math.round(n * 100) / 100; }
+  /* ---------------- v7：调整后目标值 + 全量实盘编辑 ---------------- */
   function nowClock() {
     var d = new Date();
     return [d.getHours(), d.getMinutes(), d.getSeconds()].map(function (v) {
@@ -835,8 +1067,6 @@
     }).join(":");
   }
   function defaultTargetAmount(f) {
-    var saved = positionsOf()[f.code];
-    if (saved && typeof saved.amount === "number") return f.amount;
     if (f.action === "减仓" && f.amountWan > 0) return Math.max(0, f.amount - f.amountWan * 10000);
     return f.amount;
   }
@@ -857,20 +1087,14 @@
     if (m.targetWeight < 0 || m.targetAmount < 0) return "目标权重与目标市值不能为负。";
     if (m.targetWeight > 1.0000001) return "目标权重不能超过 100%。";
     if (Math.abs(m.delta) > 0.5 && Math.abs(m.delta) < min) return "最小变动单位为 ¥" + min.toLocaleString("en-US") + "。";
-    var usedByOthers = 0;
-    M.groups.actual.funds.forEach(function (x) {
-      if (x.code === f.code) return;
-      var base = BASE_POSITIONS[x.code];
-      if (base) usedByOthers += x.amount - base.amount;
-    });
-    var cash = M.groups.actual.cash - usedByOthers;
-    if (m.delta > cash + 0.5) return "超出 mock 可用现金 ¥" + Math.round(cash).toLocaleString("en-US") + "。";
+    var cash = M.groups.actual.cash;
+    if (m.delta > cash + 0.5) return "超出演示可用现金 ¥" + Math.round(cash).toLocaleString("en-US") + "。";
     if (m.delta < 0 && -m.delta > f.amount + 0.5) return "减仓金额不能超过当前持仓市值 ¥" + Math.round(f.amount).toLocaleString("en-US") + "。";
     var sum = 0;
     M.groups.actual.funds.forEach(function (x) {
-      sum += x.code === f.code ? m.targetWeight : x.weight;
+      sum += x.code === f.code ? m.targetWeight : x.target;
     });
-    if (sum > 1.0004) return "调整后 5 只基金总权重为 " + pct(sum, 1) + "，不能超过 100%。";
+    if (sum > 1.0004) return "调整后基金目标权重合计为 " + pct(sum, 1) + "，不能超过 100%。";
     return "";
   }
   function paTarget(label, value, key, clsName) {
@@ -884,11 +1108,11 @@
     var tAmount = defaultTargetAmount(f);
     var m = adjustMetrics(f, tAmount);
     var err = validateAdjust(f, m);
-    var entries = auditOf().filter(function (a) { return a.code === f.code; }).slice(-3).reverse();
+    var entries = auditOfFund(f.code).slice(-3).reverse();
     var auditHTML = entries.length
       ? entries.map(function (a) {
-        return '<li><span class="pa-audit-time">' + a.time + '</span><span>' + a.name + '</span><span class="tabular">' +
-          money2(a.fromAmount) + " → " + money2(a.toAmount) + '</span><span class="pa-audit-src">来源 ' + (a.source || "网页") + "</span></li>";
+        return '<li><span class="pa-audit-time">' + fmtDateTime(a.time) + '</span><span>' + a.label + '</span><span class="tabular">' +
+          money2(a.after.amount) + '</span><span class="pa-audit-src">来源 网页</span></li>';
       }).join("")
       : '<li class="pa-audit-empty">暂无本地调整记录。</li>';
     return '<div class="position-adjust" data-pa="' + f.code + '">' +
@@ -911,9 +1135,9 @@
       '<p class="pa-error" data-pa-error role="alert"' + (err ? "" : " hidden") + ">" + err + "</p>" +
       "</form>" +
       '<p class="pa-note">计算口径：目标市值 = 目标权重 × 总资产 ¥' + M.groups.actual.total.toLocaleString("en-US") +
-      "，按估算净值折算、两位小数；最小变动 ¥" + (M.meta.writeMinAmount || 1000).toLocaleString("en-US") +
-      "，不超过 mock 可用现金 ¥" + M.groups.actual.cash.toLocaleString("en-US") + " 或当前持仓份额，5 只基金合计权重 ≤100%。" +
-      "「保持」时目标值等于当前值、偏离为 0。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。</p>" +
+      "，按当前净值折算份额（最多 6 位小数）、金额两位小数；最小变动 ¥" + (M.meta.writeMinAmount || 1000).toLocaleString("en-US") +
+      "，不超过演示可用现金 ¥" + M.groups.actual.cash.toLocaleString("en-US") + " 或当前持仓市值，基金目标权重合计 ≤100%。" +
+      "更完整的份额/清仓/现金/总额与历史时间重算请使用下方「实盘数据编辑」。演示写入仅保存在本机 localStorage，不写入真实账本、不产生下单。</p>" +
       '<div class="pa-audit"><b>本地审计（最近 3 条）</b><ul>' + auditHTML + "</ul></div>" +
       "</div>";
   }
@@ -1002,68 +1226,75 @@
     var status = row.querySelector("[data-pa-status]");
     if (status) status.focus();
   }
+  function commitOp(op, msg) {
+    var ops = loadOps();
+    ops.push(op);
+    saveOps(ops);
+    applyPortfolio();
+    rerenderHomeAfterWrite();
+    showWriteToast(msg, op.id);
+  }
+  function undoOp(id) {
+    var ops = loadOps().filter(function (o) { return o.id !== id; });
+    saveOps(ops);
+    applyPortfolio();
+    rerenderHomeAfterWrite();
+    showWriteToast("已撤销上一笔演示写入", null);
+  }
+  function rerenderHomeAfterWrite() {
+    var open = openFund;
+    readHomeState().open = open;
+    savedState.scrollY = window.scrollY || 0;
+    renderHomeFunds();
+    renderHomeAudit();
+    renderLedger();
+    if (open) {
+      setFundOpen(open, true);
+      refreshChart(open);
+      rerenderAdviceRow(fundByCode(open));
+    }
+  }
   function saveAdjust(f) {
     var m = syncAdjustPreview(f, "weight");
     if (!m) return;
     var err = validateAdjust(f, m);
     if (err) return;
-    var prev = { amount: f.amount, weight: f.weight, target: f.target, costNav: f.costNav };
-    var newCost = f.costNav;
-    if (m.delta > 0.5) {
-      newCost = Math.round(((f.amount * f.costNav + m.delta * f.estNav) / m.targetAmount) * 10000) / 10000;
-    }
-    f.amount = m.targetAmount;
-    f.weight = m.targetWeight;
-    f.target = m.targetWeight;
-    f.costNav = newCost;
-    if (f.trend) f.trend.costNav = newCost;
-    var entry = {
-      time: nowClock(), code: f.code, name: f.name,
-      fromAmount: round2(prev.amount), toAmount: round2(f.amount),
-      fromWeight: prev.weight, toWeight: f.weight,
-      source: "网页", action: "调整"
+    var price = f.nav;
+    var targetShares = round6(m.targetAmount / price);
+    var op = {
+      id: uid(), seq: Date.now(), time: nowDateTimeValue(), type: "set_position",
+      code: f.code, name: f.name, shares: targetShares, price: price, target: m.targetWeight
     };
-    auditOf().push(entry);
-    positionsOf()[f.code] = { amount: f.amount, target: f.target, costNav: f.costNav };
-    writeHomeState();
-    updateFundRow(f);
-    rerenderAdviceRow(f);
-    renderHomeAudit();
-    showWriteToast("已保存演示调整 · " + f.name + " " + money(entry.fromAmount) + " → " + money(entry.toAmount), f, entry, prev);
-  }
-  function restoreFund(f, prev) {
-    f.amount = prev.amount;
-    f.weight = prev.weight;
-    f.target = prev.target;
-    f.costNav = prev.costNav;
-    if (f.trend) f.trend.costNav = prev.costNav;
-    var pos = positionsOf();
-    var base = BASE_POSITIONS[f.code];
-    if (base && Math.abs(prev.amount - base.amount) < 0.01 && Math.abs(prev.target - base.target) < 0.000001 && Math.abs(prev.costNav - base.costNav) < 0.000001) {
-      delete pos[f.code];
-    } else {
-      pos[f.code] = { amount: prev.amount, target: prev.target, costNav: prev.costNav };
+    var check = validateOp(op);
+    if (!check.ok) {
+      var errEl = document.querySelector('[data-pa-form="' + f.code + '"] [data-pa-error]');
+      if (errEl) { errEl.textContent = check.error; errEl.hidden = false; }
+      return;
     }
-    writeHomeState();
-    updateFundRow(f);
-    rerenderAdviceRow(f);
-    renderHomeAudit();
+    commitOp(op, "已保存演示调整 · " + f.name + " " + money2(f.amount) + " → " + money2(m.targetAmount));
   }
-  function undoLastAdjust(f, entry, prev) {
-    var audit = auditOf();
-    for (var i = audit.length - 1; i >= 0; i--) {
-      if (audit[i].code === f.code && audit[i].time === entry.time && audit[i].toAmount === entry.toAmount) {
-        audit.splice(i, 1);
-        break;
-      }
+  function restoreFund(code) {
+    var ops = loadOps().filter(function (o) { return o.code !== code; });
+    saveOps(ops);
+    applyPortfolio();
+    rerenderHomeAfterWrite();
+    showWriteToast("已恢复该基金的演示初始值", null);
+  }
+  function auditChangeText(a) {
+    if (!a.before || !a.after) return "";
+    if (a.before.shares == null && a.after.shares == null) {
+      return "现金 " + money2(a.before.cash) + " → " + money2(a.after.cash) + " · 总额 " + money2(a.before.total) + " → " + money2(a.after.total);
     }
-    restoreFund(f, prev);
-    showWriteToast("已撤销刚才的演示调整 · " + f.name, null, null, null);
+    if (a.before.shares == null) return "新增份额 " + fmtShares(a.after.shares) + " · 市值 " + money2(a.after.amount);
+    if (a.after.shares == null) return "删除份额 " + fmtShares(a.before.shares) + " · 市值 " + money2(a.before.amount);
+    return "份额 " + fmtShares(a.before.shares) + " → " + fmtShares(a.after.shares) +
+      " · 市值 " + money2(a.before.amount) + " → " + money2(a.after.amount);
   }
   function auditRowHTML(a) {
-    return '<li class="audit-row"><span class="audit-time">' + a.time + '</span><span class="audit-name">' + a.name + '</span>' +
-      '<span class="audit-range tabular">' + money2(a.fromAmount) + " → " + money2(a.toAmount) + "</span>" +
-      '<span class="audit-src">来源 ' + (a.source || "网页") + "</span></li>";
+    return '<li class="audit-row"><span class="audit-time">' + fmtDateTime(a.time) + '</span>' +
+      '<span class="audit-name">' + a.label + '</span>' +
+      '<span class="audit-range tabular">' + auditChangeText(a) + "</span>" +
+      '<span class="audit-src">来源 网页 · ' + opTypeText(a.type) + "</span></li>";
   }
   function renderHomeAudit() {
     var el = document.getElementById("home-audit-body");
@@ -1073,11 +1304,11 @@
     var rows = count
       ? audit.map(auditRowHTML).join("")
       : '<li class="audit-empty">暂无本地调整记录。演示写入保存在本机 localStorage，可随时恢复演示初始值。</li>';
-    el.innerHTML = '<div class="audit-summary"><b>已记录 ' + count + ' 条本地调整</b><span>来源均为「网页」· 仅保存在本机，不影响实盘</span>' +
+    el.innerHTML = '<div class="audit-summary"><b>已记录 ' + count + ' 条本地写入</b><span>来源均为「网页」· 仅保存在本机，不影响实盘</span>' +
       '<button class="audit-reset" type="button" data-write-reset>' + icon("refresh") + '恢复演示初始值</button></div>' +
       '<ul class="audit-list">' + rows + "</ul>";
   }
-  function showWriteToast(msg, f, entry, prev) {
+  function showWriteToast(msg, undoId) {
     var host = document.getElementById("write-toast");
     if (!host) {
       host = document.createElement("div");
@@ -1088,13 +1319,13 @@
       document.body.appendChild(host);
     }
     host.innerHTML = '<span class="wt-text">' + msg + "</span>";
-    if (f && entry && prev) {
+    if (undoId) {
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "wt-undo";
       btn.textContent = "撤销";
       btn.addEventListener("click", function () {
-        undoLastAdjust(f, entry, prev);
+        undoOp(undoId);
         host.classList.remove("show");
       });
       host.appendChild(btn);
@@ -1102,6 +1333,400 @@
     host.classList.add("show");
     clearTimeout(showWriteToast._t);
     showWriteToast._t = setTimeout(function () { host.classList.remove("show"); }, 6000);
+  }
+
+  /* ---------------- v7：实盘数据编辑（新增/编辑/删除 / 份额 / 现金 / 总额 / 时间回溯） ---------------- */
+  var LZ = { open: false, kind: null, code: null, trigger: null, candidate: null };
+  var LM_TITLES = {
+    add: "新增基金（演示写入）",
+    edit: "编辑基金（演示写入）",
+    trade: "份额操作（演示写入）",
+    cash: "现金调整（演示写入）",
+    total: "总额校正（演示写入）",
+    delete: "删除基金（演示写入）"
+  };
+  var LM_SUBS = {
+    add: "新增为数据校正，不自动扣减现金；如需用现金买入请使用份额操作。",
+    edit: "编辑为数据校正，不自动改变现金；代码创建后不可修改。",
+    trade: "份额优先：金额 = 份额 × 当前净值；输入金额可反算份额；赎回/清仓不能超过持有份额。",
+    cash: "调整演示账户现金；金额为变化量，可为正或负，现金不能为负。",
+    total: "按当前持仓市值反推现金，使总资产等于目标值；现金为负时不可保存。",
+    delete: "删除为数据校正，不自动增加现金；如需卖出请使用份额操作 → 清仓。"
+  };
+
+  function decimalsOf(v) {
+    var s = String(v);
+    if (s === "" || s.indexOf("e") >= 0 || s.indexOf("E") >= 0) return 0;
+    var i = s.indexOf(".");
+    return i < 0 ? 0 : s.length - i - 1;
+  }
+  function timeField(value) {
+    return '<label class="lm-field lm-time"><span>生效时间（日期 + 时间）</span><input name="time" type="datetime-local" value="' + (value || nowDateTimeValue()) + '" required></label>';
+  }
+  function fundOptions(selected) {
+    return M.groups.actual.funds.map(function (f) {
+      return '<option value="' + f.code + '"' + (f.code === selected ? " selected" : "") + '>' + f.name + "（" + f.code + "）</option>";
+    }).join("");
+  }
+  function ledgerBodyHTML(kind, code) {
+    var f = code ? fundByCode(code) : null;
+    var time = timeField(nowDateTimeValue());
+    if (kind === "add" || kind === "edit") {
+      var v = f || { code: "", name: "", shares: 0, costNav: 1, nav: 1, target: 0 };
+      return '<form id="ledger-form" class="lm-form" novalidate>' +
+        '<div class="lm-grid">' +
+        '<label class="lm-field"><span>基金代码（6 位数字）</span><input name="code" inputmode="numeric" maxlength="6" value="' + v.code + '"' + (kind === "edit" ? " readonly" : "") + '></label>' +
+        '<label class="lm-field"><span>基金名称</span><input name="name" value="' + v.name + '"></label>' +
+        '<label class="lm-field"><span>份额（≤6 位小数）</span><input name="shares" type="number" inputmode="decimal" step="0.000001" min="0" value="' + v.shares + '"></label>' +
+        '<label class="lm-field"><span>持仓成本净值</span><input name="costNav" type="number" inputmode="decimal" step="0.0001" min="0" value="' + v.costNav + '"></label>' +
+        '<label class="lm-field"><span>当前净值</span><input name="nav" type="number" inputmode="decimal" step="0.0001" min="0.0001" value="' + v.nav + '"></label>' +
+        '<label class="lm-field"><span>目标权重（%）</span><input name="target" type="number" inputmode="decimal" step="0.1" min="0" max="100" value="' + (v.target * 100).toFixed(1) + '"></label>' +
+        time +
+        "</div><div class=\"lm-diff\" data-lm-preview></div></form>";
+    }
+    if (kind === "trade") {
+      var cur = f || M.groups.actual.funds[0];
+      return '<form id="ledger-form" class="lm-form" novalidate>' +
+        '<div class="lm-grid">' +
+        '<label class="lm-field"><span>基金</span><select name="code">' + fundOptions(cur.code) + "</select></label>" +
+        '<label class="lm-field"><span>操作类型</span><select name="tradeType">' +
+        '<option value="buy">购入 / 申购</option><option value="add">加仓</option>' +
+        '<option value="sell">赎回</option><option value="reduce">减仓</option><option value="clear">清仓</option>' +
+        "</select></label>" +
+        '<label class="lm-field"><span>当前净值</span><input name="price" value="' + cur.nav.toFixed(4) + '" readonly></label>' +
+        '<label class="lm-field"><span>持有份额</span><input name="held" value="' + fmtShares(cur.shares) + '" readonly></label>' +
+        '<label class="lm-field"><span>操作份额（≤6 位小数）</span><input name="shares" type="number" inputmode="decimal" step="0.000001" min="0" value="0"></label>' +
+        '<label class="lm-field"><span>操作金额（自动折算）</span><input name="amount" type="number" inputmode="decimal" step="0.01" min="0" value="0"></label>' +
+        time +
+        "</div><div class=\"lm-diff\" data-lm-preview></div></form>";
+    }
+    if (kind === "cash") {
+      return '<form id="ledger-form" class="lm-form" novalidate><div class="lm-grid">' +
+        '<label class="lm-field"><span>当前现金</span><input value="' + money(M.groups.actual.cash) + '" readonly></label>' +
+        '<label class="lm-field"><span>现金变化（元，可为负）</span><input name="delta" type="number" inputmode="decimal" step="0.01" value="0"></label>' +
+        time +
+        '</div><div class="lm-diff" data-lm-preview></div></form>';
+    }
+    if (kind === "total") {
+      return '<form id="ledger-form" class="lm-form" novalidate><div class="lm-grid">' +
+        '<label class="lm-field"><span>当前总资产</span><input value="' + money(M.groups.actual.total) + '" readonly></label>' +
+        '<label class="lm-field"><span>目标总资产（元）</span><input name="targetTotal" type="number" inputmode="decimal" step="0.01" value="' + round2(M.groups.actual.total) + '"></label>' +
+        time +
+        '</div><div class="lm-diff" data-lm-preview></div></form>';
+    }
+    return '<form id="ledger-form" class="lm-form" novalidate>' +
+      '<div class="lm-delete-box"><b>' + (f ? f.name : "") + '</b><span>' + (f ? f.code : "") + ' · 份额 ' + (f ? fmtShares(f.shares) : "—") + ' · 市值 ' + (f ? money(f.amount) : "—") + "</span></div>" +
+      time +
+      '<div class="lm-diff" data-lm-preview></div></form>';
+  }
+
+  function ensureLedgerModal() {
+    var modal = document.getElementById("ledger-modal");
+    if (modal) return modal;
+    modal = document.createElement("div");
+    modal.id = "ledger-modal";
+    modal.className = "lm-modal";
+    modal.hidden = true;
+    modal.innerHTML =
+      '<div class="lm-backdrop" data-lm-close></div>' +
+      '<div class="lm-panel" role="dialog" aria-modal="true" aria-labelledby="lm-title">' +
+      '<div class="lm-head"><div><h3 id="lm-title"></h3><p class="lm-sub" data-lm-sub></p></div>' +
+      '<button class="lm-icon-btn" type="button" data-lm-close aria-label="关闭编辑弹层">×</button></div>' +
+      '<div class="lm-body" data-lm-body></div>' +
+      '<p class="lm-error" data-lm-error role="alert" hidden></p>' +
+      '<div class="lm-foot"><span class="lm-demo-chip">' + icon("warning") + M.meta.writeDemo + "</span>" +
+      '<button class="lm-cancel" type="button" data-lm-close>取消</button>' +
+      '<button class="lm-save" type="submit" form="ledger-form" data-lm-save>确认写入（演示）</button></div>' +
+      "</div>";
+    document.body.appendChild(modal);
+    modal.addEventListener("click", function (e) {
+      if (e.target.closest("[data-lm-close]")) closeLedger();
+    });
+    modal.addEventListener("submit", function (e) {
+      e.preventDefault();
+      submitLedger();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && LZ.open) {
+        e.preventDefault();
+        closeLedger();
+      }
+    });
+    return modal;
+  }
+
+  function openLedger(kind, code, trigger) {
+    var modal = ensureLedgerModal();
+    LZ.open = true;
+    LZ.kind = kind;
+    LZ.code = code || null;
+    LZ.trigger = trigger || null;
+    LZ.candidate = null;
+    modal.querySelector("#lm-title").textContent = LM_TITLES[kind];
+    modal.querySelector("[data-lm-sub]").textContent = LM_SUBS[kind];
+    modal.querySelector("[data-lm-body]").innerHTML = ledgerBodyHTML(kind, code);
+    var errEl = modal.querySelector("[data-lm-error]");
+    errEl.hidden = true;
+    errEl.textContent = "";
+    modal.querySelector("[data-lm-save]").disabled = false;
+    modal.hidden = false;
+    requestAnimationFrame(function () { modal.classList.add("open"); });
+    document.body.classList.add("lm-open");
+    bindLedgerForm();
+    renderLedgerPreview();
+    setTimeout(function () {
+      var first = modal.querySelector("input:not([readonly]), select");
+      if (first) first.focus();
+    }, 40);
+  }
+
+  function closeLedger() {
+    var modal = document.getElementById("ledger-modal");
+    if (!modal || !LZ.open) return;
+    LZ.open = false;
+    modal.classList.remove("open");
+    document.body.classList.remove("lm-open");
+    setTimeout(function () { if (!LZ.open) modal.hidden = true; }, 160);
+    var trigger = LZ.trigger;
+    LZ.trigger = null;
+    if (trigger && trigger.focus) {
+      try { trigger.focus({ preventScroll: true }); } catch (e) { trigger.focus(); }
+    }
+  }
+
+  function bindLedgerForm() {
+    var form = document.getElementById("ledger-form");
+    if (!form) return;
+    function onInput(e) {
+      var n = e.target.getAttribute("name");
+      if (LZ.kind === "trade") {
+        var f = fundByCode(form.elements.code.value);
+        if (n === "code" || n === "tradeType") {
+          if (f) {
+            form.elements.price.value = f.nav.toFixed(4);
+            form.elements.held.value = fmtShares(f.shares);
+          }
+        }
+        if (n === "tradeType" && form.elements.tradeType.value === "clear" && f) {
+          form.elements.shares.value = f.shares;
+          form.elements.amount.value = round2(f.shares * f.nav).toFixed(2);
+        }
+        if (n === "shares" && f) {
+          var sh = toNum(form.elements.shares.value);
+          if (isFinite(sh)) form.elements.amount.value = round2(sh * f.nav).toFixed(2);
+        } else if (n === "amount" && f) {
+          var am = toNum(form.elements.amount.value);
+          if (isFinite(am) && f.nav > 0) form.elements.shares.value = round6(am / f.nav).toFixed(6);
+        }
+      }
+      renderLedgerPreview();
+    }
+    form.addEventListener("input", onInput);
+    form.addEventListener("change", onInput);
+  }
+
+  function buildCandidate() {
+    var form = document.getElementById("ledger-form");
+    if (!form) return { error: "表单未就绪。" };
+    var kind = LZ.kind;
+    var time = form.elements.time ? form.elements.time.value : nowDateTimeValue();
+    if (!time) return { error: "请选择生效时间。" };
+    var op = null;
+    if (kind === "add" || kind === "edit") {
+      var code = kind === "edit" ? LZ.code : String(form.elements.code.value || "").trim();
+      var name = String(form.elements.name.value || "").trim();
+      var sharesRaw = form.elements.shares.value;
+      var shares = toNum(sharesRaw);
+      var costNav = toNum(form.elements.costNav.value);
+      var nav = toNum(form.elements.nav.value);
+      var targetPct = toNum(form.elements.target.value);
+      if (!/^\d{6}$/.test(code)) return { error: "基金代码应为 6 位数字。" };
+      if (!name) return { error: "请输入基金名称。" };
+      if (!isFinite(shares) || shares < 0) return { error: "份额需为不小于 0 的数字。" };
+      if (decimalsOf(sharesRaw) > 6) return { error: "份额最多 6 位小数。" };
+      if (!isFinite(costNav) || costNav < 0) return { error: "持仓成本净值需为不小于 0 的数字。" };
+      if (!isFinite(nav) || nav <= 0) return { error: "当前净值需大于 0。" };
+      if (!isFinite(targetPct) || targetPct < 0 || targetPct > 100) return { error: "目标权重需在 0–100% 之间。" };
+      if (kind === "add" && fundByCode(code)) return { error: "基金代码已存在，不能重复。" };
+      op = {
+        id: uid(), seq: Date.now(), time: time,
+        type: kind === "add" ? "add_fund" : "edit_fund",
+        code: code, name: name,
+        fields: { code: code, name: name, shares: round6(shares), costNav: costNav, nav: nav, target: targetPct / 100 }
+      };
+    } else if (kind === "delete") {
+      var df = fundByCode(LZ.code);
+      if (!df) return { error: "基金不存在。" };
+      op = { id: uid(), seq: Date.now(), time: time, type: "delete_fund", code: df.code, name: df.name };
+    } else if (kind === "trade") {
+      var tf = fundByCode(form.elements.code.value);
+      if (!tf) return { error: "请选择基金。" };
+      var ttype = form.elements.tradeType.value;
+      var shRaw = form.elements.shares.value;
+      var tshares = toNum(shRaw);
+      if (ttype === "clear") {
+        tshares = tf.shares;
+        shRaw = String(tshares);
+      }
+      if (!isFinite(tshares) || tshares <= 0) return { error: "操作份额需大于 0。" };
+      if (decimalsOf(shRaw) > 6) return { error: "份额最多 6 位小数。" };
+      if (ttype !== "clear" && decimalsOf(form.elements.amount.value) > 2) return { error: "金额最多 2 位小数。" };
+      if ((ttype === "sell" || ttype === "reduce") && tshares > tf.shares + 0.000001) {
+        return { error: "赎回/减仓份额不能超过持有份额 " + fmtShares(tf.shares) + "。" };
+      }
+      op = {
+        id: uid(), seq: Date.now(), time: time, type: ttype,
+        code: tf.code, name: tf.name, shares: round6(tshares), price: tf.nav
+      };
+    } else if (kind === "cash") {
+      var deltaRaw = form.elements.delta.value;
+      var delta = toNum(deltaRaw);
+      if (decimalsOf(deltaRaw) > 2) return { error: "金额最多 2 位小数。" };
+      if (!isFinite(delta) || Math.abs(delta) < 0.005) return { error: "请输入非零的现金变化金额。" };
+      op = { id: uid(), seq: Date.now(), time: time, type: "cash", delta: round2(delta) };
+    } else {
+      var totalRaw = form.elements.targetTotal.value;
+      var targetTotal = toNum(totalRaw);
+      if (decimalsOf(totalRaw) > 2) return { error: "金额最多 2 位小数。" };
+      if (!isFinite(targetTotal) || targetTotal < 0) return { error: "目标总资产需为不小于 0 的数字。" };
+      op = { id: uid(), seq: Date.now(), time: time, type: "total", targetTotal: round2(targetTotal) };
+    }
+    var check = validateOp(op);
+    if (!check.ok) return { error: check.error, op: op, check: check };
+    return { op: op, check: check };
+  }
+
+  function validateOp(op) {
+    if (!op.time || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(op.time)) {
+      return { ok: false, error: "请选择有效的日期与时间。" };
+    }
+    var ops = loadOps();
+    var rep = replay(ops.concat([op]));
+    var entry = null;
+    for (var i = 0; i < rep.audit.length; i++) {
+      if (rep.audit[i].id === op.id) { entry = rep.audit[i]; break; }
+    }
+    if (!entry) return { ok: false, error: "无法生成前后对照，请检查输入。" };
+    if (entry.after.cash < -0.005) return { ok: false, error: "现金不能为负（操作后 " + money2(entry.after.cash) + "）。" };
+    if (entry.after.total < -0.005) return { ok: false, error: "总资产不能为负。" };
+    if ((op.type === "sell" || op.type === "reduce" || op.type === "clear") && entry.before.shares != null && op.shares > entry.before.shares + 0.000001) {
+      return { ok: false, error: "该时点持有份额仅 " + fmtShares(entry.before.shares) + "，不能赎回/减仓 " + fmtShares(op.shares) + "。" };
+    }
+    var sum = rep.state.funds.reduce(function (s, f) { return s + f.target; }, 0);
+    if (sum > 1.0004) return { ok: false, error: "基金目标权重合计 " + pct(sum, 1) + "，不能超过 100%。" };
+    if (rep.state.cash < -0.005) return { ok: false, error: "重算后续记录后现金将为负（" + money2(rep.state.cash) + "）。" };
+    var later = ops.filter(function (o) { return (o.time || "") > op.time; }).length;
+    return {
+      ok: true, before: entry.before, after: entry.after, recompute: later,
+      final: { cash: rep.state.cash, total: portfolioTotal(rep.state), holdings: round2(holdingsOf(rep.state.funds)), funds: rep.state.funds.length }
+    };
+  }
+
+  function fmtDiff(key, v) {
+    if (v == null) return "—";
+    if (key === "shares") return fmtShares(v);
+    if (key === "costNav") return Number(v).toFixed(4);
+    if (key === "amount" || key === "cash" || key === "total") return money2(v);
+    if (key === "weight" || key === "target") return pct(v, 2);
+    return String(v);
+  }
+  function diffTableHTML(c) {
+    var rows = [];
+    if (c.before.shares != null || c.after.shares != null) {
+      rows.push({ k: "shares", label: "份额" });
+      rows.push({ k: "costNav", label: "单位成本" });
+      rows.push({ k: "amount", label: "持仓市值" });
+      rows.push({ k: "weight", label: "当前权重" });
+      rows.push({ k: "target", label: "目标权重" });
+    }
+    rows.push({ k: "cash", label: "现金" });
+    rows.push({ k: "total", label: "总资产" });
+    var body = rows.map(function (r) {
+      var b = c.before[r.k], a = c.after[r.k];
+      var changed = b !== a;
+      return '<tr class="' + (changed ? "changed" : "") + '"><th scope="row">' + r.label + "</th>" +
+        '<td class="tabular">' + fmtDiff(r.k, b) + "</td>" +
+        '<td class="tabular">' + fmtDiff(r.k, a) + "</td></tr>";
+    }).join("");
+    return '<div class="lm-diff-wrap"><div class="lm-diff-head"><b>操作前 / 操作后对照</b><span>受影响行与账户</span></div>' +
+      '<table class="lm-diff-table"><thead><tr><th scope="col">项目</th><th scope="col">操作前</th><th scope="col">操作后</th></tr></thead><tbody>' +
+      body + "</tbody></table></div>";
+  }
+  function renderLedgerPreview() {
+    var form = document.getElementById("ledger-form");
+    if (!form) return;
+    var modal = document.getElementById("ledger-modal");
+    var box = form.querySelector("[data-lm-preview]");
+    var errEl = modal ? modal.querySelector("[data-lm-error]") : null;
+    var saveBtn = modal ? modal.querySelector("[data-lm-save]") : null;
+    var res = buildCandidate();
+    if (res.error || !res.check) {
+      if (errEl) { errEl.textContent = res.error || "请检查输入。"; errEl.hidden = false; }
+      if (saveBtn) saveBtn.disabled = true;
+      if (box) box.innerHTML = '<p class="lm-diff-empty">修正输入后将在此展示份额 / 成本 / 现金 / 总额 / 权重的前后对照。</p>';
+      return;
+    }
+    LZ.candidate = res.op;
+    if (errEl) { errEl.hidden = true; errEl.textContent = ""; }
+    if (saveBtn) saveBtn.disabled = false;
+    if (!box) return;
+    var c = res.check;
+    box.innerHTML = diffTableHTML(c) +
+      '<div class="lm-final"><b>重算后最终</b><span class="tabular">现金 ' + money2(c.final.cash) +
+      " · 总资产 " + money2(c.final.total) + " · 持仓 " + money2(c.final.holdings) + " · 基金 " + c.final.funds + " 只</span></div>" +
+      (c.recompute > 0
+        ? '<div class="lm-recompute">' + icon("warning") + "<span>生效时间早于 <b>" + c.recompute + "</b> 条历史记录，将按时间顺序重算后续 " + c.recompute + " 条；相关份额、成本、现金、总额与权重会随之变化。</span></div>"
+        : '<div class="lm-recompute ok">' + icon("check") + "<span>该时间晚于现有记录，无需重算历史。</span></div>");
+  }
+
+  function submitLedger() {
+    var res = buildCandidate();
+    if (res.error || !res.check) {
+      var modal = document.getElementById("ledger-modal");
+      var errEl = modal ? modal.querySelector("[data-lm-error]") : null;
+      if (errEl) { errEl.textContent = res.error || "请检查输入。"; errEl.hidden = false; }
+      return;
+    }
+    var c = res.check;
+    var op = res.op;
+    var msg = "已保存演示写入 · " + opLabel(op);
+    if (c.recompute > 0) msg += " · 已重算后续 " + c.recompute + " 条";
+    commitOp(op, msg);
+    closeLedger();
+  }
+
+  function ledgerRow(f) {
+    return '<tr class="ledger-row">' +
+      '<th scope="row" class="lg-name-cell"><span class="lg-name">' + f.name + '</span><span class="lg-code">' + f.code + '</span></th>' +
+      '<td class="r tabular" data-label="份额">' + fmtShares(f.shares) + "</td>" +
+      '<td class="r tabular" data-label="单位成本">' + f.costNav.toFixed(4) + "</td>" +
+      '<td class="r tabular" data-label="当前净值">' + f.nav.toFixed(4) + "</td>" +
+      '<td class="r tabular" data-label="持仓市值">' + money(f.amount) + "</td>" +
+      '<td class="r tabular" data-label="当前权重">' + pct(f.weight, 2) + "</td>" +
+      '<td class="r tabular" data-label="目标权重">' + pct(f.target, 1) + "</td>" +
+      '<td class="lg-actions"><button class="lg-btn" type="button" data-ledger-edit="' + f.code + '">编辑</button>' +
+      '<button class="lg-btn danger" type="button" data-ledger-delete="' + f.code + '">删除</button></td>' +
+      "</tr>";
+  }
+  function renderLedger() {
+    var body = document.getElementById("ledger-body");
+    if (!body) return;
+    var tb = document.getElementById("ledger-toolbar");
+    if (tb) {
+      tb.innerHTML = '<div class="lt-summary">' +
+        '<span>现金 <b class="tabular">' + money(M.groups.actual.cash) + "</b></span>" +
+        '<span>持仓 <b class="tabular">' + money(M.groups.actual.holdings) + "</b></span>" +
+        '<span>总资产 <b class="tabular">' + money(M.groups.actual.total) + "</b></span>" +
+        '<span>基金 <b class="tabular">' + M.groups.actual.funds.length + "</b> 只</span></div>" +
+        '<div class="lt-actions">' +
+        '<button class="ledger-btn primary" type="button" data-ledger-add>新增基金</button>' +
+        '<button class="ledger-btn" type="button" data-ledger-trade>份额操作</button>' +
+        '<button class="ledger-btn" type="button" data-ledger-cash>现金调整</button>' +
+        '<button class="ledger-btn" type="button" data-ledger-total>总额校正</button>' +
+        '<button class="ledger-btn ghost" type="button" data-write-reset>恢复演示初始值</button>' +
+        "</div>";
+    }
+    body.innerHTML = M.groups.actual.funds.map(ledgerRow).join("");
   }
 
   function advicePanel(f) {
@@ -1175,11 +1800,13 @@
     }
   }
   function rerenderAllFunds() {
+    applyPortfolio();
     var body = document.getElementById("fund-body");
     if (body) body.innerHTML = M.groups.actual.funds.map(fundRow).join("");
     openFund = null;
     savedState = {};
     try { localStorage.removeItem(HOME_STORE); } catch (e) { /* ignore */ }
+    renderLedger();
   }
 
   function setFundOpen(code, open) {
@@ -1276,6 +1903,7 @@
     renderHomeIndices();
     renderHomeFunds();
     renderHomeAudit();
+    renderLedger();
     var q = document.getElementById("home-quality");
     if (q) q.innerHTML = qualityCard();
     setRefreshBusy(true);
@@ -1299,29 +1927,28 @@
       }
       var paReset = e.target.closest("[data-pa-reset]");
       if (paReset) {
-        var prFund = fundByCode(paReset.getAttribute("data-pa-reset"));
-        if (prFund) {
-          var base = BASE_POSITIONS[prFund.code];
-          var pos = positionsOf();
-          delete pos[prFund.code];
-          writeHomeState();
-          prFund.amount = base.amount;
-          prFund.weight = base.amount / M.groups.actual.total;
-          prFund.target = base.target;
-          prFund.costNav = base.costNav;
-          if (prFund.trend) prFund.trend.costNav = base.costNav;
-          updateFundRow(prFund);
-          rerenderAdviceRow(prFund);
-          renderHomeAudit();
-          showWriteToast("已恢复该基金的演示初始值 · " + prFund.name, null, null, null);
-        }
+        var prCode = paReset.getAttribute("data-pa-reset");
+        if (fundByCode(prCode)) restoreFund(prCode);
         return;
       }
+      var addBtn = e.target.closest("[data-ledger-add]");
+      if (addBtn) { openLedger("add", null, addBtn); return; }
+      var tradeBtn = e.target.closest("[data-ledger-trade]");
+      if (tradeBtn) { openLedger("trade", openFund || null, tradeBtn); return; }
+      var cashBtn = e.target.closest("[data-ledger-cash]");
+      if (cashBtn) { openLedger("cash", null, cashBtn); return; }
+      var totalBtn = e.target.closest("[data-ledger-total]");
+      if (totalBtn) { openLedger("total", null, totalBtn); return; }
+      var editBtn = e.target.closest("[data-ledger-edit]");
+      if (editBtn) { openLedger("edit", editBtn.getAttribute("data-ledger-edit"), editBtn); return; }
+      var delBtn = e.target.closest("[data-ledger-delete]");
+      if (delBtn) { openLedger("delete", delBtn.getAttribute("data-ledger-delete"), delBtn); return; }
       if (e.target.closest("[data-write-reset]")) {
         resetAllPositions();
         rerenderAllFunds();
+        renderHomeFunds();
         renderHomeAudit();
-        showWriteToast("已恢复全部演示初始值 · 本地调整记录已清空", null, null, null);
+        showWriteToast("已恢复全部演示初始值 · 本地写入记录已清空", null);
         return;
       }
       var seg = e.target.closest("[data-period]");
@@ -1428,6 +2055,7 @@
   }
 
   function renderAdvice() {
+    applyPortfolio();
     adviceHead();
     var sum = document.getElementById("advice-summary");
     if (sum) sum.innerHTML = adviceSummary();
@@ -1580,6 +2208,7 @@
   }
 
   function renderPortfolio() {
+    applyPortfolio();
     var g = M.groups[portfolioGroup];
     var tabs = document.getElementById("group-tabs");
     if (tabs) tabs.innerHTML = groupTabs();
@@ -1811,6 +2440,7 @@
   }
 
   function renderHistory() {
+    applyPortfolio();
     var s = document.getElementById("history-summary");
     if (s) s.innerHTML = historySummary();
     var tl = document.getElementById("timeline");
@@ -1821,6 +2451,7 @@
 
   /* ---------------- 设置 ---------------- */
   function renderSettings() {
+    applyPortfolio();
     var st = M.settings;
     var levels = document.getElementById("settings-levels");
     if (levels) {
@@ -1866,6 +2497,7 @@
   function renderPopup() {
     var root = document.getElementById("popup-root");
     if (!root) return;
+    applyPortfolio();
     var idx = M.market.indices;
     var sh = idx[0];
     var funds = M.groups.actual.funds;
@@ -1903,7 +2535,7 @@
       '<a class="popup-cta" href="index.html">打开首页 ' + icon("arrow") + "</a>" +
       '<a class="popup-cta secondary" href="advice.html">查看建议 ' + icon("arrow") + "</a>" +
       "</div>" +
-      '<div class="popup-hint">' + icon("external") + "badge 显示上证涨跌幅、omnibox 支持关键词唤起，均为示意；popup 只读。" + "</div>" +
+      '<div class="popup-hint">' + icon("external") + "badge 显示上证涨跌幅、omnibox 支持关键词唤起，均为示意；popup 只读。演示写入仅保存在本地，不影响实盘。" + "</div>" +
       '<div class="popup-risk">' + icon("warning") + "演示数据，不构成投资建议或收益承诺。</div>" +
       "</div></div>" +
       '<div class="popup-caption">Chrome 扩展 popup 示意 · 大盘点位 + 涨跌%、基金净值 + 涨跌%，入口指向首页/建议页</div>' +
@@ -1921,7 +2553,58 @@
     popup: renderPopup
   };
 
-  function boot() {
+  function gateHTML() {
+    return '<div class="auth-gate" id="auth-gate">' +
+      '<div class="auth-card" role="main">' +
+      '<div class="auth-brand"><div class="brand-mark">M</div><div><div class="brand-name">Musi 投资助手</div><div class="brand-sub">授权访问 · 原型 v7</div></div></div>' +
+      '<h1 class="auth-title">需要授权访问</h1>' +
+      "<p class=\"auth-lede\">没有有效 token 时，任何信息页都不会渲染。真实 token 由服务端生成；本原型使用固定演示 token 模拟门禁与接口校验。</p>" +
+      '<form id="auth-form" class="auth-form" novalidate>' +
+      '<label class="auth-field"><span>访问 token</span><input id="auth-token" name="token" type="password" autocomplete="current-password" placeholder="输入 token" required></label>' +
+      '<p class="auth-error" id="auth-error" role="alert" hidden></p>' +
+      '<button class="auth-submit" type="submit">' + icon("lock") + "验证并进入</button>" +
+      "</form>" +
+      '<div class="auth-demo"><span>演示 token</span><code>demo-2026</code></div>' +
+      '<p class="auth-note">' + icon("warning") + "<span>原型模拟门禁，不是真实安全边界；静态站点无法真正保密。token 仅写入本机 localStorage，可在右上角「退出」清除。</span></p>" +
+      "</div></div>";
+  }
+  function renderGate() {
+    document.documentElement.classList.remove("auth-ok");
+    if (document.getElementById("auth-gate")) return;
+    document.body.insertAdjacentHTML("afterbegin", gateHTML());
+    var form = document.getElementById("auth-form");
+    var input = document.getElementById("auth-token");
+    var err = document.getElementById("auth-error");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = String(input.value || "").trim();
+      if (!v) {
+        err.textContent = "请输入 token。";
+        err.hidden = false;
+        input.focus();
+        return;
+      }
+      if (v !== DEMO_TOKEN) {
+        err.textContent = "Token 无效或已过期，请重试。";
+        err.hidden = false;
+        input.select();
+        return;
+      }
+      saveToken(v);
+      if (!tokenValid()) {
+        err.textContent = "无法保存 token（浏览器禁用了本地存储）。";
+        err.hidden = false;
+        return;
+      }
+      var gate = document.getElementById("auth-gate");
+      if (gate) gate.parentNode.removeChild(gate);
+      document.documentElement.classList.add("auth-ok");
+      bootApp();
+    });
+    input.focus();
+  }
+
+  function bootApp() {
     var page = document.body.getAttribute("data-page");
     if (page !== "popup") mountShell(page);
     if (PAGES[page]) PAGES[page]();
@@ -1932,6 +2615,21 @@
         timer = setTimeout(renderCompare, 160);
       });
     }
+    document.addEventListener("click", function (e) {
+      if (e.target.closest("[data-logout]")) {
+        clearToken();
+        location.reload();
+      }
+    });
+  }
+
+  function boot() {
+    if (!tokenValid()) {
+      renderGate();
+      return;
+    }
+    document.documentElement.classList.add("auth-ok");
+    bootApp();
   }
 
   if (document.readyState === "loading") {

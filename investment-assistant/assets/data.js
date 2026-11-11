@@ -447,7 +447,7 @@
   window.MOCK = {
     meta: {
       product: "Musi 投资助手",
-      version: "原型 v6",
+      version: "原型 v7",
       asof: ASOF_TIME,
       asofDate: ASOF,
       realtime: {
@@ -473,6 +473,11 @@
       writeDemo: "演示写入 · 仅保存在本地，不影响实盘",
       writeNote: "网页端调整仅写入浏览器 localStorage，用于确认交互；不写入真实账本、不调用交易接口、不产生下单。刷新后保留，可随时恢复演示初始值。",
       writeMinAmount: 1000,
+      authDemoToken: "demo-2026",
+      authNote: "原型模拟门禁：真实 token 由服务端生成；此处为固定演示 token，仅用于本地交互展示，不构成真实安全边界。",
+      fullEditNote: "实盘数据全量编辑（演示）：新增/编辑/删除基金、份额操作、现金调整与总额校正；份额优先且可由金额反算；每笔可选生效时间，早于历史记录时按时间重算后续操作。",
+      shareDecimals: 6,
+      amountDecimals: 2,
       peNote: "PE-TTM 与历史分位数为演示值；分位窗口近 10 年；生产数据接口待调研确认。"
     },
     market: {
@@ -635,6 +640,9 @@
       { date: "2026-11-06", code: "007818", name: "国泰中证全指通信设备ETF联接C", side: "sell", amount: 3000, nav: 0.986, source: "advice", status: "reverted" },
       { date: "2026-11-05", code: "015790", name: "永赢高端装备智选混合发起C", side: "buy", amount: 70000, nav: 1.0, source: "manual", status: "applied" }
     ],
+    helpers: {
+      buildTrend: function (f, idx) { return buildTrend(f, idx); }
+    },
     settings: {
       keyLevels: [
         { label: "上证指数 · 支撑位", value: "3590" },

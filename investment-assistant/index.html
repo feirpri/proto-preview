@@ -16,7 +16,7 @@
         <div class="page-head">
           <div>
             <h1>首页</h1>
-            <p class="lede">行情与持仓看板：大盘指数 + 5 只基金。点击基金名称展开建议、调整后目标值与趋势图（可放大）；演示写入仅保存在本地、不影响实盘。</p>
+            <p class="lede">行情与持仓看板：大盘指数 + 基金持仓。点击基金名称展开建议、调整后目标值与趋势图（可放大）；下方可全量编辑实盘数据（份额/时间/前后对照）。演示写入仅保存在本地、不影响实盘。</p>
           </div>
           <div class="head-side" id="home-head-side"></div>
         </div>
@@ -94,11 +94,41 @@
           </noscript>
         </section>
 
+        <section class="section" id="ledger-section" aria-label="实盘数据编辑">
+          <div class="section-head">
+            <div>
+              <h2>实盘数据编辑（演示）</h2>
+              <div class="hint">新增 / 编辑 / 删除基金 · 份额操作（购入、赎回、清仓、加仓、减仓） · 现金调整 · 总额校正 · 生效时间可回溯</div>
+            </div>
+            <span class="demo-write-chip">演示写入 · 仅保存在本地，不影响实盘</span>
+          </div>
+          <div class="ledger-toolbar" id="ledger-toolbar"></div>
+          <div class="table-card">
+            <table class="data-table ledger-table">
+              <caption class="sr-only">实盘数据编辑：份额、单位成本、当前净值、持仓市值、当前权重、目标权重；可编辑或删除基金（演示写入）</caption>
+              <thead>
+                <tr>
+                  <th scope="col">基金 / 代码</th>
+                  <th scope="col" class="r">份额</th>
+                  <th scope="col" class="r">单位成本</th>
+                  <th scope="col" class="r">当前净值</th>
+                  <th scope="col" class="r">持仓市值</th>
+                  <th scope="col" class="r">当前权重</th>
+                  <th scope="col" class="r">目标权重</th>
+                  <th scope="col" class="r">操作</th>
+                </tr>
+              </thead>
+              <tbody id="ledger-body" aria-live="polite"></tbody>
+            </table>
+          </div>
+          <p class="table-note">新增 / 编辑 / 删除为数据校正，不自动改变现金；份额操作按「金额 = 份额 × 当前净值」并同步现金。每笔操作可选生效时间；若早于历史记录，将按时间顺序重算后续并提示条数。所有写入仅保存在本机 <code>localStorage</code>，不写真实账本、不产生下单。</p>
+        </section>
+
         <section class="section" id="home-audit-wrap" aria-label="演示写入与本地审计">
           <div class="section-head">
             <div>
               <h2>演示写入与本地审计</h2>
-              <div class="hint">网页端调整目标权重/金额后在此记录审计；状态写入 localStorage，刷新保持，可恢复演示初始值</div>
+              <div class="hint">新增/编辑/删除、份额操作、现金与总额校正均记录本地审计（时间、类型、基金、前→后、来源=网页）；写入 localStorage，刷新保持，可恢复演示初始值</div>
             </div>
           </div>
           <div class="card audit-card" id="home-audit-body"></div>
